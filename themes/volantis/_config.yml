@@ -65,13 +65,12 @@ volantis_static_cdn: https://unpkg.com/volantis-static@0.0.1654736714924/
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://fastly.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://npm.dusays.com/
+  - https://unpkg.com/ => https://adn.arcitcgn.cn/npm/
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   # - https://unpkg.com
-  - https://npm.dusays.com
-  - https://cdn.dusays.com
+  - https://adn.arcitcgn.cn
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -353,8 +352,8 @@ comments:
   # https://artalk.js.org/
   # https://github.com/ArtalkJS/Artalk
   artalk:
-    js: https://artalk.dusays.com/dist/Artalk.js   # or https://unpkg.com/artalk@2.2.8/dist/Artalk.js
-    css: https://artalk.dusays.com/dist/Artalk.css # or https://unpkg.com/artalk@2.2.8/dist/Artalk.css
+    js: https://o.static.szyink.com/storage/artalk/Artalk.js   # or https://unpkg.com/artalk@2.2.8/dist/Artalk.js
+    css: https://o.static.szyink.com/storage/artalk/Artalk.css # or https://unpkg.com/artalk@2.2.8/dist/Artalk.css
     server: https://artalk.dusays.com    # 修改为自建的后端服务地址
     path:  # 全局评论地址
     placeholder: 评论支持贴图，在评论框粘贴，自动传至图床，勿传违禁图片~ # 评论占位
@@ -977,12 +976,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://npm.dusays.com/prismjs@1.28.0/components/prism-core.min.js
-      - https://npm.dusays.com/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js
-      - https://npm.dusays.com/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js
+      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/components/prism-core.min.js
+      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js
+      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://npm.dusays.com/prismjs@1.28.0/themes/prism-twilight.css
-      - https://npm.dusays.com/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.css
+      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/themes/prism-twilight.css
+      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
