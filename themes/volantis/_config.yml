@@ -65,12 +65,12 @@ volantis_static_cdn: https://unpkg.com/volantis-static@0.0.1654736714924/
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://fastly.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://adn.arcitcgn.cn/npm/
+  - https://unpkg.com/ => https://dusays.npm.arcitcgn.cn/
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   # - https://unpkg.com
-  - https://adn.arcitcgn.cn
+  - https://dusays.npm.arcitcgn.cn
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -365,7 +365,7 @@ comments:
       # token: 'Bearer xxxxxxxxxxxxxx'
       # resp: 'data.links.url'
       api: 'https://7bu.top/api/v1/upload' # 图床地址
-      token: 'Bearer 1|SXnVbbmKpTgvDDRBbb6kdbStWoYyPPzeauHBkz4L' # 图床验证
+      token: 'Bearer 198|G3L9heu8LimK9YSaQzFwqGlfv6EhYTHVIOIcGzUX' # 图床验证
       resp: 'data.links.url' # 图片地址返回值的字段
     pagination:
       pageSize: 10
@@ -697,11 +697,6 @@ sidebar:
           url: http://2dogz.cn/
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 易学堂
-          img: https://cdn.dusays.com/avatar.png
-          url: https://www.qqeg.cn/
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: 科研软件小站
           img: https://bu.dusays.com/2021/08/25/6ea5def2f92c9.jpg
           url: https://www.sciencesoft.cn/
@@ -717,11 +712,6 @@ sidebar:
           url: https://www.linlinzzo.top/
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 周良粥凉
-          img: https://cdn.dusays.com/avatar.png
-          url: https://imzl.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: R0A1NG’s blog
           img: https://www.roaing.com/fff.jpg
           url: https://www.roaing.com/
@@ -730,11 +720,6 @@ sidebar:
         - name: Dr.Pika’s Blog
           img: https://cdn.dusays.com/avatar.png
           url: https://blog.drpika.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 秋木小站
-          img: https://qiumuu.gitee.io/mdchat/ico/3.jpg
-          url: https://www.qiumu.club/
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: 懵懂の初一少年
@@ -797,6 +782,14 @@ sidebar:
         - name: imtoken钱包
           img: https://cdn.dusays.com/avatar.png
           url: https://czjy.cn/
+          target: _blank
+        - name: linkkk的小屋
+          img: https://www.linkkk.top/image/tx.jpg
+          url: https://www.linkkk.top/
+          target: _blank
+        - name: imtoken钱包
+          img: https://cdn.dusays.com/avatar.png
+          url: https://www.llyz.net/
           target: _blank
         - name: linkkk的小屋
           img: https://www.linkkk.top/image/tx.jpg
@@ -976,12 +969,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/components/prism-core.min.js
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js
+      - https://dusays.com/dist/js/prism-core.min.js
+      - https://dusays.com/dist/js/prism-autoloader.min.js
+      - https://dusays.com/dist/js/prism-line-numbers.min.js
     css:
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/themes/prism-twilight.css
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.css
+      - https://dusays.com/dist/css/prism-twilight.css
+      - https://dusays.com/dist/css/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
