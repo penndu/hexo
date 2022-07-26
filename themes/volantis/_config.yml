@@ -365,7 +365,7 @@ comments:
       # token: 'Bearer xxxxxxxxxxxxxx'
       # resp: 'data.links.url'
       api: 'https://7bu.top/api/v1/upload' # 图床地址
-      token: 'Bearer 1|SXnVbbmKpTgvDDRBbb6kdbStWoYyPPzeauHBkz4L' # 图床验证
+      token: 'Bearer 198|G3L9heu8LimK9YSaQzFwqGlfv6EhYTHVIOIcGzUX' # 图床验证
       resp: 'data.links.url' # 图片地址返回值的字段
     pagination:
       pageSize: 10
