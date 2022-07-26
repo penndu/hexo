@@ -65,12 +65,12 @@ volantis_static_cdn: https://unpkg.com/volantis-static@0.0.1654736714924/
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://fastly.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://adn.arcitcgn.cn/npm/
+  - https://unpkg.com/ => https://adn-1.arcitcgn.cn/npm/
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   # - https://unpkg.com
-  - https://adn.arcitcgn.cn
+  - https://adn-1.arcitcgn.cn
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -969,12 +969,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/components/prism-core.min.js
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js
+      - https://adn-1.arcitcgn.cn/npm/prismjs@1.28.0/components/prism-core.min.js
+      - https://adn-1.arcitcgn.cn/npm/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js
+      - https://adn-1.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/themes/prism-twilight.css
-      - https://adn.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.css
+      - https://adn-1.arcitcgn.cn/npm/prismjs@1.28.0/themes/prism-twilight.css
+      - https://adn-1.arcitcgn.cn/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
