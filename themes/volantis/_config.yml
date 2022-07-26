@@ -697,11 +697,6 @@ sidebar:
           url: http://2dogz.cn/
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 易学堂
-          img: https://cdn.dusays.com/avatar.png
-          url: https://www.qqeg.cn/
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: 科研软件小站
           img: https://bu.dusays.com/2021/08/25/6ea5def2f92c9.jpg
           url: https://www.sciencesoft.cn/
@@ -717,11 +712,6 @@ sidebar:
           url: https://www.linlinzzo.top/
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 周良粥凉
-          img: https://cdn.dusays.com/avatar.png
-          url: https://imzl.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: R0A1NG’s blog
           img: https://www.roaing.com/fff.jpg
           url: https://www.roaing.com/
@@ -730,11 +720,6 @@ sidebar:
         - name: Dr.Pika’s Blog
           img: https://cdn.dusays.com/avatar.png
           url: https://blog.drpika.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 秋木小站
-          img: https://qiumuu.gitee.io/mdchat/ico/3.jpg
-          url: https://www.qiumu.club/
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: 懵懂の初一少年

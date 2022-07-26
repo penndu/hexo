@@ -18,10 +18,6 @@ qz:
     avatar: https://bu.dusays.com/2020/11/13/b54215c2293a9.jpg
     url: 'http://2dogz.cn'
     screenshot: https://bu.dusays.com/2022/05/21/6287d03e9fcdd.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 易学堂'
-    avatar: https://cdn.dusays.com/avatar.png
-    url: 'https://www.qqeg.cn'
-    screenshot: https://bu.dusays.com/2022/05/21/6287d0277b3da.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 科研软件小站'
     avatar: https://bu.dusays.com/2021/08/25/6ea5def2f92c9.jpg
     url: 'https://www.sciencesoft.cn'
@@ -34,10 +30,6 @@ qz:
     avatar: https://cdn.dusays.com/avatar.png
     url: 'https://www.linlinzzo.top'
     screenshot: https://bu.dusays.com/2022/05/21/6287d02bbf82e.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 周良博客'
-    avatar: https://cdn.dusays.com/avatar.png
-    url: 'https://imzl.com'
-    screenshot: https://bu.dusays.com/2022/05/21/6287d032b7d3a.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> R0A1NG’s Blog'
     avatar: https://www.roaing.com/fff.jpg
     url: 'https://www.roaing.com'
@@ -46,10 +38,6 @@ qz:
     avatar: https://cdn.dusays.com/avatar.png
     url: 'https://blog.drpika.com'
     screenshot: https://bu.dusays.com/2022/05/21/6287d048306eb.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 秋木小站'
-    avatar: https://qiumuu.gitee.io/mdchat/ico/3.jpg
-    url: 'https://www.qiumu.club'
-    screenshot: https://bu.dusays.com/2022/05/21/6287d04c1c2f4.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 懵懂の初一少年'
     avatar: https://img.yt-blog.top/png/logo.png
     url: 'https://www.yt-blog.top'
@@ -98,6 +86,18 @@ qz:
     avatar: https://www.linkkk.top/image/tx.jpg
     url: 'https://www.linkkk.top'
     screenshot: https://bu.dusays.com/2022/07/23/62db89cf469b5.png
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 杜老师说'
+    avatar: https://cdn.dusays.com/avatar.png
+    url: 'https://dusays.com'
+    screenshot: https://bu.dusays.com/2022/05/21/6287d1dae7bb9.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 杜老师说'
+    avatar: https://cdn.dusays.com/avatar.png
+    url: 'https://dusays.com'
+    screenshot: https://bu.dusays.com/2022/05/21/6287d1dae7bb9.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 杜老师说'
+    avatar: https://cdn.dusays.com/avatar.png
+    url: 'https://dusays.com'
+    screenshot: https://bu.dusays.com/2022/05/21/6287d1dae7bb9.jpg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
