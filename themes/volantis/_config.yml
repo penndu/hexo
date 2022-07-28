@@ -554,7 +554,7 @@ sidebar:
         - icon: fa-solid fa-rss
           url: /atom.xml
         - icon: fa-solid fa-image
-          url: http://7bu.top/
+          url: https://7bu.top/
         - icon: fa-solid fa-subway
           url: https://travellings.link/
         - icon: fa-solid fa-sitemap
@@ -681,7 +681,7 @@ sidebar:
       rows:
         - name: 贝贝吧
           img: https://cdn.dusays.com/avatar.png
-          url: http://www.hibbba.com/
+          url: https://www.hibbba.com/
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: Colsrch
@@ -696,7 +696,7 @@ sidebar:
           target: _blank
         - name: Blogin
           img: https://bu.dusays.com/2020/11/13/b54215c2293a9.jpg
-          url: http://2dogz.cn/
+          url: https://2dogz.cn/
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: 科研软件小站
@@ -803,10 +803,10 @@ sidebar:
           target: _blank
         - name: 杜老师说
           img: https://cdn.dusays.com/avatar.png
-          url: http://dusays.com/
+          url: https://dusays.com/
         - name: 友链申请
           img: https://cdn.dusays.com/avatar.png
-          url: http://dusays.com/friends/
+          url: https://dusays.com/friends/
     # webinfo widget
     webinfo:
       class: webinfo
@@ -885,7 +885,7 @@ site_footer:
     - img: https://cdn.dusays.com/020-rss.svg
       url: atom.xml
     - img: https://cdn.dusays.com/017-picasa.svg
-      url: http://7bu.top/
+      url: https://7bu.top/
     - img: https://cdn.dusays.com/031-twitch.svg
       url: http://status.dusays.com/
     - img: https://cdn.dusays.com/033-spotify.svg
