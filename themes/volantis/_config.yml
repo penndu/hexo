@@ -523,7 +523,7 @@ comments:
   # Discuss
   # https://discuss.js.org
   discuss:
-    js: https://cdn.jsdelivr.net/npm/discuss/dist/Discuss.js # 建议锁定版本
+    js: https://cdn.jsdelivr.net/npm/discuss/dist/discuss.js # 建议锁定版本
     serverURLs: # Discuss server address url
     # https://discuss.js.org/Quick-Start.html#path
 
@@ -793,9 +793,9 @@ sidebar:
           img: https://cdn.dusays.com/avatar.png
           url: https://www.llyz.net/
           target: _blank
-        - name: linkkk的小屋
-          img: https://www.linkkk.top/image/tx.jpg
-          url: https://www.linkkk.top/
+        - name: 轻淡时光
+          img: https://www.lybblog.cn/logo/logoico.jpg
+          url: https://www.lybblog.cn/
           target: _blank
         - name: 杜老师说
           img: https://cdn.dusays.com/avatar.png
