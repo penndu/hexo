@@ -65,13 +65,13 @@ volantis_static_cdn: https://cdn.dusays.com/volantis-static/
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://dusays.npm.arcitcgn.cn/
+  - https://unpkg.com/ => https://cdn.dusays.com/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   # - https://unpkg.com
-  - https://dusays.npm.arcitcgn.cn
+  - https://cdn.dusays.com
 
 
 # 平滑滚动效果
@@ -758,7 +758,7 @@ sidebar:
           url: https://blog.ideaopen.cn/
           target: _blank
         - name: 宏的自留地
-          img: https://oc.arcitcgn.cn/2022/07/11/62cbadded38bf.jpg
+          img: https://bu.dusays.com/2022/07/29/62e3da4bd12a4.jpg
           url: https://arcitcgn.cn/
           target: _blank
         - name: joojen个人博客
@@ -766,7 +766,7 @@ sidebar:
           url: https://joojen.com/
           target: _blank
         - name: Bowenの破站
-          img: https://oc.arcitcgn.cn/2022/06/11/62a45f6a02818.png
+          img: https://bu.dusays.com/2022/06/15/62a93264df1b4.png
           url: https://bowenyoung.cn/
           target: _blank
         - name: Cold’blog
