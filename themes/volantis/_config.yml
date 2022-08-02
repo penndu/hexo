@@ -354,8 +354,8 @@ comments:
   # https://artalk.js.org/
   # https://github.com/ArtalkJS/Artalk
   artalk:
-    js: https://artalk.dusays.com/dist/Artalk.js   # or https://unpkg.com/artalk@2.2.8/dist/Artalk.js
-    css: https://artalk.dusays.com/dist/Artalk.css # or https://unpkg.com/artalk@2.2.8/dist/Artalk.css
+    js: https://dusays.com/dist/js/Artalk.js   # or https://unpkg.com/artalk@2.2.8/dist/Artalk.js
+    css: https://dusays.com/dist/css/Artalk.css # or https://unpkg.com/artalk@2.2.8/dist/Artalk.css
     server: https://artalk.dusays.com    # 修改为自建的后端服务地址
     path:  # 全局评论地址
     placeholder: 评论支持贴图，在评论框粘贴，自动传至图床，勿传违禁图片~ # 评论占位
