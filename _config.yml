@@ -46,14 +46,14 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
-  auto_detect: true
+  auto_detect: false
   tab_replace: ''
-  wrap: false
+  wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -112,7 +112,16 @@ deploy:
   branch: master
 nofollow:
   enable: true
+  field: site
   exclude:
-  - dusays.com
+  - 'dusays.com'
+  - '7bu.top'
 baidusitemap:
   path: baidusitemap.xml
+autoprefixer:
+  exclude:
+    - '*.css'
+  browsers:
+    - 'last 2 versions'
+sitemap:
+  path: sitemap.xml
