@@ -121,7 +121,5 @@ baidusitemap:
 autoprefixer:
   exclude:
     - '*.css'
-  browsers:
-    - 'last 2 versions'
 sitemap:
   path: sitemap.xml
