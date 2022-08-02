@@ -1113,9 +1113,9 @@ plugins:
     # 不支持 Pjax
     # 配置项按照yml格式继续填写即可
     js: https://cdn.dusays.com/volantis-static/libs/artitalk/artitalk.js
-    appId: rPNMsNqSL5oLTkLbD5EePAO5-MdYXbMMI # your appID
-    appKey: 2Rdj7gcVqCPsbRx2vlupQvbH # your appKEY
-    # serverURL:  #leancloud绑定的api访问域名，使用国际版的话不需要填写
+    appId: 38GEBsbldifhQHRcJvVTrIjd-gzGzoHsz # your appID
+    appKey: XLpNu93zlTMOQsCtOmpniJwi # your appKEY
+    serverURL: https://s.dusays.com #leancloud绑定的api访问域名，使用国际版的话不需要填写
     # lang: # 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语
     # pageSize: #每页说说的显示数量
     # shuoPla: #在编辑说说的输入框中的占位符
