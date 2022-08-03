@@ -122,10 +122,6 @@ ny:
     avatar: https://bu.dusays.com/2022/02/23/d33773a046c64.png
     url: 'https://7bxing.com'
     screenshot: https://bu.dusays.com/2022/05/21/6287d6075ebce.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云帆沧海'
-    avatar: https://yunfanch.com/favicon.png
-    url: 'https://yunfanch.com'
-    screenshot: https://bu.dusays.com/2022/05/21/6287d60a30b09.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小巷'
     avatar: https://bu.dusays.com/2022/02/23/c716d02532d83.png
     url: 'https://lihaha.me'
@@ -294,3 +290,7 @@ ny:
     avatar: https://thrower.cc/wp-content/uploads/2021/07/QQ%E5%9B%BE%E7%89%8720210704153032.jpg
     url: 'https://thrower.cc'
     screenshot: https://bu.dusays.com/2022/07/30/62e415db59b88.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 杜老师说'
+    avatar: https://cdn.dusays.com/avatar.png
+    url: 'https://dusays.com'
+    screenshot: https://bu.dusays.com/2022/05/21/6287d1dae7bb9.jpg
