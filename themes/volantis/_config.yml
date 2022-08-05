@@ -59,19 +59,20 @@ cdn:
 cdn_version: true
 # volantis static 静态资源文件 npm 包 CDN 地址 (后面加 "/" )
 # https://github.com/volantis-x/volantis-static
-volantis_static_cdn: https://cdn.dusays.com/volantis-static/
+volantis_static_cdn: https://unpkg.com/volantis-static@0.0.1654736714924/
 ########################################################################
 # 全局页面字符串替换  A => B (可用于临时修改错字等)
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://cdn.dusays.com/
+  - https://unpkg.com/ => https://npm.arcitcgn.cn/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   # - https://unpkg.com
   - https://cdn.dusays.com
+  - https://npm.arcitcgn.cn
 
 
 # 平滑滚动效果
@@ -979,12 +980,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://dusays.com/dist/js/prism-core.min.js
-      - https://dusays.com/dist/js/prism-autoloader.min.js
-      - https://dusays.com/dist/js/prism-line-numbers.min.js
+      - https://unpkg.com/prismjs/components/prism-core.min.js
+      - https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js
+      - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://dusays.com/dist/css/prism-twilight.css
-      - https://dusays.com/dist/css/prism-line-numbers.css
+      - https://unpkg.com/prismjs/themes/prism-dark.css
+      - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
@@ -1290,6 +1291,7 @@ rightmenus:
       - {id: 'contributors', name: '赞助平台', icon: 'fa-solid fa-money-check-alt', link: 'https://afdian.net/@teacherdu', group: 'link'}
       - hr
       - {id: 'source_theme', name: '我的世界', icon: 'fa-solid fa-gamepad', link: 'https://dusays.com/465/', group: 'link'}
+      - {id: 'source_theme', name: '公益统计', icon: 'fa-solid fa-edit', link: 'https://dusays.com/476/', group: 'link'}
     darkMode:
       - {id: 'darkMode', name: '暗黑模式', icon: 'fa-solid fa-moon', event: 'volantis.dark.toggle()', group: 'darkMode'}
 ###
