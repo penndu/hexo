@@ -1117,7 +1117,7 @@ plugins:
     # Set `plugins: ["artitalk"]` to enable in front-matter
     # 不支持 Pjax
     # 配置项按照yml格式继续填写即可
-    js: https://unpkg.com/artitalk
+    js: https://unpkg.com/artitalk@3.3.4/artitalk.js
     appId: 38GEBsbldifhQHRcJvVTrIjd-gzGzoHsz # your appID
     appKey: XLpNu93zlTMOQsCtOmpniJwi # your appKEY
     serverURL: https://s.dusays.com #leancloud绑定的api访问域名，使用国际版的话不需要填写
