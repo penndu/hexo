@@ -1,43 +1,34 @@
 var gulp = require('gulp');
-const cleanCSS = require('gulp-clean-css');
-var htmlmin = require('gulp-html-minifier-terser');
-var htmlclean = require('gulp-htmlclean');
-var terser = require('gulp-terser');
-var sourcemaps = require('gulp-sourcemaps');
+var minifycss = require('gulp-minify-css');
+var uglify = require('gulp-uglify');
+var imagemin = require('gulp-imagemin');
 
-// 压缩css文件
-const minify_css = () => (
-    gulp.src(['./public/**/*.css','!./public/{lib,lib/**}','!./public/{libs,libs/**}','!./public/{media,media/**}'])
-        .pipe(sourcemaps.init())
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./public'))
-);
-
-// 压缩html文件
-const minify_html = () => (
-    gulp.src(['./public/**/*.html','!./public/{lib,lib/**}','!./public/{libs,libs/**}','!./public/{media,media/**}'])
-        .pipe(htmlclean())
-        .pipe(htmlmin({
-            removeComments: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true,
+// 压缩css
+gulp.task('minify-css', function() {
+    return gulp.src('./public/**/*.css')
+        .pipe(minifycss({
+            compatibility: 'ie8'
         }))
-        .pipe(gulp.dest('./public'))
-)
-
-// 压缩js文件
-const minify_js = () => (
-    gulp.src(['./public/**/*.js', '!./public/**/*.min.js','!./public/{lib,lib/**}','!./public/{libs,libs/**}','!./public/{media,media/**}'])
-        .pipe(sourcemaps.init())
-        .pipe(terser())
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./public'))
-)
-
-gulp.task('minify', gulp.parallel(
-    minify_html,
-    minify_css,
-    minify_js
+        .pipe(gulp.dest('./public'));
+});
+// 压缩js
+gulp.task('minify-js', function() {
+    return gulp.src('./public/js/**/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./public'));
+});
+// 压缩图片
+gulp.task('minify-images', function() {
+    return gulp.src('./public/images/**/*.*')
+        .pipe(imagemin(
+        [imagemin.gifsicle({'optimizationLevel': 3}),
+        imagemin.jpegtran({'progressive': true}),
+        imagemin.optipng({'optimizationLevel': 7}),
+        imagemin.svgo()],
+        {'verbose': true}))
+        .pipe(gulp.dest('./public/images'))
+});
+// 默认任务
+gulp.task('default', gulp.parallel(
+    'minify-css','minify-js','minify-images'
 ));
