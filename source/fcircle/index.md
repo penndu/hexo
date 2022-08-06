@@ -16,5 +16,5 @@ comments: false
     apiurl: 'https://f.dusays.com/'
   }
 </script>
-<link rel="stylesheet" href="https://dusays.com/fcircle/fcircle-beta.css">
-<script type="text/javascript" src="https://dusays.com/fcircle/fcircle-beta.js"></script>
+<link rel="stylesheet" href="https://cdn.dusays.com/fcircle-beta.css">
+<script type="text/javascript" src="https://cdn.dusays.com/fcircle-beta.js"></script>
