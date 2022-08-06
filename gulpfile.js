@@ -42,4 +42,4 @@ gulp.task('minify', gulp.parallel(
     minify_js
 ))
 
-gulp.task('default', gulp.series('minify','csp'));
+gulp.task('default', gulp.series('minify'));
