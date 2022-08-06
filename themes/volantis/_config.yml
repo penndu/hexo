@@ -71,7 +71,11 @@ replace:
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   # - https://unpkg.com
+  - https://artalk.dusays.com
+  - https://bsz.dusays.com
   - https://cdn.dusays.com
+  - https://f.dusays.com
+  - https://s.dusays.com
   - https://npm.arcitcgn.cn
 
 
@@ -1083,7 +1087,7 @@ plugins:
     nprogress: volantis-static/libs/nprogress/nprogress.js # https://unpkg.com/nprogress@0.2.0/nprogress.min.js
     banUrl:              # 被屏蔽的 url 地址将不启用 pjax 跳转，可以在控制台下使用 window.location.pathname 获取
       - '/shuoshuo/'   # artitalk 不支持 pjax
-      # - '/fcircle/'     # bbtalk 不支持 pjax
+      - '/fcircle/'     # bbtalk 不支持 pjax
 
   # 暗黑模式 darkmode
   # 开关按钮：在 navbar.menu 中添加：
@@ -1113,7 +1117,7 @@ plugins:
     # Set `plugins: ["artitalk"]` to enable in front-matter
     # 不支持 Pjax
     # 配置项按照yml格式继续填写即可
-    js: https://cdn.dusays.com/volantis-static/libs/artitalk/artitalk.js
+    js: https://unpkg.com/artitalk
     appId: 38GEBsbldifhQHRcJvVTrIjd-gzGzoHsz # your appID
     appKey: XLpNu93zlTMOQsCtOmpniJwi # your appKEY
     serverURL: https://s.dusays.com #leancloud绑定的api访问域名，使用国际版的话不需要填写
