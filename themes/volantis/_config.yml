@@ -890,7 +890,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [link, aplayer, social, license, info, copyright]
+  layout: [aplayer, social, license, info, copyright, link]
   social:
     - img: https://cdn.dusays.com/020-rss.svg
       url: atom.xml
