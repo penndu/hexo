@@ -25,6 +25,20 @@ title: 关于
 
 {% timeline 本站事件 %}
 
+{% timenode 2022 年 08 月 08 日 %}
+
+调整友情链接位置，由右侧调整到页脚。
+
+{% endtimenode %}
+
+{% timenode 2022 年 08 月 02 日 %}
+
+后端换到了 Netlify，页面生成加部署时间缩短 34%；
+
+{% endtimenode %}
+
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2022 年 07 月 10 日 %}
 
 博客三周年了，纪念一下！
@@ -36,8 +50,6 @@ title: 关于
 后端换到了 Vercel，前端使用阿里云 CDN 缓存加速；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2022 年 06 月 20 日 %}
 
