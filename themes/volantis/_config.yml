@@ -890,7 +890,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, br, link]
+  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4]
   social:
     - img: https://cdn.dusays.com/020-rss.svg
       url: atom.xml
@@ -910,7 +910,10 @@ site_footer:
   copyright: '<embed src="https://cdn.dusays.com/7bu.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/yinsi.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/mianze.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/says.svg" type="image/svg+xml"><br><embed src="https://cdn.dusays.com/fb.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/icp.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/liao.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
-  link: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [勤奋的思远](https://lsybk.xyz/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [林林杂语](https://www.linlinzzo.top/) | [R0A1NG’sblog](https://www.roaing.com/) | [Dr.Pika’sBlog](https://blog.drpika.com/) | [懵懂の初一少年](https://www.yt-blog.top/)<br>[风记星辰](https://www.thyuu.com/) | [宇哥博客](http://www.ygbks.com/) | [Hackyh’Blog](https://www.hackyh.com/) | [凡梦星尘空间站](https://lisenhui.cn/) | [imtoken](https://czjy.cn/) | [小简博客](https://blog.ideaopen.cn/) | [宏的自留地](https://arcitcgn.cn/) | [joojen个人博客](https://joojen.com/) | [Bowenの破站](https://bowenyoung.cn/) | [Cold’blog](https://www.coldyun.cn/)<br>[Felix_Chenの基地](https://www.felixchen0707.cn/) | [十年之约论坛](https://xyears.cn/) | [imtoken钱包](https://czjy.cn/) | [linkkk的小屋](https://www.linkkk.top/) | [imtoken钱包](https://www.llyz.net/) | [轻淡时光](https://www.lybblog.cn/) | [imtoken](https://www.llyz.net/) | [HelloLin](http://www.hellolin.cn/) | [Catch Wang’s Blog](https://www.catchwang.com/) | [友链申请](https://dusays.com/friends/)'
+  link1: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [勤奋的思远](https://lsybk.xyz/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [林林杂语](https://www.linlinzzo.top/) | [R0A1NG’sblog](https://www.roaing.com/) | [Dr.Pika’sBlog](https://blog.drpika.com/) | [懵懂の初一少年](https://www.yt-blog.top/)'
+  link2: '[风记星辰](https://www.thyuu.com/) | [宇哥博客](http://www.ygbks.com/) | [Hackyh’Blog](https://www.hackyh.com/) | [凡梦星尘空间站](https://lisenhui.cn/) | [imtoken](https://czjy.cn/) | [小简博客](https://blog.ideaopen.cn/) | [宏的自留地](https://arcitcgn.cn/) | [joojen个人博客](https://joojen.com/) | [Bowenの破站](https://bowenyoung.cn/) | [Cold’blog](https://www.coldyun.cn/)'
+  link3: '[Felix_Chenの基地](https://www.felixchen0707.cn/) | [十年之约论坛](https://xyears.cn/) | [imtoken钱包](https://czjy.cn/) | [linkkk的小屋](https://www.linkkk.top/) | [imtoken钱包](https://www.llyz.net/) | [轻淡时光](https://www.lybblog.cn/) | [imtoken](https://www.llyz.net/) | [HelloLin](http://www.hellolin.cn/) | [Catch Wang’s Blog](https://www.catchwang.com/)'
+  link4: '[杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
