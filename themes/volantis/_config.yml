@@ -65,7 +65,7 @@ volantis_static_cdn: https://unpkg.com/volantis-static@0.0.1654736714924/
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://npm.arcitcgn.cn/
+  - https://unpkg.com/ => https://cdn.afdelivr.top/npm/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
@@ -76,7 +76,7 @@ dns_prefetch:
   - https://cdn.dusays.com
   - https://f.dusays.com
   - https://s.dusays.com
-  - https://npm.arcitcgn.cn
+  - https://cdn.afdelivr.top
 
 
 # 平滑滚动效果
