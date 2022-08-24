@@ -1531,17 +1531,17 @@ custom_css:
       weight: normal
       style: normal
     bodyfont:
-      fontfamily: 'OPPO-Sans-Medium, UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      fontfamily: 'OPPOSans, UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'OPPOSans' # 'UbuntuMono'
-      url: https://static.mastergo.com/static/font/OPPOSans/OPPOSans-Medium.woff2 # volantis-static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf # https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
-      weight: 500
-      style: normal
-    codefont:
-      fontfamily: 'OPPO-Sans-Regular, Menlo, UbuntuMono, Monaco'
-      name: 'OPPOSans' # name: 'Monaco'
-      url: https://static.mastergo.com/static/font/OPPOSans/OPPOSans-Regular.woff2 # url: volantis-static/media/fonts/Monaco/Monaco.ttf # https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/Monaco/Monaco.ttf
+      url: https://static.mastergo.com/static/font/OPPOSans/OPPOSans-Regular.woff2 # volantis-static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf # https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
       weight: 400
       style: normal
+    codefont:
+      fontfamily: 'Menlo, UbuntuMono, Monaco'
+      # name: 'Monaco'
+      # url: volantis-static/media/fonts/Monaco/Monaco.ttf # https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/Monaco/Monaco.ttf
+      # weight: normal
+      # style: normal
 ############################### Custom css ############################### > end
 
 
