@@ -302,10 +302,10 @@ ny:
     avatar: https://yisous.xyz/img/avatar.jpg
     url: 'https://yisous.xyz'
     screenshot: https://bu.dusays.com/2022/08/22/630315f6dcadb.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 杜老师说'
-    avatar: https://cdn.dusays.com/avatar.png
-    url: 'https://dusays.com'
-    screenshot: https://bu.dusays.com/2022/05/21/6287d1dae7bb9.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 是非题'
+    avatar: https://other.shifeiti.com/logo/logo.png
+    url: 'https://www.shifeiti.com'
+    screenshot: https://bu.dusays.com/2022/08/25/630731a91a93d.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 杜老师说'
     avatar: https://cdn.dusays.com/avatar.png
     url: 'https://dusays.com'
