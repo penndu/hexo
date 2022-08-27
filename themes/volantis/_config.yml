@@ -1031,7 +1031,7 @@ plugins:
     enable: true
 
   busuanzi:
-    enable: true
+    enable: #true
 
   ######## Plugins for ...
   # Button Ripple Effect
