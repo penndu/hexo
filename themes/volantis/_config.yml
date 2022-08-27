@@ -1030,6 +1030,9 @@ plugins:
   wordcount:
     enable: true
 
+  busuanzi:
+    enable: true
+
   ######## Plugins for ...
   # Button Ripple Effect
   nodewaves:
