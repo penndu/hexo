@@ -127,7 +127,7 @@ algolia:
   appId: "M5C9U2T6MZ"
   apiKey: "22a604261190fe8bd8c65c228482a543"
   adminApiKey: "4f9a2aaf82fb61666839ec7b866be5cb"
-  chunkSize: 1000
+  chunkSize: 5000
   indexName: "dusays"
   fields:
     - path
