@@ -33,7 +33,7 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^0.0.3",
     "hexo-wordcount": "^6.0.1",
-    "katex": "^0.16.0",
+    "katex": "^0.16.2",
     "speech-rule-engine": "^4.0.7"
   },
   "devDependencies": {
