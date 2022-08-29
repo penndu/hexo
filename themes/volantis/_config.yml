@@ -87,7 +87,7 @@ cdn_system:
 # https://content-security-policy.com/
 # 也可以设为 false 在 HTTP 标头中设置 https://volantis.js.org/v5/advanced-settings/#设置-HTTP-响应标头
 csp:
-  enable: true
+  enable: false
   content: "
     default-src 'self' https:;
     block-all-mixed-content;
