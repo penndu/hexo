@@ -123,3 +123,9 @@ autoprefixer:
     - '*.css'
 sitemap:
   path: sitemap.xml
+algolia:
+  applicationID: 'M5C9U2T6MZ'
+  apiKey: '22a604261190fe8bd8c65c228482a543'
+  adminApiKey: '4f9a2aaf82fb61666839ec7b866be5cb'
+  indexName: 'dusays'
+  chunkSize: 5000
