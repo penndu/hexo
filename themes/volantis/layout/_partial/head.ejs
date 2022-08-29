@@ -38,7 +38,6 @@
     <link rel="shortcut icon" type='image/x-icon' href="<%- url_for(config.favicon) %>">
   <%_ } _%>
   <link rel="preload" href="<%- theme.cdn.volantis_style %>" as="style">
-  <link rel="prfetch" href="/content.json">
   <%- generate_preload_fontfamily(theme) %>
   <!-- feed -->
   <%_ if (config.feed && config.feed.path){ _%>
