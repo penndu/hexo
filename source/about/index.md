@@ -25,6 +25,20 @@ title: 关于
 
 {% timeline 本站事件 %}
 
+{% timenode 2022 年 08 月 30 日 %}
+
+因 content.json 过大，严重影响访客搜索体验，现换成 Algolia 服务。
+
+{% endtimenode %}
+
+{% timenode 2022 年 08 月 28 日 %}
+
+下架 8 月 28 日后穿越文，新增定时发布功能；
+
+{% endtimenode %}
+
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2022 年 08 月 08 日 %}
 
 调整友情链接位置，由右侧调整到页脚。
@@ -36,8 +50,6 @@ title: 关于
 后端换到了 Netlify，页面生成加部署时间缩短 34%；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2022 年 07 月 10 日 %}
 
