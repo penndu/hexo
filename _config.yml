@@ -4,12 +4,12 @@
 
 # Site
 title: 杜老师说
-subtitle: ''
+subtitle: '运维技术分享博客'
 description: 云计算运维讲师杜老师私人技术博客，主要分享一些运维技术、经验；本博客每三天更新，欢迎订阅。
 keywords: 杜老师说,老师,讲师,运维,博客,技术,微软,思科,红帽,服务,软件,图文,视频,单词,求职,面试,网站,搭建,网络,教程,说课,资源,分享,单词
 author: Teacher Du
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 favicon: https://cdn.dusays.com/favicon.ico
 avatar: https://cdn.dusays.com/avatar.png/2
 
@@ -44,7 +44,7 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
-future: true
+future: false
 highlight:
   enable: false
   line_number: true
@@ -53,7 +53,7 @@ highlight:
   wrap: true
   hljs: false
 prismjs:
-  enable: true
+  enable: false
   preprocess: true
   line_number: true
   tab_replace: ''
