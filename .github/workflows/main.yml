@@ -16,14 +16,7 @@ jobs:
       with:
         node-version: '16.x'
     - name: 3. install hexo...
-      run: |
-        npm install hexo-cli -g
-        npm i -S hexo-prism-plugin -g
-        npm install hexo-generator-search --save -g
-        npm i hexo-permalink-pinyin  -g
-        npm i --save hexo-wordcount -g
-        npm install hexo-filter-github-emojis  -g
-        npm install hexo-generator-feed  -g
+      run:
         npm install
     - name: 4. hexo generate public files...
       run: |
@@ -31,7 +24,7 @@ jobs:
         hexo g
     - name: Deploy static to Tencent CloudBase
       id: deployStatic
-      uses: TencentCloudBase/cloudbase-action@v2
+      uses: TencentCloudBase/cloudbase-action@v1
       with:
         secretId: AKIDP978CsdmxnwatTMpFkhyo8P585DikM1D
         secretKey: 1FPdSPyniDCLlN9UgOFJjWtjHGz0Qq26
