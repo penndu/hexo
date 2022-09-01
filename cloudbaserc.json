@@ -1,5 +1,5 @@
 {
-    "envId": "{{env.ENV_ID}}",  // 这里需要更改为你的 环境ID，或者在 .env 文件中配置
+    "envId": "hexo-8gbk6fqc22fa412a",
     "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
     "version": "2.0",
     "framework": {
