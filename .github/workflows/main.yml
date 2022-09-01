@@ -14,7 +14,7 @@ jobs:
       run: |
         npm i -g hexo-cli
         npm i
-    - name: hexo g
+    - name: hexo
       run: hexo g
     - name: Deploy to Tencent CloudBase
       uses: TencentCloudBase/cloudbase-action@v2.0.1
