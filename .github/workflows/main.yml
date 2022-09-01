@@ -2,24 +2,16 @@ name: GitHub Actions Build and Deploy
 on:
   push:
     branches:
-
-      - master
-
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-
     - name: 1. git checkout...
-
       uses: actions/checkout@v1
-
     - name: 2. setup nodejs...
-
       uses: actions/setup-node@v1
-
     - name: 3. install hexo...
-
       run: |
         npm install hexo-cli -g
         npm i -S hexo-prism-plugin -g
@@ -29,16 +21,11 @@ jobs:
         npm install hexo-filter-github-emojis  -g
         npm install hexo-generator-feed  -g
         npm install
-
     - name: 4. hexo generate public files...
-
       run: |
         hexo clean
         hexo g
-    # 部署到腾讯云    
-
     - name: Deploy static to Tencent CloudBase
-
       id: deployStatic
       uses: TencentCloudBase/cloudbase-action@v1
       with:
@@ -46,7 +33,3 @@ jobs:
         secretKey: 1FPdSPyniDCLlN9UgOFJjWtjHGz0Qq26
         envId: hexo-8gbk6fqc22fa412a
         staticSrcPath: ./public
-
-    - name: Get the deploy result
-
-      run: echo "Deploy to cloudbase result ${{ steps.deployStatic.outputs.deployResult }}"
