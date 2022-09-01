@@ -29,7 +29,7 @@ jobs:
         hexo g
     - name: Deploy static to Tencent CloudBase
       id: deployStatic
-      uses: TencentCloudBase/cloudbase-action@v1
+      uses: TencentCloudBase/cloudbase-action@v2
       with:
         secretId: AKIDP978CsdmxnwatTMpFkhyo8P585DikM1D
         secretKey: 1FPdSPyniDCLlN9UgOFJjWtjHGz0Qq26
