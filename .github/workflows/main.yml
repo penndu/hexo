@@ -19,7 +19,7 @@ jobs:
     - name: Deploy to Tencent CloudBase
       uses: TencentCloudBase/cloudbase-action@v2.0.1
       with:
-        secretId: AKIDP978CsdmxnwatTMpFkhyo8P585DikM1D
-        secretKey: 1FPdSPyniDCLlN9UgOFJjWtjHGz0Qq26
-        envId: my-website-7g0jxmhka91e53cb
+        secretId: ${{secrets.secretId}}
+        secretKey: ${{secrets.secretKey}}
+        envId: ${{secrets.envId}}
         staticSrcPath: ./public
