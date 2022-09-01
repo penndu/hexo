@@ -4,7 +4,7 @@
   "framework": {
     "name": "gh-actions-test",
     "plugins": {
-      "client": {
+      "func": {
         "use": "@cloudbase/framework-plugin-website",
         "inputs": {
           "outputPath": "public",
