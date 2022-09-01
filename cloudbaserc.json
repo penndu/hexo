@@ -1,5 +1,5 @@
 {
-  "envId": "{{env.ENV_ID}}",
+  "envId": "{{secrets.envId}}",
   "version": "2.0",
   "framework": {
     "name": "gh-actions-test",
