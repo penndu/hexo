@@ -35,5 +35,5 @@ jobs:
       with:
         secretId: AKIDP978CsdmxnwatTMpFkhyo8P585DikM1D
         secretKey: 1FPdSPyniDCLlN9UgOFJjWtjHGz0Qq26
-        envId: blog-9gf52p5n1f7c3a77
+        envId: hexo-8gbk6fqc22fa412a
         staticSrcPath: ./public
