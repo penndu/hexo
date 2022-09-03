@@ -21,8 +21,6 @@ jobs:
         gulp
         curl -X POST 'https://m.dusays.com/indexes/hexo/documents/?primaryKey=uuid' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}" -H "Content-Type: application/json" --data-binary '@public/content.json'
     - name: Deploy to Tencent CloudBase
-      uses: TencentCloudBase/cloudbase-action@v2.0.1
-      with:
-        secretId: ${{secrets.secretId}}
-        secretKey: ${{secrets.secretKey}}
-        envId: ${{secrets.envId}}
+      run: |
+        echo "${{secrets.HEXO_ID_RSA}}" > ~/.ssh/id_rsa
+        hexo d
