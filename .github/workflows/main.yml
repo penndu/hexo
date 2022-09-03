@@ -17,9 +17,9 @@ jobs:
         npm i
     - name: hexo
       run: |
-        hexo g
-        hexo algolia
+        hexo g --silent
         gulp
+        curl -X POST 'https://m.dusays.com/indexes/hexo/documents/?primaryKey=uuid' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}" -H "Content-Type: application/json" --data-binary '@public/content.json'
     - name: Deploy to Tencent CloudBase
       uses: TencentCloudBase/cloudbase-action@v2.0.1
       with:
