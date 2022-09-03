@@ -20,8 +20,7 @@ jobs:
         hexo g --silent
         gulp
         curl -X POST 'https://m.dusays.com/indexes/hexo/documents/?primaryKey=uuid' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}" -H "Content-Type: application/json" --data-binary '@public/content.json'
-    - name: Deploy to Tencent CloudBase
-      run: |
-        echo "${{secrets.HEXO_ID_RSA}}" > ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        hexo d
+    - name: Deploy
+      uses: sma11black/hexo-action@v1.0.4
+      with:
+        deploy_key: ${{ secrets.HEXO_ID_RSA }}
