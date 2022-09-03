@@ -22,5 +22,5 @@ jobs:
         curl -X POST 'https://m.dusays.com/indexes/hexo/documents/?primaryKey=uuid' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}" -H "Content-Type: application/json" --data-binary '@public/content.json'
     - name: Deploy to Tencent CloudBase
       run: |
-        echo "${{secrets.HEXO_ID_RSA}}" > ~/.ssh/id_rsa
+        echo "${{secrets.HEXO_ID_RSA}}" > /home/runner/.ssh/id_rsa
         hexo d
