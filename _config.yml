@@ -135,3 +135,11 @@ algolia:
     - content:strip
 v6_51_la: Jnk0gdWGDZjbqv69
 perf_51_la: JnqkLxF8DZzYp0Wi
+jsonContent: 
+  meta: false 
+  pages: false 
+  posts: 
+    title: true 
+    path: true 
+    text: true 
+    uuid: true
