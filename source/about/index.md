@@ -25,9 +25,23 @@ title: 关于
 
 {% timeline 本站事件 %}
 
+{% timenode 2022 年 09 月 04 日 %}
+
+为测试 GitHub Actions 配置，临时托管至 CloudBase。
+
+{% endtimenode %}
+
+{% timenode 2022 年 09 月 02 日 %}
+
+因 Algolia 最近节点位于香港，大陆访问速度较慢，且有 API 调用数限制，现换成 Meilisearch；
+
+{% endtimenode %}
+
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2022 年 08 月 30 日 %}
 
-因 content.json 过大，严重影响访客搜索体验，现换成 Algolia 服务。
+因 content.json 过大，严重影响访客搜索体验，现换成 Algolia 服务；
 
 {% endtimenode %}
 
@@ -36,8 +50,6 @@ title: 关于
 下架 8 月 28 日后穿越文，新增定时发布功能；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2022 年 08 月 08 日 %}
 
