@@ -85,7 +85,7 @@ let SearchService = (() => {
 
     const searchBox = instantsearch.widgets.searchBox({
       container: '#meilisearch-search-input',
-      autofocus: true,
+      autofocus: false,
       showReset: false,
       showSubmit: false,
       showLoadingIndicator: false,
