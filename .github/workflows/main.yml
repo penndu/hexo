@@ -27,6 +27,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        external_repository: git@e.coding.net:penndo/dulaoshishuo/my-website.git
+        external_repository: penndu/my-website
         publish_branch: master
         publish_dir: ./public
