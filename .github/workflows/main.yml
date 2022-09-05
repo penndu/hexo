@@ -30,11 +30,3 @@ jobs:
         external_repository: penndu/my-website
         publish_branch: master
         publish_dir: ./public
-    - name: purgeCDN
-      run: |
-        sleep 600
-        git clone https://github.com/penndu/tencent-purge-urls.git ~/tencent-purge-urls
-        cd ~/tencent-purge-urls
-        npm i
-        npm link
-        purge-urls -i ${{secrets.SECRETID}} -k ${{secrets.SECRETKEY}} -u https://dusays.com
