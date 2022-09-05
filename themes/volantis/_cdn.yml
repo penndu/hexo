@@ -283,14 +283,14 @@ busuanzi:
   cdnjs: false
 artalk_js:
   name: artalk
-  file: dist/Artalk.js
+  file: https://o.static.szyink.com/storage/artalk/Artalk.js
   version: 2.3.4
   npm: true
   static: false
   cdnjs: true
 artalk_css:
   name: artalk
-  file: dist/Artalk.css
+  file: https://o.static.szyink.com/storage/artalk/Artalk.css
   version: 2.3.4
   npm: true
   static: false
