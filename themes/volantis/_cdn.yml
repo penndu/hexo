@@ -285,16 +285,16 @@ artalk_js:
   name: artalk
   file: https://o.static.szyink.com/storage/artalk/Artalk.js
   version: 2.3.4
-  npm: true
+  npm: false
   static: false
-  cdnjs: true
+  cdnjs: false
 artalk_css:
   name: artalk
   file: https://o.static.szyink.com/storage/artalk/Artalk.css
   version: 2.3.4
-  npm: true
+  npm: false
   static: false
-  cdnjs: true
+  cdnjs: false
 disqusjs_js:
   name: disqusjs
   file: dist/disqus.js
