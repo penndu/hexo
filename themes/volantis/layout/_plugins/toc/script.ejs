@@ -26,8 +26,10 @@
       }
       return target;
     });
+
     function activateNavByIndex(target) {
       if (target.classList.contains("active-current")) return;
+
       document.querySelectorAll(".toc .active").forEach((element) => {
         element.classList.remove("active", "active-current");
       });
@@ -38,6 +40,7 @@
         parent = parent.parentNode;
       }
     }
+
     // 方案一：
     volantis.activateNavIndex = 0
     activateNavByIndex(navItems[volantis.activateNavIndex])
@@ -60,6 +63,7 @@
         activateNavByIndex(navItems[volantis.activateNavIndex])
       })
     }
+
     // 方案二：
     // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
     // function findIndex(entries) {
@@ -101,24 +105,9 @@
     // }
     // createIntersectionObserver(document.documentElement.scrollHeight);
   }
+
   document.addEventListener("DOMContentLoaded", () => {
     volantis.requestAnimationFrame(listenSidebarTOC)
   });
-  document.addEventListener("pjax:success", () => {
-    volantis.requestAnimationFrame(listenSidebarTOC)
-  });
+  volantis.pjax.push(listenSidebarTOC);
 </script>
-
-<%#################################################################################################>
-  https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md#关于-callback-函数
-  ```html
-  <style>
-    #toc-div {
-      display: block !important;
-    }
-  </style>
-  <script>
-    volantis.requestAnimationFrame(listennSidebarTOC);
-  </script>
-  ```
-  %>
