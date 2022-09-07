@@ -1305,10 +1305,9 @@ rightmenus:
     link:
       - {id: 'help', name: '去不图床', icon: 'fa-solid fa-file-image', link: 'https://7bu.top/', group: 'link'}
       - {id: 'examples', name: '提卡系统', icon: 'fa-solid fa-address-card', link: 'https://pay.dusays.com/', group: 'link'}
-      - {id: 'contributors', name: '赞助平台', icon: 'fa-solid fa-money-check-alt', link: 'https://afdian.net/@teacherdu', group: 'link'}
       - hr
-      - {id: 'source_theme', name: '我的世界', icon: 'fa-solid fa-gamepad', link: 'https://dusays.com/465/', group: 'link'}
       - {id: 'source_theme', name: '公益统计', icon: 'fa-solid fa-edit', link: 'https://dusays.com/476/', group: 'link'}
+      - {id: 'contributors', name: '抢个沙发', icon: 'fa-solid fa-money-check-alt', link: 'https://dusays.com/490/', group: 'link'}
     darkMode:
       - {id: 'darkMode', name: '暗黑模式', icon: 'fa-solid fa-moon', event: 'volantis.dark.toggle()', group: 'darkMode'}
 ###
