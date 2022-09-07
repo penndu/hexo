@@ -353,7 +353,7 @@ article:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
       # https://volantis.js.org/advanced-settings/#多人协同
       author:
-        avatar: https://cdn.dusays.com/avatar.png/2 # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
+        avatar: https://cdn.dusays.com/avatar.png/b # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
         name: Teacher Du
         url: https://dusays.com/about/
       # 文章创建日期
@@ -595,7 +595,7 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop, mobile] # [desktop, mobile]
-      avatar: https://cdn.dusays.com/avatar.png/2 # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      avatar: https://cdn.dusays.com/avatar.png/b # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
       shape: rectangle # circle, rectangle
       url: /about/
       title: Teacher Du
@@ -668,7 +668,7 @@ sidebar:
         icon: fas fa-wallet
         title: 点击赞助
       content:
-        - '<center><a href="https://afdian.net/@teacherdu"><img src="https://cdn.dusays.com/yf.jpg/2"></a><center>'
+        - '<center><a href="https://afdian.net/@teacherdu"><img src="https://cdn.dusays.com/yf.jpg/b"></a><center>'
     sffw:
       class: text
       display: [desktop, mobile]
@@ -686,7 +686,7 @@ sidebar:
         title: 硅云主机
         url: https://www.vpsor.cn?userCode=ohedb8
       content:
-        - '<center><a href="https://www.vpsor.cn?userCode=ohedb8" target="_blank"><img src="https://cdn.dusays.com/vpsor.jpg/2"></a><center>'
+        - '<center><a href="https://www.vpsor.cn?userCode=ohedb8" target="_blank"><img src="https://cdn.dusays.com/vpsor.jpg/b"></a><center>'
     cowtransfer:
       class: text
       display: [desktop, mobile]
@@ -695,7 +695,7 @@ sidebar:
         title: 息流工具
         url: https://flowus.cn/login?code=PDZ708
       content:
-        - '<center><a href="https://flowus.cn/login?code=PDZ708" target="_blank"><img src="https://cdn.dusays.com/aliyundrive.jpg/2"></a></center>'
+        - '<center><a href="https://flowus.cn/login?code=PDZ708" target="_blank"><img src="https://cdn.dusays.com/aliyundrive.jpg/b"></a></center>'
     dao_hang:
       class: grid
       display: [desktop, mobile]
