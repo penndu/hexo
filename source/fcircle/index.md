@@ -13,7 +13,7 @@ comments: false
 <!-- 将apiurl改成你后端生成的api地址 -->
 <script type="text/javascript">
   var fdataUser = {
-    apiurl: 'https://f.dusays.com/'
+    apiurl: 'https://f.dusays.com:9001/'
   }
 </script>
 <link rel="stylesheet" href="https://cdn.dusays.com/fcircle-beta.css">
