@@ -53,7 +53,7 @@ highlight:
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -133,8 +133,6 @@ algolia:
     - path
     - title
     - content:strip
-v6_51_la: Jnk0gdWGDZjbqv69
-perf_51_la: JnqkLxF8DZzYp0Wi
 jsonContent: 
   meta: false 
   pages: false 
