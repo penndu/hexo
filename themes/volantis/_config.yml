@@ -1334,7 +1334,7 @@ search:
     placeholder: 'Search...'
     searchKey: 'dbb2de012ca2e7a704c9f883d2d61671ca658a465268a8d8142efe82c7bac364'
     indexName: 'hexo'
-    hostUrl: 'https://m.dusays.com'
+    hostUrl: 'https://m.dusays.com:9001'
 
 ############################### Search ############################### > end
 
