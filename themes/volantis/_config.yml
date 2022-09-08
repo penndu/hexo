@@ -996,7 +996,7 @@ plugins:
 
   ######## Plugins to optimize the experience:
   # 代码高亮
-  code_highlight: highlightjs # highlightjs or prismjs
+  code_highlight: prismjs # highlightjs or prismjs
   # highlight.js
   highlightjs:
     copy_code: true
