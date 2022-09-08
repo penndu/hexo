@@ -1022,7 +1022,7 @@ plugins:
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
-    enable: #true
+    enable: true
     distance: 32px
     duration: 800 # ms
     interval: 20 # ms
