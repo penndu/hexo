@@ -1,0 +1,50 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
+  },
+  "hexo": {
+    "version": "6.2.0"
+  },
+  "dependencies": {
+    "hexo": "^6.3.0",
+    "hexo-algoliasearch": "^1.0.0",
+    "hexo-autoprefixer": "^2.0.0",
+    "hexo-deployer-git": "^3.0.0",
+    "hexo-filter-nofollow": "^2.0.2",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-baidu-sitemap": "^0.1.9",
+    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-index": "^2.0.0",
+    "hexo-generator-json-content": "^4.2.3",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-seo-friendly-sitemap": "^0.2.1",
+    "hexo-generator-tag": "^1.0.0",
+    "hexo-pdf": "^1.1.1",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^5.0.0",
+    "hexo-renderer-stylus": "^2.1.0",
+    "hexo-server": "^3.0.0",
+    "hexo-uuid": "^1.0.2",
+    "hexo-wordcount": "^6.0.1",
+    "speech-rule-engine": "^4.0.7"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-html-minifier-terser": "^6.0.1",
+    "gulp-htmlclean": "^2.7.22",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-uglify": "^3.0.2",
+    "inline-csp-hash": "^1.1.16"
+  }
+}

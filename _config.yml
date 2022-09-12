@@ -1,0 +1,143 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 杜老师说
+subtitle: '运维技术分享博客'
+description: 云计算运维讲师杜老师私人技术博客，主要分享一些运维技术、经验；本博客每三天更新，欢迎订阅。
+keywords: 杜老师说,老师,讲师,运维,博客,技术,微软,思科,红帽,服务,软件,图文,视频,单词,求职,面试,网站,搭建,网络,教程,说课,资源,分享,单词
+author: Teacher Du
+language: zh-CN
+timezone: 'Asia/Shanghai'
+favicon: https://cdn.dusays.com/favicon.ico
+avatar: https://cdn.dusays.com/avatar.png/2
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://dusays.com
+permalink: :title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render: "dist/**/*"
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: 'dusays.com'
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: false
+highlight:
+  enable: false
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 12
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 15
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: volantis
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+# - type: git
+  # repo: git@e.coding.net:penndo/dulaoshishuo/my-website.git
+  # branch: master
+- type: git
+  repo: git@github.com:penndu/my-website.git
+  branch: master
+nofollow:
+  enable: true
+  field: site
+  exclude:
+  - 'dusays.com'
+  - '7bu.top'
+baidusitemap:
+  path: baidusitemap.xml
+autoprefixer:
+  exclude:
+    - '*.css'
+sitemap:
+  path: sitemap.xml
+algolia:
+  appId: "M5C9U2T6MZ"
+  apiKey: "22a604261190fe8bd8c65c228482a543"
+  adminApiKey: "4f9a2aaf82fb61666839ec7b866be5cb"
+  chunkSize: 5000
+  indexName: "dusays"
+  fields:
+    - path
+    - title
+    - content:strip
+jsonContent: 
+  meta: false 
+  pages: false 
+  posts: 
+    title: true 
+    path: true 
+    text: true 
+    uuid: true
