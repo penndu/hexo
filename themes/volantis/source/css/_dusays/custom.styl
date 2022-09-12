@@ -1,0 +1,77 @@
+//======================================//
+// 插件
+.widget 
+  div.tabs
+    margin 0
+    border none
+    .nav-tabs
+      border-top 1px solid rgba(68,68,68,0.2)
+      border-left 1px solid rgba(68,68,68,0.2)
+      border-right 1px solid rgba(68,68,68,0.2)
+      border-top-left-radius 8px
+      border-top-right-radius 8px
+      li.tab
+        flex 1
+        &:last-child
+          padding-right 0
+    .tab-content
+      font-size 14px
+      p
+        text-align center
+        span
+          font-weight bold
+          padding 0 8px
+      .tab-pane-content
+        text-align center
+        margin-top 0.5rem
+    ul, p
+      margin 0
+
+.tab-artalk-line
+  ul
+    li
+      margin-top: 5px;
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      span
+        background-color: #bebebe;
+        color: #fff;
+        width: 20px;
+        min-width: 20px;
+        line-height: 20px;
+        display: inline-table;
+        text-align: center;
+        border-radius: 2px;
+        margin-right: 5px;
+      &:nth-child(-n+3)
+        span
+          background-color #f00
+      a
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    
+.tab-artalk-comment
+  li
+    margin-top: 5px !important;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+  .avatar
+    width: 20%;
+    margin-right: 5px;
+    img
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+  .main
+    width: 80%
+    p
+      cursor: pointer;
+      font-size: 14px;
+      text-align: left !important;
+      color: var(--color-p);
+      word-break: break-all;
+      &:first-child
+        font-weight: bold;

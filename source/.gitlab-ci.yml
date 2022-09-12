@@ -1,0 +1,46 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  only:
+    - main
+  script:
+    - cd /root/blog/source && git fetch && git pull origin main
+
+test-job:
+  stage: test
+  only:
+    - main
+  script:
+    - rsync -av --delete /root/blog/source/ /root/hexo/source/ --exclude=.git
+    # - cd /root/blog && hexo cl && hexo g
+
+# test-job2:
+  # stage: test
+  # only:
+    # - main
+  # script:
+    # - cd /var/www/html && rm -rf *
+    # - cd /www/wwwroot/dusays.com && rm -rf *
+    # - cd /root && python3 yasuo.py
+
+deploy-prod:
+  stage: deploy
+  only:
+    - main
+  script:
+    - cd /root/hexo && git add .
+    - ssh 127.0.0.1 -C "cd /root/hexo && git commit -m a && git push origin main"
+    - cd /root/hexo
+    # - cd /root/blog && hexo d
+    # - cd /root/blog/public && cp -a * /var/www/html
+    # - cd /root/blog/public && cp -a * /www/wwwroot/dusays.com
+
+# deploy-prod2:
+  # stage: deploy
+  # script:
+    # - cd /root/blog && hexo d
+    # - cd /root/blog/public && cp -a * /var/www/html

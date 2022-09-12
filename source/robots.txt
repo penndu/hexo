@@ -1,0 +1,4 @@
+# robots.txt generated at http://tool.chinaz.com/robots/ 
+User-agent: *
+Allow: 
+Sitemap: https://dusays.com/baidusitemap.xml
