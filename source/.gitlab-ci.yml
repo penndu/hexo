@@ -33,7 +33,7 @@ deploy-prod:
     - main
   script:
     - cd /root/hexo && git add .
-    - ssh 127.0.0.1 -C "cd /root/hexo && git commit -m a && git push origin main"
+    - ssh 127.0.0.1 -C "cd /root/hexo && git commit -m a && git push -f origin main"
     - cd /root/hexo
     # - cd /root/blog && hexo d
     # - cd /root/blog/public && cp -a * /var/www/html
