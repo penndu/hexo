@@ -40,8 +40,8 @@ cdn_system:
     # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
     custom:
       busuanzi: https://cdn.dusays.com/bsz.js  # 杜老师友情赞助
-      artalk_js: https://o.static.szyink.com/storage/artalk/Artalk.js
-      artalk_css: https://o.static.szyink.com/storage/artalk/Artalk.css
+      artalk_js: https://npm.elemecdn.com/artalk@2.4.1/dist/Artalk.js # https://o.static.szyink.com/storage/artalk/Artalk.js
+      artalk_css: https://npm.elemecdn.com/artalk@2.4.1/dist/Artalk.css # https://o.static.szyink.com/storage/artalk/Artalk.css
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
