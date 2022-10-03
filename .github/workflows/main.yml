@@ -21,6 +21,7 @@ jobs:
         npm i
     - name: hexo
       run: |
+        hexo g --slient
         hexo algolia
         gulp
         # curl -X DELETE 'https://m.dusays.com/indexes/hexo' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}"
