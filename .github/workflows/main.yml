@@ -21,9 +21,8 @@ jobs:
         npm i
     - name: hexo
       run: |
-        hexo g --silent
-        gulp
         hexo algolia
+        gulp
         # curl -X DELETE 'https://m.dusays.com/indexes/hexo' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}"
         # curl -X POST 'https://m.dusays.com/indexes/hexo/documents/?primaryKey=uuid' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}" -H "Content-Type: application/json" --data-binary '@public/content.json'
     - name: Deploy
