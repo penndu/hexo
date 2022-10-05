@@ -25,9 +25,23 @@ title: 关于
 
 {% timeline 本站事件 %}
 
+{% timenode 2022 年 10 月 04 日 %}
+
+本博客全面本地化，欢迎小伙伴们来测试稳定性。
+
+{% endtimenode %}
+
+{% timenode 2022 年 10 月 02 日 %}
+
+经多方测试 Meilisearch 的标题检索异常，正式修复前先切换至 Algolia；
+
+{% endtimenode %}
+
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2022 年 09 月 04 日 %}
 
-为测试 GitHub Actions 配置，临时托管至 CloudBase。
+为测试 GitHub Actions 配置，临时托管至 CloudBase；
 
 {% endtimenode %}
 
@@ -36,8 +50,6 @@ title: 关于
 因 Algolia 最近节点位于香港，大陆访问速度较慢，且有 API 调用数限制，现换成 Meilisearch；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2022 年 08 月 30 日 %}
 
