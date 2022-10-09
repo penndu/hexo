@@ -19,4 +19,4 @@ comments: false
     }
 </script>
 <script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.30/fcircle/app.min.js"></script>
-<script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.31/fcircle/bundle.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.30/fcircle/bundle.js"></script>
