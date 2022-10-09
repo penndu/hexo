@@ -5,20 +5,6 @@ sidebar: []
 comments: false
 ---
 
-<!-- 挂载友链朋友圈的容器 -->
-<div class="post-content">
-<div id="cf-container">与主机通讯中……</div>
-</div>
-<!-- 加样式和功能代码 -->
-<!-- 将apiurl改成你后端生成的api地址 -->
-<script type="text/javascript">
-  var fdataUser = {
-    apiurl: 'https://f.dusays.com/'
-  }
-</script>
-<link rel="stylesheet" href="https://cdn.dusays.com/fcircle-beta.css">
-<script type="text/javascript" src="https://cdn.dusays.com/fcircle-beta.js"></script>
-
 <div id="app"></div>
 <script>
     let UserConfig = {
@@ -32,5 +18,5 @@ comments: false
         sort_rule: 'created'
     }
 </script>
-<script type="text/javascript" src="https://cdn.dusays.com/bundle.js"></script>
-<script type="text/javascript" src="https://cdn.dusays.com/app.min.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.30/fcircle/app.min.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.31/fcircle/bundle.js"></script>
