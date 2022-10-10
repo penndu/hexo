@@ -1348,7 +1348,7 @@ search:
   service: algolia  # hexo, algolia, meilisearch
   algolia:
     searchAsYouType: true # If false, triggers the search only on submit.
-    hitsPerPage: 5 # Set the number of hits per page.
+    hitsPerPage: 50 # Set the number of hits per page.
     placeholder: 'Search...' # The placeholder text of the input.
   meilisearch:
     placeholder: 'Search...'
