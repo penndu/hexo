@@ -78,10 +78,6 @@ qz:
     avatar: https://bu.dusays.com/2022/08/02/62e8d85fa20f5.png
     url: 'http://www.hellolin.cn'
     screenshot: https://bu.dusays.com/2022/10/11/63453897f3f07.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Catch Wang’s Blog'
-    avatar: https://bu.dusays.com/2021/12/27/4bed0ff62a1fd.png
-    url: 'https://www.catchwang.com'
-    screenshot: https://bu.dusays.com/2022/10/11/634538ace3fd3.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 辛未羊的网络日志'
     avatar: https://panqiincs.me/images/avatar.jpg
     url: 'https://panqiincs.me'
@@ -322,3 +318,7 @@ ny:
     avatar: https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5
     url: 'https://blog.leonus.cn'
     screenshot: https://bu.dusays.com/2022/10/11/63454ba6d799c.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Catch Wang’s Blog'
+    avatar: https://bu.dusays.com/2021/12/27/4bed0ff62a1fd.png
+    url: 'https://www.catchwang.com'
+    screenshot: https://bu.dusays.com/2022/10/11/634538ace3fd3.jpg
