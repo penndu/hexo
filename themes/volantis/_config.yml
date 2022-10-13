@@ -958,9 +958,8 @@ site_footer:
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [勤奋的思远](https://lsybk.xyz/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [林林杂语](https://www.linlinzzo.top/) | [R0A1NG’sblog](https://www.roaing.com/) | [Dr.Pika’sBlog](https://blog.drpika.com/) | [懵懂の初二少年](https://www.yt-blog.top/)'
-  link2: '[风记星辰](https://www.thyuu.com/) | [宇哥博客](http://www.ygbks.com/) | [云帆沧海](https://yf-ch.com/) | [小简博客](https://blog.ideaopen.cn/) | [宏的自留地](https://arcitcgn.cn/) | [joojen个人博客](https://joojen.com/) | [Bowenの破站](https://bowenyoung.cn/) | [Cold’blog](https://www.coldyun.cn/) | [Felix_Chenの基地](https://www.felixchen0707.cn/) | [十年之约论坛](https://xyears.cn/)'
-  link3: '[轻淡时光](https://www.lybblog.cn/) | [HelloLin](http://www.hellolin.cn/) | [Catch Wang’s Blog](https://www.catchwang.com/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [DIDCTF-Blog](https://blog.didctf.com/) | [AZPL](https://www.azplstudio.top/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
-  link4: '[杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
+  link2: '[风记星辰](https://www.thyuu.com/) | [宇哥博客](http://www.ygbks.com/) | [云帆沧海](https://yf-ch.com/) | [小简博客](https://blog.ideaopen.cn/) | [joojen个人博客](https://joojen.com/) | [Bowenの破站](https://bowenyoung.cn/) | [Cold’blog](https://www.coldyun.cn/) | [Felix_Chenの基地](https://www.felixchen0707.cn/) | [轻淡时光](https://www.lybblog.cn/) | [HelloLin](http://www.hellolin.cn/)'
+  link3: '[辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [DIDCTF-Blog](https://blog.didctf.com/) | [网友小宋](https://xyzbz.cn/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
@@ -1197,8 +1196,8 @@ plugins:
     page_turning_number: 10  # 点击加载更多时，一次最多加载几篇文章，默认10
     error_img: https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c # 头像加载失败时，默认头像地址
     sort_rule: updated # 进入页面时第一次的排序规则,可选值：created/updated
-    app: https://unpkg.com/imgscdn@1.1.33/fcircle/app.min.js # app.min.js的url
-    bundle: https://unpkg.com/imgscdn@1.1.33/fcircle/bundle.js # bundle.js的url
+    app: https://unpkg.com/imgscdn@1.1.39/fcircle/app.min.js # app.min.js的url
+    bundle: https://unpkg.com/imgscdn@1.1.39/fcircle/bundle.js # bundle.js的url
 
   # 消息提示 
   # izitoast
