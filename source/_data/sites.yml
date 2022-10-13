@@ -98,6 +98,10 @@ qz:
     avatar: https://img.xyzbz.cn/i/2022/05/20/62870d1504cc7.png
     url: 'https://xyzbz.cn'
     screenshot: https://bu.dusays.com/2022/10/13/634787cc12973.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 轻笑Chuckle'
+    avatar: https://cdn1.tianli0.top/npm/chuckle-js-css/chuckle/head.webp
+    url: 'https://www.chuckle.top'
+    screenshot: https://bu.dusays.com/2022/10/14/63483a3b636a4.jpg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
