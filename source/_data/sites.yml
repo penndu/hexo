@@ -106,6 +106,10 @@ qz:
     avatar: https://www.azplstudio.top/zb_users/upload/2022/09/202209191663576062474061.jpg
     url: 'https://www.azplstudio.top'
     screenshot: https://bu.dusays.com/2022/10/08/634165e0b4b2b.png
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Catch Wang’s Blog'
+    avatar: https://bu.dusays.com/2021/12/27/4bed0ff62a1fd.png
+    url: 'https://blog.catchwang.com'
+    screenshot: https://bu.dusays.com/2022/10/11/634538ace3fd3.jpg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
@@ -326,10 +330,6 @@ ny:
     avatar: https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5
     url: 'https://blog.leonus.cn'
     screenshot: https://bu.dusays.com/2022/10/11/63454ba6d799c.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Catch Wang’s Blog'
-    avatar: https://bu.dusays.com/2021/12/27/4bed0ff62a1fd.png
-    url: 'https://www.catchwang.com'
-    screenshot: https://bu.dusays.com/2022/10/11/634538ace3fd3.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> XKの博客'
     avatar: https://blog.xukaiyyds.cn/img/favicon.png
     url: 'https://blog.xukaiyyds.cn'
