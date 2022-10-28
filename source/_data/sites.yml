@@ -110,10 +110,6 @@ ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 黑石博客'
-    avatar: https://bu.dusays.com/2022/02/23/acda53da20f7c.png
-    url: 'https://www.heson10.com'
-    screenshot: https://bu.dusays.com/2022/10/11/634545522f8d4.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 凡梦星尘空间站'
     avatar: https://lisenhui.cn/imgs/avatar.png
     url: 'https://lisenhui.cn'
@@ -154,10 +150,6 @@ ny:
     avatar: https://bu.dusays.com/2022/02/23/fb4b20d4ba75c.png
     url: 'https://blog.imzjw.cn'
     screenshot: https://bu.dusays.com/2022/10/11/6345463523d93.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Xu’s Blog'
-    avatar: https://hasaik.com/images/avatar.jpg
-    url: 'https://hasaik.com'
-    screenshot: https://bu.dusays.com/2022/10/11/6345467629d93.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 肥虫汽水摊'
     avatar: https://bu.dusays.com/2022/02/23/695eed9a45a72.png
     url: 'https://bugcola.com'
@@ -194,10 +186,6 @@ ny:
     avatar: https://wiki.eryajf.net/img/logo.png
     url: 'https://wiki.eryajf.net'
     screenshot: https://bu.dusays.com/2022/10/11/634547527cb8c.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 城南以南花亦开'
-    avatar: https://bu.dusays.com/2022/02/23/c8af14368d783.png
-    url: 'https://coonaa.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/6345476236e43.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 宁乐熙旅行'
     avatar: https://bu.dusays.com/2021/08/27/e0702846c5985.png
     url: 'https://ninglexi.com'
@@ -242,10 +230,6 @@ ny:
     avatar: https://hin.cool/favicon.ico
     url: 'https://hin.cool'
     screenshot: https://bu.dusays.com/2022/10/11/634548f6270a2.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> MrZeFr的小窝'
-    avatar: https://cdn.afdelivr.top/npm/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
-    url: 'https://blog.mrzefr.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/634549bb032eb.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> fred 随笔'
     avatar: https://bu.dusays.com/2022/07/08/62c7ad29019cb.webp
     url: 'https://alialili.cn'
@@ -277,7 +261,7 @@ ny:
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Shixiaocaia'
     avatar: https://bu.dusays.com/2022/08/09/62f26322f2dda.jpeg
     url: 'https://shixiaocaia.fun'
-    screenshot: https://bu.dusays.com/2022/10/11/63454a9b0811b.jpg
+    screenshot: https://bu.dusays.com/2022/10/29/635c11b491a54.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 青灯暮雨'
     avatar: https://www.blatr.cn/images/adminAvatar.jpg
     url: 'https://www.blatr.cn'
