@@ -30,10 +30,6 @@ qz:
     avatar: https://cdn.dusays.com/avatar.png
     url: 'https://www.linlinzzo.top'
     screenshot: https://bu.dusays.com/2022/10/11/634536961b702.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> R0A1NG’s Blog'
-    avatar: https://www.roaing.com/fff.jpg
-    url: 'https://www.roaing.com'
-    screenshot: https://bu.dusays.com/2022/10/11/634536ad23c9c.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Dr.Pika’s Blog'
     avatar: https://cdn.dusays.com/avatar.png
     url: 'https://blog.drpika.com'
@@ -63,13 +59,9 @@ qz:
     url: 'https://blog.beacox.space'
     screenshot: https://bu.dusays.com/2022/10/26/635916434c597.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Cold’blog'
-    avatar: https://cdn.coldimg.com/2022/05/18/62846fcfbc11c.jpg
+    avatar: https://ucdn.coldyun.cn/handsome/handsome8.00/assets/img/tou.jpg
     url: 'https://www.coldyun.cn'
     screenshot: https://bu.dusays.com/2022/10/11/63453844d294f.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Felix_Chenの基地'
-    avatar: https://www.felixchen0707.cn/img/theme_img/profile.jpg
-    url: 'https://www.felixchen0707.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/6345386e4f541.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 轻淡时光'
     avatar: https://www.lybblog.cn/logo/logoico.jpg
     url: 'https://www.lybblog.cn'
@@ -358,3 +350,7 @@ ny:
     avatar: https://www.eacls.top/img/favicon.png
     url: 'https://www.eacls.top'
     screenshot: https://bu.dusays.com/2022/10/26/635925dd5bf7d.png
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Felix_Chenの基地'
+    avatar: https://i.imgtg.com/2022/06/06/n3ORs.jpg
+    url: 'https://www.felixchen0707.cn'
+    screenshot: https://bu.dusays.com/2022/10/11/6345386e4f541.jpg
