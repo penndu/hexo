@@ -18,12 +18,5 @@ comments: false
         sort_rule: 'created'
     }
 </script>
-<style>
-article#page {
-    transform: none;
-    transition: none;
-    backdrop-filter: none;
-}
-</style>
-<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.0/dist/app.min.js"></script>
-<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.0/dist/bundle.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fcircle-theme-yyyz@1.0.1/dist/app.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fcircle-theme-yyyz@1.0.1/dist/bundle.js"></script>
