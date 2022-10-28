@@ -25,5 +25,5 @@ article#page {
     backdrop-filter: none;
 }
 </style>
-<script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.39/fcircle/app.min.js"></script>
-<script type="text/javascript" src="https://npm.elemecdn.com/imgscdn@1.1.39/fcircle/bundle.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/browse/fcircle-theme-yyyz@latest/dist/app.min.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/browse/fcircle-theme-yyyz@latest/dist/bundle.js"></script>
