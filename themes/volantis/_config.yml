@@ -362,10 +362,10 @@ article:
       # ----------------
       # 打赏组件 (for layout: post)
       donate:
-        enable: false
+        enable: true
         images:
-          - volantis-static/media/org.volantis/blog/qrcode/github@volantis.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-          - volantis-static/media/org.volantis/blog/qrcode/github@volantis.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+          - https://bu.dusays.com/2022/10/29/635d14bb30028.jpg # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+          - https://bu.dusays.com/2022/10/29/635d14c593427.jpg # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
     # meta library
     meta_library:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
