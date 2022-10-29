@@ -937,7 +937,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4]
+  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3]
   social:
     - img: https://cdn.dusays.com/020-rss.svg
       url: atom.xml
@@ -1193,12 +1193,12 @@ plugins:
   fcircle:
     # Set `plugins: ["fcircle"]` to enable in front-matter
     # 支持 Pjax
-    private_api_url: https://fcircle-api.example.com/ # api 地址
+    private_api_url: https://f.dusays.com/ # api 地址
     page_turning_number: 10  # 点击加载更多时，一次最多加载几篇文章，默认10
-    error_img: https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c # 头像加载失败时，默认头像地址
-    sort_rule: updated # 进入页面时第一次的排序规则,可选值：created/updated
-    app: https://unpkg.com/imgscdn@1.1.39/fcircle/app.min.js # app.min.js的url
-    bundle: https://unpkg.com/imgscdn@1.1.39/fcircle/bundle.js # bundle.js的url
+    error_img: https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30 # 头像加载失败时，默认头像地址
+    sort_rule: created # 进入页面时第一次的排序规则,可选值：created/updated
+    app: https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.1/dist/app.min.js # app.min.js的url
+    bundle: https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.1/dist/bundle.js # bundle.js的url
 
   # 消息提示 
   # izitoast
