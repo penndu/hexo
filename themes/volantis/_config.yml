@@ -1350,14 +1350,14 @@ rightmenus:
 # npm i hexo-generator-json-content
 search:
   enable: true
-  service: algolia  # hexo, algolia, meilisearch
+  service: meilisearch  # hexo, algolia, meilisearch
   algolia:
     searchAsYouType: true # If false, triggers the search only on submit.
     hitsPerPage: 50 # Set the number of hits per page.
     placeholder: 'Search...' # The placeholder text of the input.
   meilisearch:
     placeholder: 'Search...'
-    searchKey: 'dbb2de012ca2e7a704c9f883d2d61671ca658a465268a8d8142efe82c7bac364'
+    searchKey: 'fedf15ad8b5461f4217c38d3ec6bf65baa844ba5a7bcb26c98d4be9af785fc59'
     indexName: 'hexo'
     hostUrl: 'https://m.dusays.com'
 
