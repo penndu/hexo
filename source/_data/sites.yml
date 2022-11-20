@@ -162,10 +162,6 @@ ny:
     avatar: https://cdn.dusays.com/avatar.png
     url: 'https://blog.xcatliu.com'
     screenshot: https://bu.dusays.com/2022/10/11/63454626d5782.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小嘉的部落格'
-    avatar: https://bu.dusays.com/2022/02/23/fb4b20d4ba75c.png
-    url: 'https://blog.imzjw.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/6345463523d93.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 肥虫汽水摊'
     avatar: https://bu.dusays.com/2022/02/23/695eed9a45a72.png
     url: 'https://bugcola.com'
@@ -222,10 +218,6 @@ ny:
     avatar: https://vian.top/avatar.ico
     url: 'https://www.vian.top'
     screenshot: https://bu.dusays.com/2022/10/11/6345480d97b31.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Po7mn1'
-    avatar: https://bu.dusays.com/2022/02/23/e5c4ea7a72168.png
-    url: 'https://blog.icecliffs.me'
-    screenshot: https://bu.dusays.com/2022/10/11/63454829423a3.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 沐印小站'
     avatar: https://c.undf.top/icon/android-chrome-144x144.png
     url: 'https://undf.top'
@@ -308,7 +300,7 @@ ny:
     screenshot: https://bu.dusays.com/2022/10/11/63454b4d4bd58.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 今夕何夕兮'
     avatar: https://cdn.jsdelivr.net/gh/lyboy-wp/jscdn/img/favicon.ico
-    url: 'https://www.lyboy.top'
+    url: 'https://www.ginc.site'
     screenshot: https://bu.dusays.com/2022/10/11/63454b58a4615.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> WindBack'
     avatar: https://static.windback.xyz/avatar.jpg
@@ -330,18 +322,10 @@ ny:
     avatar: https://easyf12.top/img/avatar.webp
     url: 'https://www.easyf12.top'
     screenshot: https://bu.dusays.com/2022/10/15/634ac079d4f87.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> SHEAN'
-    avatar: https://shean.world/static/images/logo.png
-    url: 'https://shean.world'
-    screenshot: https://bu.dusays.com/2022/10/24/635620c0ae738.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Uyoahz'
     avatar: https://q1.qlogo.cn/g?b=qq&nk=2496091142&s=640
     url: 'https://uyoahz.cn'
     screenshot: https://bu.dusays.com/2022/10/25/6357f8ab365a7.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Eacls'
-    avatar: https://www.eacls.top/img/favicon.png
-    url: 'https://www.eacls.top'
-    screenshot: https://bu.dusays.com/2022/10/26/635925dd5bf7d.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 浅秋枫影的博客'
     avatar: https://cuojue.org/avatar/b81741f1a25b57a016e223fe13f905b4
     url: 'https://cuojue.org'
@@ -358,10 +342,6 @@ ny:
     avatar: https://q.qlogo.cn/g?b=sdk&k=UeVu6eVo5SdL2Eu7PiczvTw&s=640
     url: 'https://blog.zets.cn'
     screenshot: https://bu.dusays.com/2022/11/10/636bdb36d7572.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> DeCheng'
-    avatar: https://q1.qlogo.cn/g?b=qq&nk=20852109&s=640
-    url: 'https://cyolc932.fun'
-    screenshot: https://bu.dusays.com/2022/11/13/63711037b6f6e.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 林林杂语'
     avatar: https://cravatar.cn/avatar/04bfc914bd50b42eb507bf66aad0cc31?d=mp&s=80
     url: 'https://www.xiaozonglin.cn'
