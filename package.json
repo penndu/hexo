@@ -12,6 +12,12 @@
     "version": "6.2.0"
   },
   "dependencies": {
+    "@jridgewell/gen-mapping": "^0.3.2",
+    "@jridgewell/resolve-uri": "^3.1.0",
+    "@jridgewell/set-array": "^1.1.2",
+    "@jridgewell/source-map": "^0.3.2",
+    "@jridgewell/sourcemap-codec": "^1.4.14",
+    "@jridgewell/trace-mapping": "^0.3.17",
     "hexo": "^6.3.0",
     "hexo-algoliasearch": "^1.0.0",
     "hexo-autoprefixer": "^2.0.0",
@@ -33,6 +39,7 @@
     "hexo-server": "^3.0.0",
     "hexo-uuid": "^1.0.2",
     "hexo-wordcount": "^6.0.1",
+    "moment-timezone": "^0.5.39",
     "speech-rule-engine": "^4.0.7"
   },
   "devDependencies": {
