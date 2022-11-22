@@ -1021,7 +1021,7 @@ plugins:
       - https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js
       - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://unpkg.com/prismjs/themes/prism-dark.css
+      - https://unpkg.com/prismjs/themes/prism-okaidia.css
       - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
