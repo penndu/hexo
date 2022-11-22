@@ -122,6 +122,10 @@ qz:
     avatar: https://www.codeqihan.com/images/avatar.png
     url: 'https://www.codeqihan.com'
     screenshot: https://bu.dusays.com/2022/11/19/6378d15028147.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 免费主机'
+    avatar: https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30?d=mp&s=80
+    url: 'https://www.freehost.cc'
+    screenshot: https://bu.dusays.com/2022/11/22/637c702a4e3f8.jpg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
@@ -354,3 +358,11 @@ ny:
     avatar: https://cravatar.cn/avatar/04bfc914bd50b42eb507bf66aad0cc31?d=mp&s=80
     url: 'https://www.xiaozonglin.cn'
     screenshot: https://bu.dusays.com/2022/11/18/637763b1ee3e2.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阳光下的小宁宁'
+    avatar: https://www.yuanning0818.tk/logo.png
+    url: 'https://www.yuanning0818.tk'
+    screenshot: https://bu.dusays.com/2022/11/22/637c702a4c987.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 萌萌の美少女'
+    avatar: https://moe-girl.tk/logo.png
+    url: 'https://moe-girl.tk'
+    screenshot: https://bu.dusays.com/2022/11/22/637c702a4cd91.jpg
