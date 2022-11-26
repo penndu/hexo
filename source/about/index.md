@@ -27,13 +27,13 @@ title: 关于
 
 {% timenode 2022 年 11 月 26 日 %}
 
-本博客全面本地化，欢迎小伙伴们来测试稳定性；
+杜老师说站点接入林林小盆友提供 Umami 访问分析服务，如因此导致访问中出现问题，欢迎随时反馈。
 
 {% endtimenode %}
 
 {% timenode 2022 年 11 月 24 日 %}
 
-经多方测试 Meilisearch 的标题检索异常，正式修复前先切换至 Algolia；
+因 Volantis 版本升级的原因，本站下线 Pjax 无刷新页面加载效果；
 
 {% endtimenode %}
 
