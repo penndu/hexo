@@ -25,9 +25,23 @@ title: 关于
 
 {% timeline 本站事件 %}
 
+{% timenode 2022 年 11 月 26 日 %}
+
+本博客全面本地化，欢迎小伙伴们来测试稳定性；
+
+{% endtimenode %}
+
+{% timenode 2022 年 11 月 24 日 %}
+
+经多方测试 Meilisearch 的标题检索异常，正式修复前先切换至 Algolia；
+
+{% endtimenode %}
+
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2022 年 10 月 04 日 %}
 
-本博客全面本地化，欢迎小伙伴们来测试稳定性。
+本博客全面本地化，欢迎小伙伴们来测试稳定性；
 
 {% endtimenode %}
 
@@ -36,8 +50,6 @@ title: 关于
 经多方测试 Meilisearch 的标题检索异常，正式修复前先切换至 Algolia；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2022 年 09 月 04 日 %}
 
