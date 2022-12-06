@@ -10,11 +10,12 @@
 }
 #comments
   overflow: inherit
-#l_body.grayscale #l_side section.widget:nth-child(-n+3),
-#l_body.grayscale #l_main .post-list > .post-wrapper:nth-child(-n+3) {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
+html {
+filter:grayscale(100%);
+-webkit-filter:grayscale(100%);
+-moz-filter:grayscale(100%);
+-ms-filter:grayscale(100%);
+-o-filter:grayscale(100%);
+filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+-webkit-filter:grayscale(1)
 }
