@@ -134,6 +134,14 @@ qz:
     avatar: https://bu.dusays.com/2022/05/02/626f92e193879.jpg
     url: 'https://tzy1997.com'
     screenshot: https://bu.dusays.com/2022/10/11/63454a80815f7.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Leonus'
+    avatar: https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5
+    url: 'https://blog.leonus.cn'
+    screenshot: https://bu.dusays.com/2022/10/11/63454ba6d799c.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阳光下的小宁宁'
+    avatar: https://www.yuanning0818.tk/logo.png
+    url: 'https://www.yuanning0818.tk'
+    screenshot: https://bu.dusays.com/2022/11/22/637c702a4c987.jpg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
@@ -214,10 +222,6 @@ ny:
     avatar: https://bu.dusays.com/2021/08/27/e0702846c5985.png
     url: 'https://www.zentravel.cc'
     screenshot: https://bu.dusays.com/2022/10/11/634547944727d.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 徐泽林的博客'
-    avatar: https://pic.zlinblog.cn/avatar.jpg
-    url: 'https://www.zlinblog.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/634547a24f733.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> kelecn'
     avatar: https://bu.dusays.com/2022/02/23/3003102f933e1.png
     url: 'https://kelecn.top'
@@ -314,10 +318,6 @@ ny:
     avatar: https://static.windback.xyz/avatar.jpg
     url: 'https://windback.xyz'
     screenshot: https://bu.dusays.com/2022/11/19/6378b0fa1e6a3.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Leonus'
-    avatar: https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5
-    url: 'https://blog.leonus.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/63454ba6d799c.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> XKの博客'
     avatar: https://www.xukaiyyds.cn/img/favicon.png
     url: 'https://blog.xukaiyyds.cn'
@@ -382,7 +382,3 @@ ny:
     avatar: https://bu.dusays.com/2022/12/05/638dcd9f515d3.png
     url: 'https://202271.xyz'
     screenshot: https://bu.dusays.com/2022/12/05/638dd51becc4f.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阳光下的小宁宁'
-    avatar: https://www.yuanning0818.tk/logo.png
-    url: 'https://www.yuanning0818.tk'
-    screenshot: https://bu.dusays.com/2022/11/22/637c702a4c987.jpg
