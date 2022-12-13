@@ -1,11 +1,19 @@
 <script>
-  volantis.layoutHelper("comments",`<div id="artalk_container"><i style="display:block;margin:0 auto;" class="fa-light fa-cog fa-spin fa-fw fa-2x"></i></div>`);
+  volantis.layoutHelper("comments",`<div id="artalk_container"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`);
   function load_artalk() {
     if(!document.querySelectorAll("#artalk_container")[0])return;
     volantis.css("<%- theme.cdn.artalk_css %>");
-    volantis.js("<%- theme.cdn.artalk_js %>").then(pjax_artalk);
+    <% if (theme.comments.artalk.latex) { %>
+    volantis.css("<%- theme.cdn.katex_css %>");
+    volantis.js("<%- theme.cdn.katex_js %>");
+    volantis.js("<%- theme.cdn.artalk_js %>");
+    volantis.js("<%- theme.cdn.artalk_katex %>").then(p_artalk);
+    <% } else { %>
+    volantis.js("<%- theme.cdn.artalk_js %>").then(p_artalk);
+    <% } %>
   }
-  function pjax_artalk() {
+
+  function p_artalk() {
     if(!document.querySelectorAll("#artalk_container")[0])return;
     let path = pdata.commentPath;
     let placeholder = pdata.commentPlaceholder || "<%= theme.comments.artalk.placeholder %>" || "";
@@ -15,6 +23,7 @@
     if(!'<%= config.permalink %>'.includes('/index.html')) {
       path = path.replaceAll('/index.html', '/').replaceAll('.html', '')
     }
+
     volantis.artalk = new Artalk(Object.assign(<%- JSON.stringify(theme.comments.artalk) %>, {
       el: '#artalk_container',
       pageKey: path,
@@ -24,6 +33,7 @@
       site: '<%= config.title %>',
       darkMode: volantis.dark.mode === "dark",
       pvEl: '#artalk_visitors',
+
       <% if(!!theme.comments.artalk.imageUploader?.api){ %>
       imgUploader: function(file) {
         let headers = new Headers();
@@ -42,6 +52,7 @@
       },
       <% } %>
     }));
+
     Artalk.use(ctx => {
       ctx.on('list-loaded', () => {
         if (typeof VolantisFancyBox === "undefined"){
@@ -56,14 +67,9 @@
       })
     })
   }
+
   load_artalk();
-  volantis.pjax.push(()=>{
-    if (typeof Artalk === "undefined") {
-      load_artalk();
-    } else {
-      pjax_artalk();
-    }
-  },'artalk');
+
   function dark_artalk() {
     if(!document.querySelectorAll("#artalk_container")[0]) return;
     volantis?.artalk?.setDarkMode(volantis.dark.mode === "dark")
