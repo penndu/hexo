@@ -39,7 +39,7 @@
     "hexo-server": "^3.0.0",
     "hexo-uuid": "^1.0.2",
     "hexo-wordcount": "^6.0.1",
-    "moment-timezone": "^0.5.39",
+    "moment-timezone": "^0.5.40",
     "speech-rule-engine": "^4.0.7"
   },
   "devDependencies": {
