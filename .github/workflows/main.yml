@@ -17,6 +17,10 @@ jobs:
         node-version: '16.17'
         cache: 'npm'
         cache-dependency-path: package-lock.json
+    - name: npm
+      run: |
+        npm i -g hexo-cli
+        npm i
     - name: Cache node modules
       id: cache-npm
       uses: actions/cache@v3
@@ -29,10 +33,6 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-    - name: npm
-      run: |
-        npm i -g hexo-cli
-        npm i
     - name: hexo
       run: |
         hexo g --slient
