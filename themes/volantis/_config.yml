@@ -624,8 +624,9 @@ sidebar:
           url: /atom.xml
         - icon: fa-solid fa-image
           url: https://7bu.top/
-        - icon: fa-solid fa-subway
-          url: https://travellings.link/
+        - img: https://bu.dusays.com/2023/01/03/63b3c053c0723.png
+        # - icon: fa-solid fa-subway
+          url: https://www.travellings.cn/go.html
         - icon: fa-solid fa-sitemap
           url: https://dusays.com/baidusitemap.xml
     # ---------------------------------------
