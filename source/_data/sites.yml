@@ -74,10 +74,10 @@ qz:
     avatar: https://www.linkkk.top/tx.jpg
     url: 'https://www.linkkk.top'
     screenshot: https://bu.dusays.com/2022/10/11/634538d7558c3.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> DIDCTF-Blog'
-    avatar: https://bu.dusays.com/2022/09/14/6321ef7292527.jpg
-    url: 'https://blog.didctf.com'
-    screenshot: https://bu.dusays.com/2022/10/11/634538e267423.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> ZhangZ-Blog'
+    avatar: https://www.zhangz.cc/avatar.png
+    url: 'https://www.zhangz.cc'
+    screenshot: https://bu.dusays.com/2023/01/13/63c126d19f638.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云帆沧海'
     avatar: https://yf-ch.com/img/favicon.png
     url: 'https://yf-ch.com'
@@ -142,6 +142,10 @@ qz:
     avatar: https://www.yuanning0818.tk/logo.png
     url: 'https://www.yuanning0818.tk'
     screenshot: https://bu.dusays.com/2022/11/22/637c702a4c987.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> bill的小站'
+    avatar: https://s2.232232.xyz/static/117/2022/12/27-63aad8a6af8d4.png
+    url: 'http://1703.site'
+    screenshot: https://bu.dusays.com/2023/01/05/63b6d7bc48b26.jpeg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
@@ -410,10 +414,6 @@ ny:
     avatar: https://bu.dusays.com/2022/12/22/63a3d30dae7b8.webp
     url: 'https://adguy.top'
     screenshot: https://bu.dusays.com/2022/12/28/63abaeef539fb.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> bill的小站'
-    avatar: https://s2.232232.xyz/static/117/2022/12/27-63aad8a6af8d4.png
-    url: 'http://1703.site'
-    screenshot: https://bu.dusays.com/2023/01/05/63b6d7bc48b26.jpeg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Peter’s Blog'
     avatar: https://bu.dusays.com/2022/06/21/62b1583017bae.jpg
     url: 'https://www.rainogo.com'
