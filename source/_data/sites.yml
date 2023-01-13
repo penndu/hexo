@@ -142,6 +142,14 @@ qz:
     avatar: https://mcdn.moezz.cn/avatar.jpg
     url: 'https://www.moezz.cn'
     screenshot: https://bu.dusays.com/2023/01/13/63c15b1bf0631.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 林林杂语'
+    avatar: https://cravatar.cn/avatar/04bfc914bd50b42eb507bf66aad0cc31?d=mp&s=80
+    url: 'https://www.xiaozonglin.cn'
+    screenshot: https://bu.dusays.com/2022/11/18/637763b1ee3e2.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 张洪Heo'
+    avatar: https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png
+    url: 'https://blog.zhheo.com'
+    screenshot: https://bu.dusays.com/2022/12/21/63a2a28775457.jpg
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
@@ -186,10 +194,6 @@ ny:
     avatar: https://bu.dusays.com/2022/02/23/695eed9a45a72.png
     url: 'https://bugcola.com'
     screenshot: https://bu.dusays.com/2022/10/11/634546af8940c.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> CCAI'
-    avatar: https://bu.dusays.com/2022/02/23/2d9aa6a798390.png
-    url: 'https://iccai.tk'
-    screenshot: https://bu.dusays.com/2022/10/11/634546be28bf5.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Wayne’s blog'
     avatar: https://bu.dusays.com/2022/02/23/747a9df26d0da.png
     url: 'https://wrans.top'
@@ -214,10 +218,6 @@ ny:
     avatar: https://bu.dusays.com/2022/02/23/53c67c02fc3c5.png
     url: 'https://www.hermitlsr.top'
     screenshot: https://bu.dusays.com/2022/10/11/63454736d4ea7.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 二丫讲梵'
-    avatar: https://wiki.eryajf.net/img/logo.png
-    url: 'https://wiki.eryajf.net'
-    screenshot: https://bu.dusays.com/2022/10/11/634547527cb8c.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 禅旅行博客'
     avatar: https://bu.dusays.com/2021/08/27/e0702846c5985.png
     url: 'https://www.zentravel.cc'
@@ -354,14 +354,6 @@ ny:
     avatar: https://hexo.dc6.fun/img/Avatar.jpg
     url: 'https://hexo.dc6.fun'
     screenshot: https://bu.dusays.com/2023/01/10/63bd7fe992226.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 林林杂语'
-    avatar: https://cravatar.cn/avatar/04bfc914bd50b42eb507bf66aad0cc31?d=mp&s=80
-    url: 'https://www.xiaozonglin.cn'
-    screenshot: https://bu.dusays.com/2022/11/18/637763b1ee3e2.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 萌萌の美少女'
-    avatar: https://moe-girl.tk/logo.png
-    url: 'https://moe-girl.tk'
-    screenshot: https://bu.dusays.com/2022/11/22/637c702a4cd91.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 星日语'
     avatar: https://weekdaycare.cn/asset/avatar.svg
     url: 'https://weekdaycare.cn'
@@ -394,10 +386,6 @@ ny:
     avatar: https://bu.dusays.com/2022/12/15/639a81c28f3bc.png
     url: 'https://blog.lovelu.top'
     screenshot: https://bu.dusays.com/2022/12/21/63a2a27e81687.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 张洪Heo'
-    avatar: https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png
-    url: 'https://blog.zhheo.com'
-    screenshot: https://bu.dusays.com/2022/12/21/63a2a28775457.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 安知鱼'
     avatar: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
     url: 'https://anzhiy.cn'
