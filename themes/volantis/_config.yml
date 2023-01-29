@@ -209,7 +209,7 @@ navbar:
 ############################### Cover ############################### > start
 cover:
   height_scheme: half # full, half
-  layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
+  layout_scheme: search # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
     home: true
     archive: true
@@ -217,9 +217,9 @@ cover:
   background: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
-  title: 'Volantis'
-  subtitle: ''
-  search: A Wonderful Theme for Hexo # search bar placeholder
+  title: '杜老师说'
+  subtitle: '师者，传道，授业，解惑！'
+  search: 输关键词「回车」搜索 # search bar placeholder
   features:
     - name: 文档
       icon: #
