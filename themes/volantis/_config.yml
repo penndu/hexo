@@ -211,9 +211,9 @@ cover:
   height_scheme: half # full, half
   layout_scheme: blank # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
-    home: true
-    archive: true
-    others: true # can be written in front-matter 'cover: true'
+    home: false
+    archive: false
+    others: false # can be written in front-matter 'cover: true'
   background: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
