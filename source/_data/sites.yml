@@ -10,10 +10,6 @@ qz:
     avatar: https://bu.dusays.com/2022/02/23/cb173cbdcc7c6.png
     url: 'https://colsrch.cn'
     screenshot: https://bu.dusays.com/2022/10/11/634535aa96b87.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 勤奋的思远'
-    avatar: https://bu.dusays.com/2020/11/10/ab1185891b443.png
-    url: 'https://blog.lsybk.xyz'
-    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Blogin'
     avatar: https://bu.dusays.com/2020/11/13/b54215c2293a9.jpg
     url: 'https://2dogz.cn'
@@ -442,3 +438,7 @@ ny:
     avatar: https://i1-cdn.feizhuqwq.com/img-assets/logo/faviconHD.jpg
     url: 'https://blog.feizhuqwq.com'
     screenshot: https://bu.dusays.com/2023/01/26/63d27098bc35a.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 勤奋的思远'
+    avatar: https://bu.dusays.com/2020/11/10/ab1185891b443.png
+    url: 'https://blog.lsybk.xyz'
+    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
