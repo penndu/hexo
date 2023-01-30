@@ -158,6 +158,10 @@ qz:
     avatar: https://static.wndbac.cn/avatar.jpg
     url: 'https://wndbac.cn'
     screenshot: https://bu.dusays.com/2023/01/11/63be4126e9a75.png
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 兔博'
+    avatar: https://bu.dusays.com/2023/01/16/63c4c93d3f25f.png
+    url: 'https://tubo.net.cn'
+    screenshot: https://bu.dusays.com/2023/01/16/63c4ca9de0b16.png
 ny:
   title: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
@@ -246,10 +250,6 @@ ny:
     avatar: https://c.undf.top/icon/android-chrome-144x144.png
     url: 'https://undf.top'
     screenshot: https://bu.dusays.com/2022/10/11/634548690c3ac.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> L1nSn0w’s Blog'
-    avatar: https://blog.linsnow.cn/img/avatar.png
-    url: 'https://blog.linsnow.cn'
-    screenshot: https://bu.dusays.com/2022/10/11/6345487e480bb.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> wallleap'
     avatar: https://bu.dusays.com/2022/03/14/b68e56712b914.jpg
     url: 'https://myblog.wallleap.cn'
@@ -426,10 +426,6 @@ ny:
     avatar: https://blog.gmcj0816.top/img/SeriousWission_TouXiangPic.jpg
     url: 'https://blog.gmcj0816.top'
     screenshot: https://bu.dusays.com/2023/01/16/63c42701b815a.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 兔博'
-    avatar: https://bu.dusays.com/2023/01/16/63c4c93d3f25f.png
-    url: 'https://tubo.net.cn'
-    screenshot: https://bu.dusays.com/2023/01/16/63c4ca9de0b16.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> LyShark - 孤风洗剑'
     avatar: https://www.lyshark.com/images/baidu_logo.png
     url: 'https://www.lyshark.com'
