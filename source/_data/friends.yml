@@ -1,5 +1,4 @@
-qz:
-  title: 全站链接
+- group: 全站链接
   description: 该分组为全站友情链接，不仅显示在本页内，同时显示在全站的底部。
   items:
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
@@ -162,8 +161,7 @@ qz:
     avatar: https://bu.dusays.com/2023/01/16/63c4c93d3f25f.png
     url: 'https://tubo.net.cn'
     screenshot: https://bu.dusays.com/2023/01/16/63c4ca9de0b16.png
-ny:
-  title: 内页链接
+- group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 凡梦星尘空间站'
