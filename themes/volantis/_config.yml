@@ -1066,32 +1066,67 @@ plugins:
   # 视差滚动效果 Slide Background
   parallax:
     enable: true
-    position: cover       # cover: sticky on the cover.   fixed: Fixed as background for the site.
-    shuffle: true         # shuffle playlist
+    position: fixed       # cover: sticky on the cover.   fixed: Fixed as background for the site.
+    shuffle: #true         # shuffle playlist
     duration: 10000       # Duration (ms)
     fade: 1500            # fade duration (ms) (Not more than 1500)
     images:               # For personal use only. At your own risk if used for commercial purposes !!!
-      - volantis-static/media/wallpaper/minimalist/2020/001.webp
-      - volantis-static/media/wallpaper/minimalist/2020/002.webp
-      - volantis-static/media/wallpaper/minimalist/2020/003.webp
-      - volantis-static/media/wallpaper/minimalist/2020/004.webp
-      - volantis-static/media/wallpaper/minimalist/2020/005.webp
-      - volantis-static/media/wallpaper/minimalist/2020/006.webp
-      - volantis-static/media/wallpaper/minimalist/2020/012.webp
-      - volantis-static/media/wallpaper/minimalist/2020/016.webp
-      - volantis-static/media/wallpaper/minimalist/2020/019.webp
-      - volantis-static/media/wallpaper/minimalist/2020/025.webp
-      - volantis-static/media/wallpaper/minimalist/2020/033.webp
-      - volantis-static/media/wallpaper/minimalist/2020/034.webp
-      - volantis-static/media/wallpaper/minimalist/2020/035.webp
-      - volantis-static/media/wallpaper/minimalist/2020/038.webp
-      - volantis-static/media/wallpaper/minimalist/2020/039.webp
-      - volantis-static/media/wallpaper/minimalist/2020/042.webp
-      - volantis-static/media/wallpaper/minimalist/2020/046.webp
-      - volantis-static/media/wallpaper/minimalist/2020/051.webp
-      - volantis-static/media/wallpaper/minimalist/2020/052.webp
-      - volantis-static/media/wallpaper/minimalist/2020/054.webp
-      - volantis-static/media/wallpaper/minimalist/2020/056.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45790b47.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45794cf0.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45795412.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45793ac6.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45795724.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45799dc9.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4579322f.webp
+      - https://bu.dusays.com/2023/01/31/63d8c457b0d87.webp
+      - https://bu.dusays.com/2023/01/31/63d8c457b476d.webp
+      - https://bu.dusays.com/2023/01/31/63d8c457d61c3.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4582ff87.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4584bfe8.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4584d600.webp
+      - https://bu.dusays.com/2023/01/31/63d8c458630dd.webp
+      - https://bu.dusays.com/2023/01/31/63d8c458539d4.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4586164a.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45868f75.webp
+      - https://bu.dusays.com/2023/01/31/63d8c458611a3.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4586f3a0.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4587899e.webp
+      - https://bu.dusays.com/2023/01/31/63d8c458c5a8f.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45917aed.webp
+      - https://bu.dusays.com/2023/01/31/63d8c459186cc.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45917aed.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4592f1a8.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4592f1a4.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4592fdad.webp
+      - https://bu.dusays.com/2023/01/31/63d8c459353f2.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45936d22.webp
+      - https://bu.dusays.com/2023/01/31/63d8c4594065d.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45969b92.webp
+      - https://bu.dusays.com/2022/10/16/634bff372aa2b.webp
+      - https://bu.dusays.com/2023/01/31/63d8c459f3298.webp
+      - https://bu.dusays.com/2023/01/31/63d8c459e2b02.webp
+      - https://bu.dusays.com/2023/01/31/63d8c459f3298.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45a1769c.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45a18d35.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45a1a0ba.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45a2211e.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45a2696b.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45a44f9b.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45aed09b.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45ae5617.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45ae5d9d.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45ae8b31.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45aee807.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45b2d053.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45b29362.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45ae8199.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45b2d5df.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45b2b2c3.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45c2dba0.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45c36566.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45c2c5fe.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45c3049f.webp
+      - https://bu.dusays.com/2023/01/31/63d8c45c4c4f2.webp
 
   # APlayer is only available in mainland China.
   # https://aplayer.js.org/#/zh-Hans/
