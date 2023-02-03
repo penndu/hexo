@@ -120,7 +120,7 @@ content_visibility: false
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://npm.onmicrosoft.cn/
+  - https://unpkg.com/ => https://jsd.onmicrosoft.cn/npm/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
@@ -132,7 +132,7 @@ dns_prefetch:
   - https://cdn.dusays.com
   - https://f.dusays.com
   - https://s.dusays.com
-  - https://npm.onmicrosoft.cn
+  - https://jsd.onmicrosoft.cn
 
 
 # 平滑滚动效果
