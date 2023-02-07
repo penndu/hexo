@@ -457,7 +457,7 @@ comments:
       children: 0      # 评论区域限高
     versionCheck: false
     gravatar: {
-      mirror: 'https://cravatar.cn/avatar/'
+      mirror: 'https://cdn.sep.cc/avatar/'
     }
     darkMode: auto
     # 更多置项可在 Artalk 后端进行配置，详见 https://artalk.js.org/guide/backend/fe-control.html
@@ -1228,7 +1228,7 @@ plugins:
     # Set `plugins: ["fcircle"]` to enable in front-matter
     private_api_url: https://f.dusays.com/ # api 地址
     page_turning_number: 10  # 点击加载更多时，一次最多加载几篇文章，默认10
-    error_img: https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30 # 头像加载失败时，默认头像地址
+    error_img: https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30 # 头像加载失败时，默认头像地址
     sort_rule: created # 进入页面时第一次的排序规则,可选值：created/updated
     js: https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.10/dist/fcircle.min.js # fcircle.min.js的url
 
