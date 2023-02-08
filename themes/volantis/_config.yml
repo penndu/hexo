@@ -614,7 +614,7 @@ comments:
 sidebar:
   position: right # left right
   # 主页、分类、归档等独立页面
-  for_page: [blogger, artalk, zanzhu, sffw, vpsor, cowtransfer, dao_hang, category, tagcloud, webinfo]
+  for_page: [blogger, artalk, zanzhu, sffw, vpsor, cowtransfer, dao_hang, category, tagcloud, webinfo, tui_jian]
   # layout: docs/post 这类文章页面
   for_post: [blogger, toc, artalk, zanzhu, sffw, vpsor, cowtransfer, dao_hang, category, tagcloud, webinfo]
   # 侧边栏组件库
@@ -756,125 +756,17 @@ sidebar:
       display: [desktop, mobile]
       header:
         icon: fas fa-thumbs-up
-        title: 友情链接
+        title: 付费链接
         url: /friends/
       rows:
-        - name: 贝贝吧
-          img: https://cdn.dusays.com/avatar.png
-          url: https://www.hibbba.com/
+        - name: tp钱包
+          url: https://www.tokenpockety.net
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: Colsrch
-          img: https://bu.dusays.com/2022/02/23/cb173cbdcc7c6.png
-          url: https://colsrch.cn/
+        - name: tokenpocket
+          url: https://www.tokenpockety.net
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 勤奋的思远
-          img: https://bu.dusays.com/2020/11/10/ab1185891b443.png
-          url: https://lsybk.xyz/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: Blogin
-          img: https://bu.dusays.com/2020/11/13/b54215c2293a9.jpg
-          url: https://2dogz.cn/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 科研软件小站
-          img: https://bu.dusays.com/2021/08/25/6ea5def2f92c9.jpg
-          url: https://www.sciencesoft.cn/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 梦之国
-          img: https://cdn.dusays.com/avatar.png
-          url: https://www.dreamcs6.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 林林杂语
-          img: https://cdn.dusays.com/avatar.png
-          url: https://www.linlinzzo.top/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: R0A1NG’s blog
-          img: https://www.roaing.com/fff.jpg
-          url: https://www.roaing.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: Dr.Pika’s Blog
-          img: https://cdn.dusays.com/avatar.png
-          url: https://blog.drpika.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 懵懂の初一少年
-          img: https://img.yt-blog.top/png/logo.png
-          url: https://www.yt-blog.top/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 风记星辰
-          img: https://std.thyuu.com/logo.png
-          url: https://www.thyuu.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 宇哥博客
-          img: https://cdn.dusays.com/avatar.png
-          url: http://www.ygbks.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: Hackyh’Blog
-          img: https://www.hackyh.com/avatar.png
-          url: https://www.hackyh.com/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 凡梦星尘空间站
-          img: https://lisenhui.cn/img/avatar.png
-          url: https://lisenhui.cn/
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 小简博客
-          img: https://bu.dusays.com/2022/05/31/6295d1906b264.jpg
-          url: https://blog.ideaopen.cn/
-          target: _blank
-        - name: 宏的自留地
-          img: https://bu.dusays.com/2022/07/29/62e3da4bd12a4.jpg
-          url: https://arcitcgn.cn/
-          target: _blank
-        - name: joojen个人博客
-          img: https://cdn.dusays.com/avatar.png
-          url: https://joojen.com/
-          target: _blank
-        - name: Bowenの破站
-          img: https://bu.dusays.com/2022/06/15/62a93264df1b4.png
-          url: https://bowenyoung.cn/
-          target: _blank
-        - name: Cold’blog
-          img: https://cdn.coldimg.com/2022/05/18/62846fcfbc11c.jpg
-          url: https://www.coldyun.cn/
-          target: _blank
-        - name: Felix_Chenの基地
-          img: https://www.felixchen0707.cn/img/theme_img/profile.jpg
-          url: https://www.felixchen0707.cn/
-          target: _blank
-        - name: 十年之约论坛
-          img: https://bu.dusays.com/2022/07/30/62e427c55a4a9.png
-          url: https://xyears.cn/
-          target: _blank
-        - name: linkkk的小屋
-          img: https://www.linkkk.top/image/tx.jpg
-          url: https://www.linkkk.top/
-          target: _blank
-        - name: 轻淡时光
-          img: https://www.lybblog.cn/logo/logoico.jpg
-          url: https://www.lybblog.cn/
-          target: _blank
-        - name: Hello Lin
-          img: https://bu.dusays.com/2022/08/02/62e8d85fa20f5.png
-          url: http://www.hellolin.cn/
-          target: _blank
-        - name: 杜老师说
-          img: https://cdn.dusays.com/avatar.png
-          url: https://dusays.com/
-        - name: 友链申请
-          img: https://cdn.dusays.com/avatar.png
-          url: https://dusays.com/friends/
     # webinfo widget
     webinfo:
       class: webinfo
@@ -971,7 +863,7 @@ site_footer:
   link2: '[小简博客](https://blog.ideaopen.cn/) | [joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [Cold’blog](https://www.coldyun.cn/) | [轻淡时光](https://www.lybblog.cn/) | [Hello Lin](https://www.hellolin.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [ZhangZ-Blog](https://www.zhangz.cc/) | [云帆沧海](https://yf-ch.com/)'
   link3: '[网友小宋](https://xyzbz.cn/) | [轻笑Chuckle](https://www.chuckle.top/) | [AZPL](https://www.azplstudio.top/) | [宏的自留地](https://szraz.cn/) | [xaoxuu](https://xaoxuu.com/) | [Felix_Chenの基地](https://blog.felixchen0707.cn/) | [obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/) | [免费主机](https://www.freehost.cc/) | [Rose博客](https://rosebk.cn/)'
   link4: '[Ethan.Tzy](https://tzy1997.com/) | [Leonus](https://blog.leonus.cn/) | [阳光下的小宁宁](https://www.yuanning0818.tk/) | [bill的小站](http://blog.1703.site/) | [Ryan’s Blog](https://www.moezz.cn/) | [林林杂语](https://www.xiaozonglin.cn/) | [张洪Heo](https://blog.zhheo.com/) | [Shine](https://blog.shineyu.cn/) | [淇云博客](https://www.pengqi.club/) | [WindBack](https://wndbac.cn/)'
-  link5: '[tp钱包下载](https://www.yzbf.net/) | [tokenpocket](https://www.tokenpockety.net/) | [tp钱包](https://www.tokenpockety.net/)| [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
+  link5: '[tp钱包下载](https://www.yzbf.net/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
