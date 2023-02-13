@@ -199,12 +199,11 @@ navbar:
       icon: fa-solid fa-comment
       url: https://dusays.com/shuoshuo/
     - name: 图床
-      #icon: fa-solid fa-image
-      img: https://7bu.top/favicon.ico
+      icon: fa-solid fa-image
       url: https://7bu.top
       target: _blank
     - name: 知乎
-      img: https://static.zhihu.com/heifetz/favicon.ico
+      icon: fa-solid fa-question
       url: https://www.zhihu.com/people/dusays
       target: _blank
   search: 输关键词「回车」搜索   # Search bar placeholder
