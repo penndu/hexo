@@ -16,3 +16,4 @@ title: 友情链接
 > 名称：杜老师说
 站标：https://cdn.dusays.com/avatar.png
 网址：https://dusays.com
+订阅：https://dusays.com/atom.xml
