@@ -31,4 +31,3 @@ title: 说说
 <script type="text/javascript" src="https://npm.elemecdn.com/moment/min/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.dusays.com/moment.twitter.min.js"></script>
 <script type="text/javascript" src="https://cdn.dusays.com/memos.js"></script>
-<script type="text/javascript" src="https://npm.elemecdn.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
