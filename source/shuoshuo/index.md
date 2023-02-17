@@ -6,7 +6,6 @@ sidebar: []
 comments: false
 title: 说说
 ---
-> 如果您也想在该页面中发布说说，可以点击 [这里](https://dusays.com/says/) 申请！
 
 <div id="bber"></div>
 <script type="text/javascript">
