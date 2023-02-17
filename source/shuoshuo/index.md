@@ -26,8 +26,8 @@ title: 说说
 </script>
 
 <!-- 注意替换 JS 资源文件的路径 -->
-<script type="text/javascript" src="https://eallion.com/assets/marked.min.js?v=4.2.2"></script>
-<script type="text/javascript" src="https://eallion.com/assets/pangu.min.js?v=4.0.7"></script>
-<script type="text/javascript" src="https://eallion.com/assets/moment.min.js?v=2.29.4"></script>
-<script type="text/javascript" src="https://eallion.com/assets/moment.twitter.min.js"></script>
-<script type="text/javascript" src="https://eallion.com/assets/memos.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/marked/marked.min.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/pangu/dist/browser/pangu.min.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.dusays.com/moment.twitter.min.js"></script>
+<script type="text/javascript" src="https://cdn.dusays.com/memos.js"></script>
