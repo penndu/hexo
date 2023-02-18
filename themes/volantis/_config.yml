@@ -202,8 +202,8 @@ navbar:
       icon: fa-solid fa-image
       url: https://7bu.top
       target: _blank
-    - name: 知乎
-      icon: fa-solid fa-question
+    - name: 
+      icon: fal fa-zhihu
       url: https://www.zhihu.com/people/dusays
       target: _blank
   search: 输关键词「回车」搜索   # Search bar placeholder
