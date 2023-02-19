@@ -37,7 +37,7 @@ title: 说说
     domId: '',//默认为 <div id="bber"></div>
   }
 </script>
-<script type="text/javascript" src="/shuoshuo/bb-lmm-mk.js"></script>
+<script type="text/javascript" src="https://cdn.dusays.com/bb-lmm-mk.js"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>
 <script src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
