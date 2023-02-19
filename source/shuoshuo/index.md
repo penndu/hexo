@@ -8,6 +8,23 @@ title: 说说
 ---
 
 <div id="bber"></div>
+<span id="memosCount">0</span>
+<script>
+  //获取 Memos 总条数
+  function getTotal() {
+    var totalUrl = "https://dusays-memos.itisn.cyou/api/memo/amount?creatorId=1";
+    fetch(totalUrl).then(response => {
+      return response.json();
+    }).then(data => {
+      // console.log(data.data);
+      var memosCount = document.getElementById('memosCount');
+      memosCount.innerHTML = data.data;
+    }).catch(err => {
+      // Do something for an error here
+    });
+  };
+  window.onload = getTotal();
+</script>
 <script type="text/javascript">
   var bbMemos = {
     memos : 'https://dusays-memos.itisn.cyou/',//修改为自己部署 Memos 的网址，末尾有 / 斜杠
