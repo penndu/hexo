@@ -95,13 +95,29 @@ function updateHTMl(data) {
         breaks: true,
         smartypants: true,
         langPrefix: "language-",
+        highlight: function (code, lang) {
+            const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+            return hljs.highlight.toString(code, { language }).value;
+        },
     });
+    const renderer = {
+        image(href, title, text) {
+            return `
+                <div id="lightgallery">
+                    <a href="${href}"><img loading="lazy" class="img" src="${href}" alt="${text}"></a>
+                </div>`;
+            }, // 图片加灯箱效果
+        link(href, title, text) {
+            return `<a href='${href}' target='_blank' rel='noopener noreferrer'>${text}</a>`;
+        } // 链接新窗口
+    };
+    // marked.use({ renderer });
 
     // Memos Content
     for (var i = 0; i < data.length; i++) {
         var memoContREG = data[i].content.replace(
             TAG_REG,
-            "<span class='tag-span'><a target='_blank' rel='noopener noreferrer' href='https://demo.usememos.com/u/101?tag=$1'>#$1</a></span> "
+            "<span class='tag-span'><a target='_blank' rel='noopener noreferrer' href='https://dusays-memos.itisn.cyou/u/1?tag=$1'>#$1</a></span> "
         );
 
         memoContREG = marked
@@ -177,5 +193,12 @@ function updateHTMl(data) {
     var memoAfter = "</ul>";
     resultAll = memoBefore + memoResult + memoAfter;
     memoDom.insertAdjacentHTML("beforeend", resultAll);
+    fetchDB()
+    hljs.initHighlighting.called = false;
+    hljs.configure({
+        ignoreUnescapedHTML: true,
+    })
+    hljs.highlightAll();
+    lightGallery(document.getElementById('lightgallery'));
     document.querySelector("button.button-load").textContent = "加载更多";
 }
