@@ -202,7 +202,7 @@ navbar:
       icon: fa-solid fa-image
       url: https://7bu.top
       target: _blank
-    - name: 
+    - name: 知乎
       icon: fa-brands fa-zhihu
       url: https://www.zhihu.com/people/dusays
       target: _blank
