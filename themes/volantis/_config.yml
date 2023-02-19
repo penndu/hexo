@@ -203,7 +203,7 @@ navbar:
       url: https://7bu.top
       target: _blank
     - name: 
-      icon: fal fa-zhihu
+      icon: fa-brands fa-zhihu
       url: https://www.zhihu.com/people/dusays
       target: _blank
   search: 输关键词「回车」搜索   # Search bar placeholder
