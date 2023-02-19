@@ -48,4 +48,6 @@ title: 说说
 <script type="text/javascript" src="https://npm.elemecdn.com/pangu/dist/browser/pangu.min.js"></script>
 <script type="text/javascript" src="https://npm.elemecdn.com/moment/min/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.dusays.com/moment.twitter.min.js"></script>
+<script type="text/javascript" src="/shuoshuo/highlight.min.js"></script>
+<script type="text/javascript" src="/shuoshuo/view-image.min.js"></script>
 <script type="text/javascript" src="/shuoshuo/memos.js"></script>
