@@ -34,6 +34,6 @@ title: 说说
   }
 </script>
 <script src="https://immmmm.com/bb-lmm-mk.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
-<script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
+<script src="https:///npm.elemecdn.com/marked/marked.min.js"></script>
+<script src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
+<script src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
