@@ -764,11 +764,11 @@ sidebar:
         url: /friends/
       rows:
         - name: tp钱包
-          url: https://www.tokenpockety.net
+          url: https://www.tokenpockety.pro
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: tokenpocket
-          url: https://www.tokenpockety.net
+          url: https://www.tokenpockety.pro
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: tp钱包
