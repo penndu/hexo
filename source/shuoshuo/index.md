@@ -40,7 +40,7 @@ title: 说说
 #load button.load-btn{width:100%;padding:8px 0;}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
 .dark .bbs-text,.dark .resour{background:#4a4b50;}
-.dark .bbs-text p{color:#fafafa;}
+.dark .bbs-text p{color:#666;}
 .loader {position: relative;margin:3rem auto;width: 100px;}
 .loader::before {content: '';display: block;padding-top: 100%;}
 .circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
