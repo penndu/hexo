@@ -16,7 +16,7 @@ title: 说说
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
-.bbs-urls{display:inline-block;border-radius:10%;margin:0 .6rem 5px 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;}
+.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin:0 .6rem 5px 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;}
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
 .bbs-urls.url-now{background:#42b983;transition: 0.6s;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
@@ -29,6 +29,8 @@ title: 说说
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
 .bbs-text,.resour{background: #eaeaea;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
+.dark .resour{background:#4a4b50;}
+.dark .bbs-text .resour{background:#4a4b50;}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
 .bbs-text{overflow:hidden;max-height:90vh;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}
@@ -40,7 +42,7 @@ title: 说说
 #load button.load-btn{width:100%;padding:8px 0;}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
 .dark .bbs-text,.dark .resour{background:#4a4b50;}
-.dark .bbs-text p{color:#666;}
+.dark .bbs-text p{color:#fafafa;}
 .loader {position: relative;margin:3rem auto;width: 100px;}
 .loader::before {content: '';display: block;padding-top: 100%;}
 .circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
