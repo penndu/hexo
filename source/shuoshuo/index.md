@@ -29,8 +29,6 @@ title: 说说
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
 .bbs-text,.resour{background: #eaeaea;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
-.dark .resour{background:#4a4b50;}
-.dark .bbs-text .resour{background:#4a4b50;}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
 .bbs-text{overflow:hidden;max-height:90vh;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}
@@ -107,8 +105,4 @@ title: 说说
 }
 .video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}
 .video-wrapper iframe{position:absolute;height:100%;width:100%;}
-</style>
-<link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
-<style>
-  .dark .aplayer{background:#212121}.dark .aplayer.aplayer-withlist .aplayer-info{border-bottom-color:#5c5c5c}.dark .aplayer.aplayer-fixed .aplayer-list{border-color:#5c5c5c}.dark .aplayer .aplayer-body{background-color:#212121}.dark .aplayer .aplayer-info{border-top-color:#212121}.dark .aplayer .aplayer-info .aplayer-music .aplayer-title{color:#fff}.dark .aplayer .aplayer-info .aplayer-music .aplayer-author{color:#fff}.dark .aplayer .aplayer-info .aplayer-controller .aplayer-time{color:#eee}.dark .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path{fill:#eee}.dark .aplayer .aplayer-list{background-color:#212121}.dark .aplayer .aplayer-list::-webkit-scrollbar-thumb{background-color:#999}.dark .aplayer .aplayer-list::-webkit-scrollbar-thumb:hover{background-color:#bbb}.dark .aplayer .aplayer-list li{color:#fff;border-top-color:#666}.dark .aplayer .aplayer-list li:hover{background:#4e4e4e}.dark .aplayer .aplayer-list li.aplayer-list-light{background:#6c6c6c}.dark .aplayer .aplayer-list li .aplayer-list-index{color:#ddd}.dark .aplayer .aplayer-list li .aplayer-list-author{color:#ddd}.dark .aplayer .aplayer-lrc{text-shadow:-1px -1px 0 #666}.dark .aplayer .aplayer-lrc:before{background:-moz-linear-gradient(top, #212121 0%, rgba(33,33,33,0) 100%);background:-webkit-linear-gradient(top, #212121 0%, rgba(33,33,33,0) 100%);background:linear-gradient(to bottom, #212121 0%, rgba(33,33,33,0) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#00212121',GradientType=0 )}.dark .aplayer .aplayer-lrc:after{background:-moz-linear-gradient(top, rgba(33,33,33,0) 0%, rgba(33,33,33,0.8) 100%);background:-webkit-linear-gradient(top, rgba(33,33,33,0) 0%, rgba(33,33,33,0.8) 100%);background:linear-gradient(to bottom, rgba(33,33,33,0) 0%, rgba(33,33,33,0.8) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00212121', endColorstr='#cc212121',GradientType=0 )}.dark .aplayer .aplayer-lrc p{color:#fff}.dark .aplayer .aplayer-miniswitcher{background:#484848}.dark .aplayer .aplayer-miniswitcher .aplayer-icon path{fill:#eee}
 </style>
