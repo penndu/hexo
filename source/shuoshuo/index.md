@@ -16,7 +16,7 @@ title: 说说
 点击下方头像，即可看到指定用户所发布的说说：
 
 <div class="container">
-  <p>共发表了 <span id="memosCount">0</span> 条 Memos 说说！</p>
+  <p>小伙伴们共发表了 <span id="memosCount">0</span> 条 Memos 说说！</p>
 </div>
 <script>
   //获取 Memos 总条数
