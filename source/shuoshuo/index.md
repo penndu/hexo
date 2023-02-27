@@ -41,7 +41,7 @@ div.bbs-avatar > img {
 .bbs-text pre p{display: inline-block;}
 .bbs-text pre p:empty{display: none;}
 .tag-span{color: #42b983;}
-#load button.load-btn{width:100%;padding:8px 0;}
+#load button.load-btn{width:100%;padding:8px 0;background: var(--color-block);}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
 .dark .bbs-text,.dark .resour{background:#4a4b50;}
 .dark .bbs-text p{color:#fafafa;}
