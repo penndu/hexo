@@ -16,7 +16,7 @@ title: 说说
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
-.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin:0 .6rem 5px 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;}
+.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin-right:.6rem;padding:0px;width:3.4rem;height:3.4rem;cursor: pointer;}
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
 .bbs-urls.url-now{background:#42b983;transition: 0.6s;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
@@ -45,7 +45,7 @@ title: 说说
 .dark .bbs-text p{color:#fafafa;}
 .loader {position: relative;margin:3rem auto;width: 100px;}
 .loader::before {content: '';display: block;padding-top: 100%;}
-.circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 10;left: 0;right: 0;margin: auto;}
+.circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
 .path {stroke-dasharray: 1, 200;stroke-dashoffset: 0;animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;stroke-linecap: round;}
 @keyframes rotate {100% {transform: rotate(360deg);}}
 @keyframes dash {
