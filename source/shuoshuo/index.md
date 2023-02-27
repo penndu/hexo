@@ -9,7 +9,9 @@ title: 说说
 
 ## 加入方法
 
-点击 [此处](https://dusays-memos.itisn.cyou/auth) 注册账号，然后将用户名称留言至 [这里](https://dusays.com/says/)，等待杜老师的确认回复即可。
+点击 [此处](https://dusays-memos.itisn.cyou/auth) 注册账号。
+
+然后将用户名称留言至 [这里](https://dusays.com/says/)，等待杜老师的确认回复即可。
 
 ## 说说广场
 
