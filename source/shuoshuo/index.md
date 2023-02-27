@@ -11,6 +11,10 @@ title: 说说
 
 点击 [此处](https://dusays-memos.itisn.cyou/auth) 注册账号，然后将用户名称留言至 [这里](https://dusays.com/says/)，等待杜老师的确认回复即可。
 
+## 说说广场
+
+点击下方头像，即可看到指定用户所发布的说说：
+
 <div id="bbs"></div>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
