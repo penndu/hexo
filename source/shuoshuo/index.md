@@ -16,7 +16,7 @@ title: 说说
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
-.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin-right:.6rem;padding:0px;width:3.4rem;height:3.4rem;cursor: pointer;}
+.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin:0 .6rem 0 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;}
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
 .bbs-urls.url-now{background:#42b983;transition: 0.6s;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
