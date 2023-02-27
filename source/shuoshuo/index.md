@@ -16,19 +16,23 @@ title: 说说
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
-.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin:0 .6rem 0 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;}
+.bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin:0 .6rem 0 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;vertical-align: middle;}
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
 .bbs-urls.url-now{background:#42b983;transition: 0.6s;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
-.bbs-timeline ul {margin:0;}
+.bbs-timeline ul {margin:0;padding: 0;}
 .bbs-timeline ul li{list-style-type:none;position:relative;}
 .bbs-timeline{max-width:1200px;margin:0 auto;}
 .bbs-avatar{position: relative;}
 .bbs-avatar img{width:24px;height:24px;border-radius:50%;margin-right:1rem;}
+div.bbs-avatar > img {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
 .bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-5px;}
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
-.bbs-text,.resour{background: #eaeaea;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
+.bbs-text,.resour{background: var(--color-block);border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
 .bbs-text{overflow:hidden;max-height:90vh;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}
