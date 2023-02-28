@@ -184,14 +184,11 @@ navbar:
       icon: fa-solid fa-archive
       url: archives/
     - name: 友链
-      icon: fa-solid fa-link
-      rows:
-        - name: 友情链接
-          icon: fa-solid fa-external-link
-          url: https://dusays.com/friends/
-        - name: 友链文章
-          icon: fa-solid fa-feed
-          url: https://dusays.com/fcircle/
+      icon: fa-solid fa-external-link
+      url: https://dusays.com/friends/
+    - name: 文坛
+      icon: fa-solid fa-feed
+      url: https://dusays.com/fcircle/
     - name: 留言
       icon: fa-solid fa-info-circle
       url: about/
