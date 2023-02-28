@@ -45,7 +45,7 @@
     "hexo-wordcount": "^6.0.1",
     "lodash.template": "^4.5.0",
     "moment": "^2.29.4",
-    "moment-timezone": "^0.5.40",
+    "moment-timezone": "^0.5.41",
     "speech-rule-engine": "^4.0.7",
     "uglify-js": "^3.17.4"
   },
