@@ -776,6 +776,10 @@ sidebar:
           url: https://www.imtoken.voto
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: imtoken
+          url: https://www.imtoken.voto
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
