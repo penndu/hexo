@@ -9,7 +9,7 @@ title: 说说
 
 ## 加入方法
 
-点击 [此处](https://dusays-memos.itisn.cyou/auth) 注册账号。
+点击 [此处](https://s.dusays.com/auth) 注册账号。
 
 然后将用户名称留言至 [这里](https://dusays.com/says/)，等待杜老师的确认回复即可。
 
@@ -23,7 +23,7 @@ title: 说说
 <script>
   //获取 Memos 总条数
   function getTotal() {
-    var totalUrl = "https://dusays-memos.itisn.cyou/api/memo/amount";
+    var totalUrl = "https://s.dusays.com/api/memo/amount";
     fetch(totalUrl).then(response => {
       return response.json();
     }).then(data => {
