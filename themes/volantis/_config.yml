@@ -772,6 +772,10 @@ sidebar:
           url: https://www.xtmyt.cn
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: imtoken钱包
+          url: https://www.imtoken.voto
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
