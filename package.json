@@ -43,6 +43,7 @@
     "hexo-server": "^3.0.0",
     "hexo-uuid": "^1.0.2",
     "hexo-wordcount": "^6.0.1",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.41",
