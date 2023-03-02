@@ -21,7 +21,7 @@ valine:
 {% folding cyan open, 申请规则 %}
 
 {% radio checked, 直接前往平台页面注册账号即可； %}
-{% radio checked, 页面地址为 `https://dusays-memos.itisn.cyou/`； %}
+{% radio checked, 页面地址为 `https://s.dusays.com/`； %}
 {% radio checked, 平台使用公益托管服务，不保证数据安全性，后期可能考虑自行托管； %}
 {% radio checked, 注册后请在该页留言用户名，待杜老师确认回复后即可显示在说说页面。 %}
 
