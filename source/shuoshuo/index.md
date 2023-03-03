@@ -27,7 +27,7 @@ title: 说说广场
   window.onload = getTotal();
 </script>
 
-点击下方头像，即可看到指定用户所发布的说说：
+点击 [此处](https://s.dusays.com/auth) 注册账号。点击下方头像，即可看到指定用户所发布的说说：
 
 <div id="bbs"></div>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>

@@ -1,4 +1,4 @@
 ---
 layout: list
-title: 文章归档
+title: 归档
 ---
