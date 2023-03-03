@@ -40,7 +40,7 @@ title: 说说
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
-<script type="text/javascript" src="https://cdn.dusays.com/bbs-lmm.js"></script>
+<script type="text/javascript" src="https://dusays.com/shuoshuo/bbs-lmm.js"></script>
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
