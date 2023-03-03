@@ -16,25 +16,7 @@ const urls = [
   {host:"https://s.dusays.com/",creatorId:"15",imgsrc:"https://cravatar.cn/avatar/1be842e0e85b11a35b697506f06e81f5"},
   {host:"https://s.dusays.com/",creatorId:"16",imgsrc:"https://cravatar.cn/avatar/03ce846eef46a1b21c1bc5a4f03c2de1"},
   {host:"https://s.dusays.com/",creatorId:"17",imgsrc:"https://cravatar.cn/avatar/49ef34286a337f7f152c5e61013c0e69"},
-  {host:"https://s.dusays.com/",creatorId:"18",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"19",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"20",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"21",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"22",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"23",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"24",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"25",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"26",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"27",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"28",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"29",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"30",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"31",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"32",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"33",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"34",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"35",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"},
-  {host:"https://s.dusays.com/",creatorId:"36",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"}
+  {host:"https://s.dusays.com/",creatorId:"18",imgsrc:"https://v.api.aa1.cn/api/api-tx/index.php?wpon=aosijur75fi5huyty5f"}
 ]
 var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
