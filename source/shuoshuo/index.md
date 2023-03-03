@@ -131,9 +131,3 @@ div.bbs-avatar > img {
 .video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}
 .video-wrapper iframe{position:absolute;height:100%;width:100%;}
 </style>
-
-## 加入方法
-
-点击 [此处](https://s.dusays.com/auth) 注册账号。
-
-然后将用户名称留言至 [这里](https://dusays.com/says/)，等待杜老师的确认回复即可。
