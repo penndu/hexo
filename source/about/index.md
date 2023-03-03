@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 关于
+title: 关于留言
 ---
 
 {% folding blue open::关于博主 %}

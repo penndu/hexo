@@ -26,6 +26,9 @@ title: 说说广场
   };
   window.onload = getTotal();
 </script>
+
+点击下方头像，即可看到指定用户所发布的说说：
+
 <div id="bbs"></div>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
@@ -128,3 +131,9 @@ div.bbs-avatar > img {
 .video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}
 .video-wrapper iframe{position:absolute;height:100%;width:100%;}
 </style>
+
+## 加入方法
+
+点击 [此处](https://s.dusays.com/auth) 注册账号。
+
+然后将用户名称留言至 [这里](https://dusays.com/says/)，等待杜老师的确认回复即可。
