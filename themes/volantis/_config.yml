@@ -830,8 +830,8 @@ sidebar:
       display: [desktop, mobile]
     # ---------------------------------------
     # Memos widget
-    memos:
-      class: memos
+    memos_carousel:
+      class: memos_carousel
       display: [desktop, mobile]
       header:
         icon: fa-solid fa-volume-high
