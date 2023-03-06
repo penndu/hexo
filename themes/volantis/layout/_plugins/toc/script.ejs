@@ -63,47 +63,6 @@
         activateNavByIndex(navItems[volantis.activateNavIndex])
       })
     }
-
-    // 方案二：
-    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
-    // function findIndex(entries) {
-    //   let index = 0;
-    //   let entry = entries[index];
-    //   if (entry.boundingClientRect.top > 0) {
-    //     index = sections.indexOf(entry.target);
-    //     return index === 0 ? 0 : index - 1;
-    //   }
-    //   for (; index < entries.length; index++) {
-    //     if (entries[index].boundingClientRect.top <= 0) {
-    //       entry = entries[index];
-    //     } else {
-    //       return sections.indexOf(entry.target);
-    //     }
-    //   }
-    //   return sections.indexOf(entry.target);
-    // }
-    // function createIntersectionObserver(marginTop) {
-    //   marginTop = Math.floor(marginTop + 10000);
-    //   let intersectionObserver = new IntersectionObserver(
-    //     (entries, observe) => {
-    //       let scrollHeight = document.documentElement.scrollHeight;
-    //       if (scrollHeight > marginTop) {
-    //         observe.disconnect();
-    //         createIntersectionObserver(scrollHeight);
-    //         return;
-    //       }
-    //       let index = findIndex(entries);
-    //       activateNavByIndex(navItems[index]);
-    //     }, {
-    //       rootMargin: marginTop + "px 0px -100% 0px",
-    //       threshold: 0,
-    //     }
-    //   );
-    //   sections.forEach((element) => {
-    //     element && intersectionObserver.observe(element);
-    //   });
-    // }
-    // createIntersectionObserver(document.documentElement.scrollHeight);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
