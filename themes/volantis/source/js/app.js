@@ -104,7 +104,7 @@ const VolantisApp = (() => {
         if (genArtalkTime > Date.now()) {
           json = JSON.parse(localStorage.getItem(type))
         } else {
-          json = await VolantisRequest.POST('https://artalk.dusays.com/api/stat', {
+          json = await VolantisRequest.POST('https://artalk.dusays.com:9001/api/stat', {
             site_name: '杜老师说',
             type: type,
             limit: limit
