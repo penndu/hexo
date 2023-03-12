@@ -40,8 +40,8 @@ cdn_system:
     # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
     custom:
       busuanzi: https://npm.elemecdn.com/penndu@1.0.0/bsz.js  # 杜老师友情赞助
-      artalk_js: https://cdn.dusays.com/Artalk.js
-      artalk_css: https://cdn.dusays.com/Artalk.css
+      artalk_js: https://npm.elemecdn.com/artalk@2.5.0/dist/Artalk.js
+      artalk_css: https://npm.elemecdn.com/artalk@2.5.0/dist/Artalk.css
       algolia_search_v4: https://npm.elemecdn.com/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
@@ -375,7 +375,7 @@ article:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
       # https://volantis.js.org/advanced-settings/#多人协同
       author:
-        avatar: https://cdn.dusays.com/avatar.png/2 # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
+        avatar: https://cdn.dusays.com/avatar.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
         name: Teacher Du
         url: https://dusays.com/about/
       # 文章创建日期
@@ -626,7 +626,7 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop, mobile] # [desktop, mobile]
-      avatar: https://cdn.dusays.com/avatar.png/2 # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      avatar: https://cdn.dusays.com/avatar.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
       shape: rectangle # circle, rectangle
       url: /about/
       title: Teacher Du
@@ -699,7 +699,7 @@ sidebar:
         title: 点击赞助
         url: https://afdian.net/@teacherdu
       content:
-        - '<center><a href="https://afdian.net/@teacherdu"><img src="https://cdn.dusays.com/yf.jpg/2"></a><center>'
+        - '<center><a href="https://afdian.net/@teacherdu"><img src="https://cdn.dusays.com/yf.jpg"></a><center>'
     sffw:
       class: text
       display: [desktop, mobile]
@@ -717,7 +717,7 @@ sidebar:
         title: 硅云主机
         url: https://www.vpsor.cn?userCode=ohedb8
       content:
-        - '<center><a href="https://www.vpsor.cn?userCode=ohedb8" target="_blank"><img src="https://cdn.dusays.com/vpsor.jpg/2"></a><center>'
+        - '<center><a href="https://www.vpsor.cn?userCode=ohedb8" target="_blank"><img src="https://cdn.dusays.com/vpsor.jpg"></a><center>'
     cowtransfer:
       class: text
       display: [desktop, mobile]
@@ -726,7 +726,7 @@ sidebar:
         title: 息流工具
         url: https://flowus.cn/login?code=PDZ708
       content:
-        - '<center><a href="https://flowus.cn/login?code=PDZ708" target="_blank"><img src="https://cdn.dusays.com/aliyundrive.jpg/2"></a></center>'
+        - '<center><a href="https://flowus.cn/login?code=PDZ708" target="_blank"><img src="https://cdn.dusays.com/aliyundrive.jpg"></a></center>'
     dao_hang:
       class: grid
       display: [desktop, mobile]
@@ -888,7 +888,7 @@ site_footer:
     <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本网站由<img src="https://cdn.dusays.com/logo5.png" height="30" loading="lazy" align="middle">提供CDN加速/云存储服务</a> | [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | 本站由 <a href="https://tyucdn.com" target="_blank"><font color="red">天御云高防CDN</font></a> 提供安全防护<br><embed src="https://npm.elemecdn.com/dusays@1.0.0/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/copyright.svg" type="image/svg+xml">'
+  copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | 本站由 <a href="https://tyucdn.com" target="_blank"><font color="red">天御云高防CDN</font></a> 提供安全防护<br><embed src="https://npm.elemecdn.com/dusays@1.0.0/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [Dr.Pika’s Blog](https://blog.drpika.com/) | [懵懂の初二少年](https://www.yt-blog.top/) | [风记星辰](https://www.thyuu.com/) | [宇哥博客](http://www.ygbks.com/) | [兔say博客](https://blog.rabbitwebs.cn/)'
