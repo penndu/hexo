@@ -6,7 +6,7 @@ const urls = [
   {host:"https://s.dusays.com/",creatorId:"5",imgsrc:"https://cravatar.cn/avatar/5c17cfbf21ae1d45d403b7ead8bf0415"},
   {host:"https://s.dusays.com/",creatorId:"6",imgsrc:"https://cravatar.cn/avatar/6e1a1cc742be99a90de39a0096516fac"},
   {host:"https://s.dusays.com/",creatorId:"7",imgsrc:"https://cravatar.cn/avatar/e53fa73039fa60c5862480ae2192d215"},
-  {host:"https://s.dusays.com/",creatorId:"8",imgsrc:"https://bu.dusays.com/2023/03/03/6401d82b7e80e.png"},
+  {host:"https://s.dusays.com/",creatorId:"8",imgsrc:"https://bu.dusays.com/2023/03/01/63ff34ec52ff1.jpg"},
   {host:"https://s.dusays.com/",creatorId:"9",imgsrc:"https://cravatar.cn/avatar/c1b204bab687a23c8b6d7c8de11c7c59"},
   {host:"https://s.dusays.com/",creatorId:"10",imgsrc:"https://cravatar.cn/avatar/ba2379bacf88f17ea461137906bd127d"},
   {host:"https://s.dusays.com/",creatorId:"11",imgsrc:"https://cravatar.cn/avatar/565ada82edc2f01e7cf2bd95b31f19fd"},
