@@ -133,6 +133,7 @@ dns_prefetch:
   - https://f.dusays.com
   - https://s.dusays.com
   - https://jsd.onmicrosoft.cn
+  - https://npm.elemecdn.com
 
 
 # 平滑滚动效果
@@ -260,7 +261,7 @@ article:
   preview:
     scheme: landscape # landscape
     # pin icon for post
-    pin_icon: https://cdn.dusays.com/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
+    pin_icon: https://npm.elemecdn.com/dusays@1.0.0/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
     # auto generate title if not exist
     auto_title: true # false, true
     # auto generate excerpt if not exist
@@ -872,13 +873,13 @@ site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4, link5]
   social:
-    - img: https://cdn.dusays.com/020-rss.svg
+    - img: https://npm.elemecdn.com/dusays@1.0.0/020-rss.svg
       url: atom.xml
-    - img: https://cdn.dusays.com/017-picasa.svg
+    - img: https://npm.elemecdn.com/dusays@1.0.0/017-picasa.svg
       url: https://7bu.top/
-    - img: https://cdn.dusays.com/031-twitch.svg
+    - img: https://npm.elemecdn.com/dusays@1.0.0/031-twitch.svg
       url: https://status.dusays.com/status/a
-    - img: https://cdn.dusays.com/033-spotify.svg
+    - img: https://npm.elemecdn.com/dusays@1.0.0/033-spotify.svg
       url: https://dusays.com/baidusitemap.xml
   # site source
   source: https://github.com/volantis-x/volantis-docs/
@@ -887,7 +888,7 @@ site_footer:
     <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本网站由<img src="https://cdn.dusays.com/logo5.png" height="30" loading="lazy" align="middle">提供CDN加速/云存储服务</a> | [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | 本站由 <a href="https://tyucdn.com" target="_blank"><font color="red">天御云高防CDN</font></a> 提供安全防护<br><embed src="https://cdn.dusays.com/7bu.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/yinsi.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/mianze.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/says.svg" type="image/svg+xml"><br><embed src="https://cdn.dusays.com/fb.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/icp.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/liao.svg" type="image/svg+xml"> <embed src="https://cdn.dusays.com/copyright.svg" type="image/svg+xml">'
+  copyright: '<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本网站由<img src="https://cdn.dusays.com/logo5.png" height="30" loading="lazy" align="middle">提供CDN加速/云存储服务</a> | [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | 本站由 <a href="https://tyucdn.com" target="_blank"><font color="red">天御云高防CDN</font></a> 提供安全防护<br><embed src="https://npm.elemecdn.com/dusays@1.0.0/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [Dr.Pika’s Blog](https://blog.drpika.com/) | [懵懂の初二少年](https://www.yt-blog.top/) | [风记星辰](https://www.thyuu.com/) | [宇哥博客](http://www.ygbks.com/) | [兔say博客](https://blog.rabbitwebs.cn/)'
