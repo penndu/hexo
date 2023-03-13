@@ -7,26 +7,6 @@ comments: false
 title: 说说广场
 ---
 
-<div class="container">
-  <p>小伙伴们共发表了 <span id="memosCount">0</span> 条 Memos 说说！</p>
-</div>
-<script>
-  //获取 Memos 总条数
-  function getTotal() {
-    var totalUrl = "https://s.dusays.com/api/memo/amount";
-    fetch(totalUrl).then(response => {
-      return response.json();
-    }).then(data => {
-      // console.log(data.data);
-      var memosCount = document.getElementById('memosCount');
-      memosCount.innerHTML = data.data;
-    }).catch(err => {
-      // Do something for an error here
-    });
-  };
-  window.onload = getTotal();
-</script>
-
 点击 [此处](https://s.dusays.com/auth) 注册账号。点击下方头像，即可看到指定用户所发布的说说：
 
 <div id="bbs"></div>
