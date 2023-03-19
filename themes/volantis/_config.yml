@@ -204,6 +204,10 @@ navbar:
       icon: fa-brands fa-zhihu
       url: https://www.zhihu.com/people/dusays
       target: _blank
+    - name: 社区
+      icon: far fa-comments
+      url: https://bbs.dusays.com
+      target: _blank
   search: 输关键词「回车」搜索   # Search bar placeholder
 ############################### Navigation Bar ############################### > end
 
