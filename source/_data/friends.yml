@@ -173,6 +173,10 @@
     avatar: https://www.lanrenn.cn/favicon.ico
     url: 'https://www.lanrenn.cn'
     screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 萌耀零'
+    avatar: https://510.cool/img/logo.png
+    url: 'https://510.cool'
+    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
@@ -487,4 +491,12 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> cicode'
     avatar: http://www.cicode.cn/favicon.ico
     url: 'http://www.cicode.cn'
+    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小饿'
+    avatar: https://dongjunke.cn/img/avatar.png
+    url: 'https://www.dongjunke.cn'
+    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Seepine’s Blog'
+    avatar: https://seepine.com/cdn/img/avatar.png
+    url: 'https://seepine.com'
     screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
