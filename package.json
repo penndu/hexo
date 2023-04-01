@@ -31,7 +31,6 @@
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-markdown-it": "^7.0.0",
     "hexo-renderer-stylus": "^2.1.0",
-    "hexo-server": "^3.0.0",
     "hexo-uuid": "^1.0.2",
     "hexo-wordcount": "^6.0.1"
   },
