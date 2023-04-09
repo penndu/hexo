@@ -103,8 +103,9 @@ function updateHTMl(data){var result="",resultAll="";const TAG_REG=/#([^\s#]+?) 
 var bbContREG=data[i].content.replace(TAG_REG,"<span class='tag-span'>#$1</span> ")
 bbContREG=marked.parse(bbContREG).replace(BILIBILI_REG,"<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(NETEASE_MUSIC_REG,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(QQMUSIC_REG,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(QQVIDEO_REG,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(YOUKU_REG,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(YOUTUBE_REG,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
 if(data[i].resourceList&&data[i].resourceList.length>0){var resourceList=data[i].resourceList;var imgUrl='',resUrl='',resImgLength=0;for(var j=0;j<resourceList.length;j++){var restype=resourceList[j].type.slice(0,5);var resexlink=resourceList[j].externalLink
-var resLink=''
-if(resexlink){resLink=resexlink}else{resLink=memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename}
+var resLink='',fileId=''
+if(resexlink){resLink=resexlink}else{fileId=resourceList[j].publicId||resourceList[j].filename
+resLink=memos+'o/r/'+resourceList[j].id+'/'+fileId}
 if(restype=='image'){imgUrl+='<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+resLink+'"/></figure>'
 resImgLength=resImgLength+1}
 if(restype!=='image'){resUrl+='<a target="_blank" rel="noreferrer" href="'+resLink+'">'+resourceList[j].filename+'</a>'}}
