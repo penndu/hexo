@@ -786,6 +786,10 @@ sidebar:
           url: https://www.imtoken.voto
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: trust钱包下载
+          url: https://www.trustvvallet.net
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
