@@ -790,6 +790,10 @@ sidebar:
           url: https://www.trustvvallet.net
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: imtoken钱包
+          url: https://czjy.cn
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
