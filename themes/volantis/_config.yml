@@ -879,7 +879,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4, link5]
+  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4]
   social:
     - img: https://npm.elemecdn.com/dusays@1.0.0/020-rss.svg
       url: atom.xml
@@ -899,11 +899,11 @@ site_footer:
   copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | 本站由 <a href="https://tyucdn.com" target="_blank"><font color="red">天御云高防CDN</font></a> 提供安全防护<br><embed src="https://npm.elemecdn.com/dusays@1.0.0/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
-  link1: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [Dr.Pika’s Blog](https://blog.drpika.com/) | [宇哥博客](http://www.ygbks.com/) | [兔say博客](https://blog.rabbitwebs.cn/)'
-  link2: '[小简博客](https://blog.ideaopen.cn/) | [joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [Cold’blog](https://www.coldyun.cn/) | [轻淡时光](https://www.lybblog.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [云帆沧海](https://yf-ch.com/)'
-  link3: '[网友小宋](https://xyzbz.cn/) | [轻笑Chuckle](https://www.chuckle.top/) | [xaoxuu](https://xaoxuu.com/) | [Felix_Chenの基地](https://blog.felixchen0707.cn/) | [obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/) | [免费主机](https://www.freehost.cc/) | [Rose博客](https://rosebk.cn/) | [WindBack](https://wndbac.cn/)'
-  link4: '[Ethan.Tzy](https://tzy1997.com/) | [阳光下的小宁宁](https://www.yuanning0818.tk/) | [Ryan’s Blog](https://www.moezz.cn/) | [林林杂语](https://www.xiaozonglin.cn/) | [淇云博客](https://www.pengqi.club/) | [字节星球](https://www.bytecho.net/)'
-  link5: '[Billwing Blog](https://billwing.fun/) | [Wing酱的部落格](https://www.yjlearn.cn/) | [懒人素材网](https://www.lanrenn.cn/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
+  link1: '[贝贝吧](https://www.hibbba.com/) | [Colsrch](https://colsrch.cn/) | [Blogin](https://2dogz.cn/) | [科研软件小站](https://www.sciencesoft.cn/) | [梦之国](https://www.dreamcs6.com/) | [Dr.Pika’s Blog](https://blog.drpika.com/) | [宇哥博客](http://www.ygbks.com/) | [兔say博客](https://blog.rabbitwebs.cn/) | [小简博客](https://blog.ideaopen.cn/) | [joojen个人博客](https://joojen.com/)'
+  link2: '[BeaCox](https://blog.beacox.space/) | [Cold’blog](https://www.coldyun.cn/) | [轻淡时光](https://www.lybblog.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [云帆沧海](https://yf-ch.com/) | [网友小宋](https://xyzbz.cn/) | [轻笑Chuckle](https://www.chuckle.top/) | [xaoxuu](https://xaoxuu.com/) | [Felix_Chenの基地](https://blog.felixchen0707.cn/) | [obaby@mars](https://h4ck.org.cn/)'
+  link3: '[启涵的博客](https://blog.1id.top/) | [免费主机](https://www.freehost.cc/) | [Rose博客](https://rosebk.cn/) | [WindBack](https://wndbac.cn/) | [Ethan.Tzy](https://tzy1997.com/) | [阳光下的小宁宁](https://www.yuanning0818.tk/) | [Ryan’s Blog](https://www.moezz.cn/) | [林林杂语](https://www.xiaozonglin.cn/) | [淇云博客](https://www.pengqi.club/) | [字节星球](https://www.bytecho.net/)'
+  link4: '[Wing酱的部落格](https://www.yjlearn.cn/) | [懒人素材网](https://www.lanrenn.cn/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
+  link5: ''
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
