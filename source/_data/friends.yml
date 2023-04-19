@@ -133,6 +133,10 @@
     avatar: https://www.lanrenn.cn/favicon.ico
     url: 'https://www.lanrenn.cn'
     screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> ZhangZ'
+    avatar: https://bu.dusays.com/2022/11/20/637a40d6aa75a.jpg
+    url: 'https://www.zhangz.cc'
+    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
