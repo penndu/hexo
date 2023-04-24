@@ -1,4 +1,4 @@
-if(typeof Lately==='undefined'){const script=document.createElement('script');script.src='https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js';script.onload=()=>{Lately.init({target:'.bbs-date'});};document.head.appendChild(script);}else{Lately.init({target:'.bbs-date'});}
+if(typeof Lately==='undefined'){const script=document.createElement('script');script.src='https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js';script.onload=()=>{Lately.init({target:'.bbs-date'});};document.head.appendChild(script);}else{Lately.init({target:'.bbs-date'});}
 const urls = [
     {host:"https://s.dusays.com/",creatorId:"1",imgsrc:"https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30"},
     {host:"https://s.dusays.com/",creatorId:"2",imgsrc:"https://cravatar.cn/avatar/0d0462a44b088c433b8191135979efd4"},
