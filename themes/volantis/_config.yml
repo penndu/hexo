@@ -135,6 +135,11 @@ dns_prefetch:
   - https://jsd.onmicrosoft.cn
   - https://npm.elemecdn.com
 
+# AI摘要
+# https://github.com/zhheo/Post-Abstract-AI
+TianliGpt:
+  post: true
+  api: b82B9zt1u5F4vS02DVNH
 
 # 平滑滚动效果
 scroll_smooth: true
