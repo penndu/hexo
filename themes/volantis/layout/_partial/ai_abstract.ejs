@@ -38,12 +38,12 @@ function insertAIDiv(selector) {
 
   const aiTitleTextDiv = document.createElement('div');
   aiTitleTextDiv.className = 'tianliGPT-title-text';
-  aiTitleTextDiv.textContent = 'AI摘要';
+  aiTitleTextDiv.textContent = '智能摘要';
   aiTitleDiv.appendChild(aiTitleTextDiv);
 
   const aiExplanationDiv = document.createElement('div');
   aiExplanationDiv.className = 'tianliGPT-explanation';
-  aiExplanationDiv.innerHTML = '生成中...' + '<span class="blinking-cursor"></span>';
+  aiExplanationDiv.innerHTML = 'AI 摘要生成中……' + '<span class="blinking-cursor"></span>';
   aiDiv.appendChild(aiExplanationDiv); // 将 tianliGPT-explanation 插入到 aiDiv，而不是 aiTitleDiv
 
   // 将创建的元素插入到目标元素的顶部
