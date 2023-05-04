@@ -63,7 +63,8 @@
   --style-border-forever: 2px solid var(--heo-main);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light)
+:root:not([color-scheme]) {
   --heo-theme: #425AEF;
   --heo-theme-op: #4259ef23;
   --heo-theme-op-deep: #4259efdd;
@@ -105,7 +106,8 @@
   --style-border-forever: 2px solid var(--heo-main);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark)
+:root:not([color-scheme]) {
   --heo-theme: #ff5722;
   --heo-theme-op: #f2b94b23;
   --heo-theme-op-deep: #f2b94bdd;
