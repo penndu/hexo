@@ -135,12 +135,6 @@ dns_prefetch:
   - https://jsd.onmicrosoft.cn
   - https://npm.elemecdn.com
 
-# AI摘要
-# https://github.com/zhheo/Post-Abstract-AI
-tianliGPT:
-  enable: true
-  api: b82B9zt1u5F4vS02DVNH
-
 # 平滑滚动效果
 scroll_smooth: true
 ############################### Navigation Bar ############################### > start
@@ -1221,6 +1215,13 @@ plugins:
   # https://www.swiper.com.cn/
   swiper:
     enable: true
+
+  # AI摘要
+  # https://github.com/zhheo/Post-Abstract-AI
+  tianliGPT:
+    enable: true
+    api: b82B9zt1u5F4vS02DVNH
+    wordLimit: 10000 # 摘要字数限制 (⚠️危险：更改此变量损失已消耗过的key，因为你提交的内容发生了变化。)
 
 ############################### Plugins ############################### > end
 
