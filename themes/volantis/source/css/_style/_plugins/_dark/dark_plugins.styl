@@ -131,230 +131,166 @@ for $injects_dark in hexo-config('injects.dark')
 // body
 //   --color-site-body: blue !important
 
-:root {
-  --heo-white: #fff;
-  --heo-white-op: rgba(255, 255, 255, 0.2);
-  --heo-black: #000;
-  --heo-black-op: rgba(0, 0, 0, 0.2);
-  --heo-none: #00000000;
-  --heo-gray: #999999;
-  --heo-gray-op: #9999992b;
-  --heo-vip: #e5a80d;
-  --heo-main: var(--heo-theme);
-  --heo-main-op: var(--heo-theme-op);
-  --heo-main-op-deep: var(--heo-theme-op-deep);
-  --heo-main-none: var(--heo-theme-none);
-  --heo-shadow-theme: 0 8px 12px -3px var(--heo-theme-op);
-  --heo-shadow-blackdeep: 0 2px 16px -3px rgba(0, 0, 0, .15);
-  --heo-shadow-main: 0 8px 12px -3px var(--heo-main-op);
-  --heo-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, .20);
-  --heo-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, .20);
-  --heo-shadow-black: 0 0 12px 4px rgba(0, 0, 0, .05);
-  --heo-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, .12);
-  --heo-shadow-red: 0 8px 12px -3px #ee7d7936;
-  --heo-shadow-green: 0 8px 12px -3px #87ee7936;
-  --heo-logo-color: linear-gradient(215deg, #4584ff 0%, #cf0db9 100%);
-  --heo-snackbar-time: 5s;
-  --heo-theme: #f2b94b;
-  --heo-theme-op: #f2b94b23;
-  --heo-theme-op-deep: #f2b94bdd;
-  --heo-theme-none: #f2b94b00;
-  --heo-blue: #0084FF;
-  --heo-red: #FF3842;
-  --heo-pink: #d44040;
-  --heo-green: #3e9f50;
-  --heo-yellow: #ffc93e;
-  --heo-yellow-op: #ffc93e30;
-  --heo-orange: #ff953e;
-  --heo-fontcolor: #F7F7FA;
-  --heo-background: #18171d;
-  --heo-reverse: #fff;
-  --heo-maskbg: rgba(0, 0, 0, 0.6);
-  --heo-maskbgdeep: rgba(0, 0, 0, 0.85);
-  --heo-hovertext: #0A84FF;
-  --heo-ahoverbg: #fff;
-  --heo-lighttext: var(--heo-theme);
-  --heo-secondtext: #a1a2b8;
-  --heo-scrollbar: rgba(200, 200, 223, 0.4);
-  --heo-card-btn-bg: #30343f;
-  --heo-post-blockquote-bg: #000;
-  --heo-post-tabs-bg: #121212;
-  --heo-secondbg: #30343f;
-  --heo-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
-  --heo-card-bg: #1d1e22;
-  --heo-card-bg-op: var(--heo-white-op);
-  --heo-card-bg-none: #1d1b2600;
-  --heo-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0.0);
-  --heo-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0.0);
-  --heo-card-border: #3d3d3f;
-  --heo-shadow-border: 0 8px 16px -4px #00000050;
-  --style-border: 1px solid var(--heo-card-border);
-  --style-border-always: 1px solid var(--heo-card-border);
-  --style-border-hover: 1px solid var(--heo-theme);
-  --style-border-hover-always: 1px solid var(--heo-theme);
-  --style-border-dashed: 1px dashed var(--heo-theme-op);
-  --style-border-forever: 2px solid var(--heo-lighttext);
-}
-
-/* AI */
-.post-TianliGPT {
-  background: var(--heo-secondbg);
-  border-radius: 12px;
-  padding: 12px;
-  line-height: 1.3;
-  border: var(--style-border-always);
-  margin: 16px 0;
-}
-
-@media screen and (max-width: 768px) {
+if hexo-config('tianliGPT.enable')
+  /* AI */
   .post-TianliGPT {
-    margin-top: 22px;
-  }
-}
-
-.tianliGPT-title {
-  display: flex;
-  color: var(--heo-lighttext);
-  border-radius: 8px;
-  align-items: center;
-  padding: 0 12px;
-  cursor: default;
-  user-select: none;
-}
-
-.tianliGPT-title-text {
-  font-weight: bold;
-  margin-left: 8px;
-  line-height: 1;
-}
-
-.tianliGPT-explanation {
-  margin-top: 12px;
-  padding: 8px 12px;
-  background: var(--heo-card-bg);
-  border-radius: 8px;
-  border: var(--style-border-always);
-  font-size: 15px;
-  line-height: 1.4;
-  display: flex;
-}
-
-.tianliGPT-suggestions {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tianliGPT-suggestions .tianliGPT-suggestions-item {
-  margin-top: 12px;
-  padding: 8px 12px;
-  background: var(--heo-card-bg);
-  border-radius: 8px 8px 8px 0;
-  border: var(--style-border-always);
-  font-size: 15px;
-  line-height: 1.4;
-  display: flex;
-  width: fit-content;
-  margin-right: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.tianliGPT-suggestions .tianliGPT-suggestions-item:hover {
-  background: var(--heo-main);
-  color: var(--heo-white);
-}
-
-.blinking-cursor {
-  background-color: var(--heo-main);
-  width: 10px;
-  height: 16px;
-  display: inline-block;
-  vertical-align: middle;
-  animation: blinking-cursor 0.5s infinite;
-  -webkit-animation: blinking-cursor 0.5s infinite;
-  margin-left: 4px;
-}
-
-@keyframes blinking-cursor {
-  0% {
-    opacity: 1;
+    background: #30343f;
+    border-radius: 12px;
+    padding: 12px;
+    line-height: 1.3;
+    border: 1px solid #3d3d3f;
+    margin-top: 16px;
   }
 
-  40% {
-    opacity: 1;
+  @media screen and (max-width: 768px) {
+    .post-TianliGPT {
+      margin-top: 22px;
+    }
   }
 
-  50% {
-    opacity: 0;
+  .tianliGPT-title {
+    display: flex;
+    color: #f2b94b;
+    border-radius: 8px;
+    align-items: center;
+    padding: 0 12px;
+    cursor: default;
+    user-select: none;
   }
 
-  90% {
-    opacity: 0;
+  .tianliGPT-title-text {
+    font-weight: bold;
+    margin-left: 8px;
+    line-height: 1;
   }
 
-  100% {
-    opacity: 1;
+  .tianliGPT-explanation {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: #1d1e22;
+    border-radius: 8px;
+    border: 1px solid #3d3d3f;
+    font-size: 15px;
+    line-height: 1.4;
+    display: flex;
   }
-}
 
-.tianliGPT-tag {
-  font-size: 12px;
-  background-color: var(--heo-lighttext);
-  color: var(--heo-card-bg);
-  font-weight: bold;
-  border-radius: 4px;
-  margin-left: auto;
-  line-height: 1;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: 0.3s;
-}
+  .tianliGPT-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.tianliGPT-tag:hover {
-  background: var(--heo-fontcolor);
-  color: var(--heo-card-bg);
-}
+  .tianliGPT-suggestions .tianliGPT-suggestions-item {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: #1d1e22;
+    border-radius: 8px 8px 8px 0;
+    border: 1px solid #3d3d3f;
+    font-size: 15px;
+    line-height: 1.4;
+    display: flex;
+    width: fit-content;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 
-ins.adsbygoogle {
-  margin: 16px 0;
-  background: var(--heo-card-bg);
-  border-radius: 12px;
-  overflow: hidden;
-  border: var(--style-border-always);
-}
+  .tianliGPT-suggestions .tianliGPT-suggestions-item:hover {
+    background: #f2b94b;
+    color: #fff;
+  }
 
-#tianliGPT-Toggle {
-  font-size: 12px;
-  background: var(--heo-lighttext);
-  color: var(--heo-card-bg);
-  padding: 4px;
-  border-radius: 4px;
-  margin-left: 6px;
-  transform: scale(0.8);
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
+  .blinking-cursor {
+    background-color: #f2b94b;
+    width: 10px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    animation: blinking-cursor 0.5s infinite;
+    -webkit-animation: blinking-cursor 0.5s infinite;
+    margin-left: 4px;
+  }
 
-#tianliGPT-Toggle:hover {
-  background: var(--heo-fontcolor);
-  color: var(--heo-card-bg);
-}
+  @keyframes blinking-cursor {
+    0% {
+      opacity: 1;
+    }
 
-.tianliGPT-title-icon {
-  width: 20px;
-  height: 20px;
-}
+    40% {
+      opacity: 1;
+    }
 
-.tianliGPT-title-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--heo-main);
-}
+    50% {
+      opacity: 0;
+    }
 
-.tianliGPT-title-icon svg path {
-  fill: var(--heo-main);
-}
+    90% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .tianliGPT-tag {
+    font-size: 12px;
+    background-color: #f2b94b;
+    color: #1d1e22;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: auto;
+    line-height: 1;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .tianliGPT-tag:hover {
+    background: #F7F7FA;
+    color: #1d1e22;
+  }
+
+  ins.adsbygoogle {
+    margin: 16px 0;
+    background: #1d1e22;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #3d3d3f;
+  }
+
+  #tianliGPT-Toggle {
+    font-size: 12px;
+    background: #f2b94b;
+    color: #1d1e22;
+    padding: 4px;
+    border-radius: 4px;
+    margin-left: 6px;
+    transform: scale(0.8);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+  }
+
+  #tianliGPT-Toggle:hover {
+    background: #F7F7FA;
+    color: #1d1e22;
+  }
+
+  .tianliGPT-title-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tianliGPT-title-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #f2b94b;
+  }
+
+  .tianliGPT-title-icon svg path {
+    fill: #f2b94b;
+  }
