@@ -11,7 +11,6 @@ title: 说说广场
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
-
 <script>
 if(typeof Lately==='undefined'){const script=document.createElement('script');script.src='https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js';script.onload=()=>{Lately.init({target:'.bbs-date'});};document.head.appendChild(script);}else{Lately.init({target:'.bbs-date'});}
 const urls=[
@@ -176,7 +175,6 @@ var db_div=document.createElement("div");var qs_href=".bbs-timeline a[href='"+fe
 var qs_dom=document.querySelector(qs_href)
 qs_dom.parentNode.replaceChild(db_div,qs_dom);db_div.innerHTML=db_html}
 </script>
-
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
@@ -214,11 +212,9 @@ qs_dom.parentNode.replaceChild(db_div,qs_dom);db_div.innerHTML=db_html}
 .tag-span{color: #42b983;}
 #load button.load-btn{width:100%;padding:8px 0;}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
-
 .dark .bbs-text,.dark .resour{background:#4a4b50;}
 .dark .bbs-text p{color:#fafafa;}
 .bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
-
 .loader {position: relative;margin:3rem auto;width: 100px;}
 .loader::before {content: '';display: block;padding-top: 100%;}
 .circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
@@ -232,12 +228,10 @@ qs_dom.parentNode.replaceChild(db_div,qs_dom);db_div.innerHTML=db_html}
 @keyframes color {
   100%,0% {stroke: #d62d20;}40% {stroke: #0057e7;}66% {stroke: #008744;}80%,90% {stroke: #ffa700;}
 }
-
 .bbs-content p > img{cursor:pointer;border:1px solid #3b3d42;}
 .bbs-content p:has(img.img){display: inline-block;}
 .bbs-text p > img {display: block;}
 .bbs-text p > img:first-child:nth-last-child(n+2),.bbs-text p > img:first-child:nth-last-child(n+2) ~ img {display: inline-block;}
-
 .bbs-content p > img.square{height:180px;width:180px;object-fit:cover;}
 .resimg.grid{
   display: grid;
