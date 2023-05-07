@@ -14,56 +14,56 @@ title: 说说广场
 <script>
 if(typeof Lately==='undefined'){const script=document.createElement('script');script.src='https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js';script.onload=()=>{Lately.init({target:'.bbs-date'});};document.head.appendChild(script);}else{Lately.init({target:'.bbs-date'});}
 const urls = [
-    {host:"https://s.dusays.com/",creatorId:"1",imgsrc:"https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30"},
-    {host:"https://s.dusays.com/",creatorId:"2",imgsrc:"https://cravatar.cn/avatar/0d0462a44b088c433b8191135979efd4"},
-    {host:"https://s.dusays.com/",creatorId:"3",imgsrc:"https://cravatar.cn/avatar/cf83c746b212c3f222b1c0a41bbf5b86"},
-    {host:"https://s.dusays.com/",creatorId:"4",imgsrc:"https://cravatar.cn/avatar/099440206041f0b1af6a386f9e8c036a"},
-    {host:"https://s.dusays.com/",creatorId:"5",imgsrc:"https://cravatar.cn/avatar/5c17cfbf21ae1d45d403b7ead8bf0415"},
-    {host:"https://s.dusays.com/",creatorId:"6",imgsrc:"https://cravatar.cn/avatar/6e1a1cc742be99a90de39a0096516fac"},
-    {host:"https://s.dusays.com/",creatorId:"7",imgsrc:"https://cravatar.cn/avatar/e53fa73039fa60c5862480ae2192d215"},
-    {host:"https://s.dusays.com/",creatorId:"8",imgsrc:"https://bu.dusays.com/2023/03/01/63ff34ec52ff1.jpg"},
-    {host:"https://s.dusays.com/",creatorId:"9",imgsrc:"https://cravatar.cn/avatar/c1b204bab687a23c8b6d7c8de11c7c59"},
-    {host:"https://s.dusays.com/",creatorId:"10",imgsrc:"https://cravatar.cn/avatar/ba2379bacf88f17ea461137906bd127d"},
-    {host:"https://s.dusays.com/",creatorId:"11",imgsrc:"https://cravatar.cn/avatar/565ada82edc2f01e7cf2bd95b31f19fd"},
-    {host:"https://s.dusays.com/",creatorId:"12",imgsrc:"https://cravatar.cn/avatar/b633193c913ae39a350311efd950ad83"},
-    {host:"https://s.dusays.com/",creatorId:"13",imgsrc:"https://cravatar.cn/avatar/3a78942c4ddcda86242f20abdacee082"},
-    {host:"https://s.dusays.com/",creatorId:"14",imgsrc:"https://bu.dusays.com/2023/03/03/6401d82b7ecc9.png"},
-    {host:"https://s.dusays.com/",creatorId:"15",imgsrc:"https://cravatar.cn/avatar/1be842e0e85b11a35b697506f06e81f5"},
-    {host:"https://s.dusays.com/",creatorId:"16",imgsrc:"https://cravatar.cn/avatar/03ce846eef46a1b21c1bc5a4f03c2de1"},
-    {host:"https://s.dusays.com/",creatorId:"17",imgsrc:"https://cravatar.cn/avatar/49ef34286a337f7f152c5e61013c0e69"},
-    {host:"https://s.dusays.com/",creatorId:"18",imgsrc:"https://cravatar.cn/avatar/23db27f22d754c4fed9e1cb60a794d81"},
-    {host:"https://s.dusays.com/",creatorId:"19",imgsrc:"https://bu.dusays.com/2023/03/08/640864d11ccaf.png"},
-    {host:"https://s.dusays.com/",creatorId:"20",imgsrc:"https://cravatar.cn/avatar/d5165cf04fe36d73bc24567a2332f9db"},
-    {host:"https://s.dusays.com/",creatorId:"21",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a886d5.png"},
-    {host:"https://s.dusays.com/",creatorId:"22",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a84ebb.png"},
-    {host:"https://s.dusays.com/",creatorId:"23",imgsrc:"https://cravatar.cn/avatar/04bfc914bd50b42eb507bf66aad0cc31"},
-    {host:"https://s.dusays.com/",creatorId:"24",imgsrc:"https://cravatar.cn/avatar/e011329178b200bcb5d94f0d0ff7544a"},
-    {host:"https://s.dusays.com/",creatorId:"25",imgsrc:"https://cravatar.cn/avatar/c1b204bab687a23c8b6d7c8de11c7c59"},
-    {host:"https://s.dusays.com/",creatorId:"26",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a84114.png"},
-    {host:"https://s.dusays.com/",creatorId:"27",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a8a6d2.png"},
-    {host:"https://s.dusays.com/",creatorId:"28",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a93fae.png"},
-    {host:"https://s.dusays.com/",creatorId:"29",imgsrc:"https://cravatar.cn/avatar/c21871045e26ba29b5f8263bcc5921cb"},
-    {host:"https://s.dusays.com/",creatorId:"30",imgsrc:"https://static.wndbac.cn/avatar.jpg"},
-    {host:"https://s.dusays.com/",creatorId:"31",imgsrc:"https://pic.imgdb.cn/item/63e8ebf64757feff33827ab7.jpg"},
-    {host:"https://s.dusays.com/",creatorId:"32",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3b6539b.png"},
-    {host:"https://s.dusays.com/",creatorId:"33",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3b8c6b5.png"},
-    {host:"https://s.dusays.com/",creatorId:"34",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3bbaa65.png"},
-    {host:"https://s.dusays.com/",creatorId:"35",imgsrc:"https://bu.dusays.com/2023/04/27/644a5820194b3.png"},
-    {host:"https://s.dusays.com/",creatorId:"36",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017d56.png"},
-    {host:"https://s.dusays.com/",creatorId:"37",imgsrc:"https://bu.dusays.com/2023/04/27/644a582013d23.png"},
-    {host:"https://s.dusays.com/",creatorId:"38",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017bd0.png"},
-    {host:"https://s.dusays.com/",creatorId:"39",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017bf8.png"},
-    {host:"https://s.dusays.com/",creatorId:"40",imgsrc:"https://bu.dusays.com/2023/04/27/644a5820188a2.png"},
-    {host:"https://s.dusays.com/",creatorId:"41",imgsrc:"https://bu.dusays.com/2023/04/27/644a582016d1c.png"},
-    {host:"https://s.dusays.com/",creatorId:"42",imgsrc:"https://bu.dusays.com/2023/04/27/644a582014ab2.png"},
-    {host:"https://s.dusays.com/",creatorId:"43",imgsrc:"https://bu.dusays.com/2023/04/27/644a582014631.png"},
-    {host:"https://s.dusays.com/",creatorId:"44",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017b0a.png"},
-    {host:"https://s.dusays.com/",creatorId:"45",imgsrc:"https://bu.dusays.com/2023/04/27/644a5820d7e36.png"},
-    {host:"https://s.dusays.com/",creatorId:"46",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821111a9.png"},
-    {host:"https://s.dusays.com/",creatorId:"47",imgsrc:"https://bu.dusays.com/2023/04/27/644a58212935e.png"},
-    {host:"https://s.dusays.com/",creatorId:"48",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821622b6.png"},
-    {host:"https://s.dusays.com/",creatorId:"49",imgsrc:"https://bu.dusays.com/2023/04/27/644a582189926.png"}
-  ]
+  {host:"https://s.dusays.com/",creatorId:"1",imgsrc:"https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30"},
+  {host:"https://s.dusays.com/",creatorId:"2",imgsrc:"https://cravatar.cn/avatar/0d0462a44b088c433b8191135979efd4"},
+  {host:"https://s.dusays.com/",creatorId:"3",imgsrc:"https://cravatar.cn/avatar/cf83c746b212c3f222b1c0a41bbf5b86"},
+  {host:"https://s.dusays.com/",creatorId:"4",imgsrc:"https://cravatar.cn/avatar/099440206041f0b1af6a386f9e8c036a"},
+  {host:"https://s.dusays.com/",creatorId:"5",imgsrc:"https://cravatar.cn/avatar/5c17cfbf21ae1d45d403b7ead8bf0415"},
+  {host:"https://s.dusays.com/",creatorId:"6",imgsrc:"https://cravatar.cn/avatar/6e1a1cc742be99a90de39a0096516fac"},
+  {host:"https://s.dusays.com/",creatorId:"7",imgsrc:"https://cravatar.cn/avatar/e53fa73039fa60c5862480ae2192d215"},
+  {host:"https://s.dusays.com/",creatorId:"8",imgsrc:"https://bu.dusays.com/2023/03/01/63ff34ec52ff1.jpg"},
+  {host:"https://s.dusays.com/",creatorId:"9",imgsrc:"https://cravatar.cn/avatar/c1b204bab687a23c8b6d7c8de11c7c59"},
+  {host:"https://s.dusays.com/",creatorId:"10",imgsrc:"https://cravatar.cn/avatar/ba2379bacf88f17ea461137906bd127d"},
+  {host:"https://s.dusays.com/",creatorId:"11",imgsrc:"https://cravatar.cn/avatar/565ada82edc2f01e7cf2bd95b31f19fd"},
+  {host:"https://s.dusays.com/",creatorId:"12",imgsrc:"https://cravatar.cn/avatar/b633193c913ae39a350311efd950ad83"},
+  {host:"https://s.dusays.com/",creatorId:"13",imgsrc:"https://cravatar.cn/avatar/3a78942c4ddcda86242f20abdacee082"},
+  {host:"https://s.dusays.com/",creatorId:"14",imgsrc:"https://bu.dusays.com/2023/03/03/6401d82b7ecc9.png"},
+  {host:"https://s.dusays.com/",creatorId:"15",imgsrc:"https://cravatar.cn/avatar/1be842e0e85b11a35b697506f06e81f5"},
+  {host:"https://s.dusays.com/",creatorId:"16",imgsrc:"https://cravatar.cn/avatar/03ce846eef46a1b21c1bc5a4f03c2de1"},
+  {host:"https://s.dusays.com/",creatorId:"17",imgsrc:"https://cravatar.cn/avatar/49ef34286a337f7f152c5e61013c0e69"},
+  {host:"https://s.dusays.com/",creatorId:"18",imgsrc:"https://cravatar.cn/avatar/23db27f22d754c4fed9e1cb60a794d81"},
+  {host:"https://s.dusays.com/",creatorId:"19",imgsrc:"https://bu.dusays.com/2023/03/08/640864d11ccaf.png"},
+  {host:"https://s.dusays.com/",creatorId:"20",imgsrc:"https://cravatar.cn/avatar/d5165cf04fe36d73bc24567a2332f9db"},
+  {host:"https://s.dusays.com/",creatorId:"21",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a886d5.png"},
+  {host:"https://s.dusays.com/",creatorId:"22",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a84ebb.png"},
+  {host:"https://s.dusays.com/",creatorId:"23",imgsrc:"https://cravatar.cn/avatar/04bfc914bd50b42eb507bf66aad0cc31"},
+  {host:"https://s.dusays.com/",creatorId:"24",imgsrc:"https://cravatar.cn/avatar/e011329178b200bcb5d94f0d0ff7544a"},
+  {host:"https://s.dusays.com/",creatorId:"25",imgsrc:"https://cravatar.cn/avatar/c1b204bab687a23c8b6d7c8de11c7c59"},
+  {host:"https://s.dusays.com/",creatorId:"26",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a84114.png"},
+  {host:"https://s.dusays.com/",creatorId:"27",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a8a6d2.png"},
+  {host:"https://s.dusays.com/",creatorId:"28",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3a93fae.png"},
+  {host:"https://s.dusays.com/",creatorId:"29",imgsrc:"https://cravatar.cn/avatar/c21871045e26ba29b5f8263bcc5921cb"},
+  {host:"https://s.dusays.com/",creatorId:"30",imgsrc:"https://static.wndbac.cn/avatar.jpg"},
+  {host:"https://s.dusays.com/",creatorId:"31",imgsrc:"https://pic.imgdb.cn/item/63e8ebf64757feff33827ab7.jpg"},
+  {host:"https://s.dusays.com/",creatorId:"32",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3b6539b.png"},
+  {host:"https://s.dusays.com/",creatorId:"33",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3b8c6b5.png"},
+  {host:"https://s.dusays.com/",creatorId:"34",imgsrc:"https://bu.dusays.com/2023/03/10/640b2d3bbaa65.png"},
+  {host:"https://s.dusays.com/",creatorId:"35",imgsrc:"https://bu.dusays.com/2023/04/27/644a5820194b3.png"},
+  {host:"https://s.dusays.com/",creatorId:"36",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017d56.png"},
+  {host:"https://s.dusays.com/",creatorId:"37",imgsrc:"https://bu.dusays.com/2023/04/27/644a582013d23.png"},
+  {host:"https://s.dusays.com/",creatorId:"38",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017bd0.png"},
+  {host:"https://s.dusays.com/",creatorId:"39",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017bf8.png"},
+  {host:"https://s.dusays.com/",creatorId:"40",imgsrc:"https://bu.dusays.com/2023/04/27/644a5820188a2.png"},
+  {host:"https://s.dusays.com/",creatorId:"41",imgsrc:"https://bu.dusays.com/2023/04/27/644a582016d1c.png"},
+  {host:"https://s.dusays.com/",creatorId:"42",imgsrc:"https://bu.dusays.com/2023/04/27/644a582014ab2.png"},
+  {host:"https://s.dusays.com/",creatorId:"43",imgsrc:"https://bu.dusays.com/2023/04/27/644a582014631.png"},
+  {host:"https://s.dusays.com/",creatorId:"44",imgsrc:"https://bu.dusays.com/2023/04/27/644a582017b0a.png"},
+  {host:"https://s.dusays.com/",creatorId:"45",imgsrc:"https://bu.dusays.com/2023/04/27/644a5820d7e36.png"},
+  {host:"https://s.dusays.com/",creatorId:"46",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821111a9.png"},
+  {host:"https://s.dusays.com/",creatorId:"47",imgsrc:"https://bu.dusays.com/2023/04/27/644a58212935e.png"},
+  {host:"https://s.dusays.com/",creatorId:"48",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821622b6.png"},
+  {host:"https://s.dusays.com/",creatorId:"49",imgsrc:"https://bu.dusays.com/2023/04/27/644a582189926.png"}
+]
 var bbDom=document.querySelector('#bbs');var load='<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
 var loading='<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
 var bbsDatas=[],bbsData={},nextDatas=[],nextData={},limit=2
@@ -155,25 +155,18 @@ window.Lately&&Lately.init({target:'.bbs-date'});}
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
 .bbs-urls{display:inline-block;background: #4a4b50;border-radius:10%;margin:0 .6rem 0 0;padding:4px;width:3.4rem;height:3.4rem;cursor: pointer;vertical-align: text-bottom;}
-.dark .bbs-urls,.dark .bbs-url:before{background:#4a4b50;}
-.bbs-url:before{content:"";background:#eaeaea;width:5px;height:5px;border-radius:50%;position:absolute;top:0;right:0;}
-.bbs-url.liveon:before{background:#42b983;animation-name: light-a;animation-duration:2s;animation-timing-function: linear;animation-iteration-count: infinite;animation-direction: alternate;}
-@keyframes light-a {
-  from{opacity:0.6}
-  to{opacity:0.1;}
-}
-@keyframes light-b {
-  from{opacity:1}
-  to{opacity:0.4;}
-}
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
-.bbs-urls.url-now{background:#42b983;transition: 0.6s;animation-name: light-b;animation-duration:1s;animation-timing-function: linear;animation-iteration-count: infinite;animation-direction: alternate;}
+.bbs-urls.url-now{background:#42b983;transition: 0.6s;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
 .bbs-timeline ul {margin:0;padding: 0;}
 .bbs-timeline ul li{list-style-type:none;position:relative;}
 .bbs-timeline{max-width:1200px;margin:0 auto;}
 .bbs-avatar{position: relative;}
 .bbs-avatar img{width:24px;height:24px;border-radius:50%;margin-right:1rem;}
+div.bbs-avatar > img {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
 .bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-5px;}
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
@@ -190,7 +183,6 @@ window.Lately&&Lately.init({target:'.bbs-date'});}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
 .dark .bbs-text,.dark .resour{background:#4a4b50;}
 .dark .bbs-text p{color:#fafafa;}
-.bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
 .loader {position: relative;margin:3rem auto;width: 100px;}
 .loader::before {content: '';display: block;padding-top: 100%;}
 .circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
@@ -210,13 +202,13 @@ window.Lately&&Lately.init({target:'.bbs-date'});}
 .bbs-text p > img:first-child:nth-last-child(n+2),.bbs-text p > img:first-child:nth-last-child(n+2) ~ img {display: inline-block;}
 .bbs-content p > img.square{height:180px;width:180px;object-fit:cover;}
 .resimg.grid{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows:auto;
-    gap: 4px;
-    width: calc(100%* 2 / 3);
-    box-sizing: border-box;
-    margin: 4px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows:auto;
+  gap: 4px;
+  width: calc(100%* 2 / 3);
+  box-sizing: border-box;
+  margin: 4px 0 0;
 }
 .resimg.grid-2{
   grid-template-columns: repeat(2, 1fr);
