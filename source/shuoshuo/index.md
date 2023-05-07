@@ -177,7 +177,7 @@ window.Lately&&Lately.init({target:'.bbs-date'});}
 .bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-5px;}
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
-.bbs-text,.resour{background: #eaeaea;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
+.bbs-text,.resour{background: var(--color-block);border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
 .bbs-text{overflow:hidden;max-height:90vh;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}
@@ -210,13 +210,13 @@ window.Lately&&Lately.init({target:'.bbs-date'});}
 .bbs-text p > img:first-child:nth-last-child(n+2),.bbs-text p > img:first-child:nth-last-child(n+2) ~ img {display: inline-block;}
 .bbs-content p > img.square{height:180px;width:180px;object-fit:cover;}
 .resimg.grid{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows:auto;
-  gap: 4px;
-  width: calc(100%* 2 / 3);
-  box-sizing: border-box;
-  margin: 4px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:auto;
+    gap: 4px;
+    width: calc(100%* 2 / 3);
+    box-sizing: border-box;
+    margin: 4px 0 0;
 }
 .resimg.grid-2{
   grid-template-columns: repeat(2, 1fr);
