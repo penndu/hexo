@@ -62,7 +62,10 @@ const urls = [
   {host:"https://s.dusays.com/",creatorId:"46",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821111a9.png"},
   {host:"https://s.dusays.com/",creatorId:"47",imgsrc:"https://bu.dusays.com/2023/04/27/644a58212935e.png"},
   {host:"https://s.dusays.com/",creatorId:"48",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821622b6.png"},
-  {host:"https://s.dusays.com/",creatorId:"49",imgsrc:"https://bu.dusays.com/2023/04/27/644a582189926.png"}
+  {host:"https://s.dusays.com/",creatorId:"49",imgsrc:"https://bu.dusays.com/2023/04/27/644a582189926.png"},
+  {host:"https://s.dusays.com/",creatorId:"50",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821b3bd0.png"},
+  {host:"https://s.dusays.com/",creatorId:"51",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188f8b9.png"},
+  {host:"https://s.dusays.com/",creatorId:"52",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188fca7.png"}
 ]
 var bbDom=document.querySelector('#bbs');var load='<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
 var loading='<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
