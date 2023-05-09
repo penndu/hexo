@@ -765,10 +765,6 @@ sidebar:
         title: 付费链接
         url: /friends/
       rows:
-        - name: tp钱包
-          url: https://www.tokenpockety.pro
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: trust钱包下载
           url: https://www.trustvvallet.net
           rel: external nofollow noopener noreferrer
