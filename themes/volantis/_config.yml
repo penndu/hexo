@@ -120,6 +120,7 @@ content_visibility: true
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
+  - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
   - https://unpkg.com/ => https://jsd.onmicrosoft.cn/npm/
 
 
@@ -461,9 +462,6 @@ comments:
     heightLimit:
       children: 0      # 评论区域限高
     versionCheck: false
-    gravatar: {
-      mirror: 'https://cdn.sep.cc/avatar/'
-    }
     darkMode: auto
     # 更多置项可在 Artalk 后端进行配置，详见 https://artalk.js.org/guide/backend/fe-control.html
     # 也可以在此处继续参考上方例子进行配置，不建议重写配置的字段除上方所述外还有：
@@ -928,21 +926,21 @@ plugins:
 
   ######## Plugins to optimize the experience:
   # 代码高亮
-  code_highlight: prismjs # highlightjs or prismjs
+  code_highlight: highlightjs # highlightjs or prismjs
   # highlight.js
   highlightjs:
     copy_code: true
     # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
     # # 不再支持 v11.1.0 以下版本
-    # js: https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
-    # css: https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css
+    js: https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
+    css: https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
 
   # prismjs
   # https://prismjs.com/
   # https://hexo.io/zh-cn/docs/syntax-highlight#PrismJS
   prismjs:
-    copy_code: true
+    copy_code: false
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
       - https://unpkg.com/prismjs/components/prism-core.min.js
