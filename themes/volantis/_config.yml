@@ -929,26 +929,26 @@ plugins:
   code_highlight: highlightjs # highlightjs or prismjs
   # highlight.js
   highlightjs:
-    copy_code: true
+    copy_code: false
     # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
     # # 不再支持 v11.1.0 以下版本
-    js: https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
-    css: https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css
+    js: https://unpkg.com/@highlightjs/cdn-assets@11.8.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
+    css: https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/github-dark-dimmed.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
 
   # prismjs
   # https://prismjs.com/
   # https://hexo.io/zh-cn/docs/syntax-highlight#PrismJS
   prismjs:
-    copy_code: false
+    copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://unpkg.com/prismjs/components/prism-core.min.js
-      - https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js
-      - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js
+      - https://npm.elemecdn.com/prismjs@1.29.0/components/prism-core.min.js
+      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js
+      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://unpkg.com/prismjs/themes/prism-okaidia.css
-      - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css
+      - https://npm.elemecdn.com/prismjs@1.29.0/themes/prism-tomorrow.min.css
+      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
