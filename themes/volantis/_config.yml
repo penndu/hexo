@@ -763,10 +763,6 @@ sidebar:
         title: 付费链接
         url: /friends/
       rows:
-        - name: MetaMask
-          url: https://www.sxhxtt.cn
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: imtoken钱包下载
           url: https://www.zyhsqjfw.com
           rel: external nofollow noopener noreferrer
