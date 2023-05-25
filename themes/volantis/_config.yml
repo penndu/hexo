@@ -925,7 +925,7 @@ plugins:
   code_highlight: highlightjs # highlightjs or prismjs
   # highlight.js
   highlightjs:
-    copy_code: false
+    copy_code: true
     # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
     # # 不再支持 v11.1.0 以下版本
     js: https://unpkg.com/@highlightjs/cdn-assets@11.8.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
