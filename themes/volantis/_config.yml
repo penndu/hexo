@@ -763,16 +763,16 @@ sidebar:
         title: 付费链接
         url: /friends/
       rows:
-        - name: imtoken钱包下载
-          url: https://www.zyhsqjfw.com
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: imtoken官网
           url: https://www.rrkp.org.cn
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: 下载tp钱包
           url: https://www.shcua.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
+        - name: tp钱包地址下载
+          url: https://www.yzbf.net
           rel: external nofollow noopener noreferrer
           target: _blank
     # webinfo widget
