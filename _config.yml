@@ -167,3 +167,10 @@ markdown:
     lazyload: false
     prepend_root: false
     post_asset: false
+feed:
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
