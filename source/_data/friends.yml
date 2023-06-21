@@ -149,6 +149,10 @@
     avatar: https://media.beatree.cn/media/avatar/2.jpg
     url: 'https://beatree.cn'
     screenshot: https://bu.dusays.com/2023/02/09/63e4e506efd50.jpeg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Billwing Blog'
+    avatar: https://billwing.fun/img/head.jpg
+    url: 'https://billwing.fun'
+    screenshot: https://bu.dusays.com/2023/01/16/63c4ca9de0b16.png
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
@@ -471,10 +475,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 雷雷屋头'
     avatar: https://ll.sc.cn/img/avatar.png
     url: 'https://ll.sc.cn'
-    screenshot: https://bu.dusays.com/2023/01/16/63c4ca9de0b16.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Billwing Blog'
-    avatar: https://billwing.fun/img/head.jpg
-    url: 'https://billwing.fun'
     screenshot: https://bu.dusays.com/2023/01/16/63c4ca9de0b16.png
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> GanSer'
     avatar: https://bu.dusays.com/2023/04/24/6445f727c62db.jpg
