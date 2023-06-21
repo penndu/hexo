@@ -137,10 +137,6 @@
     avatar: https://bu.dusays.com/2023/04/14/64394c658cb73.webp
     url: 'http://www.hellokvm.com'
     screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 萌耀零'
-    avatar: https://bu.dusays.com/2023/04/09/6432912a2039a.png
-    url: 'https://510.cool'
-    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> AZPL工作室'
     avatar: https://i.328888.xyz/2023/05/04/iPVQA5.png
     url: 'https://www.azplstudio.top'
@@ -568,3 +564,7 @@
     avatar: https://npm.elemecdn.com/hieroglyphs.package/blog/img/avatar.png
     url: 'https://www.hieroglyphs.top'
     screenshot: https://bu.dusays.com/2022/10/11/634535aa96b87.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 萌耀零'
+    avatar: https://bu.dusays.com/2023/04/09/6432912a2039a.png
+    url: 'https://510.cool'
+    screenshot: https://bu.dusays.com/2023/01/24/63cfaff8dd9aa.jpg
