@@ -200,9 +200,9 @@ navbar:
       icon: fa-solid fa-image
       url: https://7bu.top
       target: _blank
-    - name: 知乎
-      icon: fa-brands fa-zhihu
-      url: https://www.zhihu.com/people/dusays
+    - name: 频道
+      icon: fa-solid fa-phone
+      url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
       target: _blank
     - name: 社区
       icon: far fa-comments
