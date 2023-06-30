@@ -38,8 +38,12 @@ jobs:
     - name: hexo
       run: |
         hexo g --slient
-        git config --global user.email "penndu@outlook.com"
-        git config --global user.name "TeacherDu"
-        hexo d
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        external_repository: penndu/my-website
+        publish_branch: master
+        publish_dir: ./public
     - name: algolia
       run: hexo algolia
