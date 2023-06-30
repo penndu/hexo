@@ -23,7 +23,7 @@ jobs:
         npm i
     - name: Cache node modules
       id: cache-npm
-      uses: actions/cache@v3
+      uses: actions/cache@v3.3.1
       env:
         cache-name: cache-node-modules
       with:
@@ -39,11 +39,15 @@ jobs:
       run: |
         hexo g --slient
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: bluekrow/hexo-auto-deploy@v1.1.0
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        external_repository: penndu/my-website
-        publish_branch: master
-        publish_dir: ./public
+        token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        repo_name: penndu/my-website
+        owner_name: TeacherDu
+        owner_email: penndu@outlook.com
+        commit_message: a
+        deploy_branch: master
+        deploy_dir: /
+        source_dir: ./public
     - name: algolia
       run: hexo algolia
