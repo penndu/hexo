@@ -42,8 +42,8 @@ jobs:
       uses: bluekrow/hexo-auto-deploy@v1.1.0
       with:
         token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        repo_name: penndu/my-website
-        owner_name: TeacherDu
+        repo_name: my-website
+        owner_name: penndu
         owner_email: penndu@outlook.com
         commit_message: a
         deploy_branch: master
