@@ -65,7 +65,25 @@ const urls = [
   {host:"https://s.dusays.com/",creatorId:"49",imgsrc:"https://bu.dusays.com/2023/04/27/644a582189926.png"},
   {host:"https://s.dusays.com/",creatorId:"50",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821b3bd0.png"},
   {host:"https://s.dusays.com/",creatorId:"51",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188f8b9.png"},
-  {host:"https://s.dusays.com/",creatorId:"52",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188fca7.png"}
+  {host:"https://s.dusays.com/",creatorId:"52",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188fca7.png"}，
+  {host:"https://s.dusays.com/",creatorId:"53",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe99953.png"},
+  {host:"https://s.dusays.com/",creatorId:"54",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe989d1.png"},
+  {host:"https://s.dusays.com/",creatorId:"55",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe98a70.png"},
+  {host:"https://s.dusays.com/",creatorId:"56",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe8dd1e.png"},
+  {host:"https://s.dusays.com/",creatorId:"57",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe8b7dc.png"},
+  {host:"https://s.dusays.com/",creatorId:"58",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe95574.png"},
+  {host:"https://s.dusays.com/",creatorId:"59",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe95574.png"},
+  {host:"https://s.dusays.com/",creatorId:"60",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe8d9c8.png"},
+  {host:"https://s.dusays.com/",creatorId:"61",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe9741c.png"},
+  {host:"https://s.dusays.com/",creatorId:"62",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe95574.png"},
+  {host:"https://s.dusays.com/",creatorId:"63",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b073b965.png"},
+  {host:"https://s.dusays.com/",creatorId:"64",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b07366f6.png"},
+  {host:"https://s.dusays.com/",creatorId:"65",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b09d59a9.png"},
+  {host:"https://s.dusays.com/",creatorId:"66",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b09efad0.png"},
+  {host:"https://s.dusays.com/",creatorId:"67",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b0a5272d.png"},
+  {host:"https://s.dusays.com/",creatorId:"68",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b0a4b90f.png"},
+  {host:"https://s.dusays.com/",creatorId:"69",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b0a64087.png"},
+  {host:"https://s.dusays.com/",creatorId:"70",imgsrc:"https://bu.dusays.com/2023/07/13/64b00b0a2586c.png"}
 ]
 var bbDom=document.querySelector('#bbs');var load='<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
 var loading='<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
