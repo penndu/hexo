@@ -65,7 +65,7 @@ const urls = [
   {host:"https://s.dusays.com/",creatorId:"49",imgsrc:"https://bu.dusays.com/2023/04/27/644a582189926.png"},
   {host:"https://s.dusays.com/",creatorId:"50",imgsrc:"https://bu.dusays.com/2023/04/27/644a5821b3bd0.png"},
   {host:"https://s.dusays.com/",creatorId:"51",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188f8b9.png"},
-  {host:"https://s.dusays.com/",creatorId:"52",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188fca7.png"}，
+  {host:"https://s.dusays.com/",creatorId:"52",imgsrc:"https://bu.dusays.com/2023/04/27/644a59188fca7.png"},
   {host:"https://s.dusays.com/",creatorId:"53",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe99953.png"},
   {host:"https://s.dusays.com/",creatorId:"54",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe989d1.png"},
   {host:"https://s.dusays.com/",creatorId:"55",imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe98a70.png"},
