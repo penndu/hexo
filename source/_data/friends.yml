@@ -149,6 +149,10 @@
     avatar: https://media.beatree.cn/media/avatar/2.jpg
     url: 'https://beatree.cn'
     screenshot: https://bu.dusays.com/2023/02/09/63e4e506efd50.jpeg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云晓晨博客'
+    avatar: https://bu.dusays.com/2023/07/13/64afadb658e2c.ico
+    url: 'https://www.catchwang.com'
+    screenshot: https://bu.dusays.com/2022/10/18/634e39c1e0377.jpg
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
@@ -360,10 +364,6 @@
     avatar: https://bu.dusays.com/2022/08/09/62f26322f2dda.jpeg
     url: 'https://shixiaocaia.fun'
     screenshot: https://bu.dusays.com/2022/10/29/635c11b491a54.png
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云晓晨博客'
-    avatar: https://bu.dusays.com/2021/12/27/4bed0ff62a1fd.png
-    url: 'https://www.catchwang.com'
-    screenshot: https://bu.dusays.com/2022/10/18/634e39c1e0377.jpg
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Pil0tXia'
     avatar: https://static.pil0txia.com/assets/03_3_600p.webp
     url: 'https://www.pil0txia.com'
