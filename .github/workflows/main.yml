@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.5.3
-    - uses: actions/setup-node@v3.6.0
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v3
       with:
-        node-version: '20.3.1'
+        node-version: '19.7'
         cache: 'npm'
         cache-dependency-path: package-lock.json
     - name: npm
@@ -23,7 +23,7 @@ jobs:
         npm i
     - name: Cache node modules
       id: cache-npm
-      uses: actions/cache@v3.3.1
+      uses: actions/cache@v3
       env:
         cache-name: cache-node-modules
       with:
