@@ -107,22 +107,8 @@ deploy:
 # - type: git
   # repo: git@e.coding.net:penndo/dulaoshishuo/my-website.git
   # branch: master
-- type: git
-  repo: git@github.com:penndu/my-website.git
-  branch: master
-nofollow:
-  enable: true
-  field: site
-  exclude:
-  - 'dusays.com'
-  - '7bu.top'
 baidusitemap:
   path: baidusitemap.xml
-autoprefixer:
-  exclude:
-    - '*.css'
-sitemap:
-  path: sitemap.xml
 algolia:
   appId: "M5C9U2T6MZ"
   apiKey: "67df7956c07d0ecf2c7db855d8770bc3"
@@ -133,14 +119,6 @@ algolia:
     - path
     - title
     - content:strip
-jsonContent: 
-  meta: false 
-  pages: false 
-  posts: 
-    title: true 
-    path: true 
-    text: true 
-    uuid: true
 markdown:
   preset: 'default'
   render:
