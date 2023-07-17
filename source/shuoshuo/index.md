@@ -196,48 +196,234 @@ function urlsNow(e){
     });
   }
 }
-function getNextList(){var bbUrl=bbUrlNow+"&offset="+offset;fetch(bbUrl).then(res=>res.json()).then(resdata=>{nextDom=resdata
-nextLength=nextDom.length
-page++
-offset=10*(page-1)
-if(nextLength<1){document.querySelector("button.button-load").remove()
-return}
-nextDatas.length=0
-for(var j=0;j<nextDom.length;j++){var resValue=nextDom[j]
-nextData={updatedTs:resValue.updatedTs,creatorId:resValue.creatorId,creator:resValue.creatorName||resValue.creator.nickname||resValue.creator.name,imgsrc:imgsrcNow,content:resValue.content,resourceList:resValue.resourceList,url:hostNow}
-nextDatas.push(nextData)}})}
-const withTimeout=(millis,promise)=>{const timeout=new Promise((resolve,reject)=>setTimeout(()=>reject(`Timed out after ms.`),millis));return Promise.race([promise,timeout]);};const fetchBBser=async()=>{const results=await Promise.allSettled(urls.map(url=>withTimeout(2000,fetch(url.host+"api/v1/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response=>response.json()).then(resdata=>resdata)))).then(results=>{bbDom.innerHTML=''
-for(var i=0;i<results.length;i++){var status=results[i].status
-if(status=="fulfilled"){var resultsRes=results[i].value
-for(var j=0;j<resultsRes.length;j++){var resValue=resultsRes[j]
-bbsData={updatedTs:resValue.updatedTs,creatorId:resValue.creatorId,creator:resValue.creatorName||resValue.creator.nickname||resValue.creator.name,imgsrc:urls[i].imgsrc,content:resValue.content,resourceList:resValue.resourceList,url:urls[i].host}
-bbsDatas.push(bbsData)}}}
-bbsDatas.sort(compare("updatedTs"));updateHTMl(bbsDatas)})}
+function getNextList(){
+  var bbUrl = bbUrlNow+"&offset="+offset;
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    var arrData = resdata || ''
+    if(resdata.data){
+      arrData = resdata.data
+    }
+    nextDom = arrData
+    nextLength = nextDom.length
+    page++
+    offset = 10*(page-1)
+    if(nextLength < 1){
+      document.querySelector("button.button-load").remove()
+      return
+    }
+    nextDatas.length = 0
+    for(var j=0;j < nextDom.length;j++){
+      var resValue = nextDom[j]
+      nextData = {
+        updatedTs: resValue.updatedTs,
+        creatorId:resValue.creatorId,
+        creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
+        imgsrc: imgsrcNow,
+        content: resValue.content,
+        resourceList: resValue.resourceList,
+        url:hostNow,
+        twiEnv:twiEnvNow,
+        artEnv:artEnvNow,
+        artSite:artSiteNow,
+        comment:commentNow,
+        memoId: resValue.id,
+        home:homeNow,
+      }
+      nextDatas.push(nextData)
+    }
+  })
+}
+const withTimeout = (millis, promise) => {
+  const timeout = new Promise((resolve, reject) =>
+      setTimeout( () => reject(`Timed out after ms.`),millis));
+  return Promise.race([
+      promise,
+      timeout
+  ]);
+};
+const fetchBBser = async () => {
+  const results = await Promise.allSettled(urls.map(
+    url => withTimeout(2000,
+      fetch(url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
+        var qsLive = ".bbs-urls.bbs-url[data-hostid='"+url.host+"u/"+url.creatorId+"']"
+        document.querySelector(qsLive).classList.add("liveon");
+        var arrData = resdata || ''
+        if(resdata.data){
+          arrData = resdata.data
+        }
+        return arrData
+      })
+    )
+  )).then(results=> {
+    bbDom.innerHTML = ''
+    for(var i=0;i < results.length;i++){
+      var status = results[i].status
+      if(status == "fulfilled"){
+        var resultsRes = results[i].value
+        for(var j=0;j < resultsRes.length;j++){
+          var resValue = resultsRes[j]
+          var dateNow = new Date()
+          var dateDiff = dateNow.getTime() - (resValue.updatedTs * 1000);
+          var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));
+          if(dayDiff < 10 ){
+            bbsData = {
+              memoId: resValue.id,
+              updatedTs: resValue.updatedTs,
+              creatorId:resValue.creatorId,
+              creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
+              imgsrc: urls[i].imgsrc,
+              content: resValue.content,
+              resourceList: resValue.resourceList,
+              home:urls[i].home,
+              url:urls[i].host,
+              comment:urls[i].comment,
+              twiEnv:urls[i].twiEnv || '',
+              artEnv:urls[i].artEnv || '',
+              artSite:urls[i].artSite || ''
+            }
+            bbsDatas.push(bbsData)
+          }
+        }
+      }
+    }
+    bbsDatas.sort(compare("updatedTs"));
+    updateHTMl(bbsDatas)
+  })
+}
 fetchBBser()
-function compare(p){return function(m,n){var a=m[p];var b=n[p];return b-a;}}
-function uniqueFunc(arr){const res=new Map();return arr.filter((item)=>!res.has(item.creator)&&res.set(item.creator,1));}
-function updateHTMl(data){var result="",resultAll="";const TAG_REG=/#([^\s#]+?) /g,BILIBILI_REG=/<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g,NETEASE_MUSIC_REG=/<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,QQMUSIC_REG=/<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,QQVIDEO_REG=/<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g,YOUKU_REG=/<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g,YOUTUBE_REG=/<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;marked.setOptions({breaks:true,smartypants:true,langPrefix:'language-'});for(var i=0;i<data.length;i++){var memos=data[i].url
-var bbContREG=data[i].content.replace(TAG_REG,"<span class='tag-span'>#$1</span> ")
-bbContREG=marked.parse(bbContREG).replace(BILIBILI_REG,"<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>").replace(NETEASE_MUSIC_REG,"<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>").replace(QQMUSIC_REG,"<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>").replace(QQVIDEO_REG,"<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>").replace(YOUKU_REG,"<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>").replace(YOUTUBE_REG,"<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
-if(data[i].resourceList&&data[i].resourceList.length>0){var resourceList=data[i].resourceList;var imgUrl='',resUrl='',resImgLength=0;for(var j=0;j<resourceList.length;j++){var restype=resourceList[j].type.slice(0,5);var resexlink=resourceList[j].externalLink
-var resLink='',fileId=''
-if(resexlink){resLink=resexlink}else{fileId=resourceList[j].publicId||resourceList[j].filename
-resLink=memos+'o/r/'+resourceList[j].id+'/'+fileId}
-if(restype=='image'){imgUrl+='<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+resLink+'"/></figure>'
-resImgLength=resImgLength+1}
-if(restype!=='image'){resUrl+='<a target="_blank" rel="noreferrer" href="'+resLink+'">'+resourceList[j].filename+'</a>'}}
-if(imgUrl){var resImgGrid=""
-if(resImgLength!==1){var resImgGrid="grid grid-"+resImgLength}
-bbContREG+='<div class="resimg '+resImgGrid+'">'+imgUrl+'</div></div>'}
-if(resUrl){bbContREG+='<div class="resour">'+resUrl+'</div>'}}
-result+='<li class=""><div class="bbs-avatar"><img src="'+data[i].imgsrc+'" alt=""><a href="'+data[i].url+'u/'+data[i].creatorId+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs*1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'}
-var bbBefore="<section class='bbs-timeline'><ul class='list'>"
-var bbAfter="</ul></section>"
-resultAll=bbBefore+result+bbAfter
-bbDom.insertAdjacentHTML('beforeend',resultAll);var btn=document.querySelector('button.button-load')
-if(btn){btn.textContent='加载更多';}
-window.ViewImage&&ViewImage.init('.bbs-content img')
-window.Lately&&Lately.init({target:'.bbs-date'});}
+function compare(p){
+  return function(m,n){
+      var a = m[p];
+      var b = n[p];
+      return b - a;
+  }
+}
+function uniqueFunc(arr){
+  const res = new Map();
+  return arr.filter((item) => !res.has(item.creator) && res.set(item.creator, 1));
+}
+function updateHTMl(data){
+  var result="",resultAll="";
+  const TAG_REG = /#([^\s#]+)/;
+  const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
+  BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
+  NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
+  QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
+  QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
+  YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
+  YOUTUBE_REG = /<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
+  marked.setOptions({
+    breaks: true,
+    smartypants: false,
+    langPrefix: 'language-'
+  });
+  const renderer = new marked.Renderer();
+  const linkRenderer = renderer.link;
+  renderer.link = (href, title, text) => {
+      const localLink = href.startsWith(`${location.protocol}//${location.hostname}`);
+      const html = linkRenderer.call(renderer, href, title, text);
+      return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
+  };
+  marked.use({ renderer });
+  for(var i=0;i < data.length;i++){
+      var memos = data[i].url
+      var memoId = data[i].memoId
+      var memoUrl = memos + "m/" + memoId
+      var comment = data[i].comment
+      var twiEnv = data[i].twiEnv
+      var artEnv = data[i].artEnv
+      var artSite = data[i].artSite
+      var bbContREG = data[i].content
+        .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+        .replace(IMG_REG, '')
+      bbContREG = marked.parse(bbContREG)
+        .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
+        .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
+        .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
+        .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
+        .replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
+        .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
+      var IMG_ARR = data[i].content.match(IMG_REG) || '',IMG_ARR_Grid='';
+      if(IMG_ARR){
+        var IMG_ARR_Length = IMG_ARR.length,IMG_ARR_Url = '';
+        if(IMG_ARR_Length !== 1){var IMG_ARR_Grid = " grid grid-"+IMG_ARR_Length}
+        IMG_ARR.forEach(item => {
+            let imgSrc = item.replace(/!\[.*?\]\((.*?)\)/g,'$1')
+            IMG_ARR_Url += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="'+imgSrc+'"/></figure>'
+        });
+        bbContREG += '<div class="resimg'+IMG_ARR_Grid+'">'+IMG_ARR_Url+'</div>';
+      }
+      var tagArr = data[i].content.match(TAG_REG);
+      var bbContTag = '';
+      if (tagArr) {
+          bbContTag = String(tagArr[0]).replace(/[#]/g, '');
+      } else {
+          bbContTag = '动态';
+      };
+      if(data[i].resourceList && data[i].resourceList.length > 0){
+        var resourceList = data[i].resourceList;
+        var imgUrl='',resUrl='',resImgLength = 0;
+        for(var j=0;j < resourceList.length;j++){
+          var restype = resourceList[j].type.slice(0,5);
+          var resexlink = resourceList[j].externalLink
+          var resLink = '',fileId=''
+          if(resexlink){
+            resLink = resexlink
+          }else{
+            fileId = resourceList[j].publicId || resourceList[j].filename
+            resLink = memos+'o/r/'+resourceList[j].id+'/'+fileId
+          }
+          if(restype == 'image'){
+            imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+resLink+'"/></figure>'
+            resImgLength = resImgLength + 1 
+          }
+          if(restype !== 'image'){
+            resUrl += '<a target="_blank" rel="noreferrer" href="'+resLink+'">'+resourceList[j].filename+'</a>'
+          }
+        }
+        if(imgUrl){
+          var resImgGrid = ""
+          if(resImgLength !== 1){var resImgGrid = " grid grid-"+resImgLength}
+          bbContREG += '<div class="resimg'+resImgGrid+'">'+imgUrl+'</div>'
+        }
+        if(resUrl){
+          bbContREG += '<div class="resour">'+resUrl+'</div>'
+        }
+      }
+      var EnvNow = ''
+      if(twiEnv && twiEnv != "undefined"){
+        EnvNow = twiEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
+      }
+      if(artEnv && artEnv != "undefined"){
+        EnvNow = artEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
+      }
+      result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
+      var comSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="24"><path d="M816 808H672c-4.8 0-8 1.6-11.2 4.8l-80 80c-36.8 36.8-97.6 36.8-136 0l-80-80c-3.2-3.2-6.4-4.8-11.2-4.8h-144c-70.4 0-128-57.6-128-128V232c0-70.4 57.6-128 128-128h608c70.4 0 128 57.6 128 128v448C944 750.4 886.4 808 816 808zm0-64c35.2 0 64-28.8 64-64V232c0-35.2-28.8-64-64-64H208c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h144c20.8 0 41.6 8 56 24l80 80c12.8 12.8 32 12.8 44.8 0l80-80c14.4-14.4 35.2-24 56-24H816zM320 408c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z" /></svg></span>'
+      var outSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640zm-485.184 52.48a31.84 31.84 0 0 1-45.12-.128 31.808 31.808 0 0 1-.128-45.12L815.04 166.048l-176.128.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l.736-179.392L378.816 692.48z"/></svg></span>'
+      if(comment == '1'){
+        if(twiEnv && twiEnv != 'undefined'){
+          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment twikoo-'+memoId+' d-none"><div id="'+EnvNow+'twikoo-'+memoId+'"></div></div></div></li>'
+        }else if(artEnv && artEnv != 'undefined'){
+          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment '+EnvNow+'artalk-'+memoId+' d-none"></div></div></li>'
+        }else{
+          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+        }
+      }else{
+        result += '</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+      }
+  }
+  var bbBefore = "<section class='bbs-timeline'><ul class='list'>"
+  var bbAfter = "</ul></section>"
+  resultAll = bbBefore + result + bbAfter
+  bbDom.insertAdjacentHTML('beforeend', resultAll);
+  var btn = document.querySelector('button.button-load')
+  if(btn){
+    btn.textContent= '加载更多';
+  }
+  fetchDB()
+  window.ViewImage && ViewImage.init('.bbs-content img')
+  window.Lately && Lately.init({ target: '.bbs-date' });
+}
 </script>
 <style>
 #bbs{padding: 2rem 0;}
