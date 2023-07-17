@@ -8,7 +8,7 @@ title: 说说广场
 ---
 
 <div id="bbs"></div>
-<script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked/marked.min.js"></script>
+<script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked@4.3.0/marked.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
 <script>
