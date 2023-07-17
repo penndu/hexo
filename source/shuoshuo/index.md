@@ -364,7 +364,7 @@ function updateHTMl(data){
         var resourceList = data[i].resourceList;
         var imgUrl='',resUrl='',resImgLength = 0;
         for(var j=0;j < resourceList.length;j++){
-          var restype = resourceList[j].type.slice(0,5);
+          var restype = resourceList[j].type.slice(0,10);
           var resexlink = resourceList[j].externalLink
           var resLink = '',fileId=''
           if(resexlink){
