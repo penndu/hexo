@@ -420,7 +420,6 @@ function updateHTMl(data){
   if(btn){
     btn.textContent= '加载更多';
   }
-  fetchDB()
   window.ViewImage && ViewImage.init('.bbs-content img')
   window.Lately && Lately.init({ target: '.bbs-date' });
 }
