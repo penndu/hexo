@@ -133,11 +133,6 @@ function urlsNow(e){
       hostNow = urls[num].host
       creIdNow = urls[num].creatorId
       imgsrcNow = urls[num].imgsrc
-      commentNow = urls[num].comment
-      twiEnvNow = urls[num].twiEnv
-      artEnvNow = urls[num].artEnv
-      artSiteNow = urls[num].artSite
-      homeNow = urls[num].home
       apiV1Now = urls[num].apiV1
       domUrls[num].classList.add("url-now")
     }else{
@@ -145,11 +140,6 @@ function urlsNow(e){
       hostNow = e.getAttribute("data-host")
       creIdNow = e.getAttribute("data-creatorId")
       imgsrcNow = e.getAttribute("data-imgsrc")
-      commentNow = e.getAttribute("data-comment")
-      twiEnvNow = e.getAttribute("data-twienv")
-      artEnvNow = e.getAttribute("data-artenv")
-      artSiteNow = e.getAttribute("data-artsite")
-      homeNow = e.getAttribute("data-home")
       apiV1Now = e.getAttribute("data-apiV1")
     }
     bbUrlNow = hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
@@ -170,12 +160,7 @@ function urlsNow(e){
               imgsrc: imgsrcNow,
               content: resValue.content,
               resourceList: resValue.resourceList,
-              url:hostNow,
-              twiEnv:twiEnvNow,
-              artEnv:artEnvNow,
-              artSite:artSiteNow,
-              home:homeNow,
-              comment: commentNow
+              url:hostNow
             }
             bbsDatas.push(bbsData)
       }
@@ -239,12 +224,7 @@ function getNextList(){
         content: resValue.content,
         resourceList: resValue.resourceList,
         url:hostNow,
-        twiEnv:twiEnvNow,
-        artEnv:artEnvNow,
-        artSite:artSiteNow,
-        comment:commentNow,
         memoId: resValue.id,
-        home:homeNow,
       }
       nextDatas.push(nextData)
     }
@@ -294,12 +274,7 @@ const fetchBBser = async () => {
               imgsrc: urls[i].imgsrc,
               content: resValue.content,
               resourceList: resValue.resourceList,
-              home:urls[i].home,
-              url:urls[i].host,
-              comment:urls[i].comment,
-              twiEnv:urls[i].twiEnv || '',
-              artEnv:urls[i].artEnv || '',
-              artSite:urls[i].artSite || ''
+              url:urls[i].host
             }
             bbsDatas.push(bbsData)
           }
@@ -432,7 +407,7 @@ function updateHTMl(data){
       if(artEnv && artEnv != "undefined"){
         EnvNow = artEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
       }
-      result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
+      result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
 
       var comSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="24"><path d="M816 808H672c-4.8 0-8 1.6-11.2 4.8l-80 80c-36.8 36.8-97.6 36.8-136 0l-80-80c-3.2-3.2-6.4-4.8-11.2-4.8h-144c-70.4 0-128-57.6-128-128V232c0-70.4 57.6-128 128-128h608c70.4 0 128 57.6 128 128v448C944 750.4 886.4 808 816 808zm0-64c35.2 0 64-28.8 64-64V232c0-35.2-28.8-64-64-64H208c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h144c20.8 0 41.6 8 56 24l80 80c12.8 12.8 32 12.8 44.8 0l80-80c14.4-14.4 35.2-24 56-24H816zM320 408c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z" /></svg></span>'
 
