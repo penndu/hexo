@@ -129,7 +129,7 @@ return}
 page++
 offset=10*(page-1)
 getNextList()});}}
-function getNextList(){var bbUrl=bbUrlNow+"&offset="+offset;fetch(bbUrl).then(res=>res.json()).then(resdata=>{nextDom=resdata.data
+function getNextList(){var bbUrl=bbUrlNow+"&offset="+offset;fetch(bbUrl).then(res=>res.json()).then(resdata=>{nextDom=resdata
 nextLength=nextDom.length
 page++
 offset=10*(page-1)
@@ -139,7 +139,7 @@ nextDatas.length=0
 for(var j=0;j<nextDom.length;j++){var resValue=nextDom[j]
 nextData={updatedTs:resValue.updatedTs,creatorId:resValue.creatorId,creator:resValue.creatorName||resValue.creator.nickname||resValue.creator.name,imgsrc:imgsrcNow,content:resValue.content,resourceList:resValue.resourceList,url:hostNow}
 nextDatas.push(nextData)}})}
-const withTimeout=(millis,promise)=>{const timeout=new Promise((resolve,reject)=>setTimeout(()=>reject(`Timed out after ms.`),millis));return Promise.race([promise,timeout]);};const fetchBBser=async()=>{const results=await Promise.allSettled(urls.map(url=>withTimeout(2000,fetch(url.host+"api/v1/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response=>response.json()).then(resdata=>resdata.data)))).then(results=>{bbDom.innerHTML=''
+const withTimeout=(millis,promise)=>{const timeout=new Promise((resolve,reject)=>setTimeout(()=>reject(`Timed out after ms.`),millis));return Promise.race([promise,timeout]);};const fetchBBser=async()=>{const results=await Promise.allSettled(urls.map(url=>withTimeout(2000,fetch(url.host+"api/v1/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response=>response.json()).then(resdata=>resdata)))).then(results=>{bbDom.innerHTML=''
 for(var i=0;i<results.length;i++){var status=results[i].status
 if(status=="fulfilled"){var resultsRes=results[i].value
 for(var j=0;j<resultsRes.length;j++){var resValue=resultsRes[j]
