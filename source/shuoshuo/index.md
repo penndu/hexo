@@ -119,7 +119,7 @@ imgsrcNow=e.getAttribute("data-imgsrc")}
 bbUrlNow=hostNow+"api/v1/memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
 fetch(bbUrlNow).then(res=>res.json()).then(resdata=>{bbDom.innerHTML=''
 bbsDatas.length=0
-for(var j=0;j<resdata.data.length;j++){var resValue=resdata.data[j]
+for(var j=0;j<resdata.length;j++){var resValue=resdata[j]
 bbsData={updatedTs:resValue.updatedTs,creatorId:resValue.creatorId,creator:resValue.creatorName||resValue.creator.nickname||resValue.creator.name,imgsrc:imgsrcNow,content:resValue.content,resourceList:resValue.resourceList,url:hostNow}
 bbsDatas.push(bbsData)}
 updateHTMl(bbsDatas)
