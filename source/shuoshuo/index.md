@@ -241,6 +241,56 @@ const withTimeout = (millis, promise) => {
       timeout
   ]);
 };
+const fetchBBser = async () => {
+  const results = await Promise.allSettled(urls.map(
+    url => withTimeout(2000,
+      fetch(url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
+        var qsLive = ".bbs-urls.bbs-url[data-hostid='"+url.host+"u/"+url.creatorId+"']"
+        document.querySelector(qsLive).classList.add("liveon");
+        var arrData = resdata || ''
+        if(resdata.data){
+          arrData = resdata.data
+        }
+        return arrData
+      })
+    )
+  )).then(results=> {
+    bbDom.innerHTML = ''
+    for(var i=0;i < results.length;i++){
+      var status = results[i].status
+      if(status == "fulfilled"){
+        var resultsRes = results[i].value
+        for(var j=0;j < resultsRes.length;j++){
+          var resValue = resultsRes[j]
+          var dateNow = new Date()
+          var dateDiff = dateNow.getTime() - (resValue.updatedTs * 1000);
+          var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));
+          if(dayDiff < 10 ){
+            bbsData = {
+              memoId: resValue.id,
+              updatedTs: resValue.updatedTs,
+              creatorId:resValue.creatorId,
+              creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
+              imgsrc: urls[i].imgsrc,
+              content: resValue.content,
+              resourceList: resValue.resourceList,
+              home:urls[i].home,
+              url:urls[i].host,
+              comment:urls[i].comment,
+              twiEnv:urls[i].twiEnv || '',
+              artEnv:urls[i].artEnv || '',
+              artSite:urls[i].artSite || ''
+            }
+            bbsDatas.push(bbsData)
+          }
+        }
+      }
+    }
+    bbsDatas.sort(compare("updatedTs"));
+    updateHTMl(bbsDatas)
+  })
+}
+fetchBBser()
 function compare(p){
   return function(m,n){
       var a = m[p];
@@ -293,6 +343,16 @@ function updateHTMl(data){
         .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
         .replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
         .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
+      var IMG_ARR = data[i].content.match(IMG_REG) || '',IMG_ARR_Grid='';
+      if(IMG_ARR){
+        var IMG_ARR_Length = IMG_ARR.length,IMG_ARR_Url = '';
+        if(IMG_ARR_Length !== 1){var IMG_ARR_Grid = " grid grid-"+IMG_ARR_Length}
+        IMG_ARR.forEach(item => {
+            let imgSrc = item.replace(/!\[.*?\]\((.*?)\)/g,'$1')
+            IMG_ARR_Url += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="'+imgSrc+'"/></figure>'
+        });
+        bbContREG += '<div class="resimg'+IMG_ARR_Grid+'">'+IMG_ARR_Url+'</div>';
+      }
       var tagArr = data[i].content.match(TAG_REG);
       var bbContTag = '';
       if (tagArr) {
