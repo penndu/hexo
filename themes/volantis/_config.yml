@@ -200,10 +200,6 @@ navbar:
       icon: fa-solid fa-image
       url: https://7bu.top
       target: _blank
-    - name: 社区
-      icon: far fa-comments
-      url: https://bbs.dusays.com
-      target: _blank
     - name: 点我在线聊天
       icon: fa-solid fa-phone
       url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
