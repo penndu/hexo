@@ -169,6 +169,10 @@
     avatar: https://bu.dusays.com/2023/07/31/64c7ce9e792b0.png
     url: 'https://note.ifoxhui.com'
     screenshot: https://bu.dusays.com/2022/10/18/634e39c1e0377.jpg
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 樱花小镇'
+    avatar: https://bu.dusays.com/2023/08/01/64c8b90ec1c39.png
+    url: 'https://blog.sakura.vin'
+    screenshot: https://bu.dusays.com/2022/10/18/634e39c1e0377.jpg
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
