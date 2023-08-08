@@ -756,11 +756,15 @@ sidebar:
       display: [desktop, mobile]
       header:
         icon: fas fa-thumbs-up
-        title: 付费链接
+        title: 首页链接
         url: /friends/
       rows:
         - name: 最新imtoken钱包官网
           url: https://www.jqszny.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
+        - name: Fan Blog
+          url: https://blog.fanwu.link
           rel: external nofollow noopener noreferrer
           target: _blank
     # webinfo widget
