@@ -759,7 +759,7 @@ sidebar:
         title: 首页链接
         url: /friends/
       rows:
-        - name: 最新imtoken钱包官网
+        - name: imtoken钱包
           url: https://www.jqszny.com
           rel: external nofollow noopener noreferrer
           target: _blank
