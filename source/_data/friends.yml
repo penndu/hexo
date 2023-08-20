@@ -79,6 +79,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 辉辉狐的笔记'
     avatar: https://bu.dusays.com/2023/07/31/64c7ce9e792b0.png
     url: 'https://note.ifoxhui.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阿巴ing的笨蛋博客'
+    avatar: https://bu.dusays.com/2023/08/02/64c9fe33699b6.png
+    url: 'https://abaing.com'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
@@ -457,9 +460,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 钟意博客'
     avatar: https://bu.dusays.com/2023/08/01/64c7dca928ac4.png
     url: 'https://blog.thatcoder.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阿巴ing的笨蛋博客'
-    avatar: https://bu.dusays.com/2023/08/02/64c9fe33699b6.png
-    url: 'https://abaing.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Alcex’s Blog'
     avatar: https://bu.dusays.com/2023/08/04/64cca7310b521.png
     url: 'https://blog.alcex.top'
