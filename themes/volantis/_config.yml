@@ -827,6 +827,10 @@ sidebar:
           url: https://blog.sakura.vin
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: 星萌亦派
+          url: https://meta-sns.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
