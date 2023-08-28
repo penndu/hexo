@@ -88,6 +88,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 艺术细菌'
     avatar: https://bu.dusays.com/2023/08/24/64e7711ac3c66.jpg
     url: 'https://penlife.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 龙鲲博客'
+    avatar: https://bu.dusays.com/2023/08/28/64ec12a78d0ac.jpg
+    url: 'https://lkblog.net'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
