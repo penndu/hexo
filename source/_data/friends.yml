@@ -91,6 +91,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 龙鲲博客'
     avatar: https://bu.dusays.com/2023/08/28/64ec12a78d0ac.jpg
     url: 'https://lkblog.net'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 彬红茶博客'
+    avatar: https://bu.dusays.com/2023/08/29/64ed9af86f619.jpg
+    url: 'http://blog.binhongtea.top'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
@@ -550,9 +553,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Chenli'
     avatar: https://bu.dusays.com/2023/08/27/64eb31829a3a2.jpg
     url: 'https://chenliss.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 彬红茶博客'
-    avatar: https://bu.dusays.com/2023/08/29/64ed9af86f619.jpg
-    url: 'http://blog.binhongtea.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小林的小破站'
     avatar: https://bu.dusays.com/2023/08/29/64ede7953ad6a.jpg
     url: 'https://blog.lucksss.com'
