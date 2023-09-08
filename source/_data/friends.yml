@@ -1,15 +1,9 @@
 - group: 全站链接
   description: 该分组为全站友情链接，不仅显示在本页内，同时显示在全站的底部。
   items:
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 科研软件小站'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde33c00f.jpg
-    url: 'https://www.sciencesoft.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Dr.Pika’s Blog'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf929aa0.jpg
     url: 'https://blog.drpika.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小简博客'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdfda6813.jpg
-    url: 'https://blog.ideaopen.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> joojen个人博客'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdfb39557.jpg
     url: 'https://joojen.com'
@@ -67,9 +61,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 做棵大树'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde979dea.jpg
     url: 'https://beatree.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云晓晨博客'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde5466eb.jpg
-    url: 'https://www.catchwang.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 沧浪湖'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde917648.jpg
     url: 'https://azurelake.cn'
@@ -82,12 +73,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阿巴ing的笨蛋博客'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf6aad38.jpg
     url: 'https://abaing.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 棋の小站'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf7d6ff8.jpg
-    url: 'https://blog.qi1.zone'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 艺术细菌'
-    avatar: https://bu.dusays.com/2023/08/24/64e7711ac3c66.jpg
-    url: 'https://penlife.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 龙鲲博客'
     avatar: https://bu.dusays.com/2023/08/28/64ec12a78d0ac.jpg
     url: 'https://lkblog.net'
@@ -565,3 +550,12 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Hieroglyphs'
     avatar: https://bu.dusays.com/2023/08/31/64f0446fc1a2a.jpg
     url: 'https://hieroglyphs.top'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云晓晨博客'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde5466eb.jpg
+    url: 'https://www.catchwang.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 棋の小站'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdf7d6ff8.jpg
+    url: 'https://blog.qi1.zone'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 艺术细菌'
+    avatar: https://bu.dusays.com/2023/08/24/64e7711ac3c66.jpg
+    url: 'https://penlife.cn'
