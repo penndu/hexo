@@ -82,9 +82,6 @@
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 凡梦星尘空间站'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde9f1d58.jpg
-    url: 'https://lisenhui.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Jared h'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdea2f8f5.jpg
     url: 'https://jaredh.cn'
@@ -166,9 +163,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> YFun’s Blog'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf8dcde5.jpg
     url: 'https://blog.yfun.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 今夕何夕兮'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf6dbe6e.jpg
-    url: 'https://www.ginc.site'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> XKの博客'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf0dd073.jpg
     url: 'https://blog.xukaiyyds.cn'
@@ -256,9 +250,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 纯情'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdeed5a14.jpg
     url: 'https://blog.xiaohack.org'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 召尘秘境'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdef062b5.jpg
-    url: 'https://www.olive-r.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 目的地-Destination'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdef369a6.jpg
     url: 'https://blog.chrison.cn'
@@ -421,9 +412,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 新白菜频道'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf4c8e71.jpg
     url: 'http://www.n-bc.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> OvORizhi'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf60fbfa.jpg
-    url: 'https://ovorizhi.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 铅笔的小破站'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf51ad70.jpg
     url: 'https://www.shangjidong.com'
@@ -463,9 +451,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阳光下的小宁宁'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde7efebe.jpg
     url: 'https://ning0818.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Fan Blog'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf796342.jpg
-    url: 'https://blog.fanwu.link'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf9a054c.jpg
     url: 'https://www.hibbba.com'
@@ -502,9 +487,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> AZPL工作室'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde9f17ab.jpg
     url: 'https://www.azplstudio.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> bill'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde4a6b8c.jpg
-    url: 'https://1703.site'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 免费主机'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde55bc44.jpg
     url: 'https://www.swb.cc'
@@ -517,9 +499,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 厕所干饭人'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf83cb8f.jpg
     url: 'https://bkz.asia'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> jingdutiao’s blog'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf7ae632.jpg
-    url: 'https://www.jingdutiao.site'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Dabenshi'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf87fbf0.jpg
     url: 'https://dabenshi.cn'
@@ -538,9 +517,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Chenli'
     avatar: https://bu.dusays.com/2023/08/27/64eb31829a3a2.jpg
     url: 'https://chenliss.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小林的小破站'
-    avatar: https://bu.dusays.com/2023/08/29/64ede7953ad6a.jpg
-    url: 'https://blog.lucksss.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> D_SUPER BLOG'
     avatar: https://bu.dusays.com/2023/08/30/64eebc39aa73e.jpg
     url: 'https://dsuper.xyz'
