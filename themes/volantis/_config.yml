@@ -920,7 +920,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4]
+  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3]
   social:
     - img: https://npm.elemecdn.com/dusays@1.0.0/020-rss.svg
       url: atom.xml
@@ -940,10 +940,10 @@ site_footer:
   copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on) | 推荐 <a href="https://su.sctes.com/register?code=8sfvxx4367m28" target="_blank"><font color="red">无畏云 CDN</font></a>、<a href="https://tyucdn.com" target="_blank"><font color="red">天御云 CDN</font>、<a href="https://www.chuqiyun.com/aff/YBNPVMDA" target="_blank"><font color="red">初七云 CDN</font></a><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
-  link1: '[科研软件小站](https://www.sciencesoft.cn/) | [Dr.Pika’s Blog](https://blog.drpika.com/) | [小简博客](https://blog.ideaopen.cn/) | [joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [Cold’blog](https://www.coldyun.cn/) | [轻淡时光](https://www.lybblog.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [网友小宋](https://xyzbz.cn/)'
-  link2: '[xaoxuu](https://xaoxuu.com/) | [Felix_Chenの基地](https://blog.felixchen0707.cn/) | [obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/) | [Ethan.Tzy](https://tzy1997.com/) | [Ryan’s Blog](https://www.moezz.cn/) | [辉辉狐的笔记](https://note.ifoxhui.com/) | [字节星球](https://www.bytecho.net/) | [兔say博客](https://blog.rabbitwebs.cn/) | [ZhangZ](https://www.zhangz.cc/)'
-  link3: '[Fgaoxing](https://www.yt-blog.top/) | [东京日志](http://www.hellokvm.com) | [做棵大树](https://beatree.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [云晓晨博客](https://www.catchwang.com/) | [沧浪湖](https://azurelake.cn/) | [九夏小站](https://blog.inekoxia.com/) | [阿巴ing的笨蛋博客](https://abaing.com/) | [棋の小站](https://blog.qi1.zone/) | [艺术细菌](https://penlife.cn/)'
-  link4: '[龙鲲博客](https://lkblog.net/) | [彬红茶博客](http://blog.binhongtea.top/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
+  link1: '[Dr.Pika’s Blog](https://blog.drpika.com/) | [joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [Cold’blog](https://www.coldyun.cn/) | [轻淡时光](https://www.lybblog.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [网友小宋](https://xyzbz.cn/) | [xaoxuu](https://xaoxuu.com/) | [Felix_Chenの基地](https://blog.felixchen0707.cn/)'
+  link2: '[obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/) | [Ethan.Tzy](https://tzy1997.com/) | [Ryan’s Blog](https://www.moezz.cn/) | [字节星球](https://www.bytecho.net/) | [兔say博客](https://blog.rabbitwebs.cn/) | [ZhangZ](https://www.zhangz.cc/) | [Fgaoxing](https://www.yt-blog.top/) | [东京日志](http://www.hellokvm.com) | [做棵大树](https://beatree.cn/)'
+  link3: '[沧浪湖](https://azurelake.cn/) | [九夏小站](https://blog.inekoxia.com/) | [辉辉狐的笔记](https://note.ifoxhui.com/) | [阿巴ing的笨蛋博客](https://abaing.com/) | [龙鲲博客](https://lkblog.net/) | [彬红茶博客](http://blog.binhongtea.top/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
+  link4: ''
   link5: ''
 ############################### Site Footer ############################### > end
 
