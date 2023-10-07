@@ -759,10 +759,6 @@ sidebar:
         title: 首页链接
         url: /friends/
       rows:
-        - name: imtoken钱包
-          url: https://www.imtokne.cn
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: 贝贝吧
           url: https://www.hibbba.com
           rel: external nofollow noopener noreferrer
@@ -789,10 +785,6 @@ sidebar:
           target: _blank
         - name: WindBack
           url: https://wndbac.cn
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: Wing酱的部落格
-          url: https://www.yjlearn.cn
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: 懒人素材网
@@ -912,7 +904,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3]
+  layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4]
   social:
     - img: https://npm.elemecdn.com/dusays@1.0.0/020-rss.svg
       url: atom.xml
@@ -934,8 +926,8 @@ site_footer:
   br: '<br>'
   link1: '[Dr.Pika’s Blog](https://blog.drpika.com/) | [joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [Cold’blog](https://www.coldyun.cn/) | [轻淡时光](https://www.lybblog.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [网友小宋](https://xyzbz.cn/) | [xaoxuu](https://xaoxuu.com/) | [Felix_Chenの基地](https://blog.felixchen0707.cn/)'
   link2: '[obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/) | [Ethan.Tzy](https://tzy1997.com/) | [Ryan’s Blog](https://www.moezz.cn/) | [字节星球](https://www.bytecho.net/) | [兔say博客](https://blog.rabbitwebs.cn/) | [ZhangZ](https://www.zhangz.cc/) | [Fgaoxing](https://www.yt-blog.top/) | [东京日志](http://www.hellokvm.com/) | [做棵大树](https://beatree.cn/)'
-  link3: '[沧浪湖](https://azurelake.cn/) | [九夏小站](https://blog.inekoxia.com/) | [辉辉狐的笔记](https://note.ifoxhui.com/) | [阿巴ing的笨蛋博客](https://abaing.com/) | [龙鲲博客](https://lkblog.net/) | [彬红茶博客](http://blog.binhongtea.top/) | [晓雨杂记](https://lihaoyu.cn/) | [樱花小镇](https://blog.sakura.vin/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
-  link4: ''
+  link3: '[沧浪湖](https://azurelake.cn/) | [九夏小站](https://blog.inekoxia.com/) | [辉辉狐的笔记](https://note.ifoxhui.com/) | [阿巴ing的笨蛋博客](https://abaing.com/) | [龙鲲博客](https://lkblog.net/) | [彬红茶博客](http://blog.binhongtea.top/) | [晓雨杂记](https://lihaoyu.cn/) | [樱花小镇](https://blog.sakura.vin/) | [Wing酱的部落格](https://www.yjlearn.cn/)'
+  link4: '[杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)'
   link5: ''
 ############################### Site Footer ############################### > end
 
