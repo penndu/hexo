@@ -85,6 +85,45 @@
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdf9a054c.jpg
+    url: 'https://www.hibbba.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Blogin'
+    avatar: https://bu.dusays.com/2023/08/24/64e6be01df960.jpg
+    url: 'https://2dogz.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 梦之国'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdf96143c.jpg
+    url: 'https://www.dreamcs6.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 宇哥博客'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdfa0523e.jpg
+    url: 'http://www.ygbks.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 轻笑Chuckle'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde6dbfaa.jpg
+    url: 'https://www.chuckle.top'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 淇云博客'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdfe4e28e.jpg
+    url: 'https://www.pengqi.club'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> WindBack'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde872c56.jpg
+    url: 'https://wndbac.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 懒人素材网'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde8dc325.jpg
+    url: 'https://www.lanrenn.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Stephen’s Blog'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde9b1730.jpg
+    url: 'https://www.stephen520.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> AZPL工作室'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde9f17ab.jpg
+    url: 'https://www.azplstudio.top'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 免费主机'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde55bc44.jpg
+    url: 'https://www.swb.cc'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 星萌亦派'
+    avatar: https://bu.dusays.com/2023/08/24/64e76ebce55fa.jpg
+    url: 'https://meta-sns.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 乙未博客'
+    avatar: https://bu.dusays.com/2023/10/01/65197fb49a6c9.jpg
+    url: 'https://yvii.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Jared h'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdea2f8f5.jpg
     url: 'https://jaredh.cn'
@@ -406,39 +445,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Lemon’s Blog'
     avatar: https://bu.dusays.com/2023/10/06/651fd4bb8b986.jpg
     url: 'https://ning0818.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf9a054c.jpg
-    url: 'https://www.hibbba.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Blogin'
-    avatar: https://bu.dusays.com/2023/08/24/64e6be01df960.jpg
-    url: 'https://2dogz.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 梦之国'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf96143c.jpg
-    url: 'https://www.dreamcs6.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 宇哥博客'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdfa0523e.jpg
-    url: 'http://www.ygbks.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 轻笑Chuckle'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde6dbfaa.jpg
-    url: 'https://www.chuckle.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 淇云博客'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdfe4e28e.jpg
-    url: 'https://www.pengqi.club'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> WindBack'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde872c56.jpg
-    url: 'https://wndbac.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 懒人素材网'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde8dc325.jpg
-    url: 'https://www.lanrenn.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Stephen’s Blog'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde9b1730.jpg
-    url: 'https://www.stephen520.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> AZPL工作室'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde9f17ab.jpg
-    url: 'https://www.azplstudio.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 免费主机'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde55bc44.jpg
-    url: 'https://www.swb.cc'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Marcus'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf856fff.jpg
     url: 'https://blog.marcus233.top'
@@ -457,9 +463,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> TheIce'
     avatar: https://bu.dusays.com/2023/08/24/64e6d7f3ab831.jpg
     url: 'https://blog.081113.xyz'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 星萌亦派'
-    avatar: https://bu.dusays.com/2023/08/24/64e76ebce55fa.jpg
-    url: 'https://meta-sns.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Chenli'
     avatar: https://bu.dusays.com/2023/08/27/64eb31829a3a2.jpg
     url: 'https://chenliss.cn'
@@ -487,9 +490,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Stars Harbor’s Blog'
     avatar: https://bu.dusays.com/2023/09/27/651314b041654.jpg
     url: 'https://starsharbor.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 乙未博客'
-    avatar: https://bu.dusays.com/2023/10/01/65197fb49a6c9.jpg
-    url: 'https://yvii.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 秋澪Akimio'
     avatar: https://bu.dusays.com/2023/10/02/651ad6bbd15e4.jpg
     url: 'https://blog.akimio.top'
