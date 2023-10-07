@@ -7,6 +7,8 @@ comments: false
 title: 说说广场
 ---
 
+{% p center logo large, 说说广场关闭注册功能，如想注册请联系杜老师手动开通！ %}
+
 <div id="bbs"></div>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/npm/marked@4.3.0/marked.min.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
