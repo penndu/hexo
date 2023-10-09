@@ -82,6 +82,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Wing酱的部落格'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdfed4b8e.jpg
     url: 'https://www.yjlearn.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 科研软件小站'
+    avatar: https://bu.dusays.com/2023/10/09/6523965b5615b.jpg
+    url: 'https://www.sciencesoft.cn'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
