@@ -86,7 +86,7 @@ const urls = [
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"59",comment:'',imgsrc:"https://bu.dusays.com/2023/08/01/64c8f8103a576.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"60",comment:'',imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe8d9c8.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"61",comment:'',imgsrc:"https://bu.dusays.com/2023/07/13/64b00afe9741c.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"62",comment:'',imgsrc:"https://bu.dusays.com/2023/08/01/64c8f8682a4bc.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"62",comment:'',imgsrc:"https://cravatar.cn/avatar/082dcea6f62ccf45a05244ce34bf4a96"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"63",comment:'',imgsrc:"https://bu.dusays.com/2023/07/13/64b00b073b965.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"64",comment:'',imgsrc:"https://bu.dusays.com/2023/07/13/64b00b07366f6.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"65",comment:'',imgsrc:"https://bu.dusays.com/2023/07/13/64b00b09d59a9.png"},
