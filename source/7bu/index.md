@@ -286,7 +286,7 @@ title: 图床问题建议反馈
 
 {% timenode 2021 年 08 月 16 日 %}
 
-图床新增支持文件格式，目前支持图片格式为 jpg,png,webp,bmp,jpeg,gif，其中 gif 格式为人工审核，请勿上传违规图片；
+图床新增支持文件格式，目前支持图片格式为 JPG/PNG/WebP/BMP/JPEG/GIF，其中 GIF 格式为人工审核，请勿上传违规图片；
 
 {% endtimenode %}
 
@@ -304,7 +304,7 @@ title: 图床问题建议反馈
 
 {% timenode 2021 年 06 月 24 日 %}
 
-受鉴黄功能的限制，目前支持图片格式为 jpg/png/bmp/gif/webp；
+受鉴黄功能的限制，目前支持图片格式为 JPG/PNG/BMP/GIF/WebP；
 
 {% endtimenode %}
 
@@ -334,7 +334,7 @@ title: 图床问题建议反馈
 
 {% timenode 2021 年 01 月 28 日 %}
 
-加入了 webp 格式文件上传；
+加入了 WebP 格式文件上传；
 
 {% endtimenode %}
 
