@@ -815,6 +815,10 @@ sidebar:
           url: https://www.chendd.cn
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: 牛魔博客
+          url: https://www.nmwbk.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
