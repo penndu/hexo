@@ -261,9 +261,9 @@ comment_typing:
   static: true
   cdnjs: false
 busuanzi:
-  name: busuanzi
-  file: bsz.pure.mini.js
-  version: 2.3.0
+  name: penndu
+  file: bsz.js
+  version: 4.0.9
   npm: true
   static: true
   cdnjs: false
