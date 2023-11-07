@@ -126,7 +126,7 @@ replace:
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
-  # - https://unpkg.com
+  - https://unpkg.com
   - https://cdnjs.onmicrosoft.cn
   - https://artalk.dusays.com
   - https://bsz.dusays.com
@@ -135,6 +135,7 @@ dns_prefetch:
   - https://s.dusays.com
   - https://jsd.onmicrosoft.cn
   - https://npm.elemecdn.com
+  - https://npm.onmicrosoft.cn
 
 # 平滑滚动效果
 scroll_smooth: true
