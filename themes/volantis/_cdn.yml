@@ -169,23 +169,23 @@ hlsjs:
 fancybox_css:
   name: "@fancyapps/ui"
   cdnjs_name: fancyapps-ui
-  file: dist/fancybox.css
-  version: 4.0.31
+  file: dist/fancybox/fancybox.css
+  version: 5.0.26
   npm: true
   static: true
   cdnjs: true
 fancybox_js:
   name: "@fancyapps/ui"
   cdnjs_name: fancyapps-ui
-  file: dist/fancybox.umd.js
-  version: 4.0.31
+  file: dist/fancybox/fancybox.umd.js
+  version: 5.0.26
   npm: true
   static: true
   cdnjs: true
 instant_page:
   name: instant.page
   file: instantpage.min.js
-  version: 5.1.1
+  version: 5.2.0
   npm: true
   static: true
   cdnjs: true
@@ -199,7 +199,7 @@ flying-pages:
 vanilla-lazyload:
   name: vanilla-lazyload
   file: dist/lazyload.min.js
-  version: 17.1.0
+  version: 17.8.5
   npm: true
   static: true
   cdnjs: true
@@ -242,7 +242,7 @@ aplayer_css:
 meting:
   name: meting
   file: dist/Meting.min.js
-  version: 2.0
+  version: 2.0.1
   npm: true
   static: true
   cdnjs: false
@@ -284,7 +284,7 @@ artalk_css:
 artalk_katex:
   name: "@artalk/plugin-katex"
   file: dist/artalk-plugin-katex.js
-  version: 0.1.4
+  version: 0.1.5
   npm: true
   static: false
   cdnjs: false
@@ -305,14 +305,14 @@ disqusjs_css:
 gitalk:
   name: gitalk
   file: dist/gitalk.min.js
-  version: 1.7.2
+  version: 1.8.0
   npm: true
   static: false
   cdnjs: true
 twikoo:
   name: twikoo
   file: dist/twikoo.min.js
-  version: 1.6.10
+  version: 1.6.22
   npm: true
   static: false
   cdnjs: true
@@ -320,7 +320,7 @@ waline_css:
   name: "@waline/client"
   cdnjs_name: waline
   file: dist/waline.css
-  version: 2.15.5
+  version: 2.15.8
   npm: true
   static: false
   cdnjs: true
@@ -328,7 +328,7 @@ waline_js:
   name: "@waline/client"
   cdnjs_name: waline
   file: dist/waline.js
-  version: 2.15.5
+  version: 2.15.8
   npm: true
   static: false
   cdnjs: true
@@ -337,28 +337,28 @@ discuss:
   file: dist/discuss.js
   cdnjs_file: dist/discuss.js
   cdnjs_no_min_file: true
-  version: 1.1.4
+  version: 1.2.5
   npm: true
   static: false
   cdnjs: true
 vssue_js:
   name: vssue
   file: dist/vssue.github.min.js
-  version: 1.4.4
+  version: 1.4.8
   npm: true
   static: false
   cdnjs: false
 vssue_css:
   name: vssue
   file: dist/vssue.min.css
-  version: 1.4.4
+  version: 1.4.8
   npm: true
   static: false
   cdnjs: false
 vssue_vue:
   name: vue
   file: dist/vue.runtime.min.js
-  version: 2.6.1
+  version: 2.7.15
   npm: true
   static: false
   cdnjs: true
@@ -366,7 +366,7 @@ swiper_js:
   name: swiper
   cdnjs_name: Swiper
   file: swiper-bundle.min.js
-  version: 8.3.2
+  version: 11.0.3
   npm: true
   static: true
   cdnjs: true
@@ -374,7 +374,7 @@ swiper_css:
   name: swiper
   cdnjs_name: Swiper
   file: swiper-bundle.min.css
-  version: 8.3.2
+  version: 11.0.3
   npm: true
   static: true
   cdnjs: true
@@ -409,7 +409,7 @@ fcircle_js:
 bbtalk:
   name: bbtalk
   file: dist/bbtalk.js
-  version: 0.1.5
+  version: 0.2.0
   npm: true
   static: false
   cdnjs: false
@@ -439,7 +439,7 @@ pace_css:
 memos_carousel_js:
   name: penndu
   file: memos_carousel.js
-  version: 4.0.1
+  version: 4.0.9
   npm: true
   static: false
   cdnjs: false
