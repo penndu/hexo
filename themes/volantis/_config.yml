@@ -332,7 +332,7 @@ article:
          # 自定义版权组件：精细到文章的版权声明
         custom: true # 开启后替代上方内容的版权显示
         customData:
-          default: type1  # 默认授权声明
+          default: type5  # 默认授权声明
           #############################
           # 你可以在文章的 front-matter 覆盖默认版权声明
           # 配置示例（均可选）： 
