@@ -145,6 +145,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 牛魔博客'
     avatar: https://bu.dusays.com/2023/11/03/65445fc938776.jpg
     url: 'https://www.nmwbk.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 棋の小站'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdf7d6ff8.jpg
+    url: 'https://blog.qi1.zone'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 二猫blog'
     avatar: https://bu.dusays.com/2023/10/11/65268c0636fd7.jpg
     url: 'https://jingxin18.cn'
@@ -475,9 +478,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 林林杂语'
     avatar: https://bu.dusays.com/2023/08/30/64ef0a2b76bb5.jpg
     url: 'https://www.xiaozonglin.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 棋の小站'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf7d6ff8.jpg
-    url: 'https://blog.qi1.zone'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Fish’s Home'
     avatar: https://bu.dusays.com/2023/09/10/64fdd3259f6ff.jpg
     url: 'https://nekofish.top'
