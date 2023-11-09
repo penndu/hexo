@@ -820,6 +820,10 @@ sidebar:
           url: https://www.nmwbk.com
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: 棋の小站
+          url: https://blog.qi1.zone
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
