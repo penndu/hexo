@@ -1,0 +1,33 @@
+name: CI
+env:
+  TZ: Asia/Shanghai
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '30 16 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '19.9'
+    - name: npm
+      run: |
+        npm i -g hexo-cli
+        npm i
+    - name: hexo
+      run: |
+        hexo g --slient
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        external_repository: penndu/my-website
+        publish_branch: master
+        publish_dir: ./public
+    - name: algolia
+      run: hexo algolia
