@@ -820,6 +820,10 @@ sidebar:
           url: https://blog.qi1.zone
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: 二猫blog
+          url: https://jingxin18.cn
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
