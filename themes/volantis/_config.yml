@@ -760,10 +760,6 @@ sidebar:
         title: 首页链接
         url: /friends/
       rows:
-        - name: 贝贝吧
-          url: https://www.hibbba.com
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: Blogin
           url: https://2dogz.cn
           rel: external nofollow noopener noreferrer
