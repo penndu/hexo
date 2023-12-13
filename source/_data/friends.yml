@@ -100,9 +100,6 @@
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf9a054c.jpg
-    url: 'https://www.hibbba.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Blogin'
     avatar: https://bu.dusays.com/2023/08/24/64e6be01df960.jpg
     url: 'https://2dogz.cn'
@@ -148,6 +145,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 二猫blog'
     avatar: https://bu.dusays.com/2023/10/11/65268c0636fd7.jpg
     url: 'https://jingxin18.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bdf9a054c.jpg
+    url: 'https://www.hibbba.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Jared h'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdea2f8f5.jpg
     url: 'https://jaredh.cn'
