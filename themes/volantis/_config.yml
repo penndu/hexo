@@ -977,8 +977,8 @@ plugins:
     copy_code: true
     # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
     # # 不再支持 v11.1.0 以下版本
-    js: https://unpkg.com/@highlightjs/cdn-assets@11.8.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
-    css: https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/github-dark-dimmed.css
+    js: https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
+    css: https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark-dimmed.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
 
   # prismjs
@@ -1346,10 +1346,10 @@ rightmenus:
   menus:
     link:
       - {id: 'help', name: '去不图床', icon: 'fa-solid fa-file-image', link: 'https://7bu.top/', group: 'link'}
-      - {id: 'examples', name: '提卡系统', icon: 'fa-solid fa-address-card', link: 'https://dusay.cn/', group: 'link'}
+      - {id: 'examples', name: '购买容量', icon: 'fa-solid fa-address-card', link: 'https://pay.dusays.com/', group: 'link'}
       - hr
-      - {id: 'source_theme', name: '公益统计', icon: 'fa-solid fa-edit', link: 'https://dusays.com/476/', group: 'link'}
-      - {id: 'contributors', name: '抢个沙发', icon: 'fa-solid fa-money-check-alt', link: 'https://dusays.com/490/', group: 'link'}
+      - {id: 'source_theme', name: '说说广场', icon: 'fa-solid fa-edit', link: 'https://s.dusays.com/', group: 'link'}
+      - {id: 'contributors', name: '聊天平台', icon: 'fa-solid fa-money-check-alt', link: 'https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr', group: 'link'}
     darkMode:
       - {id: 'darkMode', name: '暗黑模式', icon: 'fa-solid fa-moon', event: 'volantis.dark.toggle()', group: 'darkMode'}
 ###
