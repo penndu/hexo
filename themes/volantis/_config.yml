@@ -721,7 +721,7 @@ sidebar:
       display: [desktop, mobile]
       header:
         icon: fas fa-cloud
-        title: 硅云主机
+        title: 公益游戏
         url: https://echeverra.cn/h5game
       content:
         - '<center><a href="https://echeverra.cn/h5game" target="_blank"><img src="https://cdn.dusays.com/h5game.jpg"></a><center>'
