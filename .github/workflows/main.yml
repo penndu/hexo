@@ -32,4 +32,7 @@ jobs:
         publish_branch: master
         publish_dir: ./public
     - name: algolia
-      run: hexo algolia
+      run: | 
+        # hexo algolia
+        curl -X DELETE 'https://m.dusays.com/indexes/hexo' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}"
+        curl -X POST 'https://m.dusays.com/indexes/hexo/documents/?primaryKey=uuid' -H "Authorization: Bearer ${{secrets.MEILISEARCH_KEY}}" -H "Content-Type: application/json" --data-binary '@public/content.json'

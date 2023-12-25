@@ -152,3 +152,11 @@ feed:
   path:
     - atom.xml
     - rss2.xml
+jsonContent: 
+  meta: false 
+  pages: false 
+  posts: 
+    title: true 
+    path: true 
+    text: true 
+    uuid: true
