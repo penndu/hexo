@@ -42,7 +42,6 @@ cdn_system:
       busuanzi: https://npm.elemecdn.com/penndu/bsz.js  # 杜老师友情赞助
       artalk_js: https://cdn.staticfile.org/artalk/2.7.2/Artalk.js
       artalk_css: https://cdn.staticfile.org/artalk/2.7.2/Artalk.css
-      algolia_search_v4: https://npm.onmicrosoft.cn/algoliasearch/dist/algoliasearch-lite.umd.js
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
