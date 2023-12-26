@@ -1549,9 +1549,9 @@ custom_css:
       weight: normal
       style: normal
     bodyfont:
-      fontfamily: 'UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      fontfamily: 'lxgw wenkai screen, UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'UbuntuMono'
-      url: https://font.onmicrosoft.cn/lxgw-wenkai-screen-webfont@1.6.0/style.css
+      url: https://cdn.dusays.com/font/lxgw/LXGWWenKaiMonoScreen.ttf
       weight: normal
       style: normal
     codefont:
