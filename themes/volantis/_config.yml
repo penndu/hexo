@@ -1549,9 +1549,9 @@ custom_css:
       weight: normal
       style: normal
     bodyfont:
-      fontfamily: 'lxgw wenkai, UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      fontfamily: 'UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'UbuntuMono'
-      url: 	https://font.onmicrosoft.cn/floatsheep-hosting@1.0.1/static/fonts/LXGWWenKai-Regular.ttf
+      url: https://font.onmicrosoft.cn/volantis-static@0.0.1660614606622/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf
       weight: normal
       style: normal
     codefont:
