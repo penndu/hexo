@@ -1551,7 +1551,7 @@ custom_css:
     bodyfont:
       fontfamily: 'lxgw wenkai, UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'UbuntuMono'
-      url: 	font.onmicrosoft.cn/floatsheep-hosting@1.0.1/static/fonts/LXGWWenKai-Regular.ttf
+      url: 	https://font.onmicrosoft.cn/floatsheep-hosting@1.0.1/static/fonts/LXGWWenKai-Regular.ttf
       weight: normal
       style: normal
     codefont:
