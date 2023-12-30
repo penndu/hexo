@@ -76,9 +76,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 科研软件小站'
     avatar: https://bu.dusays.com/2023/10/09/6523965b5615b.jpg
     url: 'https://www.sciencesoft.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> LoCCaiの小窝'
-    avatar: https://bu.dusays.com/2023/10/17/652ea3833f4e9.jpg
-    url: 'https://blog.loccai.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 终成博客'
     avatar: https://bu.dusays.com/2023/10/21/6533992a3c9d0.jpg
     url: 'https://blog.zc.wiki'
@@ -496,3 +493,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> isYangs'
     avatar: https://bu.dusays.com/2023/12/02/656abcf8978b3.jpg
     url: 'https://isyangs.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> LoCCaiの小窝'
+    avatar: https://bu.dusays.com/2023/10/17/652ea3833f4e9.jpg
+    url: 'https://blog.loccai.top'
