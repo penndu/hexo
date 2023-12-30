@@ -85,15 +85,15 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 阿巴ing的笨蛋博客'
     avatar: https://bu.dusays.com/2023/10/31/6540b32e063e7.jpg
     url: 'https://abaing.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 彬红茶博客'
-    avatar: https://bu.dusays.com/2023/10/31/6540b32e06680.jpg
-    url: 'https://blog.binhongtea.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 兔儿轩の博客'
     avatar: https://bu.dusays.com/2023/04/14/643955ad1cef4.jpg
     url: 'https://blog.rabbitwebs.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云晓晨CatchYun'
     avatar: https://bu.dusays.com/2023/12/05/656f1ef63944a.jpg
     url: 'https://blog.catchyun.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 乙未博客'
+    avatar: https://bu.dusays.com/2023/10/01/65197fb49a6c9.jpg
+    url: 'https://yvii.cn'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
@@ -127,9 +127,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 免费主机'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde55bc44.jpg
     url: 'https://www.swb.cc'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 乙未博客'
-    avatar: https://bu.dusays.com/2023/10/01/65197fb49a6c9.jpg
-    url: 'https://yvii.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 陈冬冬博客'
     avatar: https://bu.dusays.com/2023/10/09/652403f2e3209.jpg
     url: 'https://www.chendd.cn'
@@ -496,3 +493,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> LoCCaiの小窝'
     avatar: https://bu.dusays.com/2023/10/17/652ea3833f4e9.jpg
     url: 'https://blog.loccai.top'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 彬红茶博客'
+    avatar: https://bu.dusays.com/2023/10/31/6540b32e06680.jpg
+    url: 'https://blog.binhongtea.top'
