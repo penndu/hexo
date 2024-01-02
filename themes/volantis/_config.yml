@@ -261,7 +261,7 @@ article:
   preview:
     scheme: landscape # landscape
     # pin icon for post
-    pin_icon: https://npm.elemecdn.com/dusays@1.0.0/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
+    pin_icon: https://npm.elemecdn.com/dusays@2.0.1/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
     # auto generate title if not exist
     auto_title: true # false, true
     # auto generate excerpt if not exist
@@ -915,13 +915,13 @@ site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, info, copyright, br, link1, link2, link3, link4]
   social:
-    - img: https://npm.elemecdn.com/dusays@1.0.0/020-rss.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/020-rss.svg
       url: atom.xml
-    - img: https://npm.elemecdn.com/dusays@1.0.0/017-picasa.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/017-picasa.svg
       url: https://7bu.top/
-    - img: https://npm.elemecdn.com/dusays@1.0.0/031-twitch.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/031-twitch.svg
       url: https://status.dusays.com/status/a
-    - img: https://npm.elemecdn.com/dusays@1.0.0/033-spotify.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/033-spotify.svg
       url: https://dusays.com/baidusitemap.xml
   # site source
   source: https://github.com/volantis-x/volantis-docs/
@@ -930,7 +930,7 @@ site_footer:
     <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '<embed src="https://jsd.onmicrosoft.cn/npm/dusays@2.0.0/Written-By-Human-Not-By-AI-Badge-white.svg" type="image/svg+xml"><br>[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://npm.elemecdn.com/dusays@1.0.0/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@1.0.0/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@1.0.0/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/copyright.svg" type="image/svg+xml">'
+  copyright: '<embed src="https://jsd.onmicrosoft.cn/npm/dusays@2.0.0/Written-By-Human-Not-By-AI-Badge-white.svg" type="image/svg+xml"><br>[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://npm.elemecdn.com/dusays@2.0.1/7bu.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/yinsi.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/mianze.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@2.0.1/fb.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/icp.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/liao.svg" type="image/svg+xml"> <embed src="https://npm.elemecdn.com/dusays@2.0.1/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[Dr.Pika’s Blog](https://blog.drpika.com/) | [joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [小旭の破站](https://www.sicx.top/) | [轻淡时光](https://www.lybblog.cn/) | [辛未羊的网络日志](https://panqiincs.me/) | [linkkk的小屋](https://www.linkkk.top/) | [网友小宋](https://xyzbz.cn/)'
