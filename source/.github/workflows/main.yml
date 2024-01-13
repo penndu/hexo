@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - name: build
+      run: cd /root/blog/source && git fetch && git pull origin main
+    - name: test
+      run: rsync -av --delete /root/blog/source/ /root/hexo/source/ --exclude=.git
+    - name: deploy
+      run: | 
+        cd /root/hexo && git add .
+        ssh 127.0.0.1 -C "cd /root/hexo && git commit -m a && git push -f origin main"
