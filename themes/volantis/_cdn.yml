@@ -94,7 +94,7 @@ volantis_search_meilisearch:
 instant_meilisearch:
   name: "@meilisearch/instant-meilisearch"
   file: dist/instant-meilisearch.umd.min.js
-  version: 0.15.0
+  version: 0.16.0
   npm: true
   static: false
   cdnjs: false
