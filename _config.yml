@@ -64,7 +64,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 17
+  per_page: 18
   order_by: -date
 
 # Category & Tag
