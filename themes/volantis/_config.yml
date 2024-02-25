@@ -821,6 +821,10 @@ sidebar:
           url: https://blog.duolaa.asia
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: 陈冬冬博客
+          url: https://www.chendd.cn
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
