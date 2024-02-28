@@ -25,9 +25,21 @@ title: 关于留言
 
 {% timeline 本站事件 %}
 
+{% timenode 2024 年 02 月 28 日 %}
+
+密码托管服务进入到试运营阶段，感兴趣的小伙伴可以访问 bw.dusays.com 自行注册使用。
+
+{% endtimenode %}
+
+{% timenode 2024 年 02 月 26 日 %}
+
+说说广场重新开放注册；
+
+{% endtimenode %}
+
 {% timenode 2024 年 01 月 04 日 %}
 
-Artalk 评论模块开启 POST 过滤，防止恶意评论。
+Artalk 评论模块开启 POST 过滤，防止恶意评论；
 
 {% endtimenode %}
 
