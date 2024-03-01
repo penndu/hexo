@@ -1,9 +1,6 @@
 - group: 全站链接
   description: 该分组为全站友情链接，不仅显示在本页内，同时显示在全站的底部。
   items:
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Dr.Pika’s Blog'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf929aa0.jpg
-    url: 'https://blog.drpika.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> joojen个人博客'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdfb39557.jpg
     url: 'https://joojen.com'
@@ -16,18 +13,12 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 辛未羊的网络日志'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde73a15b.jpg
     url: 'https://panqiincs.me'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> linkkk的小屋'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde7376c4.jpg
-    url: 'https://www.linkkk.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 网友小宋'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde64ee70.jpg
     url: 'https://xyzbz.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> xaoxuu'
     avatar: https://bu.dusays.com/2023/08/24/64e6be9003858.jpg
     url: 'https://xaoxuu.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Felix_Chenの基地'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde757f54.jpg
-    url: 'https://blog.snowflake.zone'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> obaby@mars'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde75d713.jpg
     url: 'https://h4ck.org.cn'
@@ -46,24 +37,15 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 东京日志'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdff1f5a7.jpg
     url: 'http://www.hellokvm.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 沧浪湖'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde917648.jpg
-    url: 'https://azurelake.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 九夏小站'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde9487a0.jpg
     url: 'https://blog.inekoxia.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 辉辉狐的笔记'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde964ad3.jpg
-    url: 'https://note.ifoxhui.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 龙鲲博客'
     avatar: https://bu.dusays.com/2023/08/28/64ec12a78d0ac.jpg
     url: 'https://lklog.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 樱花小镇'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf6a2d63.jpg
     url: 'https://blog.sakura.vin'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 科研软件小站'
-    avatar: https://bu.dusays.com/2023/10/09/6523965b5615b.jpg
-    url: 'https://www.sciencesoft.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 终成博客'
     avatar: https://bu.dusays.com/2023/10/21/6533992a3c9d0.jpg
     url: 'https://blog.zc.wiki'
