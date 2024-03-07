@@ -821,6 +821,10 @@ sidebar:
           url: https://www.chendd.cn
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: Randwind’s blog
+          url: https://www.randwind.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
