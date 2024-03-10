@@ -70,6 +70,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 揽星'
     avatar: https://bu.dusays.com/2024/03/07/65e9c2a8502f1.jpg
     url: 'https://lanxing.net'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 晓雨杂记'
+    avatar: https://bu.dusays.com/2024/03/10/65edb65b38ca6.jpg
+    url: 'https://lihaoyu.cn'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
