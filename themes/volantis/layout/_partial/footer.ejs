@@ -15,12 +15,13 @@
     // }
   %>
   <footer class="footer clearfix"  itemscope itemtype="https://schema.org.cn/WPFooter">
+  <footer class="footer clearfix"  itemscope itemtype="https://schema.org.cn/WPFooter">
     <br><br>
     <% layout.forEach(function(item){ %>
       <% if (item == 'social') { %>
         <br>
         <div class="social-wrapper" itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
-          <% (theme.site_footer.social||[]).forEach(function(value){ %>
+          <% getList(theme.site_footer.social).forEach(function(value){ %>
             <% if (value.url && (value.icon || value.img || value.avatar)) { %>
               <a href="<%= url_for(value.url) %>"
                 class="social <%- value.icon %> flat-btn"
