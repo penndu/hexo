@@ -830,6 +830,14 @@ sidebar:
           url: https://www.chendd.cn
           rel: external nofollow noopener noreferrer
           target: _blank
+        - name: 胡萝虎的博客
+          url: https://www.huluohu.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
+        - name: 贝贝吧
+          url: https://www.hibbba.com
+          rel: external nofollow noopener noreferrer
+          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
