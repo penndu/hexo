@@ -39,9 +39,9 @@ cdn_system:
   system_config:
     # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
     custom:
-      busuanzi: https://mirrors.flytusky.top/npm/penndu/bsz.js  # 杜老师友情赞助
-      #artalk_js: https://mirrors.flytusky.top/npm/artalk@2.8.2/dist/Artalk.js
-      #artalk_css: https://mirrors.flytusky.top/npm/artalk@2.8.2/dist/Artalk.css
+      busuanzi: https://npm.elemecdn.com/penndu/bsz.js  # 杜老师友情赞助
+      #artalk_js: https://npm.elemecdn.com/artalk@2.8.2/dist/Artalk.js
+      #artalk_css: https://npm.elemecdn.com/artalk@2.8.2/dist/Artalk.css
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
@@ -73,7 +73,7 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-cdnjs" 开头的链接路径替换为该格式的前缀开头 prefix
     cdnjs:
       # CDN 链接前缀
-      prefix: https://cdnjs.onmicrosoft.cn/ajax/libs
+      prefix: https://cdn.bootcdn.net/ajax/libs
       # cdnjs CDN 格式
       format: ${prefix}/${name}/${version}/${min_file}
   # ========================================================================
@@ -119,22 +119,22 @@ content_visibility: true
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
-  - https://unpkg.com/ => https://mirrors.flytusky.top/npm/
+  - https://unpkg.com/ => https://npm.elemecdn.com/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
+  - https://cdn.jsdelivr.net
   - https://unpkg.com
-  - https://cdnjs.onmicrosoft.cn
+  - https://gcore.jsdelivr.net
+  - https://npm.elemecdn.com
   - https://artalk.dusays.com
   - https://bsz.dusays.com
   - https://cdn.dusays.com
   - https://f.dusays.com
   - https://s.dusays.com
-  - https://jsd.onmicrosoft.cn
-  - https://mirrors.flytusky.top/npm
-  - https://npm.onmicrosoft.cn
+  - https://cdn.bootcdn.net
+  - https://7bu.top
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -261,7 +261,7 @@ article:
   preview:
     scheme: landscape # landscape
     # pin icon for post
-    pin_icon: https://mirrors.flytusky.top/npm/dusays@2.0.1/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
+    pin_icon: https://npm.elemecdn.com/dusays@2.0.1/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
     # auto generate title if not exist
     auto_title: true # false, true
     # auto generate excerpt if not exist
@@ -925,13 +925,13 @@ site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, info, copyright, br, link1, link2, link3]
   social:
-    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/020-rss.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/020-rss.svg
       url: atom.xml
-    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/017-picasa.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/017-picasa.svg
       url: https://7bu.top/
-    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/031-twitch.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/031-twitch.svg
       url: https://status.dusays.com/status/a
-    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/033-spotify.svg
+    - img: https://npm.elemecdn.com/dusays@2.0.1/033-spotify.svg
       url: https://dusays.com/baidusitemap.xml
   # site source
   source: https://github.com/volantis-x/volantis-docs/
@@ -940,7 +940,7 @@ site_footer:
     <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on) | 服务器提供商: [软云_RuanCloud](https://ruan.cloud/aff/PQJZFLLO).<br><embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/says.svg" type="image/svg+xml"><br><embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://mirrors.flytusky.top/npm/dusays@2.0.1/copyright.svg" type="image/svg+xml">'
+  copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on) | 服务器提供商: [软云_RuanCloud](https://ruan.cloud/aff/PQJZFLLO).<br><embed src="https://npm.elemecdn.com/dusays@2.0.1/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@2.0.1/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [辛未羊的网络日志](https://panqiincs.me/) | [网友小宋](https://xyzbz.cn/) | [xaoxuu](https://xaoxuu.com/) | [obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/)'
@@ -1002,12 +1002,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://mirrors.flytusky.top/npm/prismjs@1.29.0/components/prism-core.min.js
-      - https://mirrors.flytusky.top/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js
-      - https://mirrors.flytusky.top/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js
+      - https://npm.elemecdn.com/prismjs@1.29.0/components/prism-core.min.js
+      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js
+      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://mirrors.flytusky.top/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css
-      - https://mirrors.flytusky.top/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css
+      - https://npm.elemecdn.com/prismjs@1.29.0/themes/prism-tomorrow.min.css
+      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
@@ -1215,7 +1215,7 @@ plugins:
     error_img: https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30 # 头像加载失败时，默认头像地址
     sort_rule: created # 进入页面时第一次的排序规则,可选值：created/updated
     expire_days: 1 # 本地文章缓存数据过期时间（天）
-    js: https://mirrors.flytusky.top/npm/fcircle-theme-yyyz@1.0.13/dist/fcircle.min.js # fcircle.min.js的url
+    js: https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.13/dist/fcircle.min.js # fcircle.min.js的url
 
   # 消息提示 
   # izitoast
