@@ -39,9 +39,9 @@ cdn_system:
   system_config:
     # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
     custom:
-      busuanzi: https://npm.elemecdn.com/penndu/bsz.js  # 杜老师友情赞助
-      #artalk_js: https://npm.elemecdn.com/artalk@2.8.2/dist/Artalk.js
-      #artalk_css: https://npm.elemecdn.com/artalk@2.8.2/dist/Artalk.css
+      busuanzi: https://npm.dusays.com/penndu/bsz.js  # 杜老师友情赞助
+      #artalk_js: https://npm.dusays.com/artalk@2.8.2/dist/Artalk.js
+      #artalk_css: https://npm.dusays.com/artalk@2.8.2/dist/Artalk.css
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
@@ -128,7 +128,7 @@ dns_prefetch:
   - https://cdn.jsdelivr.net
   - https://unpkg.com
   - https://gcore.jsdelivr.net
-  - https://npm.elemecdn.com
+  - https://npm.dusays.com
   - https://artalk.dusays.com
   - https://bsz.dusays.com
   - https://cdn.dusays.com
@@ -945,7 +945,7 @@ site_footer:
     <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on) | 服务器提供商: [软云_RuanCloud](https://ruan.cloud/aff/PQJZFLLO).<br><embed src="https://npm.elemecdn.com/dusays@2.0.1/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/says.svg" type="image/svg+xml"><br><embed src="https://npm.elemecdn.com/dusays@2.0.1/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.elemecdn.com/dusays@2.0.1/copyright.svg" type="image/svg+xml">'
+  copyright: '[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on) | 服务器提供商: [软云_RuanCloud](https://ruan.cloud/aff/PQJZFLLO).<br><embed src="https://npm.dusays.com/dusays@2.0.1/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.dusays.com/dusays@2.0.1/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.dusays.com/dusays@2.0.1/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.dusays.com/dusays@2.0.1/says.svg" type="image/svg+xml"><br><embed src="https://npm.dusays.com/dusays@2.0.1/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.dusays.com/dusays@2.0.1/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.dusays.com/dusays@2.0.1/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.dusays.com/dusays@2.0.1/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[joojen个人博客](https://joojen.com/) | [BeaCox](https://blog.beacox.space/) | [辛未羊的网络日志](https://panqiincs.me/) | [网友小宋](https://xyzbz.cn/) | [xaoxuu](https://xaoxuu.com/) | [obaby@mars](https://h4ck.org.cn/) | [启涵的博客](https://blog.1id.top/)'
@@ -1007,12 +1007,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://npm.elemecdn.com/prismjs@1.29.0/components/prism-core.min.js
-      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js
-      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js
+      - https://npm.dusays.com/prismjs@1.29.0/components/prism-core.min.js
+      - https://npm.dusays.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js
+      - https://npm.dusays.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://npm.elemecdn.com/prismjs@1.29.0/themes/prism-tomorrow.min.css
-      - https://npm.elemecdn.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css
+      - https://npm.dusays.com/prismjs@1.29.0/themes/prism-tomorrow.min.css
+      - https://npm.dusays.com/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
@@ -1220,7 +1220,7 @@ plugins:
     error_img: https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30 # 头像加载失败时，默认头像地址
     sort_rule: created # 进入页面时第一次的排序规则,可选值：created/updated
     expire_days: 1 # 本地文章缓存数据过期时间（天）
-    js: https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.13/dist/fcircle.min.js # fcircle.min.js的url
+    js: https://npm.dusays.com/fcircle-theme-yyyz@1.0.13/dist/fcircle.min.js # fcircle.min.js的url
 
   # 消息提示 
   # izitoast
