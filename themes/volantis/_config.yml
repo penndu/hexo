@@ -119,7 +119,8 @@ content_visibility: true
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://npm.elemecdn.com/
+  - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
+  - https://unpkg.com/ => https://mirrors.flytusky.top/npm/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
@@ -135,6 +136,10 @@ dns_prefetch:
   - https://s.dusays.com
   - https://cdn.bootcdn.net
   - https://7bu.top
+  - https://cdnjs.onmicrosoft.cn
+  - https://jsd.onmicrosoft.cn
+  - https://mirrors.flytusky.top/npm
+  - https://npm.onmicrosoft.cn
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -261,7 +266,7 @@ article:
   preview:
     scheme: landscape # landscape
     # pin icon for post
-    pin_icon: https://npm.elemecdn.com/dusays@2.0.1/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
+    pin_icon: https://mirrors.flytusky.top/npm/dusays@2.0.1/pin.svg # volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
     # auto generate title if not exist
     auto_title: true # false, true
     # auto generate excerpt if not exist
@@ -925,13 +930,13 @@ site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, info, copyright, br, link1, link2, link3]
   social:
-    - img: https://npm.elemecdn.com/dusays@2.0.1/020-rss.svg
+    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/020-rss.svg
       url: atom.xml
-    - img: https://npm.elemecdn.com/dusays@2.0.1/017-picasa.svg
+    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/017-picasa.svg
       url: https://7bu.top/
-    - img: https://npm.elemecdn.com/dusays@2.0.1/031-twitch.svg
+    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/031-twitch.svg
       url: https://status.dusays.com/status/a
-    - img: https://npm.elemecdn.com/dusays@2.0.1/033-spotify.svg
+    - img: https://mirrors.flytusky.top/npm/dusays@2.0.1/033-spotify.svg
       url: https://dusays.com/baidusitemap.xml
   # site source
   source: https://github.com/volantis-x/volantis-docs/
