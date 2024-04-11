@@ -110,7 +110,7 @@ fontawesome:
   name: "@fortawesome/fontawesome-free"
   cdnjs_name: font-awesome
   file: css/all.min.css
-  version: 6.5.1
+  version: 6.5.2
   npm: true
   static: true
   cdnjs: true
