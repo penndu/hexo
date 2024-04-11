@@ -11,7 +11,7 @@ author: Teacher Du
 language: zh-CN
 timezone: 'Asia/Shanghai'
 favicon: https://cdn.dusays.com/favicon.ico
-avatar: https://cdn.dusays.com/avatar.png/2
+avatar: https://cdn.dusays.com/avatar.png
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -46,7 +46,7 @@ post_asset_folder: false
 relative_link: false
 future: false
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: true
   tab_replace: ''
@@ -109,16 +109,6 @@ deploy:
   # branch: master
 baidusitemap:
   path: baidusitemap.xml
-algolia:
-  appId: "M5C9U2T6MZ"
-  apiKey: "67df7956c07d0ecf2c7db855d8770bc3"
-  adminApiKey: "4f9a2aaf82fb61666839ec7b866be5cb"
-  chunkSize: 5000
-  indexName: "dusays"
-  fields:
-    - path
-    - title
-    - content:strip
 markdown:
   preset: 'default'
   render:
