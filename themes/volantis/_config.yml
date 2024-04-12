@@ -117,14 +117,14 @@ content_visibility: true
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://npm.dusays.com/
+  - https://unpkg.com/ => https://npm.webcache.cn/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   - https://unpkg.com
   - https://cdn.bootcdn.net
-  - https://npm.dusays.com
+  - https://npm.webcache.cn
 
 # 平滑滚动效果
 scroll_smooth: true
