@@ -75,14 +75,11 @@ const urls = [
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"103",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e97e784.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"104",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e992a21.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"106",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47ea26ac7.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"107",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c1669dc459.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"108",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c1604011a3.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"109",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c16546df85.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"110",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c1600dcc89.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"111",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c160143d21.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"112",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c1662c12a3.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"113",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c16022adc1.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"114",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/652c16028f970.png"}
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"110",comment:'',imgsrc:"https://bu.dusays.com/2024/04/23/66268b0fe2328.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"111",comment:'',imgsrc:"https://bu.dusays.com/2024/04/23/66268b0fe2eac.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"112",comment:'',imgsrc:"https://bu.dusays.com/2024/04/23/66268b0fe38ee.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"113",comment:'',imgsrc:"https://bu.dusays.com/2024/04/23/66268b0fee76d.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"114",comment:'',imgsrc:"https://bu.dusays.com/2024/04/23/66268b0fee65e.png"}
 ]
 var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
