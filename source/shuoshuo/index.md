@@ -128,7 +128,15 @@ const urls = [
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"103",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e97e784.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"104",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e992a21.png"},
   {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"105",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e9bb9dc.png"},
-  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"106",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47ea26ac7.png"}
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"106",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47ea26ac7.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"107",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e8b9862.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"108",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e912cf2.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"109",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e963f98.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"110",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e97e784.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"111",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e992a21.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"112",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47e9bb9dc.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"113",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47ea26ac7.png"},
+  {home:"https://s.dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"114",comment:'',imgsrc:"https://bu.dusays.com/2024/02/27/65dd47ea26ac7.png"}
 ]
 var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
