@@ -71,7 +71,7 @@ document.addEventListener('gesturestart', function(event) {
   }
   var memosMyList = [
     {
-      "creatorName" : "TeacherDu",
+      "creatorName" : "Teacher Du",
       "website" : "https://dusays.com",
       "link" : "https://s.dusays.com",
       "creatorId" : "1",
