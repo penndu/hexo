@@ -71,7 +71,7 @@ document.addEventListener('gesturestart', function(event) {
   }
   var memosMyList = [
     {
-      "creatorName" : "林木木",
+      "creatorName" : "TeacherDu",
       "website" : "https://dusays.com",
       "link" : "https://s.dusays.com",
       "creatorId" : "1",
