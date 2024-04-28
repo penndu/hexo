@@ -9,7 +9,6 @@ title: 说说广场
 
 <link rel="stylesheet" href="https://memobbs.app/cdn/APlayer.min.css">
 <link rel="stylesheet" href="https://memobbs.app/cdn/animate.min.css">
-<link rel="stylesheet" href="https://memobbs.app/cdn/ArtalkLite.css">
 <link rel="stylesheet" href="https://memobbs.app/grid.css">
 <link rel="stylesheet" href="https://memobbs.app/memos.css">
 
@@ -80,10 +79,6 @@ document.addEventListener('gesturestart', function(event) {
   ]
 </script>
 
-<script src="https://memobbs.app/cdn/twikoo.min.js"></script>
-<script src="https://memobbs.app/cdn/ArtalkLite.js"></script>
-<script src="https://memobbs.app/cdn/marked.min.js"></script>
-<script src="https://memobbs.app/cdn/APlayer.min.js"></script>
 <script>
 var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
 </script>
