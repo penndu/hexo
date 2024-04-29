@@ -452,3 +452,18 @@ div.bbs-avatar > img {
 .video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}
 .video-wrapper iframe{position:absolute;height:100%;width:100%;}
 </style>
+
+
+<div id="bber"></div>
+<script>
+  var bbMemos = {
+    memos : 'https://s.dusays.com/',
+    limit : '10',
+    creatorId:'1' ,
+    domId: '#bber',
+  }
+</script>
+<script src="https://npm.onmicrosoft.cn/penndu@4.0.9/memos.js"></script>
+<script src="https://npm.onmicrosoft.cn/marked/marked.min.js"></script>
+<script src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
+<script src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
