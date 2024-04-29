@@ -65,9 +65,6 @@ document.addEventListener('gesturestart', function(event) {
 </script>
 
 <script type="text/javascript">
-  var memosJson = {
-    url : "/memos.json"
-  }
   var memosMyList = [
     {
       "creatorName" : "Teacher Du",
@@ -82,6 +79,6 @@ document.addEventListener('gesturestart', function(event) {
 <script>
 var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
 </script>
-<script src="https://memobbs.app/cdn/Meting.min.js"></script>
+<script src="https://memobbs.app/memos.json"></script>
 <script src="https://memobbs.app/cdn/lozad.min.js"></script>
 <script src="https://memobbs.app/memos.js"></script>
