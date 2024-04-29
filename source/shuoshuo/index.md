@@ -79,6 +79,6 @@ document.addEventListener('gesturestart', function(event) {
 <script>
 var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
 </script>
-<script src="https://memobbs.app/memos.json"></script>
+<script src="https://memobbs.app/cdn/Meting.min.js"></script>
 <script src="https://memobbs.app/cdn/lozad.min.js"></script>
 <script src="https://memobbs.app/memos.js"></script>
