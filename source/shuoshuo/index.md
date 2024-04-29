@@ -7,23 +7,6 @@ comments: false
 title: 说说广场
 ---
 
-<div class="container">
-  <p>共发表了 <span id="memosCount">0</span> 条 Memos 说说！</p>
-</div>
-<script>
-  function getTotal() {
-    var totalUrl = "https://s.dusays.com/api/v1/memo/stats?creatorId=1";
-    fetch(totalUrl).then(res => res.json()).then(resdata => {
-      if (resdata) {
-        var memosCount = document.getElementById('total');
-        memosCount.innerHTML = resdata.length;
-      }
-    }).catch(err => {
-    });
-  };
-  window.onload = getTotal();
-</script>
-
 <div id="bber"></div>
 <script>
   var bbMemos = {
