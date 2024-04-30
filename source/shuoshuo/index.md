@@ -21,4 +21,4 @@ title: 说说广场
     twiEnv:'',//启开 twikoo 评论，默认 https://metk.edui.fun/
   }
 </script>
-<script src="https://npm.onmicrosoft.cn/penndu@10.0.0/bb-lmm-mk.js"></script>
+<script src="https://npm.onmicrosoft.cn/penndu/bb-lmm-mk.js"></script>
