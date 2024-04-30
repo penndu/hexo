@@ -8,7 +8,7 @@ title: 说说广场
 ---
 
 <div id="bber"></div>
-<script type="module" src="https://npm.onmicrosoft.cn/penndu@10.0.0/emaction.js"></script>
+<script type="module" src="https://npm.onmicrosoft.cn/penndu@11.0.0/emaction.js"></script>
 <script src="https://npm.onmicrosoft.cn/marked@12.0.2/marked.min.js"></script>
 <script src="https://jsd.onmicrosoft.cn/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://jsd.onmicrosoft.cn/gh/Tokinx/Lately/lately.min.js"></script>
@@ -21,4 +21,4 @@ title: 说说广场
     twiEnv:'',//启开 twikoo 评论，默认 https://metk.edui.fun/
   }
 </script>
-<script src="https://npm.onmicrosoft.cn/penndu/bb-lmm-mk.js"></script>
+<script src="https://npm.onmicrosoft.cn/penndu@11.0.0/bb-lmm-mk.js"></script>
