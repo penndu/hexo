@@ -1,9 +1,6 @@
 ---
 layout: page
 title: 杜老师说收费服务
-meta:
-  header: [title, author, category, date, counter, wordcount, top]
-  footer: [updated, tags, share]
 ---
 
 ## 背景介绍
