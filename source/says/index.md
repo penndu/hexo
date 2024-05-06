@@ -1,9 +1,6 @@
 ---
 layout: page
 title: 说说页面发布规则
-meta:
-  header: [title, author, category, date, counter, wordcount, top]
-  footer: [updated, tags, share]
 ---
 
 {% folding cyan open, 关于说说 %}
