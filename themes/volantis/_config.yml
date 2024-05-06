@@ -695,6 +695,7 @@ sidebar:
     dulaoshi:
       class: text
       display: [desktop, mobile]
+      sticky: true
       header:
         icon: fas fa-ad
         title: 软云主机
@@ -704,6 +705,7 @@ sidebar:
     zanzhu:
       class: text
       display: [desktop, mobile]
+      sticky: true
       header:
         icon: fas fa-wallet
         title: 点击赞助
