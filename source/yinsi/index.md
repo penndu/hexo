@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 杜老师说隐私声明
+sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, zanzhu, dao_hang, category, tagcloud, webinfo]
 ---
 
 {% folding cyan open, 信息收集 %}
