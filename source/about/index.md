@@ -25,9 +25,21 @@ title: 关于留言
 
 {% timeline 本站事件 %}
 
+{% timenode 2024 年 05 月 06 日 %}
+
+杜老师说博客右键菜单新增必应搜索，感谢 ktiao 童靴的建议。
+
+{% endtimenode %}
+
+{% timenode 2024 年 05 月 04 日 %}
+
+杜老师说评论表情包新增猫猫虫，感谢二次寒树童靴推荐；
+
+{% endtimenode %}
+
 {% timenode 2024 年 04 月 10 日 %}
 
-因渺软公益 CDN 切换线路，全站 CDN 暂切换至 elemecdn。
+因渺软公益 CDN 切换线路，全站 CDN 暂切换至 elemecdn；
 
 {% endtimenode %}
 
