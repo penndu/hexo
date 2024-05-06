@@ -4,8 +4,6 @@ title: 杜老师说隐私声明
 meta:
   header: [title, author, category, date, counter, wordcount, top]
   footer: [updated, tags, share]
-valine:
-  placeholder: 有什么想对我说的？
 ---
 
 {% folding cyan open, 信息收集 %}
