@@ -1,6 +1,7 @@
 ---
 layout: friends
 title: 友情链接
+sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, zanzhu, dao_hang, category, tagcloud, webinfo]
 ---
 
 > 名称：杜老师说
