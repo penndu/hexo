@@ -4,8 +4,6 @@ title: 杜老师说免责声明
 meta:
   header: [title, author, category, date, counter, wordcount, top]
   footer: [updated, tags, share]
-valine:
-  placeholder: 有什么想对我说的？
 ---
 
 > 杜老师说及旗下网站提醒您：在使用杜老师说及旗下网站之前，请您务必仔细阅读并透彻理解本声明。一旦您使用杜老师说及旗下网站，您的使用行为将被视为对本声明全部内容认可。

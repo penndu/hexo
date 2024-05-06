@@ -4,8 +4,6 @@ title: 杜老师说收费服务
 meta:
   header: [title, author, category, date, counter, wordcount, top]
   footer: [updated, tags, share]
-valine:
-  placeholder: 有什么想对我说的？
 ---
 
 ## 背景介绍

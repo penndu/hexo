@@ -4,8 +4,6 @@ title: 说说页面发布规则
 meta:
   header: [title, author, category, date, counter, wordcount, top]
   footer: [updated, tags, share]
-valine:
-  placeholder: 有什么想对我说的？
 ---
 
 {% folding cyan open, 关于说说 %}
