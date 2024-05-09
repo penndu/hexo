@@ -388,7 +388,7 @@ article:
       # 文章浏览计数
       counter:
         icon: fa-solid fa-eye
-        unit: '次浏览'
+        unit: ' 次浏览'
       # waline 文章评论数量
       walinecount:
         icon: fa-solid fa-comment-dots
