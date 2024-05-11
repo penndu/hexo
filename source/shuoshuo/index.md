@@ -25,8 +25,8 @@ title: 说说广场
             limit: '10',
             creatorId: '1',
             domId: '#memos',
-            username: 'Teacher Du',
-            name: 'Official Demo',
+            username: 'penn',
+            name: 'Teacher Du',
         }
     </script>
     <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/eallion/memos.top@main/assets/js/lazyload.min.js?v=17.8.3"></script>
