@@ -8,7 +8,7 @@ title: 说说广场
 ---
 
 <head>
-    <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@a40c9ca/assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/APlayer.min.css" rel="stylesheet" type="text/css">
     <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/highlight.github.min.css" rel="stylesheet" type="text/css">
     <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/custom.css" rel="stylesheet" type="text/css">
