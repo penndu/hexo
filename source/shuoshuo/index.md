@@ -7,13 +7,10 @@ comments: false
 title: 说说广场
 ---
 
-<head>
-    <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@a40c9ca/assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/APlayer.min.css" rel="stylesheet" type="text/css">
-    <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/highlight.github.min.css" rel="stylesheet" type="text/css">
-    <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/custom.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+<link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@a0945c0/assets/css/style.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/APlayer.min.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/highlight.github.min.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/custom.css" rel="stylesheet" type="text/css">
 <section id="main" class="container">
     <div class="total">Total <span id="total">0</span> Memos 🎉</div>
     <div id="memos" class="memos">
@@ -35,6 +32,5 @@ title: 说说广场
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/js/moment.min.js?v=2.30.1"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/js/moment.twitter.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/js/highlight.min.js?v=11.9.0"></script>
-<script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@5f000d0/assets/js/main.js"></script>
+<script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@be45d10/assets/js/main.js"></script>
 <script>hljs.highlightAll();</script>
-</body>
