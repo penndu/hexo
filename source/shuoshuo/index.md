@@ -25,21 +25,6 @@ title: 说说广场
 </head>
 
 <body>
-    <header>
-        <div class="menu">
-            <div class="title">Memos</div>
-
-            <div class="pages">
-                    <a href="https://github.com/eallion/memos.top" target="_blank" rel="noopener noreferrer" class="">GitHub</a>
-                    <a href="https://eallion.com/memos" target="_blank" rel="noopener noreferrer" class="">I'm Feeling Lucky</a>
-            </div>
-
-        </div>
-        
-        <div class='theme-toggle'>🌓</div>
-
-    </header>
-
     <section id="main" class="container">
         <h1>Memos Top</h1>
 
