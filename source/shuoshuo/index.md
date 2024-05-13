@@ -32,5 +32,5 @@ title: 说说广场
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/js/moment.min.js?v=2.30.1"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/js/moment.twitter.js"></script>
 <script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/js/highlight.min.js?v=11.9.0"></script>
-<script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@9028b41/assets/js/main.js"></script>
+<script type="text/javascript" src="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@e6cb3f2/assets/js/main.js"></script>
 <script>hljs.highlightAll();</script>
