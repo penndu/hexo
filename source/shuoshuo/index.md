@@ -11,6 +11,7 @@ title: 说说广场
 <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/APlayer.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/highlight.github.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.onmicrosoft.cn/gh/penndu/memos.top@main/assets/css/custom.css" rel="stylesheet" type="text/css">
+{% p center logo large, 点图片可放大! %}
 <section id="main" class="container">
     <div class="total">Total <span id="total">0</span> Memos 🎉</div>
     <div id="memos" class="memos">
