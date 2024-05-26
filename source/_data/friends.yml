@@ -79,9 +79,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 淇云博客'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdfe4e28e.jpg
     url: 'https://www.pengqi.club'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 懒人素材网'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bde8dc325.jpg
-    url: 'https://www.lanrenn.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Stephen’s Blog'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde9b1730.jpg
     url: 'https://www.stephen520.cn'
@@ -97,9 +94,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 陈冬冬博客'
     avatar: https://bu.dusays.com/2024/02/25/65db25d82b45e.jpg
     url: 'https://www.chendd.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 胡萝虎的博客'
-    avatar: https://bu.dusays.com/2024/03/07/65e96cfdc1911.jpg
-    url: 'https://www.huluohu.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 贝贝吧'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf9a054c.jpg
     url: 'https://www.hibbba.com'
@@ -361,3 +355,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 林林杂语'
     avatar: https://bu.dusays.com/2024/05/12/66407d224c458.jpg
     url: 'https://www.xiaozonglin.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 懒人素材网'
+    avatar: https://bu.dusays.com/2023/08/24/64e6bde8dc325.jpg
+    url: 'https://www.lanrenn.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 胡萝虎的博客'
+    avatar: https://bu.dusays.com/2024/03/07/65e96cfdc1911.jpg
+    url: 'https://www.huluohu.com'
