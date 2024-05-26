@@ -763,10 +763,6 @@ sidebar:
           url: https://www.pengqi.club
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 懒人素材网
-          url: https://www.lanrenn.cn
-          rel: external nofollow noopener noreferrer
-          target: _blank
         - name: Stephen’s Blog
           url: https://www.stephen520.cn
           rel: external nofollow noopener noreferrer
@@ -785,10 +781,6 @@ sidebar:
           target: _blank
         - name: 陈冬冬博客
           url: https://www.chendd.cn
-          rel: external nofollow noopener noreferrer
-          target: _blank
-        - name: 胡萝虎的博客
-          url: https://www.huluohu.com
           rel: external nofollow noopener noreferrer
           target: _blank
         - name: 贝贝吧
