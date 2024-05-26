@@ -37,9 +37,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Fgaoxing'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde8de9f2.jpg
     url: 'https://www.yt-blog.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 兔儿轩の博客'
-    avatar: https://bu.dusays.com/2023/04/14/643955ad1cef4.jpg
-    url: 'https://blog.rabbitwebs.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 乙未博客'
     avatar: https://bu.dusays.com/2023/10/01/65197fb49a6c9.jpg
     url: 'https://yvii.cn'
@@ -64,6 +61,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 龙鲲博客'
     avatar: https://bu.dusays.com/2024/04/18/6620b566810b1.jpg
     url: 'https://lklog.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> SunoAPI AI音乐歌曲生成器'
+    avatar: https://bu.dusays.com/2024/05/26/66531ec835e88.jpg
+    url: 'https://sunoapi.net'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
