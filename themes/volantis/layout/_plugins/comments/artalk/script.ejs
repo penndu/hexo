@@ -24,6 +24,11 @@
       path = path.replaceAll('/index.html', '/').replaceAll('.html', '')
     }
 
+    Artalk.use(ctx => {
+      ctx.on("mounted", () => {
+        document.querySelector('.atk-textarea').placeholder = "本站支持匿名评论，点击登录后选跳过验证即可~&#10;友链请详见规则后申请，谢谢！"
+      })
+    })
     volantis.artalk = Artalk.init(Object.assign(<%- JSON.stringify(theme.comments.artalk) %>, {
       el: '#artalk_container',
       pageKey: path,
