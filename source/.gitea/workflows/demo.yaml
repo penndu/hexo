@@ -1,0 +1,12 @@
+name: Gitea Actions Demo
+run-name: ${{ gitea.actor }} is testing out Gitea Actions 🚀
+on: [push]
+
+jobs:
+  Explore-Gitea-Actions:
+    runs-on: self-hosted
+    steps:
+      - run: cd /root/blog/source && git fetch && git pull origin main
+      - run: rsync -av --delete /root/blog/source/ /root/hexo/source/ --exclude=.git
+      - run: cd /root/hexo && git add .
+      - run: ssh 127.0.0.1 -C "cd /root/hexo && git commit -m a && git push -f origin main"
