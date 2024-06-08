@@ -698,10 +698,10 @@ sidebar:
       sticky: true
       header:
         icon: fas fa-ad
-        title: 软云主机
-        url: https://dusays.com/690/
+        title: 去不图床
+        url: https://pay.dusays.com/
       content:
-        - '<center><a href="https://dusays.com/690/" target="_blank"><img src="https://ruan.cloud/ad/ad.jpg"></a><center>'
+        - '<center><a href="https://pay.dusays.com/" target="_blank"><img src="https://cdn.dusays.com/7bu.jpg"></a><center>'
     zanzhu:
       class: text
       display: [desktop, mobile]
