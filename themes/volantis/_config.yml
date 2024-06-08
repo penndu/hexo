@@ -702,16 +702,6 @@ sidebar:
         url: https://pay.dusays.com/
       content:
         - '<center><a href="https://pay.dusays.com/" target="_blank"><img src="https://cdn.dusays.com/7bu.jpg"></a><center>'
-    s:
-      class: text
-      display: [desktop, mobile]
-      sticky: true
-      header:
-        icon: fas fa-ad
-        title: 说说广场
-        url: https://s.dusays.com/
-      content:
-        - '<center><a href="https://s.dusays.com/" target="_blank"><img src="https://cdn.dusays.com/s.jpg"></a><center>'
     chat:
       class: text
       display: [desktop, mobile]
@@ -735,7 +725,6 @@ sidebar:
     zanzhu:
       class: text
       display: [desktop, mobile]
-      sticky: true
       header:
         icon: fas fa-wallet
         title: 点击赞助
