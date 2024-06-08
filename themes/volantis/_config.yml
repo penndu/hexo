@@ -699,9 +699,9 @@ sidebar:
       header:
         icon: fas fa-ad
         title: 去不图床
-        url: https://pay.dusays.com/
+        url: https://7bu.top/
       content:
-        - '<center><a href="https://pay.dusays.com/" target="_blank"><img src="https://cdn.dusays.com/7bu.jpg"></a><center>'
+        - '<center><a href="https://7bu.top/" target="_blank"><img src="https://cdn.dusays.com/7bu.jpg"></a><center>'
     chat:
       class: text
       display: [desktop, mobile]
