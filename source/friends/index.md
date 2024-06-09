@@ -17,7 +17,7 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, zanzhu, dao_h
 
 如您没有站标，默认使用本站站标。因 jsDelivr 国内节点已关，使用 jsDelivr 地址的站标会被换为去不图床外链。
 
-当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/634/)》。
+当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/634/)》
 
 简单总结一下友链规则：
 
