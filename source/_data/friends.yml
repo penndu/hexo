@@ -13,6 +13,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 网友小宋'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde64ee70.jpg
     url: 'https://xyzbz.cn'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> xaoxuu'
+    avatar: https://bu.dusays.com/2023/08/24/64e6be9003858.jpg
+    url: 'https://xaoxuu.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> obaby@mars'
     avatar: https://bu.dusays.com/2023/08/24/64e6bde75d713.jpg
     url: 'https://h4ck.org.cn'
@@ -46,9 +49,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 微笔记'
     avatar: https://bu.dusays.com/2024/02/18/65d0fdb1ba8f4.jpg
     url: 'https://flytusky.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 揽星'
-    avatar: https://bu.dusays.com/2024/03/07/65e9c2a8502f1.jpg
-    url: 'https://lanxing.net'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 晓雨杂记'
     avatar: https://bu.dusays.com/2024/03/10/65edb65b38ca6.jpg
     url: 'https://lihaoyu.cn'
@@ -163,60 +163,24 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Echo 的小窝'
     avatar: https://bu.dusays.com/2023/08/24/64e6bdf58acc9.jpg
     url: 'https://www.liveout.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 中弦星空魔法屋'
-    avatar: https://bu.dusays.com/2024/04/22/6626577c0439b.jpg
-    url: 'https://blog.sinzmise.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Chenli'
-    avatar: https://bu.dusays.com/2023/08/27/64eb31829a3a2.jpg
-    url: 'https://chenliss.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 风起'
-    avatar: https://bu.dusays.com/2023/09/17/650704735f02e.jpg
-    url: 'https://www.fqxk.com.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Stars Harbor’s Blog'
-    avatar: https://bu.dusays.com/2023/09/27/651314b041654.jpg
-    url: 'https://blog.starsharbor.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 秋澪Akimio'
     avatar: https://bu.dusays.com/2023/10/02/651ad6bbd15e4.jpg
     url: 'https://blog.akimio.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> iMaeGoo’s Blog'
     avatar: https://bu.dusays.com/2023/10/11/652689c8646ef.jpg
     url: 'https://www.imaegoo.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 未雨绸缪'
-    avatar: https://bu.dusays.com/2023/10/16/652c0c9db930c.jpg
-    url: 'https://7boe.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> KEVIN’S BLOG'
-    avatar: https://bu.dusays.com/2023/10/17/652ea323dba5d.jpg
-    url: 'https://blog.kevinchu.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 未知之旅'
-    avatar: https://bu.dusays.com/2023/10/18/652fcf7a401b4.jpg
-    url: 'https://blog.xenosp.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> SerMs'
     avatar: https://bu.dusays.com/2023/10/18/652fe50b1828c.jpg
     url: 'https://blog.serms.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 若志随笔'
     avatar: https://bu.dusays.com/2023/11/25/6560f2e225264.jpg
     url: 'https://www.rz.sb'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> Efu'
-    avatar: https://bu.dusays.com/2024/04/28/662e119fae32d.jpg
-    url: 'https://www.efu.me'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小韩的自留地'
-    avatar: https://bu.dusays.com/2024/01/04/65960edad3775.jpg
-    url: 'https://blog.hantaotao.top'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 顾梦'
-    avatar: https://bu.dusays.com/2023/08/24/64e6bdf44cbee.jpg
-    url: 'https://blog.gumengyo.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 缘生笔记'
     avatar: https://bu.dusays.com/2024/01/10/659d74cbce12b.jpg
     url: 'https://ysicing.me'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小李同学 Coding'
-    avatar: https://bu.dusays.com/2024/01/11/659fffd3b08b0.jpg
-    url: 'https://blog.xxfer.cn'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> ImQi1'
     avatar: https://bu.dusays.com/2024/03/28/66058402e7398.jpg
     url: 'https://imqi1.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 六月是只猫'
-    avatar: https://bu.dusays.com/2024/02/08/65c4f96161a90.jpg
-    url: 'https://www.lyszm.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 慕雪的寒舍'
     avatar: https://bu.dusays.com/2024/02/10/65c79228cb595.jpg
     url: 'https://blog.musnow.top'
@@ -253,12 +217,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 皮普的数字花园'
     avatar: https://bu.dusays.com/2024/04/06/66103edc37d67.jpg
     url: 'https://pipuwong.com'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> isYangs Blog'
-    avatar: https://bu.dusays.com/2024/04/06/661139296edda.jpg
-    url: 'https://isyangs.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 冰火之砺'
-    avatar: https://bu.dusays.com/2024/04/22/662656e8224d7.jpg
-    url: 'https://blog.marice.top'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 林林杂语'
     avatar: https://bu.dusays.com/2024/05/12/66407d224c458.jpg
     url: 'https://www.xiaozonglin.cn'
