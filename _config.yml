@@ -107,14 +107,6 @@ deploy:
 # - type: git
   # repo: git@e.coding.net:penndo/dulaoshishuo/my-website.git
   # branch: master
-  type: ftpsync
-  host: s5.serv00.com
-  user: f8506_www
-  pass: =Dqdd6mWk6upe0R_zh359&axfYhmQ[
-  remote: /
-  port: 21
-  clear: false
-  verbose: false
 baidusitemap:
   path: baidusitemap.xml
 markdown:

@@ -24,7 +24,6 @@ jobs:
     - name: hexo
       run: |
         hexo g --slient
-        hexo d
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
