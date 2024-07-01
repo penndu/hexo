@@ -107,6 +107,14 @@ deploy:
 # - type: git
   # repo: git@e.coding.net:penndo/dulaoshishuo/my-website.git
   # branch: master
+  type: ftpsync
+  host: s5.serv00.com
+  user: f8506_www
+  pass: =Dqdd6mWk6upe0R_zh359&axfYhmQ[
+  remote: /
+  port: 21
+  clear: false
+  verbose: false
 baidusitemap:
   path: baidusitemap.xml
 markdown:
@@ -150,24 +158,3 @@ jsonContent:
     path: true
     text: true
     uuid: true
-# hexo-safego安全跳转插件
-# see https://blog.qyliu.top/posts/1dfd1f41/
-hexo_safego:
-  enable: true  # 是否启用 hexo-safego 插件
-  enable_base64_encode: true  # 是否启用 Base64 编码链接
-  enable_target_blank: true  # 是否在跳转链接中添加 target="_blank"
-  url_param_name: 'u'  # URL 参数名，用于生成跳转链接
-  html_file_name: 'go.html'  # 跳转页面文件名
-  ignore_attrs:  # 需要忽略的链接属性列表
-    - 'data-fancybox'
-  apply_containers:  # 容器 ID 列表，如果为空则匹配整个 body
-    - '#article-container'
-  domain_whitelist:  # 域名白名单列表，包含白名单中的域名的链接将被忽略
-    - 'dusays.com'
-  apply_pages:  # 生效页面路径列表，只有在这些页面上才会对链接进行处理
-    - '/'
-  avatar: https://cdn.dusays.com/logo.png  # 头像图片链接
-  title: "杜老师说"  # 标题
-  subtitle: "外链跳转"  # 副标题
-  darkmode: true  # 是否启用夜间模式
-  debug: false  # 是否启用调试模式，开启后会输出详细的调试信息
