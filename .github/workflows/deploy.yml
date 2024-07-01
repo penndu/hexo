@@ -1,0 +1,26 @@
+name: CI
+env:
+  TZ: Asia/Shanghai
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '30 16 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+    - name: npm
+      run: |
+        npm i -g hexo-cli
+        npm i
+    - name: hexo
+      run: |
+        hexo d
