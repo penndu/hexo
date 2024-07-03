@@ -8,7 +8,7 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, zan
 
 {% blocknote %}
 
-去不图床使用付费程序搭建，底层 16H16G512NVME 服务器，高配置保障程序稳定性。带宽上行 50M 下行 500M，带来极速外链体验。至少 99%在线率，使您上传的图片始终可访问。域名续费十年之久，不再担心出现跑路，敬请放心上传图片。
+去不图床使用付费程序搭建，底层 16H16G512NVME1024SSD 服务器，高配置保障程序稳定性。带宽上行 100M 下行 700M，带来极速外链体验。至少 99%在线率，使您上传的图片始终可访问。域名续费十年之久，不再担心出现跑路，敬请放心上传图片。
 
 {% endblocknote %}
 
@@ -17,17 +17,29 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, zan
 {% folding red open::图床特点 %}
 
 {% radio checked, 付费程序搭建，源码作者不断更新提供更多功能； %}
-{% radio checked, 底层 16H16G 服务器保障稳定运行，图片存放于本地 512G 可扩容高速 NVME 固态硬盘； %}
-{% radio checked, 带宽上行 50M 下行 500M； %}
+{% radio checked, 底层 16H16G 服务器保障稳定运行，图片存放于本地 512G 可扩容高速 NVME 固态硬盘，另有 1024G 企业级固态硬盘备用； %}
+{% radio checked, 带宽上行 100M 下行 700M； %}
 {% radio checked, 容量付费，保障域名及服务器长久运营。 %}
 
 {% endfolding %}
 
 {% timeline 图床事件 %}
 
+{% timenode 2024 年 06 月 12 日 %}
+
+新增 1024G 企业级固态硬盘备用，截止 2024 年 06 月 12 日，已托管图片约 274090 张，空间占用约 112.03G。
+
+{% endtimenode %}
+
+{% timenode 2024 年 05 月 10 日 %}
+
+去不图床新增海外节点，目前节点分布：华北、华东、华中、香港、海外，共 17 个 CDN 节点，其中境内节点占比较高；
+
+{% endtimenode %}
+
 {% timenode 2024 年 04 月 12 日 %}
 
-优化重构套餐购买逻辑；购买同一订阅支持续费；续费订阅不会增加赠送容量，只修改角色组；订阅到期后按顺序重置角色组和扣除容量，没有订阅会被重置为系统默认组。
+优化重构套餐购买逻辑；购买同一订阅支持续费；续费订阅不会增加赠送容量，只修改角色组；订阅到期后按顺序重置角色组和扣除容量，没有订阅会被重置为系统默认组；
 
 {% endtimenode %}
 
@@ -73,6 +85,8 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, zan
 
 {% endtimenode %}
 
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2023 年 11 月 04 日 %}
 
 新增河南自建 CDN 反代理节点；
@@ -84,8 +98,6 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, zan
 新增内蒙古自建 CDN 节点；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2023 年 10 月 04 日 %}
 
