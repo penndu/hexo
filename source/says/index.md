@@ -8,7 +8,7 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, zan
 
 {% blocknote %}
 
-本博文章皆为技术教程，而说说分享的是杜老师日常。如果您也想同大家分享，欢迎申请说说页面发布权限，请遵循以下的规则！
+本博文章皆为技术教程，而说说分享的是杜老师日常。如果您也想建立相同的页面，欢迎申请说说广场账户，请遵循以下的规则！
 
 {% endblocknote %}
 
@@ -18,8 +18,8 @@ sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, zan
 
 {% radio checked, 直接前往 [平台页面](https://s.dusays.com/auth) 注册账号即可； %}
 {% radio checked, 页面地址为 `https://s.dusays.com`； %}
-{% radio checked, 平台底层 8H8G 服务器保障稳定运行，数据每周本地备份，每月异地备份保障安全； %}
-{% radio checked, 注册后请在该页留言用户名，杜老师会根据您的邮箱设置说说广场中显示的用户头像。 %}
+{% radio checked, 平台底层 2H4G 服务器保障稳定运行，数据每周本地备份，每月异地备份保障安全； %}
+{% radio checked, 如想搭建展示页面，可以参考《[使用 Memos 搭建时光机教程](https://dusays.com/561/)》一文。 %}
 
 {% endfolding %}
 
