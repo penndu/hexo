@@ -119,16 +119,15 @@ content_visibility: true
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://npm.onmicrosoft.cn/
-  - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
+  - https://unpkg.com/ => https://e.dusays.com/npm/
+  - https://gcore.jsdelivr.net/gh/ => https://e.dusays.com/gh/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   - https://unpkg.com
   - https://cdn.bootcdn.net
-  - https://npm.onmicrosoft.cn
-  - https://jsd.onmicrosoft.cn
+  - https://e.dusays.com
 
 # 平滑滚动效果
 scroll_smooth: true
