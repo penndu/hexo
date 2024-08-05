@@ -1168,8 +1168,8 @@ plugins:
   # AI摘要
   # https://github.com/zhheo/Post-Abstract-AI
   tianliGPT:
-    enable: false
-    key: 5Q5mpqRK5DkwT1X9Gi5e
+    enable: true
+    key: sk-Y80aj4Mz749q66Pc2CBViMiQNKK08HocXNHecmFg9ixdb3sr
     wordLimit: 1000 # 摘要字数限制 (⚠️危险：更改此变量损失已消耗过的key，因为你提交的内容发生了变化。)
     typewriter: true # 打字机效果
 
