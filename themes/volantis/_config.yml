@@ -40,8 +40,8 @@ cdn_system:
     # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
     custom:
       busuanzi: https://npm.elemecdn.com/penndu@1.0.0/bsz.js  # 杜老师友情赞助
-      artalk_js: https://artalk.dusays.com/dist/Artalk.js
-      artalk_css: https://artalk.dusays.com/dist/Artalk.css
+      artalk_js: https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/artalk/2.8.7/Artalk.js
+      artalk_css: https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/artalk/2.8.7/Artalk.css
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
@@ -128,6 +128,9 @@ dns_prefetch:
   - https://unpkg.com
   - https://cdn.bootcdn.net
   - https://e.dusays.com
+  - https://npm.elemecdn.com
+  - https://f.dusays.com
+  - https://artalk.dusays.com
 
 # 平滑滚动效果
 scroll_smooth: true
