@@ -75,5 +75,11 @@
   <!-- import head_end end -->
   <!-- Custom Files headEnd begin-->
   <%- volantis_inject('headEnd') %>
+  <script>
+    var domain = "dusays.com";
+    if (location.href.indexOf(domain) === -1) {
+      window.location = 'https://dusays.com';
+    }
+  </script>
   <!-- Custom Files headEnd end-->
 </head>
