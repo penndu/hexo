@@ -679,6 +679,9 @@ sidebar:
     heisi:
       class: test
       display: [desktop, mobile]
+      header:
+        icon: fas fa-info
+        title: 随机黑丝
       content:
         - '<img src="https://birdteam.net">'
     sffw:
