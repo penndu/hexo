@@ -682,8 +682,9 @@ sidebar:
       header:
         icon: fas fa-info
         title: 随机黑丝
+        url: https://birdteam.net
       content:
-        - '<img src="https://birdteam.net">'
+        - '<center><a href="https://birdteam.net"><img src="https://birdteam.net"></a><center>'
     sffw:
       class: text
       display: [desktop, mobile]
