@@ -684,7 +684,7 @@ sidebar:
         title: 收费服务
         url: https://dusays.com/sffw/
       content:
-        - '<center><a href="https://dusays.com/sffw/"><img src="https://api.xsot.cn/bing/?jump=1"></a><center>'
+        - '<center><a href="https://dusays.com/sffw/"><img src="https://birdteam.net/heisi.php"></a><center>'
     sffw:
       class: text
       display: [desktop, mobile]
