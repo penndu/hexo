@@ -680,11 +680,11 @@ sidebar:
       class: text
       display: [desktop, mobile]
       header:
-        icon: fas fa-dollar-sign
-        title: 收费服务
-        url: https://dusays.com/sffw/
+        icon: fas fa-info
+        title: 随机图片
+        url: https://dusays.com/530/
       content:
-        - '<center><a href="https://dusays.com/sffw/"><img src="https://birdteam.net/heisi.php"></a><center>'
+        - '<center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>'
     sffw:
       class: text
       display: [desktop, mobile]
