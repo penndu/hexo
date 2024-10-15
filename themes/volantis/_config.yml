@@ -73,7 +73,7 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-cdnjs" 开头的链接路径替换为该格式的前缀开头 prefix
     cdnjs:
       # CDN 链接前缀
-      prefix: https://cdn.bootcdn.net/ajax/libs
+      prefix: https://e.dusays.com/ajax/libs
       # cdnjs CDN 格式
       format: ${prefix}/${name}/${version}/${min_file}
   # ========================================================================
@@ -125,8 +125,6 @@ replace:
 
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
-  - https://unpkg.com
-  - https://cdn.bootcdn.net
   - https://e.dusays.com
   - https://npm.elemecdn.com
   - https://f.dusays.com
