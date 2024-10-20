@@ -439,7 +439,7 @@ pace_css:
 memos_carousel_js:
   name: penndu
   file: memos_carousel.js
-  version: 13.0.0
+  version: 13.4.0
   npm: true
   static: false
   cdnjs: false
