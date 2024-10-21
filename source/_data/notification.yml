@@ -63,3 +63,14 @@
     - title: 查看新版教程
       url: /499/
       dismiss: false # 点击了是否关闭底部横幅
+
+706:
+  title: 过期教程
+  message: 这份教程过于久远，请查看新版本教程。
+  position: bottom # bottom (底部通知), right (右侧通知，会自动消失)
+  theme: warning # default, warning
+  cache: false # 是否记住选项（下次不再弹出）
+  buttons:
+    - title: 查看新版教程
+      url: /760/
+      dismiss: false # 点击了是否关闭底部横幅
