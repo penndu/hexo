@@ -11,7 +11,7 @@ title: 说说广场
 <link href="https://npm.onmicrosoft.cn/penndu@13.0.0/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
 {% p center logo large, 点图片可放大! %}
 <section id="main" class="container">
-    <div class="total">Total <span id="total">0</span> 
+    <div class="total">总计 <span id="total">0</span> 条说说 🎉</div>
     <div id="memos" class="memos">
     </div>
 </section>
