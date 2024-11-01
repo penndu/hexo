@@ -903,7 +903,7 @@ site_footer:
 plugins:
   ################ required plugins ################
   # jquery
-  globalJquery: false # 全局引入 jquery
+  globalJquery: true # 全局引入 jquery
   # fontawesome
   fontawesome: true
   ################ optional plugins ################
