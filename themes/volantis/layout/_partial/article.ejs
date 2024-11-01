@@ -118,11 +118,7 @@
       <!-- 打赏组件 -->
       <% if (['post'].includes(page.layout) && footer_widget.donate && footer_widget.donate.enable == true) { %>
         <div class='donate'>
-          <div class='imgs'>
-            <% getList(footer_widget.donate.images).forEach(function(url){ %>
-              <img src='<%- url_for(url) %>'>
-            <% }) %>
-          </div>
+          <iframe src="https://cdn.dusays.com//drinks/" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;"  frameborder="0" scrolling="no"></iframe>
         </div>
       <% } %>
     </div>
