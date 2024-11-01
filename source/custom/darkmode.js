@@ -78,8 +78,4 @@ function checkNightMode() {
     }
 }
 BackTOP();
-window.addEventListener('load', ()=>{
-    volantis.dark.push(()=>{
-        switchNightMode();
-    })
-}, {once: true})
+volantis.dark.push(switchNightMode);
