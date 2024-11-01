@@ -129,6 +129,10 @@ dns_prefetch:
   - https://npm.elemecdn.com
   - https://f.dusays.com
   - https://artalk.dusays.com
+  - https://birdteam.net
+  - https://cdn.dusays.com
+  - https://cdn.sep.cc
+  - npm.onmicrosoft.cn
 
 # 平滑滚动效果
 scroll_smooth: true
