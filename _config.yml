@@ -150,6 +150,7 @@ feed:
   path:
     - atom.xml
     - rss2.xml
+  limit: 2000
 jsonContent:
   meta: false
   pages: false
