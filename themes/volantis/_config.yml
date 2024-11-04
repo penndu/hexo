@@ -73,7 +73,7 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-cdnjs" 开头的链接路径替换为该格式的前缀开头 prefix
     cdnjs:
       # CDN 链接前缀
-      prefix: https://e.dusays.com/ajax/libs
+      prefix: https://cdn.bootcdn.net/ajax/libs
       # cdnjs CDN 格式
       format: ${prefix}/${name}/${version}/${min_file}
   # ========================================================================
@@ -133,6 +133,7 @@ dns_prefetch:
   - https://cdn.dusays.com
   - https://cdn.sep.cc
   - https://npm.onmicrosoft.cn
+  - https://cdn.bootcdn.net
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -279,7 +280,7 @@ article:
     top_meta: [author, category, date, counter, artalkcount, wordcount] #启用评论数量需在此添加
     # 文章底部信息
     # 从 meta_library 中取
-    bottom_meta: [标签, share]
+    bottom_meta: [tags, share]
     # ----------------
     # 文章页脚组件
     footer_widget:
@@ -879,7 +880,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, br, link1, link2]
+  layout: [aplayer, social, license, info, copyright, link1, link2]
   social:
     - img: https://npm.onmicrosoft.cn/dusays@3.0.0/020-rss.svg
       url: atom.xml
@@ -907,7 +908,7 @@ site_footer:
 plugins:
   ################ required plugins ################
   # jquery
-  globalJquery: true # 全局引入 jquery
+  globalJquery: false # 全局引入 jquery
   # fontawesome
   fontawesome: true
   ################ optional plugins ################
