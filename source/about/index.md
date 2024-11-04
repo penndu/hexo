@@ -26,9 +26,21 @@ sidebar: [heisi, blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, 
 
 {% timeline 本站事件 %}
 
+{% timenode 2024 年 11 月 04 日 %}
+
+杜老师说为了防止域名拦截，替换了赞助二维码，改为动画特效。
+
+{% endtimenode %}
+
+{% timenode 2024 年 11 月 02 日 %}
+
+杜老师说添加模式切换动画，当切换暗黑模式时，会有动态效果；
+
+{% endtimenode %}
+
 {% timenode 2024 年 05 月 06 日 %}
 
-杜老师说博客右键菜单新增必应搜索，感谢 ktiao 童靴的建议。
+杜老师说博客右键菜单新增必应搜索，感谢 ktiao 童靴的建议；
 
 {% endtimenode %}
 
@@ -68,6 +80,8 @@ Artalk 升级 2.8.4 版本，目前回复指定用户还有一些问题，正待
 
 {% endtimenode %}
 
+{% folding green::点击查看更多内容 %}
+
 {% timenode 2024 年 02 月 24 日 %}
 
 说说广场重新开放注册；
@@ -85,8 +99,6 @@ Artalk 评论模块开启 POST 过滤，防止恶意评论；
 搜索引擎更换为 MeiliSearch，采用本地部署方式，境内线路保障高速查询；
 
 {% endtimenode %}
-
-{% folding green::点击查看更多内容 %}
 
 {% timenode 2023 年 10 月 04 日 %}
 
