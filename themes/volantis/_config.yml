@@ -119,7 +119,7 @@ content_visibility: true
 replace:
   - https://cdn.jsdelivr.net/npm/ => https://unpkg.com/
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
-  - https://unpkg.com/ => https://e.dusays.com/npm/
+  - https://unpkg.com/ => https://npm.onmicrosoft.cn/
   - https://gcore.jsdelivr.net/gh/ => https://e.dusays.com/gh/
 
 
@@ -132,7 +132,7 @@ dns_prefetch:
   - https://birdteam.net
   - https://cdn.dusays.com
   - https://cdn.sep.cc
-  - npm.onmicrosoft.cn
+  - https://npm.onmicrosoft.cn
 
 # 平滑滚动效果
 scroll_smooth: true
