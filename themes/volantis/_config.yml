@@ -687,7 +687,7 @@ sidebar:
         title: 随机图片
         url: https://dusays.com/530/
       content:
-        - '<center><a href="https://dusays.com/530/"><img src="https://birdteam.net/baisi.php"></a><center>'
+        - '<center><a href="https://dusays.com/530/"><img src="https://birdteam.net/meinvpic.php"></a><center>'
     sffw:
       class: text
       display: [desktop, mobile]
