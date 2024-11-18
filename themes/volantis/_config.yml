@@ -137,6 +137,7 @@ dns_prefetch:
   - https://cdn.bootcdn.net
   - https://cdnjs.onmicrosoft.cn
   - https://jsd.onmicrosoft.cn
+  - https://m.dusays.com
 
 # 平滑滚动效果
 scroll_smooth: true
@@ -897,8 +898,8 @@ site_footer:
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using busuanzi
   analytics: >
-    <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+    <span>本站总访问量为 <span id='busuanzi_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
+    <span>访客数为 <span id='busuanzi_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
   copyright: '[萌 ICP 备 20229624 号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/says.svg" type="image/svg+xml"><br><embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://npm.onmicrosoft.cn/dusays@3.0.0/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
