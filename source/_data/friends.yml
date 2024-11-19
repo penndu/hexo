@@ -43,9 +43,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 晚夜的个人博客'
     avatar: https://bu.dusays.com/2024/08/22/66c6271fc1f22.jpg
     url: 'https://www.iczrx.cn'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 云晓晨CatchYXC'
-    avatar: https://bu.dusays.com/2024/09/23/66f0e50d3cf40.jpg
-    url: 'https://www.catchyxc.com'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
