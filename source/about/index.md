@@ -80,13 +80,13 @@ Artalk 升级 2.8.4 版本，目前回复指定用户还有一些问题，正待
 
 {% endtimenode %}
 
-{% folding green::点击查看更多内容 %}
-
 {% timenode 2024 年 02 月 24 日 %}
 
 说说广场重新开放注册；
 
 {% endtimenode %}
+
+{% folding green::点击查看更多内容 %}
 
 {% timenode 2024 年 01 月 04 日 %}
 
