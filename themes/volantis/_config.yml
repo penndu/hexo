@@ -888,7 +888,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright, link1, link2]
+  layout: [social, license, info, copyright, link1, link2]
   social:
     - img: https://npm.onmicrosoft.cn/dusays@4.0.0/020-rss.svg
       url: atom.xml
