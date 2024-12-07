@@ -46,6 +46,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小杨同学'
     avatar: https://bu.dusays.com/2024/12/04/67504fbb338a3.jpg
     url: 'https://xiaoyangst.github.io'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 彬红茶栈'
+    avatar: https://bu.dusays.com/2024/12/08/675492f707976.jpg
+    url: 'https://resource.redcha.cn'
 - group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
