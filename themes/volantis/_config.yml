@@ -931,7 +931,7 @@ plugins:
   ######## Plugins to improve loading speed:
   # 预加载
   preload:
-    enable: true
+    enable: false
     service: flying_pages # instant_page, flying_pages
 
   # 图片懒加载
