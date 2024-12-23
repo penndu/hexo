@@ -942,7 +942,7 @@ plugins:
   lazyload:
     enable: true
     onlypost: true
-    loadingImg: https://bu.dusays.com/2024/12/22/6767f873c1b58.jpg # https://e.dusays.com/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg # 不建议使用占位图, 建议loadingImg为空, 当前占位图会产生布局偏移, loadingImg 为空占位图是一个 1X1 像素的图片
+    loadingImg: # https://bu.dusays.com/2024/12/22/6767f873c1b58.jpg # https://e.dusays.com/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg # 不建议使用占位图, 建议loadingImg为空, 当前占位图会产生布局偏移, loadingImg 为空占位图是一个 1X1 像素的图片
     blurIn: true # 模糊加载效果 （loadingImg为空时有效）
 
   ######## Plugins to optimize the experience:
