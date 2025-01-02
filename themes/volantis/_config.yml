@@ -734,7 +734,6 @@ sidebar:
     bw:
       class: text
       display: [desktop, mobile]
-      sticky: true
       header:
         icon: fas fa-ad
         title: 密码托管
