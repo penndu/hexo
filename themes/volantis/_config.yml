@@ -1297,7 +1297,7 @@ rightmenus:
   menus:
     link:
       - {id: 'help', name: '去不图床', icon: 'fa-solid fa-file-image', link: 'https://7bu.top/', group: 'link'}
-      - {id: 'examples', name: '购买容量', icon: 'fa-solid fa-address-card', link: 'https://pay.dusays.com/', group: 'link'}
+      - {id: 'examples', name: '购买容量', icon: 'fa-solid fa-address-card', link: 'https://pay.dusay.cn/', group: 'link'}
       - hr
       - {id: 'source_theme', name: '说说广场', icon: 'fa-solid fa-edit', link: 'https://s.dusays.com/', group: 'link'}
       - {id: 'contributors', name: '聊天平台', icon: 'fa-solid fa-money-check-alt', link: 'https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr', group: 'link'}
