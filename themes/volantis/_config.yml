@@ -121,7 +121,7 @@ replace:
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
   - https://unpkg.com/ => https://npm.onmicrosoft.cn/
   - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
-  - https://cdn.bootcdn.net/ => https://cdnjs.onmicrosoft.cn/
+  - https://cdn.bootcdn.net/ => https://s4.zstatic.net/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
@@ -135,7 +135,7 @@ dns_prefetch:
   - https://cdn.sep.cc
   - https://npm.onmicrosoft.cn
   - https://cdn.bootcdn.net
-  - https://cdnjs.onmicrosoft.cn
+  - https://s4.zstatic.net
   - https://jsd.onmicrosoft.cn
   - https://m.dusays.com
 
