@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 杜老师说免责声明
-sidebar: [heisi, blogger, memos_carousel, artalk, sffw, h5game, dulaoshi, chat, bw, dao_hang, category, tagcloud, webinfo]
+sidebar: [blogger, toc, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
 
 > 杜老师说及旗下网站提醒您：在使用杜老师说及旗下网站之前，请您务必仔细阅读并透彻理解本声明。一旦您使用杜老师说及旗下网站，您的使用行为将被视为对本声明全部内容认可。
