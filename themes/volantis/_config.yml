@@ -638,7 +638,6 @@ sidebar:
     toc:
       class: toc
       display: [desktop, mobile] # [desktop, mobile]
-      sticky: true
       header:
         icon: fa-solid fa-list
         title: 本文目录
