@@ -742,6 +742,7 @@ sidebar:
     bw:
       class: text
       display: [desktop, mobile]
+      sticky: true
       header:
         icon: fas fa-ad
         title: 密码托管
@@ -776,7 +777,6 @@ sidebar:
           url: tags/
     tui_jian:
       class: list
-      sticky: true
       display: [desktop, mobile]
       header:
         icon: fas fa-thumbs-up
