@@ -122,6 +122,7 @@ replace:
   - https://unpkg.com/ => https://npm.onmicrosoft.cn/
   - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
   - https://cdn.bootcdn.net/ => https://s4.zstatic.net/
+  - https://npm.onmicrosoft.cn/ => https://e.dusays.com/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
