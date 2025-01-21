@@ -28,6 +28,6 @@ hexo.extend.tag.register('pandown', function(args) {
     //pandown
     result += '<pandown type="'+type+'" url="'+url+'" pwd="'+pwd+'" fname="'+fname+'"></pandown>'
     //调用
-    result += '<script>volantis.js("https://unpkg.com/pandown").then(pandown)</script></div>'
+    result += '<script>volantis.js("https://e.dusays.com/npm/pandown").then(pandown)</script></div>'
     return result;
 });
