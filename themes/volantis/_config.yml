@@ -808,10 +808,6 @@ sidebar:
           url: https://www.nmwbk.com
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 汐塔魔法屋
-          url: https://blog.sinzmise.top
-          rel: external nofollow noopener noreferrer
-          target: _blank
     # webinfo widget
     webinfo:
       class: webinfo
