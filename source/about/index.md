@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 关于留言
-sidebar: [blogger, toc, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
 
 {% folding blue open::关于博主 %}
