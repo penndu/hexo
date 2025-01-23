@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 图床问题建议反馈
-sidebar: [blogger, toc, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
 
 {% folding yellow open::关于图床 %}

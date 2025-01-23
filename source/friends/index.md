@@ -1,7 +1,7 @@
 ---
 layout: friends
 title: 友情链接
-sidebar: [blogger, toc, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
 
 > 名称：杜老师说
