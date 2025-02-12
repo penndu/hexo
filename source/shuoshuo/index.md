@@ -12,8 +12,7 @@ title: 说说广场
 {% p center logo large, 点图片可放大! %}
 <section id="main" class="container">
     <div class="total">总计 <span id="total">0</span> 条说说</div>
-    <div id="memos" class="memos">
-    </div>
+    <div id="memos" class="memos"></div>
 </section>
 <script type="text/javascript">
     var memos = {
