@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 说说页面发布规则
-sidebar: [blogger, memos_carousel, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
 
 {% folding cyan open, 关于说说 %}
