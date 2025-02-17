@@ -1318,7 +1318,7 @@ search:
     placeholder: 'Search...' # The placeholder text of the input.
   meilisearch:
     placeholder: 'Search...'
-    searchKey: '9c31ba67fd44d4ba7a6725d18ae0afd7e590a0eb455e24674a6999aa189723bf'
+    searchKey: '27c1c9a6634546ef08ba411cfc2173c4e53f30f4502fa2161e2f9615a0471150'
     indexName: 'hexo'
     hostUrl: 'https://m.dusays.com'
 
