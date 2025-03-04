@@ -56,7 +56,6 @@
     avatar: https://bu.dusays.com/2023/12/25/65886eb3cd322.jpg
     url: 'https://www.sicx.top'
 - group: 内页链接
-- group: 内页链接
   description: 该分组为内页友情链接，仅会显示在本页内，本博只做同级友链。
   items:
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 淇云博客'
