@@ -45,15 +45,14 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: false
+syntax_highlighter: highlight.js
 highlight:
-  enable: false
   line_number: true
-  auto_detect: true
+  auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -104,57 +103,4 @@ theme: volantis
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-# - type: git
-  # repo: git@e.coding.net:penndo/dulaoshishuo/my-website.git
-  # branch: master
-  type: ftpsync
-  host: s5.serv00.com
-  user: f8506_www
-  pass: =Dqdd6mWk6upe0R_zh359&axfYhmQ[
-  remote: /
-  port: 21
-  clear: false
-  verbose: false
-baidusitemap:
-  path: baidusitemap.xml
-markdown:
-  preset: 'default'
-  render:
-    html: true
-    xhtmlOut: false
-    langPrefix: 'language-'
-    breaks: true
-    linkify: true
-    typographer: true
-    quotes: '“”‘’'
-  enable_rules:
-  disable_rules:
-  plugins:
-  anchors:
-    level: 2
-    collisionSuffix: ''
-    permalink: false
-    permalinkClass: 'header-anchor'
-    permalinkSide: 'left'
-    permalinkSymbol: '¶'
-    case: 0
-    separator: '-'
-  images:
-    lazyload: false
-    prepend_root: false
-    post_asset: false
-feed:
-  type:
-    - atom
-    - rss2
-  path:
-    - atom.xml
-    - rss2.xml
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    path: true
-    text: true
-    uuid: true
+  type: ''
