@@ -622,7 +622,7 @@ sidebar:
         - icon: fa-solid fa-subway
           url: https://www.travellings.cn/go.html
         - icon: fa-solid fa-sitemap
-          url: https://dusays.com/baidusitemap.xml
+          url: baidusitemap.xml
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
@@ -678,7 +678,7 @@ sidebar:
       header:
         icon: fas fa-info
         title: 随机图片
-        url: https://dusays.com/530/
+        url: 530/
       content:
         - '<center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>'
     heisibak:
@@ -688,7 +688,7 @@ sidebar:
       header:
         icon: fas fa-info
         title: 随机图片
-        url: https://dusays.com/530/
+        url: 530/
       content:
         - '<center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>'
     sffw:
@@ -697,7 +697,7 @@ sidebar:
       header:
         icon: fas fa-dollar-sign
         title: 收费服务
-        url: https://dusays.com/sffw/
+        url: sffw/
       content:
         - '<center><a href="https://dusays.com/sffw/"><img src="https://cdn.dusays.com/sffw.gif"></a><center>'
     h5game:
@@ -893,14 +893,14 @@ site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [social, license, info, copyright, link1, link2]
   social:
-    - img: https://e.dusays.com/npm/dusays@5.0.0/020-rss.svg
+    - img: https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/020-rss.svg
       url: atom.xml
-    - img: https://e.dusays.com/npm/dusays@5.0.0/017-picasa.svg
+    - img: https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/017-picasa.svg
       url: https://7bu.top/
-    - img: https://e.dusays.com/npm/dusays@5.0.0/031-twitch.svg
+    - img: https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/031-twitch.svg
       url: https://a.dusays.com/
-    - img: https://e.dusays.com/npm/dusays@5.0.0/033-spotify.svg
-      url: https://dusays.com/baidusitemap.xml
+    - img: https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/033-spotify.svg
+      url: baidusitemap.xml
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using busuanzi
@@ -908,7 +908,7 @@ site_footer:
     <span>本站总访问量为 <span id='busuanzi_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span>访客数为 <span id='busuanzi_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '<a href="https://http3.wcode.net/?q=dusays.com" target="_blank"><img src="https://e.dusays.com/npm/dusays@5.0.0/http3.svg" alt="" style="max-width: 100%; height: 20px;"/></a><br>[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://e.dusays.com/npm/dusays@5.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://e.dusays.com/npm/dusays@5.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://e.dusays.com/npm/dusays@5.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://e.dusays.com/npm/dusays@5.0.0/says.svg" type="image/svg+xml"><br><embed src="https://e.dusays.com/npm/dusays@5.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://e.dusays.com/npm/dusays@5.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://e.dusays.com/npm/dusays@5.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://e.dusays.com/npm/dusays@5.0.0/copyright.svg" type="image/svg+xml">'
+  copyright: '<a href="https://http3.wcode.net/?q=dusays.com" target="_blank"><img src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/http3.svg" alt="" style="max-width: 100%; height: 20px;"/></a><br>[萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/says.svg" type="image/svg+xml"><br><embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/copyright.svg" type="image/svg+xml">'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
   link1: '[贝贝吧](https://www.hibbba.com/) | [辛未羊的网络日志](https://panqiincs.me/) | [obaby@mars](https://h4ck.org.cn/) | [codeqihan的博客](https://www.codeqihan.com/) | [Ryan’s Blog](https://www.moezz.cn/) | [乙未博客](https://yvii.cn/) | [Dabenshi](https://dabenshi.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [MatrixCore](https://matrixcore.top/) | [龙鲲博客](https://lklog.cn/)'
@@ -919,7 +919,7 @@ site_footer:
 plugins:
   ################ required plugins ################
   # jquery
-  globalJquery: true # 全局引入 jquery
+  globalJquery: false # 全局引入 jquery
   # fontawesome
   fontawesome: true
   ################ optional plugins ################
@@ -934,7 +934,7 @@ plugins:
   ######## Plugins to improve loading speed:
   # 预加载
   preload:
-    enable: false
+    enable: true
     service: flying_pages # instant_page, flying_pages
 
   # 图片懒加载
@@ -943,9 +943,9 @@ plugins:
   # 这里是主题自带的图片懒加载, 实现方案位于 /scripts/filters/z-lazyload ; srcset 属性的的优先级比 src 属性要高, 注意 srcset 存放了懒加载占位图,  src 存放了原图
   # 在支持 srcset 的浏览器或者 RSS 阅读器(还会有人使用老旧的阅读器?)上会优先读取 srcset 加载的图片(懒加载占位图), 对于 RSS 中图片丢失变成懒加载占位图的问题, 建议 自行使用脚本移除 srcset 属性 或 关闭图片懒加载 或 在 RSS 中插入 vanilla-lazyload
   lazyload:
-    enable: false
-    onlypost: true
-    loadingImg: # https://bu.dusays.com/2024/12/22/6767f873c1b58.jpg # https://e.dusays.com/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg # 不建议使用占位图, 建议loadingImg为空, 当前占位图会产生布局偏移, loadingImg 为空占位图是一个 1X1 像素的图片
+    enable: true
+    onlypost: false
+    loadingImg: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg # 不建议使用占位图, 建议loadingImg为空, 当前占位图会产生布局偏移, loadingImg 为空占位图是一个 1X1 像素的图片
     blurIn: true # 模糊加载效果 （loadingImg为空时有效）
 
   ######## Plugins to optimize the experience:
@@ -956,8 +956,8 @@ plugins:
     copy_code: true
     # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
     # # 不再支持 v11.1.0 以下版本
-    js: https://e.dusays.com/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
-    css: https://e.dusays.com/npm/@highlightjs/cdn-assets@11.9.0/styles/github-dark-dimmed.css
+    js: https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
+    css: https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
 
   # prismjs
@@ -967,12 +967,12 @@ plugins:
     copy_code: true
     # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
     js:
-      - https://e.dusays.com/npm/prismjs/components/prism-core.min.js
-      - https://e.dusays.com/npm/prismjs/plugins/autoloader/prism-autoloader.min.js
-      - https://e.dusays.com/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js
+      - https://unpkg.com/prismjs/components/prism-core.min.js
+      - https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js
+      - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js
     css:
-      - https://e.dusays.com/npm/prismjs/themes/prism-dark.css
-      - https://e.dusays.com/npm/prismjs/plugins/line-numbers/prism-line-numbers.css
+      - https://unpkg.com/prismjs/themes/prism-dark.css
+      - https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css
 
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
@@ -1199,7 +1199,7 @@ plugins:
   # https://github.com/zhheo/Post-Abstract-AI
   tianliGPT:
     enable: false
-    key: sk-Y80aj4Mz749q66Pc2CBViMiQNKK08HocXNHecmFg9ixdb3sr
+    key: 5Q5mpqRK5DkwT1X9Gi5e
     wordLimit: 1000 # 摘要字数限制 (⚠️危险：更改此变量损失已消耗过的key，因为你提交的内容发生了变化。)
     typewriter: true # 打字机效果
 
@@ -1269,7 +1269,6 @@ rightmenus:
     seletctText:
       - {id: 'copyText', name: '复制文本', icon: 'fa-solid fa-copy', event: 'copyText', group: 'seletctText'}
       - {id: 'searchWord', name: '站内搜索', icon: 'fa-solid fa-search', event: 'OpenSearch(__text__)', group: 'seletctText'}
-      - {id: 'bingSearch', name: '百度搜索', icon: 'fa-solid fa-search', event: 'window.open(`https://www.baidu.com/s?wd=${__text__}`)', group: 'seletctText'}
       - {id: 'bingSearch', name: '必应搜索', icon: 'fa-solid fa-search', event: 'window.open(`https://cn.bing.com/search?q=${__text__}`)', group: 'seletctText'}
       #- {id: 'googleSearch', name: '谷歌搜索', icon: 'fa-solid fa-search', event: 'window.open(`https://www.google.com/search?q=${__text__}`)', group: 'seletctText'}
     # 链接判断组件
