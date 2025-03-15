@@ -119,6 +119,7 @@ replace:
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
   - https://unpkg.com/ => https://jsd.onmicrosoft.cn/npm/
   - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
+  - https://jsd.onmicrosoft.cn/ => https://h.dusays.com/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
