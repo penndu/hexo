@@ -130,6 +130,7 @@ dns_prefetch:
   - https://cdn.dusays.com
   - https://f.dusays.com
   - https://m.dusays.com
+  - https://h.dusays.com
 
 # 平滑滚动效果
 scroll_smooth: true
