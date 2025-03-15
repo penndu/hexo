@@ -255,7 +255,7 @@ article:
   preview:
     scheme: landscape # landscape
     # pin icon for post
-    pin_icon: volantis-static/media/twemoji/assets/svg/1f4cc.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
+    pin_icon: https://jsd.onmicrosoft.cn/npm/dusays@5.0.0/pin.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
     # auto generate title if not exist
     auto_title: true # false, true
     # auto generate excerpt if not exist
@@ -919,7 +919,7 @@ site_footer:
 plugins:
   ################ required plugins ################
   # jquery
-  globalJquery: false # 全局引入 jquery
+  globalJquery: true # 全局引入 jquery
   # fontawesome
   fontawesome: true
   ################ optional plugins ################
