@@ -374,7 +374,7 @@ article:
       author:
         avatar: https://cdn.dusays.com/avatar.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
         name: Teacher Du
-        url: about/
+        url: https://dusays.com/about/
       # 文章创建日期
       date:
         icon: fa-solid fa-calendar-alt
