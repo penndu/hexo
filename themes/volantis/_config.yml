@@ -121,7 +121,7 @@ replace:
   - https://cdn.jsdelivr.net/gh/ => https://gcore.jsdelivr.net/gh/
   - https://unpkg.com/ => https://jsd.onmicrosoft.cn/npm/
   - https://gcore.jsdelivr.net/gh/ => https://jsd.onmicrosoft.cn/gh/
-  - https://jsd.onmicrosoft.cn/ => https://h.dusays.com/
+  - https://jsd.onmicrosoft.cn/ => https://jsd.admincdn.com/
 
 
 # dns-prefetch preconnect x-dns-prefetch-control
@@ -132,7 +132,7 @@ dns_prefetch:
   - https://cdn.dusays.com
   - https://f.dusays.com
   - https://m.dusays.com
-  - https://h.dusays.com
+  - https://jsd.admincdn.com
 
 # 平滑滚动效果
 scroll_smooth: true
