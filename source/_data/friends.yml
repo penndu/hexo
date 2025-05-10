@@ -40,12 +40,6 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 小杨同学'
     avatar: https://bu.dusays.com/2024/12/04/67504fbb338a3.jpg
     url: 'https://xiaoyangst.github.io'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 顶茶社'
-    avatar: https://bu.dusays.com/2024/12/08/675492f707976.jpg
-    url: 'https://www.toptea.xin'
-  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> ited 博客'
-    avatar: https://bu.dusays.com/2025/02/15/67b0a347843f3.jpg
-    url: 'https://itedev.com'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 雾非雾'
     avatar: https://bu.dusays.com/2025/02/20/67b69d41e9ddc.jpg
     url: 'https://www.941741.xyz'
@@ -73,6 +67,9 @@
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 牛魔博客'
     avatar: https://bu.dusays.com/2023/11/03/65445fc938776.jpg
     url: 'https://www.nmwbk.com'
+  - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 顶茶社'
+    avatar: https://bu.dusays.com/2024/12/08/675492f707976.jpg
+    url: 'https://www.toptea.xin'
   - title: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 汐塔魔法屋'
     avatar: https://bu.dusays.com/2024/12/01/674b426ce9f3b.jpg
     url: 'https://blog.storical.space'
