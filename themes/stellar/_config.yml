@@ -312,8 +312,8 @@ comments:
   # Artalk
   # https://artalk.js.org/
   artalk:
-    css: https://unpkg.com/artalk@2.9/dist/Artalk.css
-    js: https://unpkg.com/artalk@2.9/dist/Artalk.js
+    css: https://artalk.dusays.com/dist/Artalk.css
+    js: https://artalk.dusays.com/dist/Artalk.js
     server: https://artalk.dusays.com # 后端服务地址
     site: '杜老师说' # 站点名称
     darkMode: auto
