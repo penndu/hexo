@@ -12,6 +12,7 @@
     "version": ""
   },
   "dependencies": {
+    "cheerio": "^0.22.0",
     "hexo": "^7.3.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.9",
