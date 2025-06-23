@@ -72,8 +72,8 @@ site_tree:
   # -- 列表类页面 -- #
   # 主页配置
   home:
-    leftbar: welcome, recent
-    rightbar: 
+    leftbar: welcome
+    rightbar: recent
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
@@ -206,7 +206,7 @@ article:
 search:
   service: local_search # local_search, algolia_search, todo...
   local_search: # 在 front-matter 中设置 indexing:false 来避免被搜索索引
-    field: all # post, page, all
+    field: 全部 # post, page, all
     path: /search.json # 搜索文件存放位置
     content: true # 是否搜索内容
     skip_search:  # 指定 path 中的内容不被搜索。
@@ -219,7 +219,7 @@ search:
 
 ######## Comments ########
 comments:
-  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  service: artalk # beaudar, utterances, giscus, twikoo, waline, artalk
   comment_title: 快来参与讨论吧~
   lazyload: false # true / false
   # beaudar
@@ -314,8 +314,8 @@ comments:
   artalk:
     css: https://unpkg.com/artalk@2.9/dist/Artalk.css
     js: https://unpkg.com/artalk@2.9/dist/Artalk.js
-    server: # 后端服务地址
-    site: '' # 站点名称
+    server: https://artalk.dusays.com # 后端服务地址
+    site: '杜老师说' # 站点名称
     darkMode: auto
 
 
