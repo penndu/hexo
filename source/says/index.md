@@ -1,5 +1,4 @@
 ---
-layout: page
 title: 说说页面发布规则
 sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---

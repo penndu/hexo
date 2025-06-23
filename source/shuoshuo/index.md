@@ -1,5 +1,4 @@
 ---
-layout: page
 top_meta: false
 bottom_meta: false
 sidebar: []
