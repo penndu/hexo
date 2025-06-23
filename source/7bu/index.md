@@ -351,4 +351,4 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 
 {% endtimeline %}
 
-{% p center logo large, 欢迎提交问题建议! %}
+{% quot 欢迎提交问题建议! %}
