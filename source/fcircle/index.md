@@ -4,5 +4,4 @@ top_meta: false
 sidebar: []
 comments: false
 plugins: ["fcircle"]
-layout: page
 ---

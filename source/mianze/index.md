@@ -1,5 +1,4 @@
 ---
-layout: page
 title: 杜老师说免责声明
 sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
