@@ -440,4 +440,4 @@ Artalk 升级 2.5.0 版本，开启城市定位，精确到市级别，如果有
 
 {% endtimeline %}
 
-{% p center logo large, 欢迎灌水! %}
+{% quot 欢迎灌水! %}
