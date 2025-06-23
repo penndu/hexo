@@ -6,11 +6,7 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 
 {% folding yellow open::关于图床 %}
 
-{% blocknote %}
-
 去不图床使用付费程序搭建，底层 16H16G512NVME1024SSD 服务器，高配置保障程序稳定性。带宽上行 100M 下行 700M，带来极速外链体验。至少 99%在线率，使您上传的图片始终可访问。域名续费十年之久，不再担心出现跑路，敬请放心上传图片。
-
-{% endblocknote %}
 
 {% endfolding %}
 
