@@ -5,7 +5,11 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 
 {% folding cyan open, 关于说说 %}
 
+{% box %}
+
 本博文章皆为技术教程，而说说分享的是杜老师日常。如果您也想建立相同的页面，欢迎申请说说广场账户，请遵循以下的规则！
+
+{% endbox %}
 
 {% endfolding %}
 
