@@ -81,10 +81,7 @@ site_tree:
     leftbar: welcome, recent # for categories/tags/archives
     rightbar: 
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
-      '友链': /friends/
-      '文坛': /fcircle/
-      '留言': /about/
-      '说说': /shuoshuo/
+      # '朋友文章': /friends/rss/
   # 博客专栏列表页配置
   index_topic:
     base_dir: topic # 只影响自动生成的页面路径
