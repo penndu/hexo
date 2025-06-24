@@ -75,7 +75,7 @@ heisi:
 
 sffw:
   layout: markdown
-  title: 随机图片
+  title: 收费服务
   linklist: # 与 linklist 组件写法相同
     columns: 1 
     items:
@@ -90,7 +90,7 @@ sffw:
 
 dao_hang:
   layout: markdown
-  title: 随机图片
+  title: 首页链接
   linklist: # 与 linklist 组件写法相同
     columns: 1 
     items:
@@ -105,7 +105,7 @@ dao_hang:
 
 dulaoshi:
   layout: markdown
-  title: 随机图片
+  title: 去不图床
   linklist: # 与 linklist 组件写法相同
     columns: 1 
     items:
@@ -120,7 +120,7 @@ dulaoshi:
 
 chat:
   layout: markdown
-  title: 随机图片
+  title: 聊天广场
   linklist: # 与 linklist 组件写法相同
     columns: 1 
     items:
@@ -135,7 +135,7 @@ chat:
 
 bw:
   layout: markdown
-  title: 随机图片
+  title: 密码托管
   linklist: # 与 linklist 组件写法相同
     columns: 1 
     items:
