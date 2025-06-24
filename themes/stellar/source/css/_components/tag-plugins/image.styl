@@ -1,12 +1,18 @@
 .tag-plugin.image
   margin-top: 1rem
   margin-bottom: 1rem
+  box-sizing: border-box
   .image-bg
     text-align: center
     border-radius: $border-image
     position: relative
     overflow: hidden
     display: flex
+    box-sizing: border-box
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin: auto
     &:has(img.lazy.loading)
       background: var(--block)
     &:hover
