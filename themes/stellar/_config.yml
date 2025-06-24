@@ -72,8 +72,8 @@ site_tree:
   # -- 列表类页面 -- #
   # 主页配置
   home:
-    leftbar: welcome, recent
-    rightbar: 
+    leftbar: welcome, starter, recent
+    rightbar: sociallist
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
