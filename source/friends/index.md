@@ -27,7 +27,10 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 
 {% checkbox cyan checked::博客停止更新长达 6 个月及以上，请勿申请友链，这里以最后的一篇博文更新时间为主。 %}
 
+全站链接：
+
 {% friends quanzhan %}
 
+内页链接：
 
 {% friends neiye %}
