@@ -9,8 +9,8 @@ stellar:
 
 ######## head tags ########
 preconnect:
-  # - https://jsd.admincdn.com
-  # - https://jsd.admincdn.com
+  # - https://gcore.jsdelivr.net
+  - https://jsd.admincdn.com
   # - https://unpkg.com
 
 # 一旦设置源站地址，非源站地址将不会被SEO收录，并且访问时弹出提示
@@ -81,6 +81,7 @@ site_tree:
     leftbar: welcome, recent # for categories/tags/archives
     rightbar: 
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
+      # '朋友文章': /friends/rss/
       '友链': /friends/
       '文坛': /fcircle/
       '留言': /about/
@@ -326,16 +327,16 @@ comments:
 footer:
   social:
     # github:
-    #   icon: '<img src="https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
     #   url: /
     # music:
-    #   icon: '<img src="https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
     #   url: /
     # unsplash:
-    #   icon: '<img src="https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
     #   url: /
     # comments:
-    #   icon: '<img src="https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
+    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
     #   url: /about/#comments
     # theme:
     #   icon: default:theme
