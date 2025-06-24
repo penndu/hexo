@@ -54,7 +54,6 @@ sjtp:
   layout: markdown
   title: 随机图片
   content: |
-    <center><img src="https://birdteam.net/heisi.php"><center>
     ![](https://birdteam.net/heisi.php)
 
 
