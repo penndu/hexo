@@ -27,16 +27,16 @@ starter:
   items:
     - icon: solar:notebook-bookmark-bold-duotone
       title: 友情链接
-      url: https://xaoxuu.com/wiki/stellar/#start
+      url: /friends/
     - icon: solar:planet-bold-duotone
       title: 友链文章
-      url: https://xaoxuu.com/wiki/stellar/#start
+      url: /fcircle/
     - icon: solar:notebook-bookmark-bold-duotone
       title: 访客留言
-      url: https://xaoxuu.com/wiki/stellar/articles.html
+      url: /about/
     - icon: solar:planet-bold-duotone
       title: 说说广场
-      url: https://xaoxuu.com/wiki/stellar/articles.html
+      url: /shuoshuo/
     
 
 
