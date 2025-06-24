@@ -1,3 +1,26 @@
+welcome:
+  layout: markdown
+  title: 欢迎欢迎
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    欢迎使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar/) 主题，下面是您的入门指南，祝您使用愉快！
+    <br>
+    **第一步**
+    创建 `blog/_config.stellar.yml` 文件，在此文件中填写需要自定义的主题配置。
+    <br>
+    **第二步**
+    创建 `blog/source/_data/widgets.yml` 文件，此文件中填写需要自定义的侧边栏组件，例如 `welcome` 组件。
+    <br>
+    如果有任何疑问，请先查阅 [文档](https://xaoxuu.com/wiki/stellar/)，如果文档中没有提供，请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/) 向开发者询问。
+  src: # 可以设置外部 md 文件链接
+
+
+
 starter:
   layout: linklist
   title: 入门向导
@@ -32,3 +55,18 @@ sociallist:
     - icon: solar:chat-line-bold-duotone
       title: 关于本站 & 留言板
       url: /about/
+
+
+
+heisi:
+  layout: markdown
+  title: 随机图片
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+  src: # 可以设置外部 md 文件链接
