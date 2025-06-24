@@ -58,7 +58,7 @@ sociallist:
 
 
 
-heisi:
+sjtp:
   layout: markdown
   title: 随机图片
   linklist: # 与 linklist 组件写法相同
@@ -88,7 +88,7 @@ sffw:
 
 
 
-dao_hang:
+sylj:
   layout: markdown
   title: 首页链接
   linklist: # 与 linklist 组件写法相同
@@ -103,7 +103,7 @@ dao_hang:
 
 
 
-dulaoshi:
+qbtc:
   layout: markdown
   title: 去不图床
   linklist: # 与 linklist 组件写法相同
@@ -118,7 +118,7 @@ dulaoshi:
 
 
 
-chat:
+ltgc:
   layout: markdown
   title: 聊天广场
   linklist: # 与 linklist 组件写法相同
@@ -133,7 +133,7 @@ chat:
 
 
 
-bw:
+mmtg:
   layout: markdown
   title: 密码托管
   linklist: # 与 linklist 组件写法相同
