@@ -10,7 +10,7 @@ stellar:
 ######## head tags ########
 preconnect:
   # - https://gcore.jsdelivr.net
-  - https://jsd.admincdn.com
+  # - https://gcore.jsdelivr.net
   # - https://unpkg.com
 
 # 一旦设置源站地址，非源站地址将不会被SEO收录，并且访问时弹出提示
@@ -31,9 +31,9 @@ structured_data:
 ######## Sidebar ########
 # 左上角显示的 logo 区域，包含图标、大标题、副标题
 logo:
-  avatar: '[https://cdn.dusays.com/favicon.ico](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
+  avatar: '[{config.avatar}](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
   title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
-  subtitle: 'dusays.com' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
+  subtitle: '{config.subtitle}' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 
 # 侧边栏主功能导航菜单
 menubar:
@@ -44,26 +44,26 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    - id: post
-      theme: '#1BCDFC'
+    # - id: post
+    #   theme: '#1BCDFC'
     #   icon: solar:documents-bold-duotone
-      title: 博客
-      url: /
-    - id: wiki
-      theme: '#3DC550'
+    #   title: 博客
+    #   url: /
+    # - id: wiki
+    #   theme: '#3DC550'
     #   icon: solar:notebook-bookmark-bold-duotone
-      title: 图床
-      url: https://7bu.top/
-    - id: explore
-      theme: '#FA6400'
+    #   title: 文档
+    #   url: /wiki/
+    # - id: explore
+    #   theme: '#FA6400'
     #   icon: solar:planet-bold-duotone
-      title: 开往
-      url: https://www.travellings.cn/go.html
-    - id: social
-      theme: '#F44336'
+    #   title: 探索
+    #   url: /explore/
+    # - id: social
+    #   theme: '#F44336'
     #   icon: solar:chat-square-like-bold-duotone
-      title: 聊天
-      url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
+    #   title: 社交
+    #   url: /friends/
 
 
 ######## Main ########
@@ -82,10 +82,6 @@ site_tree:
     rightbar: 
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
       # '朋友文章': /friends/rss/
-      '友链': /friends/
-      '文坛': /fcircle/
-      '留言': /about/
-      '说说': /shuoshuo/
   # 博客专栏列表页配置
   index_topic:
     base_dir: topic # 只影响自动生成的页面路径
@@ -218,7 +214,7 @@ search:
     appId: 
     apiKey: 
     indexName: 
-    js: https://jsd.admincdn.com/algoliasearch/3/algoliasearch.min.js
+    js: https://gcore.jsdelivr.net/algoliasearch/3/algoliasearch.min.js
 
 
 ######## Comments ########
@@ -268,15 +264,15 @@ comments:
   # Twikoo
   # https://twikoo.js.org/
   twikoo:
-    js: https://jsd.admincdn.com/npm/twikoo@1.6/dist/twikoo.all.min.js # 建议锁定版本
+    js: https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js # 建议锁定版本
     envId: https://xxx # vercel函数
 
   # Waline
   # https://waline.js.org/
   waline:
-    js: https://jsd.admincdn.com/npm/@waline/client@3.1/dist/waline.js
-    css: https://jsd.admincdn.com/npm/@waline/client@3.1/dist/waline.css
-    meta_css: https://jsd.admincdn.com/npm/@waline/client@3.1/dist/waline-meta.css
+    js: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js
+    css: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css
+    meta_css: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css
     # Waline server address url, you should set this to your own link
     serverURL: https://waline.vercel.app
     # If false, comment count will only be displayed in post page, not in home page
@@ -381,12 +377,12 @@ tag_plugins:
       prefix: ph:seal-question-fill
   # {% emoji %}
   emoji:
-    default: https://jsd.admincdn.com/gh/cdn-x/emoji/qq/{name}.gif
-    twemoji: https://jsd.admincdn.com/gh/twitter/twemoji/assets/svg/{name}.svg
-    qq: https://jsd.admincdn.com/gh/cdn-x/emoji/qq/{name}.gif
-    aru: https://jsd.admincdn.com/gh/cdn-x/emoji/aru-l/{name}.gif
-    tieba: https://jsd.admincdn.com/gh/cdn-x/emoji/tieba/{name}.png
-    blobcat: https://jsd.admincdn.com/gh/norevi/waline-blobcatemojis@1.0/blobs/{name}.png
+    default: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
+    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
+    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
+    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoji/aru-l/{name}.gif
+    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoji/tieba/{name}.png
+    blobcat: https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/{name}.png
   icon:
     # 留空时，图标和文字颜色相同
     default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
@@ -440,8 +436,8 @@ tag_plugins:
 
 # 基础依赖
 dependencies:
-  jquery: https://jsd.admincdn.com/npm/jquery@3.7/dist/jquery.min.js
-  marked: https://jsd.admincdn.com/npm/marked@13.0/lib/marked.umd.min.js
+  jquery: https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js
+  marked: https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js
 
 
 # 内置服务，按需加载（页面内用到了就会加载，没有用到就不会加载）
@@ -504,13 +500,13 @@ plugins:
   preload:
     enable: true
     service: flying_pages # flying_pages
-    flying_pages: https://jsd.admincdn.com/npm/flying-pages@2/flying-pages.min.js
+    flying_pages: https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js
 
   # lazyload
   # https://www.npmjs.com/package/vanilla-lazyload
   lazyload:
     enable: true # [hexo clean && hexo s] is required after changing this value.
-    js: https://jsd.admincdn.com/npm/vanilla-lazyload@19.1/dist/lazyload.min.js
+    js: https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js
     transition: fade # blur, fade
     fix_ratio: true # true / false # 是否固定宽高比，true 时会在图片上添加 style="aspect-ratio: 16/9;"，false 时则不添加，开启此功能会导致增加首次 hexo s 的耗时
     loading_image:
@@ -523,8 +519,8 @@ plugins:
   fancybox:
     enable: true
     loader: /js/plugins/fancybox-loader.js
-    js: https://jsd.admincdn.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
-    css: https://jsd.admincdn.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
+    js: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
+    css: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
     # 让 md 语法图片支持放大可以这样写: .md-text img:not([class]), .md-text .image img
     # 可以处理评论区的图片（不支持 iframe 类评论系统）例如：
     # 使用 twikoo 评论可以写: .tk-content img:not([class*="emo"])
@@ -540,7 +536,7 @@ plugins:
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
     enable: #true
-    js: https://jsd.admincdn.com/npm/scrollreveal@4.0/dist/scrollreveal.min.js
+    js: https://gcore.jsdelivr.net/npm/scrollreveal@4.0/dist/scrollreveal.min.js
     distance: 16px
     duration: 800 # ms
     interval: 100 # ms
@@ -573,7 +569,7 @@ plugins:
   katex:
     enable: #true # hexo-renderer-markdown-it-plus 默认开启 katex，此选项仅用于引入样式
     inject: |
-      <link rel="stylesheet" href="https://jsd.admincdn.com/npm/katex@0.16/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
   
   # MathJax
   # 需在Markdown文件开头加入mathjax: true
@@ -595,7 +591,7 @@ plugins:
     enable: # true # 可以在特定文章的 front-matter 中设置 mermaid: true 来开启，也可以在这里设置全局开启
     style_optimization: false # use custom style in stellar
     # js: https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js
-    js: https://jsd.admincdn.com/npm/mermaid@v9/dist/mermaid.min.js
+    js: https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js
     # Available themes: default | dark | forest | neutral
     theme: neutral
   
@@ -637,6 +633,7 @@ style:
     card-s: 12px # 文章内小型卡片的圆角
     bar: 8px # 横条类元素的圆角
     image: 24px # 图片圆角
+    image-s: 8px # 图片圆角(小)
   color:
     # 动态颜色（会根据明暗主题重设明度值，只用关心色相和饱和度即可）
     background: 'hsl(212 16% 98%)' # 浅色背景颜色
@@ -650,10 +647,10 @@ style:
     hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
   animated_avatar:
     animate: auto # auto, always
-    background: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp
+    background: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp
   codeblock:
     scrollbar: 4px
-    highlightjs_theme: https://jsd.admincdn.com/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
+    highlightjs_theme: https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
   loading:
     loading: 正在加载
     error: 加载失败，请稍后重试。
@@ -662,15 +659,15 @@ style:
   leftbar:
     # 可以设置：纯色/渐变色/图片作为背景
     # background: var(--leftbar-bg)
-    background-image: url(https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
+    background-image: url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
     blur-px: 100px
     blur-bg: var(--alpha60)
   paginator:
-    prev: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
-    next: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg
-  error_page: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
+    prev: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
+    next: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg
+  error_page: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
   site:
-    background-image: #'url(https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)' # 未完全适配，慎用
+    background-image: #'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)' # 未完全适配，慎用
     blur-px: 100px
     blur-bg: var(--alpha75)
   # 技术文章内页各级标题前面的符号
@@ -682,13 +679,13 @@ style:
 
 
 default:
-  avatar: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg
-  link: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg
-  cover: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
-  image: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/image/2659360.svg
-  project: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/image/2779789.png
-  banner: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/banner/books.jpg
-  topic: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/image/10433048.png
+  avatar: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg
+  link: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg
+  cover: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
+  image: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg
+  project: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2779789.png
+  banner: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/banner/books.jpg
+  topic: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/10433048.png
 
 
 api_host:
