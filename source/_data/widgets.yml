@@ -27,13 +27,16 @@ starter:
   columns: 1
   items:
     - icon: solar:notebook-bookmark-bold-duotone
-      title: 查阅 Hexo 文档
-      url: https://xaoxuu.com/wiki/stellar/#start
-    - icon: solar:notebook-bookmark-bold-duotone
-      title: 查阅 Stellar 文档
+      title: 友情链接
       url: https://xaoxuu.com/wiki/stellar/#start
     - icon: solar:planet-bold-duotone
-      title: 探索 Stellar 创意玩法
+      title: 友链文章
+      url: https://xaoxuu.com/wiki/stellar/#start
+    - icon: solar:notebook-bookmark-bold-duotone
+      title: 访客留言
+      url: https://xaoxuu.com/wiki/stellar/articles.html
+    - icon: solar:planet-bold-duotone
+      title: 说说广场
       url: https://xaoxuu.com/wiki/stellar/articles.html
     
 
