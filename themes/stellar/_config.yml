@@ -31,9 +31,9 @@ structured_data:
 ######## Sidebar ########
 # 左上角显示的 logo 区域，包含图标、大标题、副标题
 logo:
-  avatar: '[https://cdn.dusays.com/](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
+  avatar: '[https://cdn.dusays.com/favicon.ico](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
   title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
-  subtitle: '{config.subtitle}' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
+  subtitle: 'dusays.com' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 
 # 侧边栏主功能导航菜单
 menubar:
