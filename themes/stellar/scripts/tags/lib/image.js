@@ -2,13 +2,16 @@
  * image.js v1 | https://github.com/xaoxuu/hexo-theme-stellar/
  * 格式与官方标签插件一致使用空格分隔，中括号内的是可选参数（中括号不需要写出来）
  *
- * {% image src [alt] [width:400px] [bg:#eee] [download:true/false/url] [fancybox:true/false/url] [ratio] %}
+ * {% image src [alt] [width:400px] [bg:#eee] [download:true/false/url] [fancybox:true/false/url] %}
  */
 
 'use strict'
 
+
+var image_id = 1
+
 module.exports = ctx => function(args) {
-  args = ctx.args.map(args, ['width', 'height', 'bg', 'download', 'padding', 'fancybox', 'ratio'], ['src', 'alt'])
+  args = ctx.args.map(args, ['width', 'height', 'bg', 'download', 'padding', 'fancybox'], ['src', 'alt'])
   var style = ''
   if (args.width) {
     style += 'width:' + args.width + ';'
@@ -48,7 +51,7 @@ module.exports = ctx => function(args) {
     if (fancybox && !fancyboxHref) {
       img += ` data-fancybox="${fancybox}"`
     }
-    if (style.length > 0 && !args.ratio) {
+    if (style.length > 0) {
       img += ' style="' + style + '"'
     }
     img += '/>'
@@ -65,23 +68,14 @@ module.exports = ctx => function(args) {
   // wrap
   el += '<div class="tag-plugin image">'
   // bg
-  el += `<div class="image-bg"`
-  if (args.bg || args.padding || args.ratio || style) {
+  el += `<div class="image-bg" lazy-id="${image_id++}"`
+  if (args.bg || args.padding) {
     el += ' style="'
     if (args.bg && args.bg.length > 0) {
       el += 'background:' + args.bg + ';'
     }
     if (args.padding) {
       el += 'padding:' + args.padding + ';'
-    }
-    if (args.ratio) {
-      el += 'aspect-ratio:' + args.ratio + ';'
-      if (style) {
-        el += style
-      }
-    } else if (style) {
-      // 如果设置了图片宽度，但没有长宽比，那背景区就要铺满宽度
-      el += 'width:100%;'
     }
     el += '"'
   }
