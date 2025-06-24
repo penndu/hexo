@@ -64,26 +64,6 @@ menubar:
     #   icon: solar:chat-square-like-bold-duotone
       title: 聊天
       url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
-    - id: social
-      theme: '#F44336'
-    #   icon: solar:chat-square-like-bold-duotone
-      title: 友链
-      url: /friends/
-    - id: explore
-      theme: '#FA6400'
-    #   icon: solar:planet-bold-duotone
-      title: 文坛
-      url: /fcircle/
-    - id: wiki
-      theme: '#3DC550'
-    #   icon: solar:notebook-bookmark-bold-duotone
-      title: 留言
-      url: /about/
-    - id: post
-      theme: '#1BCDFC'
-    #   icon: solar:documents-bold-duotone
-      title: 说说
-      url: /shuoshuo/
 
 
 ######## Main ########
@@ -101,7 +81,10 @@ site_tree:
     leftbar: welcome, recent # for categories/tags/archives
     rightbar: 
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
-      # '朋友文章': /friends/rss/
+      '友链': /friends/
+      '文坛': /fcircle/
+      '留言': /about/
+      '说说': /shuoshuo/
   # 博客专栏列表页配置
   index_topic:
     base_dir: topic # 只影响自动生成的页面路径
