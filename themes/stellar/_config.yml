@@ -73,7 +73,7 @@ site_tree:
   # 主页配置
   home:
     leftbar: welcome, starter, recent
-    rightbar: sociallist, sjtp, sffw, sylj, qbtc, ltgc, mmtg
+    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg, sociallist
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
