@@ -42,13 +42,17 @@ starter:
 
 sociallist:
   layout: linklist
-  title: 社交
+  title: 首页链接
   columns: 1
   items:
-    - title: 小伙伴们 & 朋友文章
-      url: /friends/
-    - title: 关于本站 & 留言板
-      url: /about/
+    - title: 淇云博客
+      url: https://www.pengqi.club/
+    - title: 陈冬冬博客
+      url: https://www.chendd.cn/
+    - title: 终成
+      url: https://blog.zc.wiki/
+    - title: 牛魔博客
+      url: https://www.nmwbk.com/
 
 
 
@@ -65,15 +69,6 @@ sffw:
   title: 收费服务
   content: |
     [![](https://cdn.dusays.com/sffw.gif)](https://dusays.com/sffw/)
-
-
-
-sylj:
-  layout: markdown
-  title: 首页链接
-  content: |
-    ![](https://birdteam.net/heisi.php)
-  src:
 
 
 
