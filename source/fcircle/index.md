@@ -4,4 +4,5 @@ top_meta: false
 sidebar: []
 comments: false
 plugins: ["fcircle"]
+nav_tabs: true
 ---

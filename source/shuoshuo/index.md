@@ -4,6 +4,7 @@ bottom_meta: false
 sidebar: []
 comments: false
 title: 说说广场
+nav_tabs: true
 ---
 
 <link href="https://jsd.onmicrosoft.cn/npm/penndu@17.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
