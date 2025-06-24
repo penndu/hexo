@@ -69,7 +69,6 @@ module.exports = (ctx, options = { useCache: true }) => {
   fetchLatestVersion((err, latest) => {
     if (err) return;
     if (localVersion !== latest) {
-      console.log(``);
       const line = '------------------------------------------------';
       ctx.log.warn(`\x1b[33m${line}\x1b[0m`);
       ctx.log.warn(``);
@@ -78,7 +77,6 @@ module.exports = (ctx, options = { useCache: true }) => {
       ctx.log.warn(`  请尽快升级:  npm i ${packageName}@latest`);
       ctx.log.warn(``);
       ctx.log.warn(`\x1b[33m${line}\x1b[0m`);
-      console.log(``);
     }
     if (options.useCache) writeCache(latest);
   });
