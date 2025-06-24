@@ -44,26 +44,26 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    # - id: post
-    #   theme: '#1BCDFC'
+    - id: post
+      theme: '#1BCDFC'
     #   icon: solar:documents-bold-duotone
-    #   title: 博客
-    #   url: /
-    # - id: wiki
-    #   theme: '#3DC550'
+      title: 博客
+      url: /
+    - id: wiki
+      theme: '#3DC550'
     #   icon: solar:notebook-bookmark-bold-duotone
-    #   title: 文档
-    #   url: /wiki/
-    # - id: explore
-    #   theme: '#FA6400'
+      title: 图床
+      url: https://7bu.top/
+    - id: explore
+      theme: '#FA6400'
     #   icon: solar:planet-bold-duotone
-    #   title: 探索
-    #   url: /explore/
-    # - id: social
-    #   theme: '#F44336'
+      title: 开往
+      url: https://www.travellings.cn/go.html
+    - id: social
+      theme: '#F44336'
     #   icon: solar:chat-square-like-bold-duotone
-    #   title: 社交
-    #   url: /friends/
+      title: 聊天
+      url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
 
 
 ######## Main ########
