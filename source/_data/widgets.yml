@@ -17,7 +17,7 @@ welcome:
     创建 `blog/source/_data/widgets.yml` 文件，此文件中填写需要自定义的侧边栏组件，例如 `welcome` 组件。
     <br>
     如果有任何疑问，请先查阅 [文档](https://xaoxuu.com/wiki/stellar/)，如果文档中没有提供，请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues/) 向开发者询问。
-  src: # 可以设置外部 md 文件链接
+  src:
 
 
 
@@ -62,7 +62,8 @@ sffw:
   layout: markdown
   title: 收费服务
   content: |
-    <a href="https://dusays.com/sffw/"><img src="https://cdn.dusays.com/sffw.gif"></a>
+    ![](https://cdn.dusays.com/sffw.gif)
+  src: https://dusays.com/sffw/
 
 
 
@@ -70,7 +71,8 @@ sylj:
   layout: markdown
   title: 首页链接
   content: |
-    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+    ![](https://birdteam.net/heisi.php)
+  src:
 
 
 
@@ -78,7 +80,8 @@ qbtc:
   layout: markdown
   title: 去不图床
   content: |
-    <a href="https://7bu.top/" target="_blank"><img src="https://cdn.dusays.com/7bu.jpg"></a>
+    ![](https://cdn.dusays.com/7bu.jpg)
+  src: https://7bu.top/
 
 
 
@@ -86,7 +89,8 @@ ltgc:
   layout: markdown
   title: 聊天广场
   content: |
-    <a href="https://chat.dusays.com/" target="_blank"><img src="https://cdn.dusays.com/chat.jpg"></a>
+    ![](https://cdn.dusays.com/chat.jpg)
+  src: https://chat.dusays.com/
 
 
 
@@ -94,4 +98,5 @@ mmtg:
   layout: markdown
   title: 密码托管
   content: |
-    <a href="https://bw.dusays.com/" target="_blank"><img src="https://cdn.dusays.com/bw.jpg"></a>
+    ![](https://cdn.dusays.com/bw.jpg)
+  src: https://bw.dusays.com/
