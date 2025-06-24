@@ -66,7 +66,6 @@ sffw:
   title: 收费服务
   content: |
     ![](https://cdn.dusays.com/sffw.gif)
-  src: https://dusays.com/sffw/
 
 
 
@@ -75,7 +74,6 @@ sylj:
   title: 首页链接
   content: |
     ![](https://birdteam.net/heisi.php)
-  src:
 
 
 
@@ -84,7 +82,6 @@ qbtc:
   title: 去不图床
   content: |
     ![](https://cdn.dusays.com/7bu.jpg)
-  src: https://7bu.top/
 
 
 
@@ -93,7 +90,6 @@ ltgc:
   title: 聊天广场
   content: |
     ![](https://cdn.dusays.com/chat.jpg)
-  src: https://chat.dusays.com/
 
 
 
@@ -102,4 +98,3 @@ mmtg:
   title: 密码托管
   content: |
     ![](https://cdn.dusays.com/bw.jpg)
-  src: https://bw.dusays.com/
