@@ -26,3 +26,8 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 {% checkbox yellow checked::原则上需已建立一年及以上，并已有 30 篇及以上文章。不得含有违反中国大陆相关法律法规内容。 %}
 
 {% checkbox cyan checked::博客停止更新长达 6 个月及以上，请勿申请友链，这里以最后的一篇博文更新时间为主。 %}
+
+{% friends quanzhan %}
+
+
+{% friends neiye %}
