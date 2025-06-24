@@ -70,3 +70,78 @@ heisi:
   content: |
     <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
   src: # 可以设置外部 md 文件链接
+
+
+
+sffw:
+  layout: markdown
+  title: 随机图片
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+  src: # 可以设置外部 md 文件链接
+
+
+
+dao_hang:
+  layout: markdown
+  title: 随机图片
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+  src: # 可以设置外部 md 文件链接
+
+
+
+dulaoshi:
+  layout: markdown
+  title: 随机图片
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+  src: # 可以设置外部 md 文件链接
+
+
+
+chat:
+  layout: markdown
+  title: 随机图片
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+  src: # 可以设置外部 md 文件链接
+
+
+
+bw:
+  layout: markdown
+  title: 随机图片
+  linklist: # 与 linklist 组件写法相同
+    columns: 1 
+    items:
+      - icon:
+        title: 
+        url:
+  content: |
+    <center><a href="https://dusays.com/530/"><img src="https://birdteam.net/heisi.php"></a><center>
+  src: # 可以设置外部 md 文件链接
