@@ -52,18 +52,18 @@ menubar:
     - id: wiki
       theme: '#3DC550'
     #   icon: solar:notebook-bookmark-bold-duotone
-      title: 文档
-      url: /wiki/
+      title: 图床
+      url: https://7bu.top/
     - id: explore
       theme: '#FA6400'
     #   icon: solar:planet-bold-duotone
-      title: 探索
-      url: /explore/
+      title: 开往
+      url: https://www.travellings.cn/go.html
     - id: social
       theme: '#F44336'
     #   icon: solar:chat-square-like-bold-duotone
-      title: 社交
-      url: /friends/
+      title: 聊天
+      url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
 
 
 ######## Main ########
