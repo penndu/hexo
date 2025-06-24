@@ -1,7 +1,6 @@
 ---
 title: 关于留言
 sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
-nav_tabs: true
 ---
 
 {% folding blue open::关于博主 %}
