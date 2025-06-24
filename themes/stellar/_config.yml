@@ -219,7 +219,7 @@ search:
 
 ######## Comments ########
 comments:
-  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  service: artalk # beaudar, utterances, giscus, twikoo, waline, artalk
   comment_title: 快来参与讨论吧~
   lazyload: false # true / false
   # beaudar
@@ -312,10 +312,10 @@ comments:
   # Artalk
   # https://artalk.js.org/
   artalk:
-    css: https://unpkg.com/artalk@2.9/dist/Artalk.css
-    js: https://unpkg.com/artalk@2.9/dist/Artalk.js
-    server: # 后端服务地址
-    site: '' # 站点名称
+    css: https://artalk.dusays.com/dist/Artalk.css
+    js: https://artalk.dusays.com/dist/Artalk.js
+    server: https://artalk.dusays.com # 后端服务地址
+    site: '杜老师说' # 站点名称
     darkMode: auto
 
 
