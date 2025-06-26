@@ -31,9 +31,9 @@ structured_data:
 ######## Sidebar ########
 # 左上角显示的 logo 区域，包含图标、大标题、副标题
 logo:
-  avatar: '[{config.avatar}](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
+  avatar: '[https://cdn.dusays.com/favicon.ico](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
   title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
-  subtitle: '{config.subtitle}' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
+  subtitle: 'dusays.com' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 
 # 侧边栏主功能导航菜单
 menubar:
@@ -44,26 +44,26 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    # - id: post
-    #   theme: '#1BCDFC'
+    - id: post
+      theme: '#1BCDFC'
     #   icon: solar:documents-bold-duotone
-    #   title: 博客
-    #   url: /
-    # - id: wiki
-    #   theme: '#3DC550'
+      title: 博客
+      url: /
+    - id: wiki
+      theme: '#3DC550'
     #   icon: solar:notebook-bookmark-bold-duotone
-    #   title: 文档
-    #   url: /wiki/
-    # - id: explore
-    #   theme: '#FA6400'
+      title: 图床
+      url: https://7bu.top/
+    - id: explore
+      theme: '#FA6400'
     #   icon: solar:planet-bold-duotone
-    #   title: 探索
-    #   url: /explore/
-    # - id: social
-    #   theme: '#F44336'
+      title: 开往
+      url: https://www.travellings.cn/go.html
+    - id: social
+      theme: '#F44336'
     #   icon: solar:chat-square-like-bold-duotone
-    #   title: 社交
-    #   url: /friends/
+      title: 聊天
+      url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
 
 
 ######## Main ########
@@ -72,14 +72,14 @@ site_tree:
   # -- 列表类页面 -- #
   # 主页配置
   home:
-    leftbar: welcome, recent
-    rightbar: 
+    leftbar: welcome, starter, recent
+    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg, sociallist
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    leftbar: welcome, recent # for categories/tags/archives
-    rightbar: 
+    leftbar: welcome, starter, recent
+    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg 
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
       # '朋友文章': /friends/rss/
   # 博客专栏列表页配置
@@ -180,6 +180,8 @@ article:
   type: tech # tech: 默认技术类文章, story: 图文类文章，文字和段落间增距大
   # 缩进两个文字宽度，适合文字类博客，可以在 front-matter/topic/wiki 中覆盖此参数
   indent: # true / false
+  # 如果没有指定封面，是否根据 tags 作为关键词搜索封面图片？
+  auto_cover: false # search from https://source.unsplash.com/
   # 封面图宽高比
   cover_ratio: 2
   # 文章内横幅宽高比
@@ -217,10 +219,9 @@ search:
 
 ######## Comments ########
 comments:
-  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  service: artalk # beaudar, utterances, giscus, twikoo, waline, artalk
   comment_title: 快来参与讨论吧~
   lazyload: false # true / false
-  custom_css: # artalk,twikoo,... 可以为没有全局启用的评论加载自定义样式
   # beaudar
   # https://beaudar.lipk.org/
   beaudar:
@@ -311,10 +312,10 @@ comments:
   # Artalk
   # https://artalk.js.org/
   artalk:
-    css: https://unpkg.com/artalk@2.9/dist/Artalk.css
-    js: https://unpkg.com/artalk@2.9/dist/Artalk.js
-    server: # 后端服务地址
-    site: '' # 站点名称
+    css: https://artalk.dusays.com/dist/Artalk.css
+    js: https://artalk.dusays.com/dist/Artalk.js
+    server: https://artalk.dusays.com # 后端服务地址
+    site: '杜老师说' # 站点名称
     darkMode: auto
 
 
@@ -333,6 +334,9 @@ footer:
     # comments:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
     #   url: /about/#comments
+    # theme:
+    #   icon: default:theme
+    #   onclick: 'switchTheme()'
   sitemap:
     # '博客':
     #   - '[近期](/)'
@@ -348,8 +352,11 @@ footer:
     #   - '[关于本站](/)'
     #   - '[GitHub](/)'
   content: | # 支持 Markdown 格式
+    [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" type="image/svg+xml"><br><embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/copyright.svg" type="image/svg+xml">
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
     本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+    [贝贝吧](https://www.hibbba.com/) | [辛未羊的网络日志](https://panqiincs.me/) | [obaby@mars](https://h4ck.org.cn/) | [codeqihan的博客](https://www.codeqihan.com/) | [乙未博客](https://yvii.cn/) | [Dabenshi](https://dabenshi.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [龙鲲博客](https://lklog.cn/) | [SunoAPI AI音乐歌曲生成器](https://sunoapi.net/)
+    [joojenZhou个人网站](https://joojen.com/) | [晚夜的个人博客](https://www.iczrx.cn/) | [小杨同学](https://xiaoyangst.github.io/) | [雾非雾](https://www.941741.xyz/) | [小旭の破站](https://www.sicx.top/) | [webfem](https://webfem.com/) | [小飞说](https://xfsay.com/) | [xaoxuu](https://xaoxuu.com/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)
   # 主题用户越多，开发者维护和更新的积极性就越高，如果您喜欢本主题，请在适当的位置显示主题信息和仓库链接以表支持。
 
 
@@ -507,7 +514,8 @@ plugins:
     fix_ratio: true # true / false # 是否固定宽高比，true 时会在图片上添加 style="aspect-ratio: 16/9;"，false 时则不添加，开启此功能会导致增加首次 hexo s 的耗时
     loading_image:
       src: # https://github.githubassets.com/images/mona-loading-dark.gif
-      size: 2rem # 图片宽度
+      width: 3rem # 图片宽度
+      height: 3rem # 图片高度
 
   # https://fancyapps.com/docs/ui/fancybox/
   # available for {% image xxx %}
@@ -627,9 +635,8 @@ style:
     card: 16px # 文章内大部分卡片的圆角
     card-s: 12px # 文章内小型卡片的圆角
     bar: 8px # 横条类元素的圆角
-    image-l: 24px # 非技术类文章插图圆角
-    image: 16px # 技术类文章插图圆角
-    image-s: 8px # 评论区图片圆角（部分评论支持）
+    image: 24px # 图片圆角
+    image-s: 8px # 图片圆角(小)
   color:
     # 动态颜色（会根据明暗主题重设明度值，只用关心色相和饱和度即可）
     background: 'hsl(212 16% 98%)' # 浅色背景颜色
@@ -682,7 +689,7 @@ default:
   project: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2779789.png
   banner: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/banner/books.jpg
   topic: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/10433048.png
-  image_onerror: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E"
+
 
 api_host:
   ghapi: api.github.com
