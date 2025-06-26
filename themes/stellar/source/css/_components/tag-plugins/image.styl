@@ -13,8 +13,9 @@
     justify-content: center
     align-items: center
     margin: auto
-    &:has(img.lazy.loading)
-      background: var(--block)
+    max-width: 100%
+    &:has(img.lazy.loading),&:has(img.lazy.error)
+      background-color: var(--block)
     &:hover
       .image-download
         opacity: 1 !important
