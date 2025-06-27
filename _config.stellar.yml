@@ -212,7 +212,7 @@ search:
     appId: 
     apiKey: 
     indexName: 
-    js: https://gcore.jsdelivr.net/algoliasearch/3/algoliasearch.min.js
+    js: https://jsd.admincdn.com/algoliasearch/3/algoliasearch.min.js
 
 
 ######## Comments ########
@@ -263,15 +263,15 @@ comments:
   # Twikoo
   # https://twikoo.js.org/
   twikoo:
-    js: https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js # 建议锁定版本
+    js: https://jsd.admincdn.com/npm/twikoo@1.6/dist/twikoo.all.min.js # 建议锁定版本
     envId: https://xxx # vercel函数
 
   # Waline
   # https://waline.js.org/
   waline:
-    js: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js
-    css: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css
-    meta_css: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css
+    js: https://jsd.admincdn.com/npm/@waline/client@3.1/dist/waline.js
+    css: https://jsd.admincdn.com/npm/@waline/client@3.1/dist/waline.css
+    meta_css: https://jsd.admincdn.com/npm/@waline/client@3.1/dist/waline-meta.css
     # Waline server address url, you should set this to your own link
     serverURL: https://waline.vercel.app
     # If false, comment count will only be displayed in post page, not in home page
@@ -352,7 +352,7 @@ footer:
     #   - '[关于本站](/)'
     #   - '[GitHub](/)'
   content: | # 支持 Markdown 格式
-    [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" type="image/svg+xml"><br><embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/copyright.svg" type="image/svg+xml">
+    [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/says.svg" type="image/svg+xml"><br><embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://jsd.admincdn.com/npm/dusays@5.0.0/copyright.svg" type="image/svg+xml">
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
     本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
     [贝贝吧](https://www.hibbba.com/) | [辛未羊的网络日志](https://panqiincs.me/) | [obaby@mars](https://h4ck.org.cn/) | [codeqihan的博客](https://www.codeqihan.com/) | [乙未博客](https://yvii.cn/) | [Dabenshi](https://dabenshi.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [龙鲲博客](https://lklog.cn/) | [SunoAPI AI音乐歌曲生成器](https://sunoapi.net/)
@@ -380,12 +380,12 @@ tag_plugins:
       prefix: ph:seal-question-fill
   # {% emoji %}
   emoji:
-    default: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
-    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
-    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoji/qq/{name}.gif
-    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoji/aru-l/{name}.gif
-    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoji/tieba/{name}.png
-    blobcat: https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/{name}.png
+    default: https://jsd.admincdn.com/gh/cdn-x/emoji/qq/{name}.gif
+    twemoji: https://jsd.admincdn.com/gh/twitter/twemoji/assets/svg/{name}.svg
+    qq: https://jsd.admincdn.com/gh/cdn-x/emoji/qq/{name}.gif
+    aru: https://jsd.admincdn.com/gh/cdn-x/emoji/aru-l/{name}.gif
+    tieba: https://jsd.admincdn.com/gh/cdn-x/emoji/tieba/{name}.png
+    blobcat: https://jsd.admincdn.com/gh/norevi/waline-blobcatemojis@1.0/blobs/{name}.png
   icon:
     # 留空时，图标和文字颜色相同
     default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
@@ -439,8 +439,8 @@ tag_plugins:
 
 # 基础依赖
 dependencies:
-  jquery: https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js
-  marked: https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js
+  jquery: https://jsd.admincdn.com/npm/jquery@3.7/dist/jquery.min.js
+  marked: https://jsd.admincdn.com/npm/marked@13.0/lib/marked.umd.min.js
 
 
 # 内置服务，按需加载（页面内用到了就会加载，没有用到就不会加载）
@@ -503,13 +503,13 @@ plugins:
   preload:
     enable: true
     service: flying_pages # flying_pages
-    flying_pages: https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js
+    flying_pages: https://jsd.admincdn.com/npm/flying-pages@2/flying-pages.min.js
 
   # lazyload
   # https://www.npmjs.com/package/vanilla-lazyload
   lazyload:
     enable: true # [hexo clean && hexo s] is required after changing this value.
-    js: https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js
+    js: https://jsd.admincdn.com/npm/vanilla-lazyload@19.1/dist/lazyload.min.js
     transition: fade # blur, fade
     fix_ratio: true # true / false # 是否固定宽高比，true 时会在图片上添加 style="aspect-ratio: 16/9;"，false 时则不添加，开启此功能会导致增加首次 hexo s 的耗时
     loading_image:
@@ -521,8 +521,8 @@ plugins:
   fancybox:
     enable: true
     loader: /js/plugins/fancybox-loader.js
-    js: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
-    css: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
+    js: https://jsd.admincdn.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
+    css: https://jsd.admincdn.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
     # 让 md 语法图片支持放大可以这样写: .md-text img:not([class]), .md-text .image img
     # 可以处理评论区的图片（不支持 iframe 类评论系统）例如：
     # 使用 twikoo 评论可以写: .tk-content img:not([class*="emo"])
@@ -538,7 +538,7 @@ plugins:
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
     enable: #true
-    js: https://gcore.jsdelivr.net/npm/scrollreveal@4.0/dist/scrollreveal.min.js
+    js: https://jsd.admincdn.com/npm/scrollreveal@4.0/dist/scrollreveal.min.js
     distance: 16px
     duration: 800 # ms
     interval: 100 # ms
@@ -593,7 +593,7 @@ plugins:
     enable: # true # 可以在特定文章的 front-matter 中设置 mermaid: true 来开启，也可以在这里设置全局开启
     style_optimization: false # use custom style in stellar
     # js: https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js
-    js: https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js
+    js: https://jsd.admincdn.com/npm/mermaid@v9/dist/mermaid.min.js
     # Available themes: default | dark | forest | neutral
     theme: neutral
   
@@ -650,10 +650,10 @@ style:
     hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
   animated_avatar:
     animate: auto # auto, always
-    background: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp
+    background: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp
   codeblock:
     scrollbar: 4px
-    highlightjs_theme: https://gcore.jsdelivr.net/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
+    highlightjs_theme: https://jsd.admincdn.com/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
   loading:
     loading: 正在加载
     error: 加载失败，请稍后重试。
@@ -666,9 +666,9 @@ style:
     blur-px: 100px
     blur-bg: var(--alpha60)
   paginator:
-    prev: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
-    next: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg
-  error_page: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
+    prev: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
+    next: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg
+  error_page: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
   site:
     background-image: #'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)' # 未完全适配，慎用
     blur-px: 100px
@@ -682,13 +682,13 @@ style:
 
 
 default:
-  avatar: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg
-  link: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg
-  cover: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
-  image: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg
-  project: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2779789.png
-  banner: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/banner/books.jpg
-  topic: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/10433048.png
+  avatar: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg
+  link: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg
+  cover: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
+  image: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/image/2659360.svg
+  project: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/image/2779789.png
+  banner: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/banner/books.jpg
+  topic: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/image/10433048.png
   image_onerror: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E"
 
 api_host:
