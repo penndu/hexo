@@ -1,7 +1,7 @@
 ---
 title: 友情链接
 leftbar: welcome, recent
-rightbar: sffw, sylj, qbtc, ltgc, mmtg, sjtp
+rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 各位大佬想交换友链的话可以在下方留言，必须要有名称、链接「因某些原因本站不支持显示友链站点简介」订阅地址「如果您想出现在友链文章页，如若为空，本站也会尝试抓取」

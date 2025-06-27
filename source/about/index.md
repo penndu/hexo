@@ -1,7 +1,7 @@
 ---
 title: 关于留言
 leftbar: welcome, recent
-rightbar: sffw, sylj, qbtc, ltgc, mmtg, sjtp
+rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 {% folding blue open::关于博主 %}
