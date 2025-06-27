@@ -1,9 +1,7 @@
 ---
-top_meta: false
-bottom_meta: false
-sidebar: []
 comments: false
 title: 说说广场
+rightbar: sffw, sylj, qbtc, ltgc, mmtg
 ---
 
 <link href="https://jsd.onmicrosoft.cn/npm/penndu@17.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
