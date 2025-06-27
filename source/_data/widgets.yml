@@ -1,6 +1,6 @@
 starter:
   layout: linklist
-  title: 入门向导
+  title: 导航
   columns: 1
   items:
     - icon: solar:notebook-bookmark-bold-duotone
