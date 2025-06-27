@@ -1,4 +1,4 @@
-starter:
+welcome:
   layout: linklist
   title: 导航
   columns: 1
@@ -15,10 +15,8 @@ starter:
     - icon: solar:planet-bold-duotone
       title: 说说广场
       url: /shuoshuo/
-    
 
-
-sociallist:
+sylj:
   layout: linklist
   title: 首页链接
   columns: 1
@@ -32,15 +30,11 @@ sociallist:
     - title: 牛魔博客
       url: https://www.nmwbk.com/
 
-
-
 sjtp:
   layout: markdown
   title: 随机图片
   content: |
     ![](https://birdteam.net/heisi.php)
-
-
 
 sffw:
   layout: markdown
@@ -48,23 +42,17 @@ sffw:
   content: |
     [![](https://cdn.dusays.com/sffw.gif)](https://dusays.com/sffw/)
 
-
-
 qbtc:
   layout: markdown
   title: 去不图床
   content: |
     [![](https://cdn.dusays.com/7bu.jpg)](https://cdn.dusays.com/7bu.jpg)
 
-
-
 ltgc:
   layout: markdown
   title: 聊天广场
   content: |
     [![](https://cdn.dusays.com/chat.jpg)](https://cdn.dusays.com/chat.jpg)
-
-
 
 mmtg:
   layout: markdown
