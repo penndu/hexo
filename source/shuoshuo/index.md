@@ -1,7 +1,8 @@
 ---
 comments: false
 title: 说说广场
-rightbar: sffw, sylj, qbtc, ltgc, mmtg
+leftbar: welcome, recent
+rightbar: sffw, sylj, qbtc, ltgc, mmtg, sjtp
 ---
 
 <link href="https://jsd.admincdn.com/npm/penndu@17.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
