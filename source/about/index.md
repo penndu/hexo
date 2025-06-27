@@ -1,6 +1,6 @@
 ---
 title: 关于留言
-sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+rightbar: sffw, sylj, qbtc, ltgc, mmtg
 ---
 
 {% folding blue open::关于博主 %}
