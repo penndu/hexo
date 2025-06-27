@@ -73,13 +73,13 @@ site_tree:
   # 主页配置
   home:
     leftbar: welcome, sylj, recent
-    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg
+    rightbar: sjtp, sffw, qbtc, ltgc, mmtg
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
     leftbar: welcome, recent # for categories/tags/archives
-    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg
+    rightbar: sjtp, sffw, qbtc, ltgc, mmtg
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
       # '朋友文章': /friends/rss/
   # 博客专栏列表页配置
