@@ -346,10 +346,10 @@ footer:
         - '<a href="https://dusays.com/says/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" width="110"/></a>'
     - title: 备案
       items:
-        - '<a href="https://icp.gov.moe/?keyword=20229624" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.2/meng.svg" width="110"/></a>'
-        - '<a href="https://beian.miit.gov.cn/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/icp.svg" width="110"/></a>'
-        - '<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21080402111261" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/liao.svg" width="110"/></a>'
-        - '<a href="https://dusays.com/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/copyright.svg" width="110"/></a>'
+        - '<a href="https://icp.gov.moe/?keyword=20229624" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.2/meng.svg" width="135"/></a>'
+        - '<a href="https://beian.miit.gov.cn/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/icp.svg" width="138"/></a>'
+        - '<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21080402111261" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/liao.svg" width="174"/></a>'
+        - '<a href="https://dusays.com/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/copyright.svg" width="198"/></a>'
     - title: 跳转
       items:
         - '[十年虫洞](https://www.foreverblog.cn/go.html)'
