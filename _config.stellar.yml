@@ -339,10 +339,10 @@ footer:
       url: /about/#comments
   sitemap:
     '声明':
-      - '[图床反馈](https://dusays.com/7bu/)'
-      - '[隐私声明](https://dusays.com/yinsi/)'
-      - '[免责声明](https://dusays.com/mianze/)'
-      - '[说说规则](https://dusays.com/says/)'
+      - '![https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg](https://dusays.com/7bu/)'
+      - '![https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg](https://dusays.com/yinsi/)'
+      - '![https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg](https://dusays.com/mianze/)'
+      - '![https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg](https://dusays.com/says/)'
     '备案':
       - '[萌 ICP 备 20229624 号](https://icp.gov.moe/?keyword=20229624)'
       - '[京 ICP 备 14018678 号-6](https://beian.miit.gov.cn/)'
@@ -633,7 +633,7 @@ plugins:
 
 
 style:
-  prefers_theme: light # auto / light / dark
+  prefers_theme: auto # auto / light / dark
   smooth_scroll: false # true / false 开启时如果目录过长可能无法准确定位
   font-size:
     root: 16px # 改这个会影响全局所有文字的字号
