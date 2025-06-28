@@ -1,15 +1,16 @@
 ---
+layout: page
 title: 说说页面发布规则
 sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
 ---
 
 {% folding cyan open, 关于说说 %}
 
-{% box %}
+{% blocknote %}
 
 本博文章皆为技术教程，而说说分享的是杜老师日常。如果您也想建立相同的页面，欢迎申请说说广场账户，请遵循以下的规则！
 
-{% endbox %}
+{% endblocknote %}
 
 {% endfolding %}
 
@@ -31,4 +32,4 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 
 {% endfolding %}
 
-{% quot 欢迎申请账户，加入说说广场! %}
+{% p center logo large, 欢迎申请账户，加入说说广场! %}
