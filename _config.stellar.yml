@@ -677,7 +677,7 @@ style:
     hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
   animated_avatar:
     animate: auto # auto, always
-    background: https://jsd.admincdn.com/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp
+    background: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp
   codeblock:
     scrollbar: 4px
     highlightjs_theme: https://jsd.admincdn.com/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
