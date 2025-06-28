@@ -6,21 +6,21 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 
 {% folding blue open::关于博主 %}
 
-{% blocknote %}
+{% box %}
 
 对 Linux/Windows 系统、思科网络设备均有深入研究。曾任某集团酒店高级网络工程师、某大型 IT 教育网站技术运营总监，精通 Linux 操作系统和网络安全相关技术，精通部署基于 Linux 系统下的 LB/HA 集群。拥有丰富系统运维、架构设计以及优化经验。
 
-{% endblocknote %}
+{% endbox %}
 
 {% endfolding %}
 
 {% folding cyan open::关于本博 %}
 
-{% blocknote %}
+{% box %}
 
 本博客创建于 2019 年 7 月 10 日，系云计算运维讲师杜老师的私人技术博客，主要分享一些运维技术、经验；偶尔也会推荐一些好用软件，更新生活日志。本博客每三天更新，欢迎订阅！
 
-{% endblocknote %}
+{% endbox %}
 
 {% endfolding %}
 
