@@ -340,10 +340,10 @@ footer:
   sitemap:
     - title: 声明
       items:
-        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg" width="200"/>'
-        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg" width="200"/>'
-        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg" width="200"/>'
-        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" width="200"/>'
+        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg" width="110"/>'
+        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg" width="110"/>'
+        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg" width="110"/>'
+        - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" width="110"/>'
     - title: 备案
       items:
         - '[萌 ICP 备 20229624 号](https://icp.gov.moe/?keyword=20229624)'
