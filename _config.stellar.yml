@@ -326,17 +326,17 @@ comments:
 footer:
   social:
     github:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-      url: /
+      icon: '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/020-rss.svg"/>'
+      url: https://dusays.com/atom.xml
     music:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
-      url: /
+      icon: '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/017-picasa.svg"/>'
+      url: https://7bu.top/
     unsplash:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
-      url: /
+      icon: '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/031-twitch.svg"/>'
+      url: https://a.dusays.com/
     comments:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
-      url: /about/#comments
+      icon: '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/033-spotify.svg"/>'
+      url: https://dusays.com/baidusitemap.xml
   sitemap:
     '声明':
       - '![https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg](https://dusays.com/7bu/)'
