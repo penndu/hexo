@@ -1,6 +1,8 @@
 ---
 layout: page
 title: 说说页面发布规则
+leftbar: welcome, recent
+rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 {% folding cyan open, 关于说说 %}
