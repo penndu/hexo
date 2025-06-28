@@ -5,11 +5,15 @@ leftbar: welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
+关于博主：
+
 {% box %}
 
 对 Linux/Windows 系统、思科网络设备均有深入研究。曾任某集团酒店高级网络工程师、某大型 IT 教育网站技术运营总监，精通 Linux 操作系统和网络安全相关技术，精通部署基于 Linux 系统下的 LB/HA 集群。拥有丰富系统运维、架构设计以及优化经验。
 
 {% endbox %}
+
+关于本博：
 
 {% box %}
 
