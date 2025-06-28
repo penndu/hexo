@@ -339,10 +339,10 @@ footer:
       url: https://dusays.com/baidusitemap.xml
   sitemap:
     '声明':
-      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg"/>'
-      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg"/>'
-      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg"/>'
-      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg"/>'
+      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg" width="200"/>'
+      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg" width="200"/>'
+      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg" width="200"/>'
+      - '<img src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" width="200"/>'
     '备案':
       - '[萌 ICP 备 20229624 号](https://icp.gov.moe/?keyword=20229624)'
       - '[京 ICP 备 14018678 号-6](https://beian.miit.gov.cn/)'
