@@ -1,7 +1,8 @@
 ---
 layout: page
 title: 关于留言
-sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+leftbar: welcome, recent
+rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 {% folding blue open::关于博主 %}
