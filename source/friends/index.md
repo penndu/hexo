@@ -18,8 +18,6 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 
 当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/634/)》
 
-
-
 全站链接：
 
 {% friends quanzhan %}
