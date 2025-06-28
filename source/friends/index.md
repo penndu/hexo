@@ -1,7 +1,8 @@
 ---
-layout: friends
+layout: page
 title: 友情链接
-sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, bwbak, heisibak, dulaoshi, chat]
+leftbar: welcome, recent
+rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 各位大佬想交换友链的话可以在下方留言，必须要有名称、链接「因某些原因本站不支持显示友链站点简介」订阅地址「如果您想出现在友链文章页，如若为空，本站也会尝试抓取」
@@ -26,3 +27,11 @@ sidebar: [blogger, artalk, sffw, h5game, dao_hang, category, tagcloud, webinfo, 
 {% checkbox yellow checked::原则上需已建立一年及以上，并已有 30 篇及以上文章。不得含有违反中国大陆相关法律法规内容。 %}
 
 {% checkbox cyan checked::博客停止更新长达 6 个月及以上，请勿申请友链，这里以最后的一篇博文更新时间为主。 %}
+
+全站链接：
+
+{% friends quanzhan %}
+
+内页链接：
+
+{% friends neiye %}
