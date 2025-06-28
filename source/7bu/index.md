@@ -12,7 +12,7 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 {% endbox %}
 
 {% radio checked:true 付费程序搭建，源码作者不断更新提供更多功能； %}
-{% radio checked:true 底层 16H16G 服务器保障稳定运行，图片存放于本地 512G 可扩容高速 NVME 固态硬盘，另有 1024G 企业级固态硬盘备用； %}
+{% radio checked:true 底层 16H16G 服务器保障稳定运行，图片存放于本地 512G 可扩容高速 NVMe 固态硬盘，另有 1024G 企业级固态硬盘备用； %}
 {% radio checked:true 带宽上行 100M 下行 700M； %}
 {% radio checked:true 容量付费，保障域名及服务器长久运营。 %}
 
