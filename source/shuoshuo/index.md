@@ -9,7 +9,7 @@ title: 说说广场
 
 <link href="https://jsd.onmicrosoft.cn/npm/penndu@17.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.onmicrosoft.cn/npm/penndu@17.0.0/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
-{% p center logo large, 点图片可放大! %}
+{% quot 点图片可放大! %}
 <section id="main" class="container">
     <div class="total">总计 <span id="total">0</span> 条说说</div>
     <div id="memos" class="memos"></div>
