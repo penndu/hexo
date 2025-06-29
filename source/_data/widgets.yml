@@ -64,15 +64,15 @@ wezh:
   layout: linklist
   columns: 4
   items:
-    - id: post
+    - icon: https://cdn.dusays.com/jinqi.png
       title: 近期
       url: /
-    - id: wiki
+    - icon: https://cdn.dusays.com/fenlei.png
       title: 分类
       url: /categories/
-    - id: explore
+    - icon: https://cdn.dusays.com/biaoqian.png
       title: 标签
       url: /tags/
-    - id: social
+    - icon: https://cdn.dusays.com/guidang.png
       title: 归档
       url: /archives/
