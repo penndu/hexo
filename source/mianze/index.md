@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 杜老师说免责声明
-leftbar: welcome, recent
+leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
