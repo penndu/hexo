@@ -61,18 +61,6 @@ mmtg:
     [![](https://cdn.dusays.com/bw.jpg)](https://cdn.dusays.com/bw.jpg)
 
 wezh:
-  layout: linklist
-  columns: 4
-  items:
-    - icon: solar:notebook-bookmark-bold-duotone
-      title: 近期
-      url: /
-    - icon: solar:planet-bold-duotone
-      title: 分类
-      url: /categories/
-    - icon: solar:notebook-bookmark-bold-duotone
-      title: 标签
-      url: /tags/
-    - icon: solar:planet-bold-duotone
-      title: 归档
-      url: /archives/
+  layout: markdown
+  content: |
+    [近期](https://dusays.com/) | [分类](https://dusays.com/categories/) | [标签](https://dusays.com/tags/) | [归档](https://dusays.com/archives/)
