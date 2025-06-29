@@ -98,8 +98,8 @@ site_tree:
   # 博客文章内页配置
   post:
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    leftbar: related, recent # for pages using 'layout:post'
-    rightbar: ghrepo, toc
+    leftbar: welcome, related, recent # for pages using 'layout:post'
+    rightbar: ghrepo, toc, sffw, qbtc, ltgc, mmtg, sjtp
   # 博客专栏文章内页配置
   topic:
     menu_id: post
