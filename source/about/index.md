@@ -21,7 +21,9 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 
 {% endbox %}
 
-{% timeline 本站事件 %}
+本站事件：
+
+{% timeline %}
 
 <!-- node 2024 年 11 月 04 日 -->
 
@@ -63,7 +65,11 @@ Artalk 升级 2.8.4 版本，目前回复指定用户还有一些问题，正待
 
 说说广场重新开放注册；
 
-{% folding green::点击查看更多内容 %}
+{% endtimeline %}
+
+{% folding 点击查看更多内容 %}
+
+{% timeline %}
 
 <!-- node 2024 年 01 月 04 日 -->
 
@@ -433,8 +439,8 @@ Artalk 升级 2.5.0 版本，开启城市定位，精确到市级别，如果有
 
 在阿里云购买域名、云服务器，同天申请备案；
 
-{% endfolding %}
-
 {% endtimeline %}
+
+{% endfolding %}
 
 {% quot 欢迎灌水! %}
