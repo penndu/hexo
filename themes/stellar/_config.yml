@@ -10,13 +10,13 @@ stellar:
 ######## head tags ########
 preconnect:
   # - https://gcore.jsdelivr.net
-  # - https://gcore.jsdelivr.net
+  - https://jsd.admincdn.com
   # - https://unpkg.com
 
 # 一旦设置源站地址，非源站地址将不会被SEO收录，并且访问时弹出提示
 # 如果访问地址不在备用站主机列表，则警告信息为非法克隆
 canonical:
-  originalHost: # 主站点域名主机，例如 xaoxuu.com
+  originalHost: dusays.com # 主站点域名主机，例如 xaoxuu.com
   officialHosts: # 官方主机列表，每行一个，例如 xaoxuu.vercel.app
     - localhost
 
@@ -31,9 +31,9 @@ structured_data:
 ######## Sidebar ########
 # 左上角显示的 logo 区域，包含图标、大标题、副标题
 logo:
-  avatar: '[{config.avatar}](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
+  avatar: '[https://cdn.dusays.com/favicon.ico](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
   title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
-  subtitle: '{config.subtitle}' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
+  subtitle: 'dusays.com' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 
 # 侧边栏主功能导航菜单
 menubar:
@@ -44,26 +44,26 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    # - id: post
-    #   theme: '#1BCDFC'
+    - id: post
+      theme: '#1BCDFC'
     #   icon: solar:documents-bold-duotone
-    #   title: 博客
-    #   url: /
-    # - id: wiki
-    #   theme: '#3DC550'
+      title: 博客
+      url: /
+    - id: wiki
+      theme: '#3DC550'
     #   icon: solar:notebook-bookmark-bold-duotone
-    #   title: 文档
-    #   url: /wiki/
-    # - id: explore
-    #   theme: '#FA6400'
+      title: 图床
+      url: https://7bu.top/
+    - id: explore
+      theme: '#FA6400'
     #   icon: solar:planet-bold-duotone
-    #   title: 探索
-    #   url: /explore/
-    # - id: social
-    #   theme: '#F44336'
+      title: 开往
+      url: https://www.travellings.cn/go.html
+    - id: social
+      theme: '#F44336'
     #   icon: solar:chat-square-like-bold-duotone
-    #   title: 社交
-    #   url: /friends/
+      title: 聊天
+      url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr
 
 
 ######## Main ########
@@ -72,14 +72,14 @@ site_tree:
   # -- 列表类页面 -- #
   # 主页配置
   home:
-    leftbar: welcome, recent
-    rightbar: 
+    leftbar: welcome, sylj, recent
+    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
     leftbar: welcome, recent # for categories/tags/archives
-    rightbar: 
+    rightbar: sjtp, sffw, sylj, qbtc, ltgc, mmtg
     nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
       # '朋友文章': /friends/rss/
   # 博客专栏列表页配置
@@ -217,7 +217,7 @@ search:
 
 ######## Comments ########
 comments:
-  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  service: artalk # beaudar, utterances, giscus, twikoo, waline, artalk
   comment_title: 快来参与讨论吧~
   lazyload: false # true / false
   custom_css: # artalk,twikoo,... 可以为没有全局启用的评论加载自定义样式
@@ -311,11 +311,15 @@ comments:
   # Artalk
   # https://artalk.js.org/
   artalk:
-    css: https://unpkg.com/artalk@2.9/dist/Artalk.css
-    js: https://unpkg.com/artalk@2.9/dist/Artalk.js
-    server: # 后端服务地址
-    site: '' # 站点名称
+    css: https://artalk.dusays.com/dist/Artalk.css
+    js: https://artalk.dusays.com/dist/Artalk.js
+    server: https://artalk.dusays.com # 后端服务地址
+    site: '杜老师说' # 站点名称
     darkMode: auto
+    imageUploader:
+      api: 'https://7bu.top/api/v1/upload' # 图床地址
+      token: 'Bearer 198|G3L9heu8LimK9YSaQzFwqGlfv6EhYTHVIOIcGzUX' # 图床验证
+      resp: 'data.links.url' # 图片地址返回值的字段
 
 
 ######## Footer ########
@@ -359,8 +363,11 @@ footer:
     #     - '[xxx](/)'
     #     - '[xxx](/)'
   content: | # 支持 Markdown 格式
+    [萌ICP备20229624号](https://icp.gov.moe/?keyword=20229624) | [异次元之旅](https://travel.moe/go.html?travel=on)<br><embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/7bu.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/yinsi.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/mianze.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/says.svg" type="image/svg+xml"><br><embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/fb.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/icp.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/liao.svg" type="image/svg+xml">&nbsp;<embed src="https://cdn.jsdelivr.net/npm/dusays@5.0.0/copyright.svg" type="image/svg+xml">
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
     本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+    [贝贝吧](https://www.hibbba.com/) | [辛未羊的网络日志](https://panqiincs.me/) | [obaby@mars](https://h4ck.org.cn/) | [codeqihan的博客](https://www.codeqihan.com/) | [乙未博客](https://yvii.cn/) | [Dabenshi](https://dabenshi.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [龙鲲博客](https://lklog.cn/) | [SunoAPI AI音乐歌曲生成器](https://sunoapi.net/)
+    [joojenZhou个人网站](https://joojen.com/) | [晚夜的个人博客](https://www.iczrx.cn/) | [小杨同学](https://xiaoyangst.github.io/) | [雾非雾](https://www.941741.xyz/) | [小旭の破站](https://www.sicx.top/) | [webfem](https://webfem.com/) | [小飞说](https://xfsay.com/) | [xaoxuu](https://xaoxuu.com/) | [杜老师说](https://dusays.com/) | [友链申请](https://dusays.com/friends/)
   # 主题用户越多，开发者维护和更新的积极性就越高，如果您喜欢本主题，请在适当的位置显示主题信息和仓库链接以表支持。
 
 
@@ -626,10 +633,9 @@ style:
     code: 85% # 相较于其所在行的文本大小，建议用百分比
     codeblock: 0.8125rem # 13px
   font-family:
-    logo: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
-    codeblock: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
+    body: 'system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif'
+    code: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
+    codeblock: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
   text-align: left
   prefix:
     h2: https://api.iconify.design/ci:heading-h2.svg
@@ -665,18 +671,20 @@ style:
     start: 'linear-gradient(to right, hsl(215, 95%, 64%), hsl(195, 95%, 60%), hsl(165, 95%, 56%), hsl(165, 95%, 56%), hsl(195 95% 60%), hsl(215, 95%, 64%))'
   leftbar:
     # 可以设置：纯色/渐变色/图片作为背景
-    # background: var(--leftbar-bg)
+    background-color: var(--card) # var(--block)
     background-image: url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
     blur-px: 100px
-    blur-bg: var(--alpha60)
+    blur-bg: var(--bg-a60)
+    background-opacity: 0.8
   paginator:
     prev: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
     next: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg
   error_page: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
-  site:
-    background-image: #'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)' # 未完全适配，慎用
+  site: # 使用 background-image 后，blur 设置才有效
+    # background-image: 'url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)'
     blur-px: 100px
-    blur-bg: var(--alpha75)
+    blur-bg: var(--bg-a75)
+    blur-sat: 300%
   # 技术文章内页各级标题前面的符号
   header_prefix:
     h2: '⌘'
