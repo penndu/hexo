@@ -59,3 +59,16 @@ mmtg:
   title: 密码托管
   content: |
     [![](https://cdn.dusays.com/bw.jpg)](https://cdn.dusays.com/bw.jpg)
+
+wezh:
+  layout: linklist
+  columns: 4
+  items:
+    - title: 近期
+      url: /
+    - title: 分类
+      url: /categories/
+    - title: 标签
+      url: /tags/
+    - title: 归档
+      url: /archives/
