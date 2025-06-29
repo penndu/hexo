@@ -64,11 +64,15 @@ wezh:
   layout: linklist
   columns: 4
   items:
-    - title: 近期
+    - icon: solar:notebook-bookmark-bold-duotone
+      title: 近期
       url: /
-    - title: 分类
+    - icon: solar:planet-bold-duotone
+      title: 分类
       url: /categories/
-    - title: 标签
+    - icon: solar:notebook-bookmark-bold-duotone
+      title: 标签
       url: /tags/
-    - title: 归档
+    - icon: solar:planet-bold-duotone
+      title: 归档
       url: /archives/
