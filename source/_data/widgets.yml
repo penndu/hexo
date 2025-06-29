@@ -61,6 +61,18 @@ mmtg:
     [![](https://cdn.dusays.com/bw.jpg)](https://cdn.dusays.com/bw.jpg)
 
 wezh:
-  layout: markdown
-  content: |
-    [近期](https://dusays.com/) | [分类](https://dusays.com/categories/) | [标签](https://dusays.com/tags/) | [归档](https://dusays.com/archives/)
+  layout: linklist
+  columns: 4
+  items:
+    - id: post
+      title: 近期
+      url: /
+    - id: wiki
+      title: 分类
+      url: /categories/
+    - id: explore
+      title: 标签
+      url: /tags/
+    - id: social
+      title: 归档
+      url: /archives/
