@@ -20,7 +20,9 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 {% radio checked:true 带宽上行 100M 下行 700M； %}
 {% radio checked:true 容量付费，保障域名及服务器长久运营。 %}
 
-{% timeline 图床事件 %}
+图床事件：
+
+{% timeline %}
 
 <!-- node 2024 年 06 月 12 日 -->
 
@@ -62,7 +64,11 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 
 新增记录用户上传图片违规记录，新增夜间模式，优化取消订单后返还优惠券，优化删除、修改相册时同时删除封面和背景图片，优化重构图片内容审核逻辑，修复订单管理批量取消出错的 bug，修复 Windows 系统图片管理页面拖拽图片会触发上传的 bug；
 
-{% folding green::点击查看更多内容 %}
+{% endtimeline %}
+
+{% folding 点击查看更多内容 %}
+
+{% timeline %}
 
 <!-- node 2023 年 11 月 04 日 -->
 
@@ -344,8 +350,8 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 
 杜老师说旗下免费图床开通，提供无限流量高速图片外链服务；
 
-{% endfolding %}
-
 {% endtimeline %}
+
+{% endfolding %}
 
 {% quot 欢迎提交问题建议! %}
