@@ -38,11 +38,11 @@ module.exports = ctx => function(args) {
   }
 
   function img(src, alt, style) {
-    let img = ''
-    img += `<img src="${src}" data-src="${src}"`
     let a = '<a data-fancybox'
+    let img = ''
+    img += `<img class="lazy" src="${src}" data-src="${src}"`
     if (alt) {
-      img += ' alt="' + alt + '"'
+      img += ` alt="${alt}"`
       a += ` data-caption="${alt}"`
     }
     if (fancybox && !fancyboxHref) {
@@ -53,12 +53,12 @@ module.exports = ctx => function(args) {
     }
     img += `onerror="this.src=&quot;${ctx.theme.config.default.image_onerror}&quot;"`
     img += '/>'
-
+    // loading
+    img += `<div class="lazy-icon" style="background-image:url(${ctx.theme.config.default.loading});"></div>`
     if (fancyboxHref) {
       a += ` href="${fancyboxHref}">${img}</a>`
       return a
     }
-
     return img
   }
 
