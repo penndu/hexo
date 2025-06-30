@@ -1,7 +1,7 @@
 ---
 title: 友链文章
 comments: false
-leftbar: welcome, wezh, recent
+leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
