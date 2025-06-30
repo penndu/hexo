@@ -64,15 +64,15 @@ wezh:
   layout: linklist
   columns: 2
   items:
-    - icon: solar:arrow-up-outline
+    - icon: https://cdn.dusays.com/SolarArrowUpOutline.png
       title: 近期
       url: /
-    - icon: solar:sort-outline
+    - icon: https://cdn.dusays.com/SolarSortFromBottomToTopOutline.png
       title: 分类
       url: /categories/
-    - icon: solar:bookmark-circle-outline
+    - icon: https://cdn.dusays.com/SolarBookmarkOpenedOutline.png
       title: 标签
       url: /tags/
-    - icon: solar:archive-check-outline
+    - icon: https://cdn.dusays.com/SolarArchiveCheckOutline.png
       title: 归档
       url: /archives/
