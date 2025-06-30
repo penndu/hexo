@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 关于留言
-leftbar: welcome, wezh, recent
+leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 

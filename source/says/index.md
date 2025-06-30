@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 说说页面发布规则
-leftbar: welcome, wezh, recent
+leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 杜老师说隐私声明
-leftbar: welcome, wezh, recent
+leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
