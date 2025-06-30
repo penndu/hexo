@@ -64,11 +64,15 @@ wezh:
   layout: linklist
   columns: 2
   items:
-    - title: 近期
+    - icon: solar:arrow-up-outline
+      title: 近期
       url: /
-    - title: 分类
+    - icon: solar:sort-outline
+      title: 分类
       url: /categories/
-    - title: 标签
+    - icon: solar:bookmark-circle-outline
+      title: 标签
       url: /tags/
-    - title: 归档
+    - icon: solar:archive-check-outline
+      title: 归档
       url: /archives/
