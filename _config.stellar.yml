@@ -316,6 +316,10 @@ comments:
     server: https://artalk.dusays.com # 后端服务地址
     site: '杜老师说' # 站点名称
     darkMode: auto
+    imageUploader:
+      api: 'https://7bu.top/api/v1/upload'
+      token: 'Bearer 198|G3L9heu8LimK9YSaQzFwqGlfv6EhYTHVIOIcGzUX'
+      resp: 'data.links.url'
 
 
 ######## Footer ########
