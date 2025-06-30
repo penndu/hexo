@@ -3,16 +3,16 @@ welcome:
   title: 导航
   columns: 1
   items:
-    - icon: solar:notebook-bookmark-bold-duotone
+    - icon: https://cdn.dusays.com/LucideLink.png
       title: 友情链接
       url: /friends/
-    - icon: solar:planet-bold-duotone
+    - icon: https://cdn.dusays.com/TdesignArticle.png
       title: 友链文章
       url: /fcircle/
-    - icon: solar:notebook-bookmark-bold-duotone
+    - icon: https://cdn.dusays.com/UilCommentsAlt.png
       title: 访客留言
       url: /about/
-    - icon: solar:planet-bold-duotone
+    - icon: https://cdn.dusays.com/GrommetIconsSquare.png
       title: 说说广场
       url: /shuoshuo/
 
@@ -64,15 +64,15 @@ wezh:
   layout: linklist
   columns: 2
   items:
-    - icon: https://cdn.dusays.com/SolarArrowUpOutline.png
+    - icon: https://cdn.dusays.com/FluentMdl2Recent.png
       title: 近期
       url: /
-    - icon: https://cdn.dusays.com/SolarSortFromBottomToTopOutline.png
+    - icon: https://cdn.dusays.com/CarbonCategories.png
       title: 分类
       url: /categories/
-    - icon: https://cdn.dusays.com/SolarBookmarkOpenedOutline.png
+    - icon: https://cdn.dusays.com/PepiconsPopLabel.png
       title: 标签
       url: /tags/
-    - icon: https://cdn.dusays.com/SolarArchiveCheckOutline.png
+    - icon: https://cdn.dusays.com/TdesignFile.png
       title: 归档
       url: /archives/
