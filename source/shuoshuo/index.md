@@ -1,7 +1,7 @@
 ---
 title: 说说广场
 comments: false
-leftbar: welcome, recent
+leftbar: welcome, wezh, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 

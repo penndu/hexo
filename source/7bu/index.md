@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 图床问题建议反馈
-leftbar: welcome, recent
+leftbar: welcome, wezh, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
