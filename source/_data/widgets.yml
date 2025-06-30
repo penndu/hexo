@@ -62,17 +62,13 @@ mmtg:
 
 wezh:
   layout: linklist
-  columns: 4
+  columns: 2
   items:
-    - icon: https://cdn.dusays.com/jinqi.png
-      title: 近期
+    - title: 近期
       url: /
-    - icon: https://cdn.dusays.com/fenlei.png
-      title: 分类
+    - title: 分类
       url: /categories/
-    - icon: https://cdn.dusays.com/biaoqian.png
-      title: 标签
+    - title: 标签
       url: /tags/
-    - icon: https://cdn.dusays.com/guidang.png
-      title: 归档
+    - title: 归档
       url: /archives/
