@@ -1,6 +1,8 @@
 ---
 layout: page
 title: 杜老师说收费服务
+leftbar: welcome, wezh, recent
+rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 ## 背景介绍

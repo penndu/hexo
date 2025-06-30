@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 友情链接
-leftbar: welcome, recent
+leftbar: welcome, wezh, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
