@@ -315,7 +315,7 @@ comments:
     js: https://artalk.dusays.com/dist/Artalk.js
     server: https://artalk.dusays.com # 后端服务地址
     site: '杜老师说' # 站点名称
-    darkMode: auto # 其它模式都有问题，慎用，否则后果自负Add comment更多操作
+    darkMode: auto # 其它模式都有问题，慎用，否则后果自负
     fancybox: true # 是否为评论区启用 fancybox
     # artalk 有三类图片：1.上传至服务端 2.上传至服务端后利用upgit上传至图床 3.前端上传至图床（本配置为此类）
     # 配置此项时将覆盖服务端上传能力
@@ -342,6 +342,10 @@ footer:
       icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/033-spotify.svg"/>'
       url: https://dusays.com/baidusitemap.xml
   sitemap:
+    # - title: 博客
+    #   items:
+    #     - '[近期发布](/)'
+
     - title: 跳转
       items:
         - '[十年虫洞](https://www.foreverblog.cn/go.html)'
@@ -499,7 +503,7 @@ data_services:
     js: /js/services/artalk_latest_comment.js
   giscus:
     js: /js/services/giscus_latest_comment.js
-  contributors:Add comment更多操作
+  contributors:
     edit_this_page: # 从开头开始匹配替换
       '_posts/': # https://github.com/xaoxuu/xaoxuu.com/blob/main/source/_posts/
       'wiki/stellar/': https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/
