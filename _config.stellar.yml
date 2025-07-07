@@ -1,6 +1,6 @@
 ######## Stellar info ########
 stellar:
-  version: '1.32.4'
+  version: '1.33.0'
   homepage: 'https://xaoxuu.com/wiki/stellar/'
   repo: 'https://github.com/xaoxuu/hexo-theme-stellar'
   main_css: /css/main.css
@@ -392,12 +392,12 @@ tag_plugins:
       prefix: ph:seal-question-fill
   # {% emoji %}
   emoji:
-    default: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji/qq/{name}.gif
+    default: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji@2.1.2/qq/{name}.gif
     twemoji: https://jsd.onmicrosoft.cn/gh/twitter/twemoji/assets/svg/{name}.svg
-    qq: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji/qq/{name}.gif
-    aru: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji/aru-l/{name}.gif
-    tieba: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji/tieba/{name}.png
-    blobcat: https://jsd.onmicrosoft.cn/gh/norevi/waline-blobcatemojis@1.0/blobs/{name}.png
+    qq: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji@2.1.2/qq/{name}.gif
+    aru: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji@2.1.2/aru/{name}.gif
+    tieba: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji@2.1.2/tieba/{name}.png
+    blobcat: https://jsd.onmicrosoft.cn/gh/cdn-x/emoji@2.1.2/blobcat/{name}.gif
   icon:
     # 留空时，图标和文字颜色相同
     default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
@@ -471,6 +471,14 @@ data_services:
     api: 
   ghinfo:
     js: /js/services/ghinfo.js
+  # 打分
+  rating:
+    js: /js/services/rating.js
+    api: https://star-vote.xaox.cc/api/rating
+  # 投票
+  vote:
+    js: /js/services/vote.js
+    api: https://star-vote.xaox.cc/api/vote
   # 网格布局类
   sites:
     js: /js/services/sites.js
@@ -586,6 +594,7 @@ plugins:
   # 需在Markdown文件开头加入mathjax: true
   # 推荐使用Pandoc: npm uninstall hexo-renderer-marked --save & npm install hexo-renderer-pandoc --save
   mathjax:
+    v3: false # 若使用 v3，需將 js 設置為 https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
     enable: # true # 可以在特定文章的 front-matter 中设置 mathjax: true 来开启，也可以在这里设置全局开启
     js: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
@@ -709,3 +718,10 @@ api_host:
   gist: gist.github.com
   # https://github.com/anuraghazra/github-readme-stats
   ghcard: github-readme-stats.vercel.app
+
+
+
+# 非资深hexo开发者尽量不要动这块
+system:
+  # hexo 支持输出的链接格式众多，维护成本高，为了减少出错，统一成推荐的格式。
+  override_pretty_urls: true
