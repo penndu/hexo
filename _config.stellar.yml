@@ -406,7 +406,7 @@ tag_plugins:
     default_color: theme # theme, accent, red, orange, yellow, green, cyan, blue, purple
   # {% image %}
   image:
-    fancybox: false # true, false
+    fancybox: true # true, false
   # {% copy xxx %}
   copy:
     toast: 复制成功
