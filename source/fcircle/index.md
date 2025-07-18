@@ -11,7 +11,7 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
         // 填写你的api地址
         private_api_url: 'https://f.dusays.com/',
         // 初始加载几篇文章
-        page_init_number: 20,
+        page_init_number: 10,
         // 点击加载更多时，一次最多加载几篇文章，默认10
         page_turning_number: 10,
         // 头像加载失败时，默认头像地址
