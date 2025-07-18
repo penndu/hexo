@@ -14,7 +14,7 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 <script type="text/javascript">
     var memos = {
         host: 'https://s.dusays.com/',
-        limit: '10',
+        limit: '1',
         creatorId: '1',
         domId: '#memos',
         username: 'penn',
