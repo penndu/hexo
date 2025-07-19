@@ -311,8 +311,8 @@ comments:
   # Artalk
   # https://artalk.js.org/
   artalk:
-    css: https://unpkg.com/artalk@2.9/dist/Artalk.css
-    js: https://unpkg.com/artalk@2.9/dist/Artalk.js
+    css: https://unpkg.com/artalk@2.9/dist/artalk.css
+    js: https://unpkg.com/artalk@2.9/dist/artalk.js
     server: # 后端服务地址
     site: '' # 站点名称
     darkMode: auto # 其它模式都有问题，慎用，否则后果自负
@@ -537,7 +537,6 @@ plugins:
   # available for {% image xxx %}
   fancybox:
     enable: true
-    loader: /js/plugins/fancybox-loader.js
     js: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
     css: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
     # 让 md 语法图片支持放大可以这样写: .md-text img:not([class]), .md-text .image img
@@ -557,8 +556,8 @@ plugins:
     enable: #true # 慎用，有些时候打开页面空白
     js: https://gcore.jsdelivr.net/npm/scrollreveal@4.0/dist/scrollreveal.min.js
     distance: 8px
-    duration: 500 # ms
-    interval: 50 # ms
+    duration: 1000 # ms
+    interval: 100 # ms
     scale: 1 # 0.1~1
   
   # AI 摘要
