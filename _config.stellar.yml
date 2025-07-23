@@ -58,7 +58,7 @@ menubar:
       theme: '#FA6400'
     #   icon: solar:planet-bold-duotone
       title: 开往
-      url: https://www.travellings.cn/go.html
+      url: https://www.travellings.cn/go.html#
     - id: social
       theme: '#F44336'
     #   icon: solar:chat-square-like-bold-duotone
