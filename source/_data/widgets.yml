@@ -46,19 +46,19 @@ qbtc:
   layout: markdown
   title: 去不图床
   content: |
-    [![](https://cdn.dusays.com/7bu.jpg)](https://cdn.dusays.com/7bu.jpg)
+    [![](https://cdn.dusays.com/7bu.jpg)](https://7bu.top/)
 
 ltgc:
   layout: markdown
   title: 聊天广场
   content: |
-    [![](https://cdn.dusays.com/chat.jpg)](https://cdn.dusays.com/chat.jpg)
+    [![](https://cdn.dusays.com/chat.jpg)](https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr&md=link&sbr=fa)
 
 mmtg:
   layout: markdown
   title: 密码托管
   content: |
-    [![](https://cdn.dusays.com/bw.jpg)](https://cdn.dusays.com/bw.jpg)
+    [![](https://cdn.dusays.com/bw.jpg)](https://bw.dusays.com/)
 
 wezh:
   layout: linklist
