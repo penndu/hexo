@@ -352,10 +352,10 @@ footer:
         - '[异次元之旅](https://travel.moe/go.html?travel=on)'
         - ''
         - ''
-        - '[本站总访客数 <span id="busuanzi_site_uv"></span> 人](https://bsz.dusays.com)'
+        - '[本站总访客数 <span id="busuanzi_site_uv"></span> 人](https://bsz.dusays.com/)'
         - ''
         - ''
-        - '本站总访问量 <span id="busuanzi_site_pv"></span> 次'
+        - '[本站总访问量 <span id="busuanzi_site_pv"></span> 次](https://bsz.dusays.com/)'
     - title: 声明
       items:
         - '<a href="https://dusays.com/7bu/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/7bu.svg" width="110" height="20"/></a>'
