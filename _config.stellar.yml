@@ -192,7 +192,7 @@ article:
   category_color:
     '探索号': '#f44336'
   # 文章许可协议
-  license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
+  license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议，转载请注明出处。'
   # 分享
   share: # [wechat, weibo, email, link]
   # 相关文章，需要安装插件 (for layout: post)
@@ -281,12 +281,6 @@ comments:
     # Custom emoji
     # emoji:
     #   - https://unpkg.com/@waline/emojis@1.1.0/weibo
-    #   - https://unpkg.com/@waline/emojis@1.1.0/alus
-    #   - https://unpkg.com/@waline/emojis@1.1.0/bilibili
-    #   - https://unpkg.com/@waline/emojis@1.1.0/qq
-    #   - https://unpkg.com/@waline/emojis@1.1.0/tieba
-    #   - https://unpkg.com/@waline/emojis@1.1.0/tw-emoji
-    #   - https://unpkg.com/@waline/emojis@1.1.0/bmoji
     # 设置自己的图床服务，替换默认的 Base 64 编码嵌入（有体积大小限制），在评论中上传图片更加方便
     # imageUploader:
       # 适配了兰空图床V1、V2版本
@@ -370,7 +364,7 @@ footer:
         - '<a href="https://dusays.com/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/copyright.svg" width="198" height="20"/></a>'
   content: | # 支持 Markdown 格式
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。<script async src="https://jsd.admincdn.com/npm/penndu@16.0.0/bsz.js"></script>
-    本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+    本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议，转载请注明出处。
     </br>
     [贝贝吧](https://www.hibbba.com/) | [辛未羊的网络日志](https://panqiincs.me/) | [obaby@mars](https://h4ck.org.cn/) | [codeqihan的博客](https://www.codeqihan.com/) | [乙未博客](https://yvii.cn/) | [Dabenshi](https://dabenshi.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [龙鲲博客](https://lklog.cn/)
     [SunoAPI AI音乐歌曲生成器](https://sunoapi.net/) | [joojenZhou个人网站](https://joojen.com/) | [晚夜的个人博客](https://www.iczrx.cn/) | [小杨同学](https://xiaoyangst.github.io/) | [雾非雾](https://www.941741.xyz/) | [小旭の破站](https://www.sicx.top/) | [webfem](https://webfem.com/)
@@ -543,7 +537,6 @@ plugins:
   # available for {% image xxx %}
   fancybox:
     enable: true
-    loader: /js/plugins/fancybox-loader.js
     js: https://jsd.admincdn.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
     css: https://jsd.admincdn.com/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
     # 让 md 语法图片支持放大可以这样写: .md-text img:not([class]), .md-text .image img
