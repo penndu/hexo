@@ -76,3 +76,7 @@ wezh:
     - icon: solar:archive-minimalistic-outline
       title: 归档
       url: /archives/
+
+zazu:
+  layout: markdown
+  src: https://cdn.dusays.com/drinks/
