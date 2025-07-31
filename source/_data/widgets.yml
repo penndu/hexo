@@ -21,6 +21,8 @@ sylj:
   title: 首页链接
   columns: 1
   items:
+    - title: 贝贝吧
+      url: https://www.hibbba.com/
     - title: 淇云博客
       url: https://www.pengqi.club/
     - title: 陈冬冬博客
