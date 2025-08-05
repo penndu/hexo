@@ -82,64 +82,25 @@ recent_comments:
   title: 近期评论
   content: |
     <div id="recent-comments" style="margin-top: 10px;">
-      <div id="loadButtonContainer" style="display: flex; justify-content: center; margin-bottom: 10px;">
-        <button id="loadingBtn" disabled class="link-button" style="
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          padding: 6px 16px;
-          border-radius: 12px;
-          border: none;
-          background: var(--block);
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-          color: var(--text-p1);
-          font-weight: 600;
-          cursor: default;
-          user-select: none;
-          ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-            <g fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle>
-              <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 17v-6"></path>
-              <circle cx="1" cy="1" r="1" fill="currentColor" transform="matrix(1 0 0 -1 11 9)"></circle>
-            </g>
-          </svg>
-          加载中...
-        </button>
+      <!-- 加载按钮容器 -->
+      <div class="linklist center" style="grid-template-columns: repeat(1, 1fr); margin-bottom: 10px;" id="loadButtonContainer">
+        <a class="link" title="加载评论" href="javascript:void(0);" id="loadingBtn">
+          <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+              <g fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle>
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 17v-6"></path>
+                <circle cx="1" cy="1" r="1" fill="currentColor" transform="matrix(1 0 0 -1 11 9)"></circle>
+              </g>
+            </svg>
+            <span>加载评论中...</span>
+          </div>
+        </a>
       </div>
       <div id="recent-comments-list"></div>
     </div>
 
     <style>
-      /* 复用每日60s按钮样式 */
-      .link-button {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 16px;
-        border-radius: 12px;
-        border: none;
-        background: var(--block);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        color: var(--text-p1);
-        font-weight: 600;
-        cursor: pointer;
-        user-select: none;
-        font-family: inherit;
-        font-size: inherit;
-        transition: background 0.3s;
-      }
-
-      .link-button:hover:not(:disabled) {
-        background: var(--bg-a20);
-      }
-
-      .link-button:disabled {
-        cursor: default;
-        opacity: 0.7;
-      }
-
-      /* 你原有评论列表和卡片样式保持不变 */
       #recent-comments-list {
         display: flex;
         flex-direction: column;
@@ -275,8 +236,7 @@ recent_comments:
         const btnContainer = document.getElementById('loadButtonContainer');
         const list = document.getElementById('recent-comments-list');
 
-        btn.disabled = true;
-        btn.innerHTML = `
+        const svgIcon = `
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
             <g fill="none">
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle>
@@ -284,9 +244,12 @@ recent_comments:
               <circle cx="1" cy="1" r="1" fill="currentColor" transform="matrix(1 0 0 -1 11 9)"></circle>
             </g>
           </svg>
-          加载中...
         `;
-        btn.classList.remove('loading');
+
+        // 更新按钮为加载中状态
+        btn.innerHTML = `${svgIcon}<span>加载评论中...</span>`;
+        btn.removeAttribute('style'); // 移除按钮样式
+        btn.style.pointerEvents = 'none'; // 仅保留功能所需的样式
 
         try {
           const url = `${API_BASE}/stats/latest_comments?site_name=${SITE_NAME}&limit=${LIMIT}`;
@@ -295,8 +258,13 @@ recent_comments:
           const comments = json.data || [];
 
           if (comments.length === 0) {
-            list.innerHTML = '<p>暂无评论</p>';
+            // 暂无评论状态
+            list.innerHTML = '';
+            btn.innerHTML = `${svgIcon}<span>暂无评论</span>`;
+            btn.removeAttribute('style'); // 移除按钮样式
+            btn.style.pointerEvents = 'none'; // 仅保留功能所需的样式
           } else {
+            // 加载成功，渲染评论列表
             list.innerHTML = comments.map(c => {
               const timeText = timeAgo(c.date);
               const avatarUrl = getAvatarUrl(c.email_encrypted);
@@ -320,33 +288,21 @@ recent_comments:
                 </div>
               `;
             }).join('');
+            // 隐藏按钮容器
+            btnContainer.style.display = 'none';
           }
-
-          btnContainer.style.display = 'none';
 
         } catch (err) {
           console.error(err);
-          btn.classList.remove('loading');
-          btn.disabled = false;
-          btn.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-              <g fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle>
-                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 17v-6"></path>
-                <circle cx="1" cy="1" r="1" fill="currentColor" transform="matrix(1 0 0 -1 11 9)"></circle>
-              </g>
-            </svg>
-            加载失败，点击重试
-          `;
+          // 加载失败状态
+          btn.innerHTML = `${svgIcon}<span>加载失败，点击重试</span>`;
+          btn.removeAttribute('style'); // 移除按钮样式
           btn.onclick = () => {
-            btn.onclick = null;
+            btn.onclick = null; // 防止重复点击
             loadRecentComments();
           };
           list.innerHTML = '';
         }
       }
-
-      setTimeout(() => {
-        loadRecentComments();
-      }, 5000);
+      loadRecentComments();
     </script>
