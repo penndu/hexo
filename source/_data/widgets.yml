@@ -84,7 +84,7 @@ recent_comments:
     <div id="recent-comments" style="margin-top: 10px;">
       <div id="recent-comments-list">加载中...</div>
     </div>
-  <style>
+    <style>
     #recent-comments-list {
       display: flex;
       flex-direction: column;
@@ -181,9 +181,9 @@ recent_comments:
     .comment-content a:hover {
       text-decoration: underline;
     }
-  </style>
+    </style>
 
-  <script>
+    <script>
     const API_BASE = 'https://artalk.dusays.com/api/v2';   //artalk地址
     const SITE_NAME = '杜老师说';  //网站名字
     const LIMIT = 6;  //显示几条
@@ -258,4 +258,4 @@ recent_comments:
     }
 
     loadRecentComments();
-  </script>
+    </script>
