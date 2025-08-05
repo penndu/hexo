@@ -10,13 +10,11 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 交换前请先做好本站的链接：
 
 > 名称：杜老师说
-站标：https://cdn.dusays.com/avatar.png
+站标：https://cdn.dusays.com/favicon.ico
 网址：https://dusays.com
 订阅：https://dusays.com/atom.xml
 
-如您没有站标，默认使用本站站标。因 jsDelivr 国内节点已关，使用 jsDelivr 地址的站标会被换为去不图床外链。
-
-当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/634/)》
+当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/634/)》一文。
 
 全站链接：
 
