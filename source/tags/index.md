@@ -1,4 +1,4 @@
 ---
 layout: tag
-title: 所有标签
+title: 标签
 ---
