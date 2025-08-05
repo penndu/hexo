@@ -99,7 +99,7 @@ site_tree:
   post:
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
     leftbar: wezh, welcome, related, recent # for pages using 'layout:post'
-    rightbar: ghrepo, toc, sffw, qbtc, ltgc, mmtg, sjtp
+    rightbar: ghrepo, toc, recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
   # 博客专栏文章内页配置
   topic:
     menu_id: post
@@ -281,6 +281,7 @@ comments:
     # Custom emoji
     # emoji:
     #   - https://unpkg.com/@waline/emojis@1.1.0/weibo
+    #   - https://unpkg.com/@waline/emojis@1.1.0/alus
     # 设置自己的图床服务，替换默认的 Base 64 编码嵌入（有体积大小限制），在评论中上传图片更加方便
     # imageUploader:
       # 适配了兰空图床V1、V2版本
