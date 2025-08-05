@@ -2,7 +2,7 @@
 title: 友链文章
 comments: false
 leftbar: wezh, welcome, recent
-rightbar: sffw, qbtc, ltgc, mmtg, sjtp
+rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
 <div id="hexo-circle-of-friends-root"></div>
