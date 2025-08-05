@@ -268,7 +268,7 @@ recent_comments:
             list.innerHTML = comments.map(c => {
               const timeText = timeAgo(c.date);
               const avatarUrl = getAvatarUrl(c.email_encrypted);
-              const pageLink = `${c.page_url}#comment-${c.id}`;
+              const pageLink = `${c.page_url}#atk-comment-${c.id}`;
               const contentPreview = c.content.replace(/<[^>]+>/g, '').slice(0, 60);
 
               return `
