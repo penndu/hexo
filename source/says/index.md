@@ -22,9 +22,9 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 
 保留权益：
 
-1. 严禁发布不良内容；
-2. 不得发布有广告嫌疑的内容；
-3. 杜老师有权在不通知的情况下删除任何触犯以上条例的内容；
-4. 最终解释权归杜老师说所有。
+{% checkbox checked:true 严禁发布不良内容； %}
+{% checkbox checked:true 不得发布有广告嫌疑的内容； %}
+{% checkbox checked:true 杜老师有权在不通知的情况下删除任何触犯以上条例的内容； %}
+{% checkbox checked:true 最终解释权归杜老师说所有。 %}
 
 {% quot 欢迎申请账户，加入说说广场! %}
