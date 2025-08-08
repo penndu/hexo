@@ -228,7 +228,7 @@ recent_comments:
       }
 
       function getAvatarUrl(emailEncrypted) {
-        return `https://weavatar.com/avatar/${emailEncrypted}?s=80&d=identicon`;
+        return `https://cdn.sep.cc/avatar/${emailEncrypted}?s=80&d=identicon`;
       }
 
       async function loadRecentComments() {
