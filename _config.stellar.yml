@@ -336,6 +336,9 @@ footer:
     comments:
       icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/033-spotify.svg"/>'
       url: https://dusays.com/baidusitemap.xml
+    theme:
+      icon: default:theme
+      onclick: 'switchTheme()'
   sitemap:
     # - title: 博客
 
