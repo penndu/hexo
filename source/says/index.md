@@ -18,7 +18,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 1. 直接前往 [平台页面](https://s.dusays.com/auth) 注册账号即可；
 2. 页面地址为 `https://s.dusays.com`；
 3. 平台底层 2H4G 服务器保障稳定运行，数据每周本地备份，每月异地备份保障安全；
-4. 如想搭建展示页面，可以参考《[使用 Memos 搭建时光机教程](https://dusays.com/561/)》一文。
+4. 如想搭建展示页面，可以参考《[使用 Memos 搭建时光机教程](https://dusays.com/archives/561/)》一文。
 
 保留权益：
 
