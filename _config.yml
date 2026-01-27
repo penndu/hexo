@@ -133,12 +133,12 @@ hexo_safego:
   # 域名白名单
   whitelist:
     domain_whitelist:           # 允许的白名单域名，通过字符串匹配实现
-      - "qyliu.top"
-      - "liushen.fun"
+      - "dusays.com"
+      - "7bu.top"
 
   # 页面外观设置
   appearance:
-    avatar: /info/avatar.ico    # 跳转页面头像路径
+    avatar: https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30?s=150&d=mm&r=g    # 跳转页面头像路径
     title: "杜老师说"            # 跳转页面标题
     subtitle: "安全中心"         # 跳转页面副标题
     darkmode: auto              # 是否启用深色模式
@@ -146,4 +146,4 @@ hexo_safego:
 
   # 调试设置
   debug:
-    enable: false               # 启用调试模式
+    enable: true               # 启用调试模式
