@@ -14,7 +14,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 网址：https://dusays.com
 订阅：https://dusays.com/atom.xml
 
-当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/634/)》一文。
+当您的网站无法访问或在贵站找不到本站链接，杜老师可能会在不通知的情况下撤掉贵站链接！具体规则详见《[友情链接的那些事](https://dusays.com/archives/634/)》一文。
 
 全站链接：
 

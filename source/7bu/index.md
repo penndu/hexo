@@ -200,7 +200,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 
 <!-- node 2022 年 04 月 06 日 -->
 
-为了满足更多小伙伴的使用需求，去不图床将于近期进行新版本的内测，点击 [这里](https://dusays.com/452/) 查看内测详情；
+为了满足更多小伙伴的使用需求，去不图床将于近期进行新版本的内测，点击 [这里](https://dusays.com/archives/452/) 查看内测详情；
 
 <!-- node 2022 年 04 月 04 日 -->
 
