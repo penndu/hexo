@@ -146,4 +146,4 @@ hexo_safego:
 
   # 调试设置
   debug:
-    enable: true               # 启用调试模式
+    enable: false               # 启用调试模式
