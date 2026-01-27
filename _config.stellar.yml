@@ -327,9 +327,6 @@ footer:
     github:
       icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/020-rss.svg"/>'
       url: https://dusays.com/atom.xml
-    music:
-      icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/017-picasa.svg"/>'
-      url: https://7bu.top/
     unsplash:
       icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/031-twitch.svg"/>'
       url: https://a.dusays.com/
