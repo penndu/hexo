@@ -124,7 +124,7 @@ hexo_safego:
   # 容器与页面设置
   scope:
     apply_containers:           # 应用的容器选择器
-      - '#article-container'
+      - 'article.content'
     apply_pages:                # 应用的页面路径
       - "/archives/"
       - "/devices/"
