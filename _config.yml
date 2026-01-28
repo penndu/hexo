@@ -138,7 +138,7 @@ hexo_safego:
 
   # 页面外观设置
   appearance:
-    avatar: https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30?s=150&d=mm&r=g    # 跳转页面头像路径
+    avatar: https://cdn.dusays.com/favicon.ico    # 跳转页面头像路径
     title: "杜老师说"            # 跳转页面标题
     subtitle: "安全中心"         # 跳转页面副标题
     darkmode: auto              # 是否启用深色模式
