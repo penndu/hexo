@@ -6,7 +6,7 @@ function layoutWikiCover() {
     return el;
   }
   if (proj.homepage.path !== page.path) {
-    return;
+    return el;
   }
   if (proj.coverpage == undefined || proj.coverpage === false || proj.coverpage === '[]') {
     return el;
