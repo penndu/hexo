@@ -62,13 +62,14 @@ if (theme.style.prefers_theme === 'auto') {
         html += `<div class="main-mask" onclick="sidebar.dismiss()"></div>`
       html += `</div>`
       html += `<aside class="l_right">`
-        html += partial('_partial/sidebar/index_rightbar')
+        html += partial('_partial/sidebar/index_rightbar').trim()
       html += `</aside>`
       html += partial('_partial/menubtn')
     html += `</div>`
     html += `<div class="scripts">`
       html += partial('_partial/scripts')
     html += `</div>`
+    html += `<div class="page-loading-bar"><img src="${theme.default.loading}"></div>`
   html += `</body>`
 html += `</html>`
 %>

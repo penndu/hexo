@@ -251,9 +251,6 @@
    * Start loading indicator
    */
   function startLoading() {
-    if (window.NProgress) {
-      NProgress.start();
-    }
     document.body.classList.add('pjax-loading');
   }
 
@@ -261,11 +258,7 @@
    * Stop loading indicator
    */
   function stopLoading() {
-    if (window.NProgress) {
-      NProgress.done();
-    }
     document.body.classList.remove('pjax-loading');
-
     // Trigger fade-in animation
     document.body.classList.add('pjax-loaded');
 
