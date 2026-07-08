@@ -5,7 +5,7 @@ leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
-<link href="https://jsd.dusays.com/npm/penndu@20.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
+
 <link href="https://jsd.dusays.com/npm/penndu@20.0.0/memos/css/APlayer.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.0.0/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.0.0/memos/css/custom.css" rel="stylesheet" type="text/css">
@@ -28,8 +28,8 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
     }
 </script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/marked.umd.min.js?v=14.0.0"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/view-image.min.js"></script>    
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/view-image.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/APlayer.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/Meting.min.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.1/memos/js/main.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/main.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/custom.js"></script>
