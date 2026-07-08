@@ -15,12 +15,6 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 </section>
 <script type="text/javascript">
     var memos = {
-        host: 'https://s.dusays.com/',
-        limit: '1',
-        creatorId: '1',
-        domId: '#memos',
-        username: 'penn',
-        name: 'Teacher Du',
         host: 'https://s.dusays.com/', // 修改为自己部署 Memos 的网址，末尾有 / 斜杠。
         limit: '1', // 每页显示的条数，默认显示 10 条。
         creatorId: 'penn', // 老的实例是 101，新的实例是 1。https://demo.usememos.com/u/1
@@ -37,5 +31,5 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/view-image.min.js"></script>    
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/APlayer.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/Meting.min.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/main.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.1/memos/js/main.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.0/memos/js/custom.js"></script>
