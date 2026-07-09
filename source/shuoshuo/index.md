@@ -5,10 +5,10 @@ leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
-<link href="https://jsd.dusays.com/npm/penndu@20.0.3/memos/css/style.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@17.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.0.3/memos/css/APlayer.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.0.3/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
-<link href="https://jsd.dusays.com/npm/penndu@20.0.3/memos/css/custom.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@20.0.2/memos/css/custom.css" rel="stylesheet" type="text/css">
 <section id="main" class="container">
     <div class="total">总计 <span id="total">0</span> 条说说</div>
     <div id="memos" class="memos"></div>
