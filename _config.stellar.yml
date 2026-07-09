@@ -325,13 +325,13 @@ comments:
 footer:
   social:
     github:
-      icon: '<img src="https://jsd.dusays.com/npm/dusays@5.0.0/020-rss.svg"/>'
+      icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/020-rss.svg"/>'
       url: https://dusays.com/atom.xml
     unsplash:
-      icon: '<img src="https://jsd.dusays.com/npm/dusays@5.0.0/031-twitch.svg"/>'
+      icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/031-twitch.svg"/>'
       url: https://a.dusays.com/
     comments:
-      icon: '<img src="https://jsd.dusays.com/npm/dusays@5.0.0/033-spotify.svg"/>'
+      icon: '<img src="https://jsd.admincdn.com/npm/dusays@5.0.0/033-spotify.svg"/>'
       url: https://dusays.com/baidusitemap.xml
     theme:
       icon: solar:sunny-outline
