@@ -8,7 +8,7 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 <link href="https://jsd.dusays.com/npm/penndu@20.0.6/memos/css/style.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.0.6/memos/css/APlayer.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.0.6/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
-<link href="https://jsd.dusays.com/npm/penndu@20.0.7/memos/css/custom.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@20.0.0/memos/css/custom.css" rel="stylesheet" type="text/css">
 <section id="main" class="container">
     <div class="total">总计 <span id="total">0</span> 条说说</div>
     <div id="memos" class="memos"></div>
@@ -32,4 +32,4 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.6/memos/js/APlayer.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.6/memos/js/Meting.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.7/memos/js/main.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.7/memos/js/custom.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.4/memos/js/custom.js"></script>
