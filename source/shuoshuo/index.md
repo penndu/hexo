@@ -5,10 +5,10 @@ leftbar: wezh, welcome, recent
 rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
-<link href="https://jsd.dusays.com/npm/penndu@17.0.0/memos/css/style.css" rel="stylesheet" type="text/css">
-<link href="https://jsd.dusays.com/npm/penndu@20.0.3/memos/css/APlayer.min.css" rel="stylesheet" type="text/css">
-<link href="https://jsd.dusays.com/npm/penndu@20.0.3/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
-<link href="https://jsd.dusays.com/npm/penndu@20.0.2/memos/css/custom.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@20.0.5/memos/css/style.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@20.0.5/memos/css/APlayer.min.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@20.0.5/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
+<link href="https://jsd.dusays.com/npm/penndu@20.0.5/memos/css/custom.css" rel="stylesheet" type="text/css">
 <section id="main" class="container">
     <div class="total">总计 <span id="total">0</span> 条说说</div>
     <div id="memos" class="memos"></div>
@@ -27,9 +27,9 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
         doubanAPI: '', // 填入一个 API 渲染豆瓣条目，不填不渲染，只显示 URL，自建 API：https://github.com/eallion/douban-api-rs
     }
 </script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.3/memos/js/marked.umd.min.js?v=14.0.0"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.3/memos/js/view-image.min.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.3/memos/js/APlayer.min.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.3/memos/js/Meting.min.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.3/memos/js/main.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.3/memos/js/custom.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.5/memos/js/marked.umd.min.js?v=14.0.0"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.5/memos/js/view-image.min.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.5/memos/js/APlayer.min.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.5/memos/js/Meting.min.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.5/memos/js/main.js"></script>
+<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.0.5/memos/js/custom.js"></script>
