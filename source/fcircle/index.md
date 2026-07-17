@@ -5,21 +5,25 @@ leftbar: wezh, welcome, recent
 rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 ---
 
-<div id="hexo-circle-of-friends-root"></div>
+<div id="friend-circle-container">与主机通讯中……</div>
+
 <script>
-    let UserConfig = {
-        // 填写你的api地址
-        private_api_url: 'https://f.dusays.com/',
-        // 初始加载几篇文章
-        page_init_number: 10,
-        // 点击加载更多时，一次最多加载几篇文章，默认10
-        page_turning_number: 10,
-        // 头像加载失败时，默认头像地址
-        error_img: 'https://weavatar.com/avatar/57d8260dfb55501c37dde588e7c3852c',
-        // 进入页面时第一次的排序规则
-        sort_rule: 'created',
-        // 本地文章缓存数据过期时间（天）
-        expire_days: 1,
+    if (typeof UserConfig === 'undefined') {
+        var UserConfig = {
+            // 你的 hexo-circle-of-friends 后端地址（需部署后端 API）
+            private_api_url: 'https://f.dusays.com/',
+
+            // 每次点击“加载更多”时加载的文章数量，默认 24
+            page_turning_number: 10,
+
+            // 头像加载失败时的默认图片
+            error_img: 'https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/logo.png',
+        }
     }
 </script>
-<script type="text/javascript" src="https://jsd.admincdn.com/npm/fcircle-theme-yyyz@1.1.1/dist/fcircle.min.js"></script>
+
+<!-- 样式文件：以主题命名，目前默认支持 butterfly -->
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/hexo-theme-butterfly/default.min.css">
+
+<!-- 脚本文件：对应主题样式功能 -->
+<script src="https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/hexo-theme-butterfly/default.min.js"></script>
