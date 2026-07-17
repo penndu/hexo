@@ -23,7 +23,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 </script>
 
 <!-- 样式文件：以主题命名，目前默认支持 butterfly -->
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/hexo-theme-butterfly/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/penndu/dusays/fcircle.css">
 
 <!-- 脚本文件：对应主题样式功能 -->
 <script src="https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/hexo-theme-butterfly/default.min.js"></script>
