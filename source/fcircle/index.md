@@ -14,7 +14,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
             private_api_url: 'https://f.dusays.com/',
 
             // 每次点击“加载更多”时加载的文章数量，默认 24
-            page_turning_number: 10,
+            page_turning_number: 12,
 
             // 头像加载失败时的默认图片
             error_img: 'https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/logo.png',
