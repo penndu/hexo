@@ -14,7 +14,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
             private_api_url: 'https://f.dusays.com/',
 
             // 每次点击“加载更多”时加载的文章数量，默认 24
-            page_turning_number: 20,
+            page_turning_number: 10,
 
             // 头像加载失败时的默认图片
             error_img: 'https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/logo.png',
@@ -23,7 +23,7 @@ rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
 </script>
 
 <!-- 样式文件：以主题命名，目前默认支持 butterfly -->
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/penndu/dusays@ee9cee0/fcircle.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/penndu/dusays@31529ba/fcircle.css">
 
 <!-- 脚本文件：对应主题样式功能 -->
 <script src="https://cdn.jsdmirror.com/gh/Rock-Candy-Tea/Friend-Circle-Frontend/hexo-theme-butterfly/default.min.js"></script>
