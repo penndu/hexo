@@ -192,7 +192,7 @@ article:
   category_color:
     '探索号': '#f44336'
   # 文章许可协议
-  license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议，转载请注明出处。'
+  license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议，转载请注明出处。</br><iframe src="https://cdn.dusays.com/drinks/" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;"  frameborder="0" scrolling="no"></iframe>'
   # 分享
   share: # [wechat, weibo, email, link]
   # 相关文章，需要安装插件 (for layout: post)
