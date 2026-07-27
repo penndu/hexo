@@ -31,5 +31,6 @@ rightbar: sffw, qbtc, ltgc, mmtg, sjtp
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.1.0/memos/js/view-image.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.1.0/memos/js/APlayer.min.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.1.0/memos/js/Meting.min.js"></script>
-<script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.1.0/memos/js/main.js"></script>
+<!-- 0.30.0 适配：使用本地 main.js（基于 penndu@20.1.0 完整版 + 适配 0.30.0 API 改动）。原 CDN 的 main.js 是残缺版（仅 180 行）且未适配 0.30.0 -->
+<script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="https://jsd.dusays.com/npm/penndu@20.1.0/memos/js/custom.js"></script>
