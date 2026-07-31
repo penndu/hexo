@@ -13,20 +13,28 @@ utils.jq(() => {
         const data = await resp.json();
         const arr = data.article_data || [];
         const limit = el.getAttribute('limit');
+        // 安全修复：来自外部 API 字段需 HTML / 属性转义，避免 XSS。
+        const safeAvatarDefault = util.escapeAttr(default_avatar);
         arr.forEach((item, i) => {
           if (limit && i >= limit) {
             return;
           }
-          var cell = '<div class="timenode" index="' + i + '">';
+          const safeIndex = util.escapeAttr(i);
+          const safeAvatar = util.escapeAttr(item.avatar || default_avatar);
+          const safeAuthor = util.escapeHtml(item.author || '');
+          const safeCreated = util.escapeHtml(item.created || '');
+          const safeLink = util.escapeAttr(item.link || '#');
+          const safeTitle = util.escapeHtml(item.title || '');
+          var cell = '<div class="timenode" index="' + safeIndex + '">';
           cell += '<div class="header">';
           cell += '<div class="user-info">';
-          cell += '<img src="' + (item.avatar || default_avatar) + '" onerror="javascript:this.src=\'' + default_avatar + '\';">';
-          cell += '<span>' + item.author + '</span>';
+          cell += '<img src="' + safeAvatar + '" onerror="javascript:this.src=\'' + safeAvatarDefault + '\';">';
+          cell += '<span>' + safeAuthor + '</span>';
           cell += '</div>';
-          cell += '<span>' + item.created + '</span>';
+          cell += '<span>' + safeCreated + '</span>';
           cell += '</div>';
-          cell += '<a class="body" href="' + item.link + '" target="_blank" rel="external nofollow noopener noreferrer">';
-          cell += item.title;
+          cell += '<a class="body" href="' + safeLink + '" target="_blank" rel="external nofollow noopener noreferrer">';
+          cell += safeTitle;
           cell += '</a>';
           cell += '</div>';
           $(el).append(cell);

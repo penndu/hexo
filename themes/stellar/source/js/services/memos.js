@@ -27,7 +27,7 @@ utils.jq(() => {
       return `<div class="timenode">
                       <div class="header">${!users.length && !hide.includes('user') ? await versionHandler.buildUser(item, memos, default_avatar) : ''}
                       <span>${versionHandler.buildDate(item).toLocaleString()}</span></div>
-                      <div class="body">${marked.parse(item.content || '')}
+                      <div class="body">${sanitize_user_html(marked.parse(item.content || ''))}
                       <p>${versionHandler.buildImages(item, host).join('')}</p>
                       </div></div>`;
     }
@@ -35,12 +35,16 @@ utils.jq(() => {
     // Memos版本管理
     const versionHandlers = {
       "22-": {
-        buildUser: async (item, memos, default_avatar) =>
-            `<div class="user-info">${default_avatar ? `<img src="${default_avatar}">` : ''}<span>${item.creatorName}</span></div>`,
+        buildUser: async (item, memos, default_avatar) => {
+          const safeAvatar = util.escapeAttr(default_avatar || '');
+          const safeName = util.escapeHtml(item.creatorName || '');
+          return `<div class="user-info">${default_avatar ? `<img src="${safeAvatar}">` : ''}<span>${safeName}</span></div>`;
+        },
         buildDate: item => new Date(item.createdTs * 1000),
-        buildImages: (item, host) => (item.resourceList || []).filter(res => res.type?.includes('image/')).map(res =>
-            `<p><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></p>`
-        )
+        buildImages: (item, host) => (item.resourceList || []).filter(res => res.type?.includes('image/')).map(res => {
+          const safeSrc = util.escapeAttr(res.externalLink || `https://${host}/o/r/${res.id}`);
+          return `<p><img src="${safeSrc}"></p>`;
+        })
       },
       "22+": {
         buildUser: async (item, memos, default_avatar) => {
@@ -65,12 +69,15 @@ utils.jq(() => {
           }
           const name = user ? user.nickname || user.username : 'memos';
           const avatarUrl = user?.avatarUrl ? `${memos.site}${user.avatarUrl}` : default_avatar || '';
-          return `<div class="user-info">${avatarUrl ? `<img src="${avatarUrl}">` : ''}<span>${name}</span></div>`;
+          const safeAvatar = util.escapeAttr(avatarUrl);
+          const safeName = util.escapeHtml(name);
+          return `<div class="user-info">${avatarUrl ? `<img src="${safeAvatar}">` : ''}<span>${safeName}</span></div>`;
         },
         buildDate: item => new Date(item.createTime),
-        buildImages: (item) => (item.resources || []).filter(res => res.type?.includes('image/')).map(res =>
-            `<p><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></p>`
-        )
+        buildImages: (item) => (item.resources || []).filter(res => res.type?.includes('image/')).map(res => {
+          const safeSrc = util.escapeAttr(res.externalLink || `https://${host}/o/r/${res.id}`);
+          return `<p><img src="${safeSrc}"></p>`;
+        })
       },
       "25+": {
         buildUser: async (item, memos, default_avatar) => {
@@ -93,15 +100,17 @@ utils.jq(() => {
             await memos.requests[creatorId];
             user = memos.users.find(user => user.name.split('/')[1] === creatorId);
           }
-          console.log(JSON.stringify(user));
           const name = user ? user.displayName || user.username : 'memos';
           const avatarUrl = user?.avatarUrl ? `${memos.site}${user.avatarUrl}` : default_avatar || '';
-          return `<div class="user-info">${avatarUrl ? `<img src="${avatarUrl}">` : ''}<span>${name}</span></div>`;
+          const safeAvatar = util.escapeAttr(avatarUrl);
+          const safeName = util.escapeHtml(name);
+          return `<div class="user-info">${avatarUrl ? `<img src="${safeAvatar}">` : ''}<span>${safeName}</span></div>`;
         },
         buildDate: item => new Date(item.createTime),
-        buildImages: (item) => (item.attachments || []).filter(res => res.type?.includes('image/')).map(res =>
-            `<div class="image-bg"><img src="${res.externalLink || `https://${host}/file/${res.name}/${res.filename}`}"></div>`
-        )
+        buildImages: (item) => (item.attachments || []).filter(res => res.type?.includes('image/')).map(res => {
+          const safeSrc = util.escapeAttr(res.externalLink || `https://${host}/file/${res.name}/${res.filename}`);
+          return `<div class="image-bg"><img src="${safeSrc}"></div>`;
+        })
       },
       "feature": {
         buildUser: async () => "memos",
@@ -130,5 +139,40 @@ utils.jq(() => {
       }
     };
   });
-});
 
+  // 最小 HTML 净化：去除 <script>、事件处理器属性（on*）、javascript: 链接。
+  function sanitize_user_html(html) {
+    if (typeof html !== 'string') return '';
+    try {
+      const template = document.createElement('template');
+      template.innerHTML = html;
+      const node = template.content;
+      const walker = document.createTreeWalker(node, NodeFilter.SHOW_ELEMENT);
+      const all = [];
+      let current = walker.nextNode();
+      while (current) { all.push(current); current = walker.nextNode(); }
+      const tagsToRemove = ['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'FORM', 'INPUT', 'TEXTAREA', 'BUTTON', 'LINK', 'META'];
+      for (const el of all) {
+        if (tagsToRemove.includes(el.tagName)) {
+          el.remove();
+          continue;
+        }
+        const attrs = el.attributes;
+        const removeAttrs = [];
+        for (let i = 0; i < attrs.length; i++) {
+          const name = attrs[i].name;
+          const value = attrs[i].value;
+          if (/^on/i.test(name)) removeAttrs.push(name);
+          else if ((name === 'href' || name === 'src') && /^\s*javascript:/i.test(value)) removeAttrs.push(name);
+          else if (name === 'srcdoc') removeAttrs.push(name);
+        }
+        for (const name of removeAttrs) {
+          el.removeAttribute(name);
+        }
+      }
+      return template.innerHTML;
+    } catch (e) {
+      return '';
+    }
+  }
+});

@@ -10,11 +10,20 @@ utils.jq(() => {
       // layout
       utils.request(null, api, async resp => {
         const data = await resp.json();
+        function safeUrl(url) {
+          // 阻止 javascript: 等危险协议被注入到 href/src。
+          if (typeof url !== 'string') return '';
+          const trimmed = url.trim();
+          if (/^\s*(javascript|data|vbscript):/i.test(trimmed)) {
+            return '';
+          }
+          return trimmed;
+        }
         function fill(data) {
           for (let key of Object.keys(data)) {
             $(el).find("[type=text]#" + key).text(data[key]);
-            $(el).find("[type=link]#" + key).attr("href", data[key]);
-            $(el).find("[type=img]#" + key).attr("src", data[key]);
+            $(el).find("[type=link]#" + key).attr("href", safeUrl(data[key]));
+            $(el).find("[type=img]#" + key).attr("src", safeUrl(data[key]));
           }
         }
         const idx = el.getAttribute('index');
