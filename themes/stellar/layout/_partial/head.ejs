@@ -150,7 +150,7 @@ function generate_canonical() {
   <% } %>
 
   <link rel="stylesheet" href="<%- url_for(`${theme.stellar.main_css}?v=${stellar_info('version')}`) %>">
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/util@0.12.5/util.js"></script>
 
   <% if (config.favicon) { %>
     <%- favicon_tag(config.favicon) %>
