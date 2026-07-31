@@ -55,7 +55,7 @@ function handleAtom(el, doc, content_type, show_title, show_content, limit) {
   const feedAuthorName = doc.querySelector('feed > author > name')?.textContent || '匿名';
 
   const limitedEntries = Array.from(entries).slice(0, limit);
-  
+
   const htmlBuffer = limitedEntries.map((item, i) => {
     const title = item.querySelector('title')?.textContent || '无题';
     const link = item.querySelector('link')?.getAttribute('href') || '#';
@@ -64,13 +64,18 @@ function handleAtom(el, doc, content_type, show_title, show_content, limit) {
     const summary = item.querySelector('summary')?.textContent || '';
     const authorName = item.querySelector('author > name')?.textContent || feedAuthorName;
 
-    let cell = `<div class="timenode" index="${i}">`;
+    // 安全修复：来自外部 RSS 字段需 HTML / 属性转义，避免 XSS。
+    const safeIndex = util.escapeAttr(String(i));
+    const safeTitle = util.escapeHtml(title);
+    const safeLink = util.escapeAttr(link);
+    const safeAuthor = util.escapeHtml(authorName);
+    let cell = `<div class="timenode" index="${safeIndex}">`;
     cell += `<div class="header">`;
-    cell += `<span class="user-info"><strong>${authorName}</strong></span>`;
-    
+    cell += `<span class="user-info"><strong>${safeAuthor}</strong></span>`;
+
     if (published) {
       const date = new Date(published);
-      cell += `<span>${date.toLocaleString()}</span>`;
+      cell += `<span>${util.escapeHtml(date.toLocaleString())}</span>`;
     }
     cell += `</div>`;
 
@@ -78,13 +83,15 @@ function handleAtom(el, doc, content_type, show_title, show_content, limit) {
     if (show_title) {
       const titleAttr = show_content ? '' : ' style="border-bottom:none;"' ;
       const linkAttr = show_content ? '' : ' style="padding-bottom:0"' ;
-      cell += `<p class="title"${titleAttr}><a href="${link}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${title}</a></p>`;
+      cell += `<p class="title"${titleAttr}><a href="${safeLink}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${safeTitle}</a></p>`;
     }
     if (show_content){
-      cell += `<div class="content">${content_type === 'summary' ? summary : content}</div>`;
+      // RSS 中的 content/summary 是 HTML 片段，做一次最小净化。
+      const raw = content_type === 'summary' ? summary : content;
+      cell += `<div class="content">${sanitize_user_html(raw)}</div>`;
     }
     cell += `</div></div>`;
-    
+
     return cell;
   }).join('');
 
@@ -103,22 +110,29 @@ function handleRSS2(el, doc, content_type, show_title, show_content, limit) {
     const description = item.getElementsByTagName('description')[0]?.textContent || '';
     const authorName = item.querySelector('author, creator')?.textContent || feedAuthorName;
 
-    let cell = `<div class="timenode" index="${i}">`;
+    // 安全修复：来自外部 RSS 字段需 HTML / 属性转义，避免 XSS。
+    const safeIndex = util.escapeAttr(String(i));
+    const safeTitle = util.escapeHtml(title);
+    const safeLink = util.escapeAttr(link);
+    const safeAuthor = util.escapeHtml(authorName);
+    let cell = `<div class="timenode" index="${safeIndex}">`;
     cell += `<div class="header">`;
-    cell += `<span class="user-info"><strong>${authorName}</strong></span>`;
+    cell += `<span class="user-info"><strong>${safeAuthor}</strong></span>`;
     if (pubDate) {
       const date = new Date(pubDate);
-      cell += `<span>${isNaN(date) ? pubDate : date.toLocaleString()}</span>`;
+      cell += `<span>${util.escapeHtml(isNaN(date) ? pubDate : date.toLocaleString())}</span>`;
     }
     cell += `</div>`;
     cell += `<div class="body">`;
     if (show_title) {
       const titleAttr = show_content ? '' : ' style="border-bottom:none;"' ;
       const linkAttr = show_content ? '' : ' style="padding-bottom:0"' ;
-      cell += `<p class="title"${titleAttr}><a href="${link}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${title}</a></p>`;
+      cell += `<p class="title"${titleAttr}><a href="${safeLink}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${safeTitle}</a></p>`;
     }
     if (show_content){
-      cell += `<div class="content">${content_type === 'summary' ? description : content}</div>`;
+      // RSS 中的 description/content 是 HTML 片段，做一次最小净化。
+      const raw = content_type === 'summary' ? description : content;
+      cell += `<div class="content">${sanitize_user_html(raw)}</div>`;
     }
     cell += `</div></div>`;
     return cell;
@@ -138,22 +152,28 @@ function handleRSS1(el, doc, content_type, show_title, show_content, limit) {
     const description = (item.querySelector('description') || item.querySelector('summary'))?.textContent || '';
     const authorName = (item.querySelector('author') || item.getElementsByTagName('dc:creator')[0])?.textContent || feedTitle;
 
-    let cell = `<div class="timenode" index="${i}">`;
+    // 安全修复：来自外部 RSS 字段需 HTML / 属性转义，避免 XSS。
+    const safeIndex = util.escapeAttr(String(i));
+    const safeTitle = util.escapeHtml(title);
+    const safeLink = util.escapeAttr(link);
+    const safeAuthor = util.escapeHtml(authorName);
+    let cell = `<div class="timenode" index="${safeIndex}">`;
     cell += `<div class="header">`;
-    cell += `<span class="user-info"><strong>${authorName}</strong></span>`;
+    cell += `<span class="user-info"><strong>${safeAuthor}</strong></span>`;
     if (pubDate) {
       const date = new Date(pubDate);
-      cell += `<span>${isNaN(date) ? pubDate : date.toLocaleString()}</span>`;
+      cell += `<span>${util.escapeHtml(isNaN(date) ? pubDate : date.toLocaleString())}</span>`;
     }
     cell += `</div>`;
     cell += `<div class="body">`;
     if (show_title) {
       const titleAttr = show_content ? '' : ' style="border-bottom:none;"' ;
       const linkAttr = show_content ? '' : ' style="padding-bottom:0"' ;
-      cell += `<p class="title"${titleAttr}><a href="${link}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${title}</a></p>`;
+      cell += `<p class="title"${titleAttr}><a href="${safeLink}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${safeTitle}</a></p>`;
     }
     if (show_content){
-      cell += `<div class="content">${content_type === 'summary' ? description : content}</div>`;
+      const raw = content_type === 'summary' ? description : content;
+      cell += `<div class="content">${sanitize_user_html(raw)}</div>`;
     }
     cell += `</div></div>`;
     return cell;
@@ -172,29 +192,71 @@ function handleJsonFeed(el, data, content_type, show_title, show_content, limit)
     const pubDate = item.date_published;
     const content = item.content_html || '';
     const summary = item.summary || '';
-    
+
     let authorName = (item.authors || []).map(a => a.name).filter(Boolean).join(' ') || feedAuthorName;
 
-    let cell = `<div class="timenode" index="${id}">`;
+    // 安全修复：来自外部 JSON Feed 字段需 HTML / 属性转义，避免 XSS。
+    const safeIndex = util.escapeAttr(String(id));
+    const safeTitle = util.escapeHtml(title);
+    const safeLink = util.escapeAttr(link);
+    const safeAuthor = util.escapeHtml(authorName);
+    let cell = `<div class="timenode" index="${safeIndex}">`;
     cell += `<div class="header">`;
-    cell += `<span class="user-info"><strong>${authorName}</strong></span>`;
+    cell += `<span class="user-info"><strong>${safeAuthor}</strong></span>`;
     if (pubDate) {
       const date = new Date(pubDate);
-      cell += `<span>${isNaN(date.getTime()) ? pubDate : date.toLocaleString()}</span>`;
+      cell += `<span>${util.escapeHtml(isNaN(date.getTime()) ? pubDate : date.toLocaleString())}</span>`;
     }
     cell += `</div>`;
     cell += `<div class="body">`;
     if (show_title) {
       const titleAttr = show_content ? '' : ' style="border-bottom:none;"' ;
       const linkAttr = show_content ? '' : ' style="padding-bottom:0"' ;
-      cell += `<p class="title"${titleAttr}><a href="${link}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${title}</a></p>`;
+      cell += `<p class="title"${titleAttr}><a href="${safeLink}"${linkAttr} target="_blank" rel="external nofollow noopener noreferrer">${safeTitle}</a></p>`;
     }
     if (show_content){
-      cell += `<div class="content">${content_type === 'summary' ? summary : content}</div>`;
+      const raw = content_type === 'summary' ? summary : content;
+      cell += `<div class="content">${sanitize_user_html(raw)}</div>`;
     }
     cell += `</div></div>`;
     return cell;
   }).join('');
 
   $(el).append(htmlBuffer);
+}
+
+// 最小 HTML 净化：去除 <script>、事件处理器属性（on*）、javascript: 链接。
+function sanitize_user_html(html) {
+  if (typeof html !== 'string') return '';
+  try {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    const node = template.content;
+    const walker = document.createTreeWalker(node, NodeFilter.SHOW_ELEMENT);
+    const all = [];
+    let current = walker.nextNode();
+    while (current) { all.push(current); current = walker.nextNode(); }
+    const tagsToRemove = ['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'FORM', 'INPUT', 'TEXTAREA', 'BUTTON', 'LINK', 'META'];
+    for (const el of all) {
+      if (tagsToRemove.includes(el.tagName)) {
+        el.remove();
+        continue;
+      }
+      const attrs = el.attributes;
+      const removeAttrs = [];
+      for (let i = 0; i < attrs.length; i++) {
+        const name = attrs[i].name;
+        const value = attrs[i].value;
+        if (/^on/i.test(name)) removeAttrs.push(name);
+        else if ((name === 'href' || name === 'src') && /^\s*javascript:/i.test(value)) removeAttrs.push(name);
+        else if (name === 'srcdoc') removeAttrs.push(name);
+      }
+      for (const name of removeAttrs) {
+        el.removeAttribute(name);
+      }
+    }
+    return template.innerHTML;
+  } catch (e) {
+    return '';
+  }
 }

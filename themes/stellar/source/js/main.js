@@ -1,6 +1,24 @@
 // utils
 const util = {
 
+  // HTML 文本转义：防止来自外部 API 的字符串在 innerHTML / 模板字符串中产生 XSS
+  escapeHtml: (value) => {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  },
+
+  // 属性值转义：在写入 onload / onerror / data-* 等属性时使用。
+  escapeAttr: (value) => {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/\r?\n/g, '');
+  },
+
   // https://github.com/jerryc127/hexo-theme-butterfly
   diffDate: (d, more = false) => {
     const dateNow = new Date()
