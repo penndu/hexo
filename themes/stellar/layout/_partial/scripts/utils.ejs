@@ -41,7 +41,11 @@
     }
   }
 
-  const utils = {
+  // 已加载样式缓存
+  // 注意：必须用 var（而非 const/let），顶级 var 声明会自动成为 window.utils。
+  // 其它 script（如 layout/_partial/scripts/services.ejs 通过 utils.initPlugin 调用本对象）
+  // 才能跨 script 访问到 utils。
+  var utils = {
     // 已加载样式缓存
     _loadedStyles: new Set(),
 

@@ -336,3 +336,6 @@ init.canonicalCheck();
 document.addEventListener('pjax:complete', function () {
   stellar.initPage();
 });
+
+// Expose util to window so dynamically-loaded service scripts (e.g. friends.js, contributors.js, siteinfo.js, rss.js, etc.) can access util.escapeHtml / util.escapeAttr / util.diffDate / util.copy. Top-level `const` does not become a global property, which is what triggered the "util is not defined" error.
+window.util = util;
