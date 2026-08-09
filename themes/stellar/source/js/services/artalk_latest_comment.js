@@ -1,6 +1,5 @@
-utils.jq(() => {
-    $(function () {
-      const els = document.getElementsByClassName('ds-artalk');
+(function () {
+  const els = document.getElementsByClassName('ds-artalk');
       for (var i = 0; i < els.length; i++) {
         const el = els[i];
         const limit = parseInt(el.getAttribute('limit')) || 10;
@@ -35,10 +34,11 @@ utils.jq(() => {
             cell += cleanHtml;
             cell += '</a>';
             cell += '</div>';
-            $(el).append(cell);
+            utils.dom(el).append(cell);
           });
         });
       }
+<<<<<<< HEAD
     });
   });
 
@@ -81,3 +81,7 @@ utils.jq(() => {
       return '';
     }
   }
+=======
+})();
+  
+>>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2

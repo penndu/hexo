@@ -1,4 +1,4 @@
-utils.jq(() => {
+(function () {
   const els = Array.from(document.getElementsByClassName('ds-memos'));
 
   els.forEach(el => {
@@ -18,7 +18,7 @@ utils.jq(() => {
       const hide = el.getAttribute('hide')?.split(",") || [];
 
       await Promise.all(memos.data.slice(0, limit || memos.data.length).map(item =>
-          createMemoCell(item, memos, users, hide, default_avatar, host).then(cell => $(el).append(cell))
+          createMemoCell(item, memos, users, hide, default_avatar, host).then(cell => utils.dom(el).append(cell))
       ));
     });
 
@@ -139,6 +139,7 @@ utils.jq(() => {
       }
     };
   });
+<<<<<<< HEAD
 
   // 最小 HTML 净化：去除 <script>、事件处理器属性（on*）、javascript: 链接。
   function sanitize_user_html(html) {
@@ -176,3 +177,6 @@ utils.jq(() => {
     }
   }
 });
+=======
+})();
+>>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2

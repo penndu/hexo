@@ -1,6 +1,5 @@
-utils.jq(() => {
-    $(function () {
-      const els = document.getElementsByClassName('ds-giscus');
+(function () {
+  const els = document.getElementsByClassName('ds-giscus');
       for (var i = 0; i < els.length; i++) {
         const el = els[i];
         const api = el.dataset.api;
@@ -39,9 +38,8 @@ utils.jq(() => {
             cell += safeComment;
             cell += '</a>';
             cell += '</div>';
-            $(el).append(cell);
+            utils.dom(el).append(cell);
           });
         });
       }
-    });
-  });
+})();

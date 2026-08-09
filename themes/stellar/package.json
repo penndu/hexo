@@ -1,10 +1,12 @@
 {
   "name": "hexo-theme-stellar",
-  "version": "1.33.1",
+  "version": "1.35.0",
   "description": "Elegant and powerful theme for Hexo.",
   "main": "package.json",
   "scripts": {
-    "test": "echo test"
+    "test": "echo test",
+    "release": "node release.js",
+    "release:dry": "node release.js --dry-run"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "dependencies": {
     "cheerio": "^1.1.0",
+    "glob": "^10.4.0",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "probe-image-size": "^7.2.3"
