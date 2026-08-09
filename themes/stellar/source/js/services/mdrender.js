@@ -1,4 +1,4 @@
-utils.jq(() => {
+(function () {
   const els = document.getElementsByClassName('ds-mdrender');
   for (var i = 0; i < els.length; i++) {
     const el = els[i];
@@ -12,6 +12,7 @@ utils.jq(() => {
       el.innerHTML = sanitize_user_html(marked.parse(data));
     });
   }
+<<<<<<< HEAD
 
   // 最小 HTML 净化：去除 <script>、事件处理器属性（on*）、javascript: 链接。
   function sanitize_user_html(html) {
@@ -49,3 +50,6 @@ utils.jq(() => {
     }
   }
 });
+=======
+})();
+>>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2

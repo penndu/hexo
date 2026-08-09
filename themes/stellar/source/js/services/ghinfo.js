@@ -1,6 +1,5 @@
-utils.jq(() => {
-  $(function () {
-    const els = document.getElementsByClassName('ds-ghinfo');
+(function () {
+  const els = document.getElementsByClassName('ds-ghinfo');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
       const api = el.dataset.api;
@@ -21,9 +20,15 @@ utils.jq(() => {
         }
         function fill(data) {
           for (let key of Object.keys(data)) {
+<<<<<<< HEAD
             $(el).find("[type=text]#" + key).text(data[key]);
             $(el).find("[type=link]#" + key).attr("href", safeUrl(data[key]));
             $(el).find("[type=img]#" + key).attr("src", safeUrl(data[key]));
+=======
+            utils.dom(el).find("[type=text]#" + key).text(data[key]);
+            utils.dom(el).find("[type=link]#" + key).attr("href", data[key]);
+            utils.dom(el).find("[type=img]#" + key).attr("src", data[key]);
+>>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2
           }
         }
         const idx = el.getAttribute('index');
@@ -39,5 +44,4 @@ utils.jq(() => {
         }
       });
     }
-  });
-});
+})();

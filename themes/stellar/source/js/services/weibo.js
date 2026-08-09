@@ -1,6 +1,5 @@
-utils.jq(() => {
-  $(function () {
-    const els = document.getElementsByClassName('ds-weibo');
+(function () {
+  const els = document.getElementsByClassName('ds-weibo');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
       const api = el.dataset.api;
@@ -63,9 +62,13 @@ utils.jq(() => {
 
           cell += '</div>';
           cell += '</div>';
+<<<<<<< HEAD
           $(el).append(cell);
+=======
+          // 右下角结束
+          utils.dom(el).append(cell);
+>>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2
         });
       });
     }
-  });
-});
+})();

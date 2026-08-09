@@ -1,24 +1,53 @@
 name: npm-publish
 
 on:
-  push:
-    branches:
-      - npm
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch or tag to publish from'
+        required: true
+        default: 'npm'
+        type: string
+
+permissions:
+  id-token: write
+  contents: write
 
 jobs:
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    - name: Publish if version has been updated
-      uses: pascalgn/npm-publish-action@1.3.9
-      with: # All of theses inputs are optional
-        tag_name: "%s"
-        tag_message: "%s"
-        commit_pattern: "^release\\:\ (.*)"
-        workspace: "."
-      env: # More info about the environment variables in the README
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Extract version from package.json
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Check if version already published
+        id: check
+        run: |
+          PKG="hexo-theme-stellar"
+          VER="${{ steps.version.outputs.version }}"
+          PUBLISHED=$(npm view "$PKG" versions --json 2>/dev/null | node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).includes('$VER') ? 'true' : 'false')")
+          echo "skip=$PUBLISHED" >> $GITHUB_OUTPUT
+
+      - name: Publish to npm
+        if: steps.check.outputs.skip == 'false'
+        run: npm publish --provenance --access public
+
+      - name: Create Git tag
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          git tag "$VERSION"
+          git push origin "$VERSION"

@@ -1,6 +1,5 @@
-utils.jq(() => {
-    $(function () {
-      const els = document.getElementsByClassName('ds-waline');
+(function () {
+  const els = document.getElementsByClassName('ds-waline');
       for (var i = 0; i < els.length; i++) {
         const el = els[i];
         const limit = parseInt(el.getAttribute('limit')) || 10;
@@ -39,9 +38,8 @@ utils.jq(() => {
             cell += safeComment;
             cell += '</a>';
             cell += '</div>';
-            $(el).append(cell);
+            utils.dom(el).append(cell);
           });
         });
       }
-    });
-  });
+})();
