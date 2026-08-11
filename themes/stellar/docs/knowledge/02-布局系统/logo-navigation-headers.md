@@ -239,22 +239,23 @@ flowchart TD
 
 ```yaml
 style:
+  gradient:
+    avatar: 'conic-gradient(from 0deg, #04f3ff, #08ffc6, #ddf730, #ffbd19, #ff1fe0, #c418ff, #3b5bff, #04f3ff)' # 头像旋转光环的渐变色（彩虹，首尾同色保证旋转无缝）
   animated_avatar:
     animate: auto  # auto, always, or false
-    background: https://example.com/rainbow-background.webp
 ```
 
 **渲染逻辑：**
 
 `theme.style.animated_avatar.animate` 启用且存在 `logo.avatar` 时，系统渲染：
 
-1. 背景层 `<div class="bg">`（初始 `opacity: 0`）
+1. 背景层 `<div class="bg">`（初始 `opacity: 0`，背景为 `style.gradient.avatar` 定义的 CSS 锥形渐变，不依赖外部图片）
 2. 头像图片 `<img class="avatar">`
 3. CSS 动画控制悬停/交互时的背景可见性
 
-`animate` 取值控制动画时机：`auto` 用户交互时动画、`always` 持续动画、假值不动画。
+`animate` 取值控制动画时机：`auto` 用户交互时动画、`always` 持续动画、假值不动画。光环通过 `@keyframes spin` 以 4s 匀速旋转，渐变色首尾相同保证旋转无缝。
 
-**参考源码**：[layout/_partial/sidebar/logo.ejs](../../../layout/_partial/sidebar/logo.ejs)
+**参考源码**：[layout/_partial/sidebar/logo.ejs](../../../layout/_partial/sidebar/logo.ejs)、[source/css/_components/sidebar/logo.styl](../../../source/css/_components/sidebar/logo.styl)
 
 ### 2.6 Logo 辅助函数
 
@@ -440,6 +441,8 @@ site_tree:
 - 有 `nav_tabs` 的页面视为「列表页」
 - 列表页保持页头可见（主内容区为 mobile-only 模式）
 - 保证导航标签始终可访问
+
+**导航标签外观：** navbar top 的标签渲染为胶囊按钮（`border-radius: 32px`），并在 `source/css/_components/partial/navbar.styl` 中显式设置 `corner-shape: round`，保持两端正圆端帽，不受全局 `corner-shape: superellipse(1.2)` 连续曲率影响。
 
 **参考源码**：[_config.yml](../../../_config.yml)、[layout/_partial/sidebar/logo.ejs](../../../layout/_partial/sidebar/logo.ejs)
 

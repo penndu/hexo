@@ -167,7 +167,7 @@ Logo 组件最多包含三个元素：图标/头像、主标题、副标题。�
 | 标题 | `logo.title` | 带链接的主标题文本 | Hexo 的 `config.title` |
 | 副标题 | `logo.subtitle` | 副标题文本（支持 `|` 分隔的悬停切换效果） | Hexo 的 `config.subtitle` |
 
-**动态头像**：`style.animated_avatar.animate` 启用时，头像包含一个悬停淡入的背景层，产生装饰动画。
+**动态头像**：`style.animated_avatar.animate` 启用时，头像包含一个悬停淡入的 CSS 锥形渐变光环（`style.gradient.avatar`，默认彩虹色），以 4s 匀速旋转产生装饰动画。
 
 **参考源码**：[_config.yml](../../../_config.yml)、[layout/_partial/sidebar/logo.ejs](../../../layout/_partial/sidebar/logo.ejs)
 
@@ -270,7 +270,7 @@ graph TB
 
 ## 右栏：小部件系统
 
-右栏（`.l_right`）放置上下文小部件，使用 `margin: calc(var(--gap-margin) * 2) 0` 与 `border-radius: $border-card-l` 保持视觉一致。
+右栏（`.l_right`）放置上下文小部件，使用 `margin: var(--gap-margin) 0` 与 `border-radius: $border-card-l` 保持视觉一致。
 
 ### 常用右栏小部件
 
@@ -326,10 +326,19 @@ graph BT
 | `style.leftbar.blur-px` | `--blur-px` CSS 变量 → `.sidebg` 的 `filter: blur(...)` | sidebar.styl |
 | `$leftbar-background-color-light` | `.sidebg` 的 `background-color`（浅色模式） | sidebar.styl |
 | `$leftbar-background-color-dark` | `.sidebg` 的 `background-color`（深色模式经 `prefers-color-scheme`） | sidebar.styl |
+| `style.leftbar.ui-style` | `glass` / `card` 风格开关；`card` 时 `.l_left` 追加 `leftbar-card` 类 | layout.ejs / sidebar.styl |
 
 设置 `$leftbar-background-image` 时，`.sidebg` 还扩展内缩进（`--inset: 32px`），让模糊略微溢出容器边缘，再由父元素 `border-radius` 裁剪。
 
 移动端（`max-width: $device-mobile-max`）`.l_left` 直接使用 `background: var(--bg-a100)`，`.sidebg` 饱和度降到 `300%`。
+
+### 纯色卡片风格（ui-style: card）
+
+`style.leftbar.ui-style` 控制左栏外观：`glass` 为历史默认行为，保留上面的三层背景系统；`card` 时 `layout.ejs` 为 `.l_left` 追加 `leftbar-card` 类，容器改为 `background: var(--card)`（浅色纯白 / 深色主题深灰黑）与 `box-shadow: $boxshadow-float`（`0 4px 8px 0 rgba(0,0,0,0.05)`），并隐藏 `.sidebg` 与 `.leftbar-container:before/:after`。因类选择器特异性更高，桌面与移动端均生效。该配置项默认值为 `card`。
+
+交互样式按风格隔离：`sidebar-light()` 混入与搜索条底部条读取容器级 CSS 变量 `--leftbar-item-bg` / `--leftbar-item-shadow` / `--leftbar-search-line`（默认回退玻璃质感背景与 `--bg-a100`/`--bg-a20` 底部条）。`card` 时 `.l_left.leftbar-card` 将其覆盖为 `var(--block-border)` / `none` / `var(--text-meta)`：列表项（菜单、最近更新、页面树、链接列表、相关文章等）hover/active 背景为 `var(--block-border)`、无顶部光照；搜索条底部条默认为 `var(--text-meta)`，输入/悬停高亮仍为彩虹渐变。`glass` 与右栏未设置变量，保持原效果。
+
+组件填充同样按风格隔离：`card` 时 `.l_left.leftbar-card` 覆盖 `--bg-a20/a50/a60/a75` 为 `var(--block)`、`--bg-a100` 为 `var(--block-border)`，使原本白色半透明的组件背景（markdown 正文、标签云、相关文章、时间线、搜索结果等）与右栏观感一致。
 
 ### CSS 变量集成
 
@@ -381,10 +390,10 @@ graph TB
 | 断点 | 左栏（`.l_left`） | 右栏（`.l_right`） | 说明 |
 |------|--------------------|--------------------|------|
 | 桌面（≥`$device-2k`） | `margin-left: auto; margin-right: calc(2 * var(--gap-max))` | `margin-left: var(--gap-max); margin-right: auto` | 2K 居中 |
-| 桌面标准 | `margin: calc(var(--gap-margin) * 2) var(--gap-margin)` | `margin: calc(var(--gap-margin) * 2) 0` | 标准布局 |
-| 移动（≤`$device-mobile-max`） | `overflow: hidden; background: var(--bg-a100)` | 隐藏 | 折叠为移动端页头 |
+| 桌面标准 | `margin: var(--gap-margin)` | `margin: var(--gap-margin) 0` | 标准布局 |
+| 移动（≤`$device-mobile-max`） | `overflow: hidden; background: var(--bg-a100)` | 隐藏 | 折叠为移动端页头，浮动面板 `top: 8pt` |
 
-**高度约束**：`.l_left` 与 `.leftbar-container` 都限制在 `calc(100vh - var(--gap-margin) * 2 - $leftbar-bottom-margin)`，保持侧边栏在视口高度内。
+**高度约束**：`.l_left` 与 `.leftbar-container` 都限制在 `calc(100vh - var(--gap-margin) - $leftbar-bottom-margin)`，保持侧边栏在视口高度内；桌面顶部间距为 `var(--gap-margin)`（16px，相对原 32px 减半），底部预留 `$leftbar-bottom-margin` 保持 32px，移动端浮动面板顶部为 `8pt`。
 
 **参考源码**：[source/css/_components/sidebar/sidebar.styl](../../../source/css/_components/sidebar/sidebar.styl)
 
