@@ -24,6 +24,7 @@
     height: 48px
     flex-shrink: 0
     border-radius: 48px
+    corner-shape: round // 保持正圆（连续曲率会使正圆变成类方形曲线）
     overflow: hidden
     margin-right: 1rem
     div.bg
@@ -35,6 +36,7 @@
       width: "calc(100% - 2 * %s)" % @margin
       height: "calc(100% - 2 * %s)" % @margin
       border-radius: @width
+      corner-shape: round
     if hexo-config('style.animated_avatar.animate')
       div.bg
         trans1: opacity
@@ -83,3 +85,27 @@
       .hover
         transform: translateY(0)
         opacity: 1 !important
+
+.wiki-home-wrap
+  margin: 1rem var(--gap-margin) .5rem
+
+.wiki-home
+  display: flex
+  width: fit-content
+  align-items: center
+  padding: 6px 16px 6px 12px
+  border-radius: 32px
+  background: var(--bg-a50)
+  color: var(--text-p2)
+  font-size: $fs-13
+  trans2 color background
+  svg
+    height: 1em
+    width: auto
+    margin-right: 0.25rem
+  &:hover
+    color: var(--text-p1)
+    sidebar-light()
+
+.l_left .wiki-home-wrap + .header
+  margin-top: 0.5rem

@@ -9,26 +9,11 @@
       // layout
       utils.request(null, api, async resp => {
         const data = await resp.json();
-        function safeUrl(url) {
-          // 阻止 javascript: 等危险协议被注入到 href/src。
-          if (typeof url !== 'string') return '';
-          const trimmed = url.trim();
-          if (/^\s*(javascript|data|vbscript):/i.test(trimmed)) {
-            return '';
-          }
-          return trimmed;
-        }
         function fill(data) {
           for (let key of Object.keys(data)) {
-<<<<<<< HEAD
-            $(el).find("[type=text]#" + key).text(data[key]);
-            $(el).find("[type=link]#" + key).attr("href", safeUrl(data[key]));
-            $(el).find("[type=img]#" + key).attr("src", safeUrl(data[key]));
-=======
             utils.dom(el).find("[type=text]#" + key).text(data[key]);
             utils.dom(el).find("[type=link]#" + key).attr("href", data[key]);
             utils.dom(el).find("[type=img]#" + key).attr("src", data[key]);
->>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2
           }
         }
         const idx = el.getAttribute('index');

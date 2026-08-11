@@ -1,12 +1,12 @@
 (function () {
   const el = document.querySelector('.ds-twikoo');
       utils.onLoading(el); // 加载动画
-
+  
       const api = el.dataset.api;
       const limit = parseInt(el.getAttribute('limit')) || 10;
       const reply = el.getAttribute('hide') !== 'reply';
       if (!api) return;
-
+  
       fetch(api, {
         method: "POST",
         body: JSON.stringify({
@@ -20,27 +20,20 @@
       .then(res => res.json())
       .then(({ data }) => {
         utils.onLoadSuccess(el); // 移除动画
-        const safeUrlBase = util.escapeAttr(el.dataset.url || '');
         data.forEach((comment, j) => {
           let commentText = comment.commentText;
           if (!commentText || commentText.trim() === '') return; // 跳过空评论
           // 转义字符
           commentText = commentText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
           commentText = commentText.length > 50 ? commentText.substring(0, 50) + '...' : commentText;
-          // 安全修复：来自外部 API 的字段需 HTML / 属性转义，避免 XSS。
-          const safeIndex = util.escapeAttr(String(j));
-          const safeNick = util.escapeHtml(comment.nick || '');
-          const safeTime = util.escapeHtml(new Date(comment.created).toLocaleString('zh-CN', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false}));
-          const commentUrl = safeUrlBase || util.escapeAttr(comment.url || '#');
-          const safeId = util.escapeAttr(comment.id || '');
-          var cell = '<div class="timenode" index="' + safeIndex + '">';
+          var cell = '<div class="timenode" index="' + j + '">';
           cell += '<div class="header">';
           cell += '<div class="user-info">';
-          cell += '<span>' + safeNick + '</span>';
+          cell += '<span>' + comment.nick + '</span>';
           cell += '</div>';
-          cell += '<span>' + safeTime + '</span>';
+          cell += '<span>' + new Date(comment.created).toLocaleString('zh-CN', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false}) + '</span>';
           cell += '</div>';
-          cell += '<a class="body" href="' + commentUrl + '#' + safeId + '">';
+          cell += '<a class="body" href="' + comment.url + '#' + comment.id + '">';
           cell += commentText;
           cell += '</a>';
           cell += '</div>';
@@ -48,10 +41,5 @@
         });
       })
       .catch(() => utils.onLoadFailure(el));
-<<<<<<< HEAD
-    });
-  });
-=======
 })();
   
->>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2
