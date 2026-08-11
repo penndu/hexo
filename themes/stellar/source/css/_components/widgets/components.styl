@@ -2,13 +2,16 @@
   display: grid
   grid-gap: 8px
 
+.linklist .link:hover
+  background: var(--bg-a50)
+  svg  
+    filter: unset
+
 .linklist .link
   border-radius: $border-bar
-  corner-shape: superellipse(1.2)
   color: var(--text-p2)
   min-height: 32px
   padding: 0 4px
-  trans1 background
   display: flex
   justify-content: center
   align-items: center
@@ -17,6 +20,15 @@
     background: var(--bg-a50)
     svg,img
       filter: unset
+
+.l_left .linklist .link
+  &:hover, &.active
+    sidebar-light()
+    --item-grad: url(#leftbar-active-icon-grad)
+    > svg [fill="currentColor"]
+      fill: var(--item-grad)
+    > svg [stroke="currentColor"]
+      stroke: var(--item-grad)
 
 .linklist .link span
   padding: 0 4px
@@ -43,8 +55,3 @@
     transform: scale(1.2)
   span 
     padding: 0 8px
-
-.linklist .link:hover
-  background: var(--bg-a100)
-  svg  
-    filter: unset

@@ -1,24 +1,6 @@
 // utils
 const util = {
 
-  // HTML 文本转义：防止来自外部 API 的字符串在 innerHTML / 模板字符串中产生 XSS
-  escapeHtml: (value) => {
-    return String(value == null ? '' : value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  },
-
-  // 属性值转义：在写入 onload / onerror / data-* 等属性时使用。
-  escapeAttr: (value) => {
-    return String(value == null ? '' : value)
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/\r?\n/g, '');
-  },
-
   // https://github.com/jerryc127/hexo-theme-butterfly
   diffDate: (d, more = false) => {
     const dateNow = new Date()
@@ -71,11 +53,14 @@ const util = {
   },
 
   scrollTop: () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    smoothScrollTo(0);
   },
 
   scrollComment: () => {
-    document.getElementById('comments').scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById('comments');
+    if (el) {
+      smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - 32);
+    }
   },
 
   viewportLazyload: (target, func, enabled = true) => {
@@ -112,38 +97,40 @@ const hud = {
 
 const l_body = document.querySelector('.l_body');
 
-// TOC 平滑滚动（自定义动画，速度比浏览器原生 behavior:"smooth" 更快）
-let tocScrollAnim = null;
-function tocCancelScroll() {
-  if (tocScrollAnim !== null) {
-    cancelAnimationFrame(tocScrollAnim);
-    tocScrollAnim = null;
+// 通用平滑滚动（自定义动画，TOC / 回到顶部 / 参与讨论共用）
+let scrollAnim = null;
+function cancelSmoothScroll() {
+  if (scrollAnim !== null) {
+    cancelAnimationFrame(scrollAnim);
+    scrollAnim = null;
   }
 }
-function tocSmoothScrollTo(targetY) {
-  tocCancelScroll();
+function smoothScrollTo(targetY) {
+  cancelSmoothScroll();
+  targetY = Math.max(0, targetY);
   const startY = window.scrollY;
   const diff = targetY - startY;
   if (Math.abs(diff) < 2) {
     return;
   }
-  // 短距离 180ms，长距离最多 350ms
-  const duration = Math.min(350, Math.max(180, Math.abs(diff) * 0.1));
+  // 短距离 300ms，长距离最多 600ms
+  const duration = Math.min(600, Math.max(300, Math.abs(diff) * 0.15));
   const startTime = performance.now();
   function step(now) {
     const t = Math.min(1, (now - startTime) / duration);
     const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
-    window.scrollTo(0, startY + diff * eased);
+    // 显式指定 instant，避免全局 scroll-behavior: smooth 与自定义动画叠加导致滚动变慢
+    window.scrollTo({ top: startY + diff * eased, behavior: 'instant' });
     if (t < 1) {
-      tocScrollAnim = requestAnimationFrame(step);
+      scrollAnim = requestAnimationFrame(step);
     } else {
-      tocScrollAnim = null;
+      scrollAnim = null;
     }
   }
-  tocScrollAnim = requestAnimationFrame(step);
+  scrollAnim = requestAnimationFrame(step);
 }
-window.addEventListener('wheel', tocCancelScroll, { passive: true });
-window.addEventListener('touchstart', tocCancelScroll, { passive: true });
+window.addEventListener('wheel', cancelSmoothScroll, { passive: true });
+window.addEventListener('touchstart', cancelSmoothScroll, { passive: true });
 
 
 const init = {
@@ -212,12 +199,28 @@ const init = {
         e.preventDefault();
         const offset = 32; // 与 activeTOC 的 scrollOffset 保持一致
         const targetY = target.getBoundingClientRect().top + window.scrollY - offset;
-        tocSmoothScrollTo(Math.max(0, targetY));
+        smoothScrollTo(targetY);
         if (window.history && window.history.pushState) {
           window.history.pushState(null, "", href);
         }
       }
       sidebar.dismiss();
+    });
+  },
+  wikiStart: () => {
+    utils.dom('#l_cover .l_cover.wiki .start-wrap a.button.start').click(function (e) {
+      const href = this.getAttribute("href");
+      const id = href && href.indexOf("#") === 0 ? decodeURIComponent(href.slice(1)) : null;
+      const target = id && document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        // #start 锚点贴顶滚动，不预留 offset
+        const offset = 0;
+        smoothScrollTo(target.getBoundingClientRect().top + window.scrollY - offset);
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, "", href);
+        }
+      }
     });
   },
   leftbarScroll: () => {
@@ -314,13 +317,21 @@ const init = {
 
   canonicalCheck: () => {
     const canonical = window.canonical;
+    // 真实主站域名优先从 encoded（base64）反解，避免被「批量替换域名」的克隆站把提示指向自己
+    const getOriginalHost = () => {
+      try {
+        return atob(canonical.encoded || '') || canonical.originalHost || '';
+      } catch (e) {
+        return canonical.originalHost || '';
+      }
+    };
     function originStatusCheck() {
       return new Promise((resolve) => {
-        if (window.canonical.originalHost === window.location.hostname) {
+        if (getOriginalHost() === window.location.hostname) {
           resolve(true);
           return;
         }
-        const scriptUrl = `https://${window.canonical.originalHost}${window.canonical.param.checklink}`;
+        const scriptUrl = `https://${getOriginalHost()}${window.canonical.param.checklink}`;
         const script = document.createElement('script');
         script.src = scriptUrl;
         script.type = 'text/javascript';
@@ -335,18 +346,23 @@ const init = {
       meta.content = 'noindex, nofollow';
       document.head.appendChild(meta);
       const notice = document.createElement('div');
-      const originalURL = `https://${canonical.originalHost}`;
-      const currentURL = canonical.param.permalink.startsWith("http") ? canonical.param.permalink : originalURL;
+      const originalURL = `https://${getOriginalHost()}`;
+      let currentURL = originalURL;
+      if (canonical.param.permalink && canonical.param.permalink.startsWith("http")) {
+        try {
+          const permalinkURL = new URL(canonical.param.permalink);
+          currentURL = `${originalURL}${permalinkURL.pathname}${permalinkURL.search}`;
+        } catch (e) {
+          // permalink 异常时退回源站首页
+        }
+      }
       if (isOfficial) {
-        const closeEnable = window.localStorage.getItem('Stellar.canonical.closeEnable') === 'true'
-        const closedToday = window.localStorage.getItem('Stellar.canonical.closeTime') === new Date().toDateString()
-        if ((closeEnable && closedToday) || !(await originStatusCheck())) return;
+        if (!(await originStatusCheck())) return;
         notice.className = 'canonical-tip official';
         notice.innerHTML = `
           <a href="${currentURL}" target="_self" rel="noopener noreferrer">
           本站为官方备用站，仅供应急。点击移步主站<br>${originalURL}
           </a>
-          ${canonical.closeEnable ? '<button id="canonical-close">' + canonical.closeText || '关闭提示' + '</button>' : ''}
         `;
       } else {
         notice.className = 'canonical-tip unofficial';
@@ -359,16 +375,8 @@ const init = {
         `;
       }
       document.body.appendChild(notice);
-      const closeBtn = notice.querySelector('#canonical-close');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function () {
-          window.localStorage.setItem('Stellar.canonical.closeEnable', "true")
-          window.localStorage.setItem('Stellar.canonical.closeTime', new Date().toDateString())
-          notice.style.display = 'none';
-        });
-      }
     }
-    if (!canonical.originalHost) return;
+    if (!getOriginalHost()) return;
     const currentURL = new URL(window.location.href);
     const currentHost = currentURL.hostname.replace(/^www\./, '');
     if (currentHost == 'localhost') return;
@@ -404,36 +412,16 @@ window.stellar = window.stellar || {};
 
 /**
  * Initialize page components
- * Called on initial load and after PJAX navigation
  */
 stellar.initPage = function () {
   init.toc();
   init.sidebar();
+  init.wikiStart();
   init.leftbarScroll();
   init.relativeDate(document.querySelectorAll('#post-meta time'));
   init.registerTabsTag();
-  
-  // Reinitialize comments after PJAX navigation
-  if (stellar.initComments) {
-    for (const commentSystem in stellar.initComments) {
-      if (typeof stellar.initComments[commentSystem] === 'function') {
-        stellar.initComments[commentSystem]();
-      }
-    }
-  }
 };
 
 // Initial page load
 stellar.initPage();
 init.canonicalCheck();
-<<<<<<< HEAD
-
-// Listen for PJAX navigation complete
-document.addEventListener('pjax:complete', function () {
-  stellar.initPage();
-});
-
-// Expose util to window so dynamically-loaded service scripts (e.g. friends.js, contributors.js, siteinfo.js, rss.js, etc.) can access util.escapeHtml / util.escapeAttr / util.diffDate / util.copy. Top-level `const` does not become a global property, which is what triggered the "util is not defined" error.
-window.util = util;
-=======
->>>>>>> 5b2b963070a80bccf10f5cea848b8f2316a67ff2

@@ -1,6 +1,6 @@
 ######## Stellar info ########
 stellar:
-  version: '1.35.0'
+  version: '1.38.0'
   homepage: 'https://xaoxuu.com/wiki/stellar/'
   repo: 'https://github.com/xaoxuu/hexo-theme-stellar'
   main_css: /css/main.css
@@ -17,8 +17,6 @@ preconnect:
 # 一旦设置源站地址，非源站地址将不会被SEO收录，并且访问时弹出提示
 # 如果访问地址不在备用站主机列表，则警告信息为非法克隆
 canonical:
-  closeEnable: true # 是否显示关闭提示按钮
-  closeText: 关闭提示 # 关闭提示按钮的文字描述
   originalHost: # 主站点域名主机，例如 xaoxuu.com
   officialHosts: # 官方主机列表，每行一个，例如 xaoxuu.vercel.app
     - localhost
@@ -40,7 +38,6 @@ logo:
 
 # 侧边栏主功能导航菜单
 menubar:
-  columns: 4 # 一行多少个
   items: # 可按照自己需求增加，符合以下格式即可
     # id: 页面中高亮的 menu_id 
     # theme: 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
@@ -77,6 +74,10 @@ site_tree:
   home:
     leftbar: welcome, recent
     rightbar: 
+    # 首页评论区，默认不显示。可设为 true 使用全局评论服务，
+    # 或参考页面 front-matter 覆盖评论参数：
+    # service、comment_title、comment_id 及 beaudar/utterances/giscus/twikoo/waline/artalk 各服务参数。
+    comments:
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
@@ -138,14 +139,14 @@ site_tree:
   author: 
     base_dir: author # 只影响自动生成的页面路径
     menu_id: post
-    leftbar: recent, timeline
-    rightbar: timeline
+    leftbar: recent
+    rightbar: 
   # 错误页配置
   error_page:
     menu_id: post
     '404': '/404.html'
-    leftbar: recent, timeline
-    rightbar: timeline
+    leftbar: recent
+    rightbar: 
   # 其它自定义页面配置 layout: page
   page:
     leftbar: recent
@@ -530,6 +531,7 @@ data_cache:
     waline: 600
     artalk: 600
     memos: 600
+    memos-user: 86400
     sites: 86400
     friends: 86400
     friends_and_posts: 86400
@@ -629,8 +631,8 @@ plugins:
   mermaid:
     enable: # true # 可以在特定文章的 front-matter 中设置 mermaid: true 来开启，也可以在这里设置全局开启
     style_optimization: false # use custom style in stellar
-    # js: https://unpkg.com/mermaid@9.0.0/dist/mermaid.min.js
-    js: https://gcore.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js
+    # js: https://unpkg.com/mermaid@11/dist/mermaid.min.js
+    js: https://gcore.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
     # Available themes: default | dark | forest | neutral
     theme: neutral
   
@@ -652,7 +654,6 @@ plugins:
 
 style:
   prefers_theme: auto # auto / light / dark
-  smooth_scroll: true # true / false 开启时如果目录过长可能无法准确定位
   font-size:
     root: 16px # 改这个会影响全局所有文字的字号
     body: 17px # 影响正文区域的字号，如果改成 px 则不受 root 影响
@@ -673,6 +674,7 @@ style:
     image-l: 24px # 非技术类文章插图圆角
     image: 16px # 技术类文章插图圆角
     image-s: 8px # 评论区图片圆角（部分评论支持）
+  corner-shape: superellipse(1.5) # 连续曲率圆角（仅 Chromium 139+ 支持，其余浏览器自动回退普通圆角）：superellipse(1.x) 开启，round 关闭
   color:
     # 主题色配置（不会根据明暗动态调整，请设置为通用的颜色）
     theme: 'hsl(192 98% 55%)' # 主题色
@@ -689,6 +691,8 @@ style:
     error: 加载失败，请稍后重试。
   gradient: # https://webgradients.com/
     start: 'linear-gradient(to right, hsl(215, 95%, 64%), hsl(195, 95%, 60%), hsl(165, 95%, 56%), hsl(165, 95%, 56%), hsl(195 95% 60%), hsl(215, 95%, 64%))'
+    searchbar: 'linear-gradient(to right, #04f3ff, #08ffc6, #ddf730, #ffbd19, #ff1fe0, #c418ff, #3b5bff, #04f3ff)' # 搜索条激活时底部横条的渐变色（彩虹，收尾经蓝色平滑过渡）
+    angle: 210deg # 主题色渐变的角度（0=向上，顺时针；225deg = 右上角 → 左下角）
   leftbar:
     # 可以设置：纯色/渐变色/图片作为背景
     # 设置为纯色时，可以分别设置浅色和深色模式背景色
