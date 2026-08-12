@@ -1,6 +1,6 @@
 # 核查与修正记录
 
-> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.38.0，HEAD ebbd058）核查与修正的偏差记录。
+> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.38.0，HEAD 9031611）核查与修正的偏差记录。
 > 规则：行号引用一律改为文件路径；无法在代码中找到对应实现的主张保留原文并标注「未核实」。
 
 ## 一、已移除功能（整页改写为当前实现）
@@ -25,6 +25,7 @@
 |------|------|------|
 | 1.1/1 Overview 等 | 版本号 1.33.1 | 统一为 1.38.0 |
 | 1.1 环境要求 | Node 14.17.3 ~ latest LTS | 实际要求 Node >= 22（README） |
+| 1.1 环境要求 | Hexo 6.3.0 ~ latest | 已在 Hexo 8.1.2 下验证（Hexo 8 要求 Node >= 20.19），表述更新为「已验证至 8.1.2」 |
 | 1.1 依赖表 | 缺 `glob` | 补充 `glob ^10.4.0` |
 | 1.2/3.3 | `site_tree.page.menu_id` | 当前 `site_tree.page` 无 `menu_id` 字段 |
 | 1.2/8.1 评论 | `comments.lazyload` 配置键 | 不存在；评论懒加载始终经 `util.viewportLazyload` 启用 |
@@ -35,6 +36,8 @@
 | 8.2 搜索 | `search.no_results` 等被误报为配置键 | 实为语言文件键（`languages/zh-CN.yml`），非 `_config.yml` 键 |
 | 3.1 模板路由 | `layout/post.ejs`、`layout/wiki.ejs` | 不存在；内容页经 `layout.ejs` + `page.ejs` 按 `page.layout` 处理 |
 | 2.5 动态头像 / sidebar-system 动态头像 | `animated_avatar.background` 图片背景（rainbow64@3x.webp） | 改为 CSS 锥形渐变：新增 `style.gradient.avatar`（默认搜索条同款彩虹色），移除 `animated_avatar.background`；光环旋转动画（4s）不变 |
+| 7.1 懒加载更新 | 动态懒加载图片需手动调用 `wrapLazyloadImages()` 或 `update()` | `lazyload.ejs` 新增 MutationObserver 兜底：检测到新增 `.lazy` 元素自动 `lazyLoadInstance.update()`；`wrapLazyloadImages()` 仍负责普通 `<img src>` 转换 |
+| 7.1 评论服务 / artalk_latest_comment | 最新评论直接渲染 `content_marked` 完整 HTML | 改为保留表情图（`atk-emoticon`，CSS 限高 1.5em）、其余标签转纯文本并截断 50 字符，空评论跳过；避免大表情图与段落撑爆侧栏卡片布局 |
 
 ## 三、处理约定
 
