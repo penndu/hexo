@@ -1,0 +1,427 @@
+// utils
+const util = {
+
+  // https://github.com/jerryc127/hexo-theme-butterfly
+  diffDate: (d, more = false) => {
+    const dateNow = new Date()
+    const datePost = new Date(d)
+    const dateDiff = dateNow.getTime() - datePost.getTime()
+    const minute = 1000 * 60
+    const hour = minute * 60
+    const day = hour * 24
+
+    let result
+    if (more) {
+      const dayCount = dateDiff / day
+      const hourCount = dateDiff / hour
+      const minuteCount = dateDiff / minute
+
+      if (dayCount > 14) {
+        result = null
+      } else if (dayCount >= 1) {
+        result = parseInt(dayCount) + ' ' + ctx.date_suffix.day
+      } else if (hourCount >= 1) {
+        result = parseInt(hourCount) + ' ' + ctx.date_suffix.hour
+      } else if (minuteCount >= 1) {
+        result = parseInt(minuteCount) + ' ' + ctx.date_suffix.min
+      } else {
+        result = ctx.date_suffix.just
+      }
+    } else {
+      result = parseInt(dateDiff / day)
+    }
+    return result
+  },
+
+  copy: (id, msg) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.select();
+      navigator.clipboard.writeText(el.value).then(() => {
+        if (msg && msg.length > 0) {
+          hud.toast(msg, 2500);
+        }
+      }).catch(() => {});
+    }
+  },
+
+  toggle: (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.toggle("display");
+    }
+  },
+
+  scrollTop: () => {
+    smoothScrollTo(0);
+  },
+
+  scrollComment: () => {
+    const el = document.getElementById('comments');
+    if (el) {
+      smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - 32);
+    }
+  },
+
+  viewportLazyload: (target, func, enabled = true) => {
+    if (!enabled || !("IntersectionObserver" in window)) {
+      func();
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].intersectionRatio > 0) {
+        func();
+        observer.disconnect();
+      }
+    });
+    observer.observe(target);
+  }
+}
+
+const hud = {
+  toast: (msg, duration) => {
+    const d = Number(isNaN(duration) ? 2000 : duration);
+    var el = document.createElement('div');
+    el.classList.add('toast');
+    el.classList.add('show');
+    el.innerHTML = msg;
+    document.body.appendChild(el);
+
+    setTimeout(function () { document.body.removeChild(el) }, d);
+
+  },
+
+}
+
+// defines
+
+const l_body = document.querySelector('.l_body');
+
+// 通用平滑滚动（自定义动画，TOC / 回到顶部 / 参与讨论共用）
+let scrollAnim = null;
+function cancelSmoothScroll() {
+  if (scrollAnim !== null) {
+    cancelAnimationFrame(scrollAnim);
+    scrollAnim = null;
+  }
+}
+function smoothScrollTo(targetY) {
+  cancelSmoothScroll();
+  targetY = Math.max(0, targetY);
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  if (Math.abs(diff) < 2) {
+    return;
+  }
+  // 短距离 300ms，长距离最多 600ms
+  const duration = Math.min(600, Math.max(300, Math.abs(diff) * 0.15));
+  const startTime = performance.now();
+  function step(now) {
+    const t = Math.min(1, (now - startTime) / duration);
+    const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+    // 显式指定 instant，避免全局 scroll-behavior: smooth 与自定义动画叠加导致滚动变慢
+    window.scrollTo({ top: startY + diff * eased, behavior: 'instant' });
+    if (t < 1) {
+      scrollAnim = requestAnimationFrame(step);
+    } else {
+      scrollAnim = null;
+    }
+  }
+  scrollAnim = requestAnimationFrame(step);
+}
+window.addEventListener('wheel', cancelSmoothScroll, { passive: true });
+window.addEventListener('touchstart', cancelSmoothScroll, { passive: true });
+
+
+const init = {
+  toc: () => {
+    const scrollOffset = 32;
+    // 滚动位置取整后标题顶可能落在偏移线下方 1~2px，加容差避免高亮回跳到上一条
+    const scrollTolerance = 4;
+    var segs = utils.qsa("article.md-text h1, article.md-text h2, article.md-text h3, article.md-text h4, article.md-text h5, article.md-text h6");
+    function activeTOC() {
+      var scrollTop = window.scrollY;
+      var topSeg = null;
+      for (var i = 0; i < segs.length; i++) {
+        var segTop = segs[i].getBoundingClientRect().top + window.scrollY;
+        if (segTop > scrollTop + scrollOffset + scrollTolerance) {
+          continue;
+        }
+        if (!topSeg || segTop >= topSeg.getBoundingClientRect().top + window.scrollY) {
+          topSeg = segs[i];
+        }
+      }
+      if (topSeg) {
+        utils.dom("#data-toc a.toc-link").removeClass("active");
+        var id = topSeg.getAttribute("id");
+        var link = id ? "#" + id : "#undefined";
+        if (link != '#undefined') {
+          const highlightItem = utils.dom('#data-toc a.toc-link[href="' + encodeURI(link) + '"]');
+          if (highlightItem.length > 0) {
+            highlightItem.addClass("active");
+          }
+        } else {
+          const first = utils.qs('#data-toc a.toc-link');
+          if (first) first.classList.add("active");
+        }
+      }
+    }
+    function scrollTOC() {
+      const e0 = document.querySelector('#data-toc .toc');
+      const e1 = document.querySelector('#data-toc .toc a.toc-link.active');
+      if (e0 == null || e1 == null) {
+        return;
+      }
+      const offsetBottom = e1.getBoundingClientRect().bottom - e0.getBoundingClientRect().bottom + 100;
+      const offsetTop = e1.getBoundingClientRect().top - e0.getBoundingClientRect().top - 64;
+      if (offsetTop < 0) {
+        e0.scrollBy({ top: offsetTop, behavior: "smooth" });
+      } else if (offsetBottom > 0) {
+        e0.scrollBy({ top: offsetBottom, behavior: "smooth" });
+      }
+    }
+
+    var timeout = null;
+    window.addEventListener('scroll', function () {
+      activeTOC();
+      if (timeout !== null) clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        scrollTOC();
+      }, 50);
+    });
+  },
+  sidebar: () => {
+    utils.dom("#data-toc a.toc-link").click(function (e) {
+      const href = this.getAttribute("href");
+      const id = href && href.indexOf("#") === 0 ? decodeURIComponent(href.slice(1)) : null;
+      const target = id && document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        const offset = 32; // 与 activeTOC 的 scrollOffset 保持一致
+        const targetY = target.getBoundingClientRect().top + window.scrollY - offset;
+        smoothScrollTo(targetY);
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, "", href);
+        }
+      }
+      sidebar.dismiss();
+    });
+  },
+  wikiStart: () => {
+    utils.dom('#l_cover .l_cover.wiki .start-wrap a.button.start').click(function (e) {
+      const href = this.getAttribute("href");
+      const id = href && href.indexOf("#") === 0 ? decodeURIComponent(href.slice(1)) : null;
+      const target = id && document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        // #start 锚点贴顶滚动，不预留 offset
+        const offset = 0;
+        smoothScrollTo(target.getBoundingClientRect().top + window.scrollY - offset);
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, "", href);
+        }
+      }
+    });
+  },
+  leftbarScroll: () => {
+    const container = document.querySelector('.l_left .widgets');
+    if (container == null) {
+      return;
+    }
+    const PREFIX = 'Stellar.leftbarScroll.';
+    const encode = (s) => encodeURIComponent(String(s || ''));
+    function scope() {
+      const wikiEl = document.querySelector('.doc-tree[data-wiki]');
+      if (wikiEl != null) {
+        return 'wiki:' + encode(wikiEl.getAttribute('data-wiki'));
+      }
+      const notebookEl = document.querySelector('widget[data-notebook]');
+      if (notebookEl != null) {
+        return 'notebook:' + encode(notebookEl.getAttribute('data-notebook'));
+      }
+      const body = document.querySelector('.l_body');
+      return 'layout:' + encode((body && body.getAttribute('layout')) || 'default');
+    }
+    window.addEventListener('pagehide', function () {
+      try {
+        const s = scope();
+        sessionStorage.setItem(PREFIX + s, String(container.scrollTop));
+        sessionStorage.setItem(PREFIX + 'last', s);
+      } catch (e) {}
+    });
+    try {
+      const s = scope();
+      // 仅当上一页与当前页属于同一分区时才恢复，离开分区后再回来不跳回旧位置
+      if (sessionStorage.getItem(PREFIX + 'last') !== s) {
+        return;
+      }
+      const value = sessionStorage.getItem(PREFIX + s);
+      if (value == null) {
+        return;
+      }
+      container.scrollTop = parseInt(value, 10) || 0;
+      const link = container.querySelector('a.link.active');
+      if (link == null) {
+        return;
+      }
+      const padding = 16;
+      const containerRect = container.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const top = linkRect.top - containerRect.top;
+      const bottom = linkRect.bottom - containerRect.top;
+      if (top < 0) {
+        container.scrollTop += top - padding;
+      } else if (bottom > container.clientHeight) {
+        container.scrollTop += bottom - container.clientHeight + padding;
+      }
+    } catch (e) {}
+  },
+  relativeDate: (selector) => {
+    selector.forEach(item => {
+      const $this = item
+      const timeVal = $this.getAttribute('datetime')
+      let relativeValue = util.diffDate(timeVal, true)
+      if (relativeValue) {
+        $this.innerText = relativeValue
+      }
+    })
+  },
+  /**
+   * Tabs tag listener (without twitter bootstrap).
+   */
+  registerTabsTag: function () {
+    // Binding `nav-tabs` & `tab-content` by real time permalink changing.
+    document.querySelectorAll('.tabs .nav-tabs .tab').forEach(element => {
+      element.addEventListener('click', event => {
+        event.preventDefault();
+        // Prevent selected tab to select again.
+        if (element.classList.contains('active')) return;
+        // Add & Remove active class on `nav-tabs` & `tab-content`.
+        [...element.parentNode.children].forEach(target => {
+          target.classList.toggle('active', target === element);
+        });
+        // https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
+        const tActive = document.getElementById(element.querySelector('a').getAttribute('href').replace('#', ''));
+        [...tActive.parentNode.children].forEach(target => {
+          target.classList.toggle('active', target === tActive);
+        });
+        // Trigger event
+        tActive.dispatchEvent(new Event('tabs:click', {
+          bubbles: true
+        }));
+      });
+    });
+
+    window.dispatchEvent(new Event('tabs:register'));
+  },
+
+  canonicalCheck: () => {
+    const canonical = window.canonical;
+    // 真实主站域名优先从 encoded（base64）反解，避免被「批量替换域名」的克隆站把提示指向自己
+    const getOriginalHost = () => {
+      try {
+        return atob(canonical.encoded || '') || canonical.originalHost || '';
+      } catch (e) {
+        return canonical.originalHost || '';
+      }
+    };
+    function originStatusCheck() {
+      return new Promise((resolve) => {
+        if (getOriginalHost() === window.location.hostname) {
+          resolve(true);
+          return;
+        }
+        const scriptUrl = `https://${getOriginalHost()}${window.canonical.param.checklink}`;
+        const script = document.createElement('script');
+        script.src = scriptUrl;
+        script.type = 'text/javascript';
+        script.onload = function () { resolve(true); };
+        script.onerror = function () { resolve(false); };
+        document.head.appendChild(script);
+      });
+    }
+    async function showTip(isOfficial = false) {
+      const meta = document.createElement('meta');
+      meta.name = 'robots';
+      meta.content = 'noindex, nofollow';
+      document.head.appendChild(meta);
+      const notice = document.createElement('div');
+      const originalURL = `https://${getOriginalHost()}`;
+      let currentURL = originalURL;
+      if (canonical.param.permalink && canonical.param.permalink.startsWith("http")) {
+        try {
+          const permalinkURL = new URL(canonical.param.permalink);
+          currentURL = `${originalURL}${permalinkURL.pathname}${permalinkURL.search}`;
+        } catch (e) {
+          // permalink 异常时退回源站首页
+        }
+      }
+      if (isOfficial) {
+        if (!(await originStatusCheck())) return;
+        notice.className = 'canonical-tip official';
+        notice.innerHTML = `
+          <a href="${currentURL}" target="_self" rel="noopener noreferrer">
+          本站为官方备用站，仅供应急。点击移步主站<br>${originalURL}
+          </a>
+        `;
+      } else {
+        notice.className = 'canonical-tip unofficial';
+        notice.innerHTML = `
+        <a href="${currentURL}" target="_self" rel="noopener noreferrer">
+        <div class="headline icon">☠️</div>
+        本站为非法克隆站，请前往官方源站访问。<br>
+        源站：${originalURL}
+        </a>
+        `;
+      }
+      document.body.appendChild(notice);
+    }
+    if (!getOriginalHost()) return;
+    const currentURL = new URL(window.location.href);
+    const currentHost = currentURL.hostname.replace(/^www\./, '');
+    if (currentHost == 'localhost') return;
+    const encodedCurrentHost = window.btoa(currentHost);
+    const isCurrentHostValid = canonical.encoded === encodedCurrentHost;
+    const canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (!canonicalTag) {
+      if (isCurrentHostValid) {
+        return;
+      }
+      if (canonical.officialHosts?.includes(currentHost)) {
+        showTip(true);
+        return;
+      }
+      showTip(false);
+      return;
+    }
+    const canonicalURL = new URL(canonicalTag.href);
+    const canonicalHost = canonicalURL.hostname.replace(/^www\./, '');
+    const encodedCanonicalHost = window.btoa(canonicalHost);
+    const isCanonicalHostValid = canonical.encoded === encodedCanonicalHost;
+    if (isCanonicalHostValid && isCurrentHostValid) {
+      return;
+    }
+    showTip(canonical.officialHosts?.includes(currentHost));
+  }
+
+}
+
+
+// Stellar namespace
+window.stellar = window.stellar || {};
+
+/**
+ * Initialize page components
+ */
+stellar.initPage = function () {
+  init.toc();
+  init.sidebar();
+  init.wikiStart();
+  init.leftbarScroll();
+  init.relativeDate(document.querySelectorAll('#post-meta time'));
+  init.registerTabsTag();
+};
+
+// Initial page load
+stellar.initPage();
+init.canonicalCheck();

@@ -1,0 +1,38 @@
+{
+  "name": "hexo-theme-stellar",
+  "version": "1.39.0",
+  "description": "Elegant and powerful theme for Hexo.",
+  "main": "package.json",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test",
+    "check": "npm run lint && npm test && python3 docs/knowledge/tools/verify.py",
+    "release": "node release.js",
+    "release:dry": "node release.js --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xaoxuu/hexo-theme-stellar.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "stellar"
+  ],
+  "author": "[@xaoxuu](https://github.com/xaoxuu/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xaoxuu/hexo-theme-stellar/issues/"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.0",
+    "glob": "^10.4.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "probe-image-size": "^7.2.3"
+  },
+  "homepage": "https://xaoxuu.com/wiki/stellar/",
+  "devDependencies": {
+    "eslint": "^9.39.5"
+  }
+}
