@@ -1,0 +1,47 @@
+.paginator-wrap
+  margin: 1rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-size: 1rem
+  font-weight: 700
+  background: var(--card)
+  border-radius: $border-bar-container
+  overflow: hidden
+  box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.03)
+  color: var(--text-p3)
+  .page-number
+    padding: 4px 8px
+    border-radius: 8px
+    margin: 2px
+  a.page-number
+    color: var(--text-p3)
+    &:hover
+      color: var(--text-p1)
+      background: var(--block)
+  .extend
+    text-align: center
+    width: 1.5rem
+    height: 1.5rem
+    &.next
+      border-left: 1px dashed var(--block-border)
+    &.prev
+      border-right: 1px dashed var(--block-border)
+  .current
+    font-family: $ff-code
+    background: var(--block)
+  .extend
+    padding: .5rem
+    line-height: 0
+    filter: grayscale(100%)
+    svg
+      display: block
+      width: 1.5rem
+      height: 1.5rem
+    &.disable
+      pointer-events: none
+  span.extend
+    opacity: 0.25
+  a.extend:hover
+    filter: unset
+    color: var(--theme)
