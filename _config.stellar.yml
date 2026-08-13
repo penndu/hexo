@@ -673,7 +673,7 @@ style:
     card-l: 24px # 侧边栏、文章横幅位置的圆角
     card: 16px # 文章内大部分卡片的圆角
     card-s: 12px # 文章内小型卡片的圆角
-    bar: 8px # 横条类元素的圆角
+    bar: 12px # 横条类元素的圆角
     image-l: 24px # 非技术类文章插图圆角
     image: 16px # 技术类文章插图圆角
     image-s: 8px # 评论区图片圆角（部分评论支持）
@@ -706,9 +706,6 @@ style:
     blur-px: 100px
     blur-bg: var(--bg-a60)
     background-opacity: 0.8
-  paginator:
-    prev: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
-    next: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg
   error_page: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
   site: # 使用 background-image 后，blur 设置才有效
     # background-image: url(https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)
