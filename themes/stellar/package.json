@@ -1,11 +1,11 @@
 {
   "name": "hexo-theme-stellar",
-  "version": "1.39.0",
+  "version": "1.39.1",
   "description": "Elegant and powerful theme for Hexo.",
   "main": "package.json",
   "scripts": {
     "lint": "eslint .",
-    "test": "node --test",
+    "test": "node ci/check-require-decls.js && node --test",
     "check": "npm run lint && npm test && python3 docs/knowledge/tools/verify.py",
     "release": "node release.js",
     "release:dry": "node release.js --dry-run"
@@ -29,10 +29,12 @@
     "glob": "^10.4.0",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-stylus": "^3.0.1",
+    "hexo-pagination": "^3.0.0",
     "probe-image-size": "^7.2.3"
   },
   "homepage": "https://xaoxuu.com/wiki/stellar/",
   "devDependencies": {
-    "eslint": "^9.39.5"
+    "eslint": "^9.39.5",
+    "hexo-util": "^4.0.0"
   }
 }
