@@ -1,6 +1,6 @@
 # 核查与修正记录
 
-> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.38.0，HEAD 9031611）核查与修正的偏差记录。
+> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.39.0，HEAD d7825ea）核查与修正的偏差记录。
 > 规则：行号引用一律改为文件路径；无法在代码中找到对应实现的主张保留原文并标注「未核实」。
 
 ## 一、已移除功能（整页改写为当前实现）
@@ -23,6 +23,7 @@
 
 | 位置 | 问题 | 修正 |
 |------|------|------|
+| 1.1/1 Overview 等 | 版本号 1.38.0 | 统一为 1.39.0 |
 | 1.1/1 Overview 等 | 版本号 1.33.1 | 统一为 1.38.0 |
 | 1.1 环境要求 | Node 14.17.3 ~ latest LTS | 实际要求 Node >= 22（README） |
 | 1.1 环境要求 | Hexo 6.3.0 ~ latest | 已在 Hexo 8.1.2 下验证（Hexo 8 要求 Node >= 20.19），表述更新为「已验证至 8.1.2」 |
@@ -111,3 +112,4 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 | 2026-08-12 | `source/css/_components/list.styl` | 非置顶文章封面 `.cover-info` 的 padding 由 `1.5rem 1rem` 改为统一 `1rem`（移动端原有 `padding: 1rem` 覆盖随之移除），与置顶轮播文字区 `.pin-slide-text` 四周间距一致；移动端 `div+div` 的 `margin-top: 2px` 覆盖移除，与桌面统一为 4px；宽度模型仍不同（cover-info `width: calc(100% - 2rem)`，置顶 `width: 100%` + `box-sizing: border-box`），视觉等效 |
 | 2026-08-12 | `layout/_partial/main/pin_slider.ejs`、`layout/_partial/main/post_list/post_card.ejs`、`layout/index.ejs`、`_config.yml`、`docs/knowledge/00-总览与安装配置/configuration.md`、主工程 `_config.stellar.yml` | 移除 `pin_slider.enable` 开关与 `pin_slider.interval` 配置：有置顶内容即自动渲染轮播（`if (pinItems.length > 0)`），自动轮播间隔写死 5000ms；首页列表不再重复展示置顶文章（`pinSliderActive = is_home_first_page()`）；文章卡片始终不显示置顶图标；主工程 `_config.stellar.yml` 删除 `pin_slider` 小节 |
 | 2026-08-12 | `source/css/_defines/func.styl` | 侧栏高亮项顶部光照微调：深色模式渐变由 `rgba(white, 0.05) → 0 @ 20%` 改为 `rgba(white, 0.08) → 0 @ 50%`（与浅色一致），高光边 `rgba(white, 0.1)` → `rgba(white, 0.08)` |
+| 2026-08-13 | `source/css/_components/pin-slider.styl` | 置顶轮播翻页按钮垂直居中修正：`.pin-slider-nav` 由 `top: 50%` + `margin-top: -2rem`（32px，不等于按钮半高）改为 `top: 50%` + `transform: translateY(-50%)`，与按钮实际高度/盒模型无关，精确垂直居中 |
