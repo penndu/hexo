@@ -1,6 +1,6 @@
 # 核查与修正记录
 
-> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.39.1，HEAD dea3290）核查与修正的偏差记录。
+> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.40.0，HEAD f063186）核查与修正的偏差记录。
 > 规则：行号引用一律改为文件路径；无法在代码中找到对应实现的主张保留原文并标注「未核实」。
 
 ## 一、已移除功能（整页改写为当前实现）
@@ -28,6 +28,10 @@
 | 1.1/1 Overview 等 | 版本号 1.38.0 | 统一为 1.39.0 |
 | 1.1/1 Overview 等 | 版本号 1.33.1 | 统一为 1.38.0 |
 | 1.1 环境要求 | Node 14.17.3 ~ latest LTS | 实际要求 Node >= 22（README） |
+| 1.1 安装与启动 / 版本位置 | 版本号 1.39.1（release 1.40.0 后未同步） | 统一为 1.40.0（installation.md 六处 + 知识库全量.md 同步） |
+| 1 样式系统 / 表格排版 | 文档仅描述 `overflow: auto`，未体现 1.32.1（`830ccbd`）起桌面端 `display: table` 压缩换行、不再横向滚动 | 恢复 `display: block` + `overflow-x: auto` + `tr` 不换行，普通 Markdown 表格默认横向滚动；同步更新文档（见 `docs/designs/2026-08-14-restore-table-scroll/`） |
+| 1 样式系统 / 表格排版 | `display: block` 表格只滚动不铺满、compact 无滚动容器 | 新增 `after_post_render` 过滤器把普通表格包 `.md-table-scroll`（宽度足够铺满 + 超出滚动），compact 补滚动容器与 `min-width: max-content`，wrap 保持换行（见 `docs/designs/2026-08-14-table-fill-scroll/`） |
+| 1 样式系统 / 表格排版 | 仅 wrap 有圆角卡片边框，其余表格为直角无边框 | 边框规则上移到 `.tag-plugin.table table` 共享层，md 默认 / scroll / compact / wrap 统一 wrap 同款圆角边框（见 `docs/designs/2026-08-15-table-card-border/`） |
 | 1.1 环境要求 | Hexo 6.3.0 ~ latest | 已在 Hexo 8.1.2 下验证（Hexo 8 要求 Node >= 20.19），表述更新为「已验证至 8.1.2」 |
 | 1.1 依赖表 | 缺 `glob` | 补充 `glob ^10.4.0` |
 | 1.2/3.3 | `site_tree.page.menu_id` | 当前 `site_tree.page` 无 `menu_id` 字段 |
@@ -41,6 +45,18 @@
 | 2.5 动态头像 / sidebar-system 动态头像 | `animated_avatar.background` 图片背景（rainbow64@3x.webp） | 改为 CSS 锥形渐变：新增 `style.gradient.avatar`（默认搜索条同款彩虹色），移除 `animated_avatar.background`；光环旋转动画（4s）不变 |
 | 7.1 懒加载更新 | 动态懒加载图片需手动调用 `wrapLazyloadImages()` 或 `update()` | `lazyload.ejs` 新增 MutationObserver 兜底：检测到新增 `.lazy` 元素自动 `lazyLoadInstance.update()`；`wrapLazyloadImages()` 仍负责普通 `<img src>` 转换 |
 | 7.1 评论服务 / artalk_latest_comment | 最新评论直接渲染 `content_marked` 完整 HTML | 改为保留表情图（`atk-emoticon`，CSS 限高 1.5em）、其余标签转纯文本并截断 50 字符，空评论跳过；避免大表情图与段落撑爆侧栏卡片布局 |
+| 5.3 标签插件 | 无 `table`、`tip` 标签 | 新增 `table`（scroll/wrap/compact 三档样式）与 `tip`（气泡注解）标签，见 `docs/designs/2026-08-14-issue-fix-1400/` |
+| 1.2/3.3 文章配置 | 无 `article.reading_time`、`article.card_tags` | 新增两个配置键（均默认 `false`）：文章页字数/预计阅读、文章卡片标签 |
+| 6.4 动态数据 / memos | 仅识别 22-/22+/25+ | 新增 `v1` 分支（`{ memos: [...] }` + `createTime`，creator 为 `users/xxx` 字符串）；识别失败回退 `feature` |
+| 6.4 评论服务 / waline | 直接 `data.forEach` 处理返回 | 兼容数组与 `{ data: [...] }` 两种返回结构 |
+| 8.2 评论 / artalk | `?atk_*` 查询参数残留，干扰目录定位 | 初始化后 `history.replaceState` 清理查询参数（#598） |
+| 5.3 样式 / prefers-color-scheme | navbar/sidebar 暗色兜底无条件跟随系统 | 统一收敛到 `:root:not([data-theme])` 下，显式主题只跟随 `data-theme` 开关（#593/#663） |
+| 5.5 时间线 / timeline | 节点标题直接输出原文 | 改为经 markdown 渲染（#401） |
+| 3.3 分类页 | 分类列表平铺，三级及以上失效 | 改为基于 parent 递归构建嵌套树（#564），逻辑抽到 `scripts/lib/category_tree.js` |
+| 3.3 文章卡片 / 文章页 | 卡片无标签展示、文章页无阅读时长 | 卡片新增纯文字标签（`cap` 小字样式，最多 5 个，默认关闭）；文章页面包屑行右侧新增字数与预计阅读（`scripts/lib/reading_time.js`，默认关闭） |
+| 5.3 标签插件 / table、tip | 初版样式无区分、气泡纯色块 | 最终实现：table 三种样式（scroll 复用主题 `scrollbar()` 滚动条、wrap 外边框+圆角+内部左右边框+自动换行、compact 行高 1.4 紧凑显示）；tip 气泡复用 `bar-glass()` 玻璃效果；两标签语法不变 |
+| 2026-08-14 | `_config.yml`、`source/css/_custom.styl`、样式文档 | `style.corner-shape` 默认值统一为 `superellipse(1.25)` 并移除 `_custom.styl` 中的代码兜底（默认值由 `_config.yml` 提供）；同步更新知识库与 wiki 文档中的 1.2 引用 |
+| 2 命令 / new-note | 生成 front-matter 带秒 | date 对齐 `YYYY-MM-DD HH:mm`（#594） |
 
 ## 三、处理约定
 
@@ -119,3 +135,12 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 | 2026-08-13 | `layout/_partial/main/pin_slider.ejs`、`docs/knowledge/05-前端交互/client-side-overview.md`、`docs/knowledge/知识库全量.md`、`docs/designs/2026-08-13-pin-slider-dot-label.md` | 修复置顶轮播圆点 `aria-label` 未转义导致 HTML 解析失败：删除圆点按钮 `aria-label` 与未使用的 label 取值，圆点保留 `data-index`，激活态仍由 `aria-current` 标识 |
 | 2026-08-13 | `scripts/helpers/escape_html.js`（新增）、`scripts/helpers/related_posts.js`、`layout/_partial/main/article/article_footer.ejs`、`layout/_partial/main/pin_slider.ejs`、`layout/_partial/main/post_list/post_card.ejs`、`layout/_partial/cover/post_cover.ejs`、`layout/_partial/sidebar/index_leftbar.ejs`、`layout/_partial/main/navbar/nav_tabs_blog.ejs`、`layout/_partial/main/navbar/nav_tabs_wiki.ejs`、`docs/knowledge/03-内容系统/article-footer-metadata.md`、`docs/knowledge/05-前端交互/client-side-overview.md`、`docs/knowledge/知识库全量.md`、`docs/designs/2026-08-13-escape-html-attributes.md` | 用户内容转义加固：新增 `escape_html` 模板辅助函数；分享按钮 URL 参数改经 `encodeURIComponent` 编码、`copy-link` value 与文案经 HTML 转义；pin_slider 幻灯片标题/摘要/封面/wiki 字段、文章卡片标题/摘要/封面、相关文章标题、导航分类/标签等用户内容统一转义输出，标题含引号/`&`/`<` 不再破坏 HTML 结构 |
 | 2026-08-13 | `_config.yml`、`layout/_partial/main/navbar/nav_tabs_blog.ejs`、`layout/index.ejs`、`docs/knowledge/00-总览与安装配置/configuration.md`、`docs/designs/2026-08-13-pin-style/`、主工程 `source/wiki/stellar/advanced-settings.md`、`source/wiki/stellar/front-matter.md`、主工程 `docs/specs/pin-style/` | 新增置顶文章样式配置 `article.pin_style`（默认 `carousel`，可切换 `flat`）：flat 时博客列表页不渲染文章轮播（`nav_tabs_blog.ejs` 跳过 post 类型 `pin_slider`），首页第一页文章列表顶部按轮播同款规则（`pin`/`sticky` 数值降序，`true` 视作 1，权重相同保持原顺序）展示全部置顶文章并按 `post.path` 去重；wiki 轮播不受影响；顺带移除 `configuration.md` 配置表中已不存在的 `pin_slider` 小节行 |
+| 2026-08-14 | `scripts/lib/ai_label.js`（新增）、`scripts/helpers/ai_label.js`（新增）、`layout/_partial/main/navbar/dateinfo.ejs`、`layout/_partial/main/post_list/post_card.ejs`、`source/css/_components/partial/bread-nav.styl`、`_config.yml`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/content-overview.md`、`03-内容系统/post-lists-cards.md`、`docs/designs/2026-08-14-ai-label/`、主工程 `source/wiki/stellar/advanced-settings.md`、`front-matter.md`、`docs/specs/ai-label/` | 新增文章 AI 成分标签 `article.ai_label`（默认纯手工 / AI 润色 / AI 生成三档文案与颜色，站点可覆盖）与 front-matter `ai` 字段：文章页显示在作者右侧（无作者时元信息行首），文章卡片显示在 meta 行最左、日期之前；未标记不渲染，未知值构建期告警 |
+| 2026-08-14 | `scripts/lib/ai_label.js`、`layout/_partial/main/navbar/article_banner.ejs`、`layout/_partial/main/post_list/post_card.ejs`、`source/css/_components/partial/bread-nav.styl`、`docs/designs/2026-08-14-ai-label/`、主工程 `source/wiki/stellar/advanced-settings.md`、`docs/specs/ai-label/` | AI 标签 UI 调整：改为彩色底色徽章（白字）；文章页移到顶部面包屑行最右（阅读时长右侧），文章卡片移到 meta 行标签右侧（无标签时行末） |
+| 2026-08-15 | `layout/_partial/main/post_list/post_card.ejs`、`docs/knowledge/03-内容系统/post-lists-cards.md`、`content-overview.md`、主工程 `source/wiki/stellar/advanced-settings.md`、`docs/specs/ai-label/` | 移除文章列表卡片上的 AI 标签：文章页顶部面包屑行最右的展示保持不变 |
+| 2026-08-15 | `scripts/lib/ai_label.js`、`scripts/helpers/ai_label.js`、`source/css/_components/partial/bread-nav.styl`、`_config.yml`、`docs/knowledge/00-总览与安装配置/configuration.md`、`docs/designs/2026-08-14-ai-label/`、主工程 `source/wiki/stellar/advanced-settings.md`、`docs/specs/ai-label/` | AI 标签支持图标：`article.ai_label` 每档新增可选 `icon` 字段，图标（SVG，继承文字颜色）渲染在文案前；`.ai-label` 改为 inline-flex 居中、图标 1em 高（后调整为 1.2em） |
+| 2026-08-15 | `scripts/lib/ai_label.js`、`scripts/helpers/ai_label.js`、`layout/_partial/main/navbar/article_banner.ejs`、`source/css/_components/partial/bread-nav.styl`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/content-overview.md`、`docs/designs/2026-08-14-ai-label/`、主工程 `source/wiki/stellar/advanced-settings.md`、`docs/specs/ai-label/` | AI 标签样式调整：改为彩色文字、无背景；banner 含图片时不用配置色，继承 `--text-banner` 默认文字色（helper 新增 noColor 参数） |
+| 2026-08-15 | `scripts/lib/ai_label.js`、`scripts/helpers/ai_label.js`、`layout/_partial/main/navbar/article_banner.ejs`、`_config.yml`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/content-overview.md`、主工程 `source/wiki/stellar/advanced-settings.md`、`front-matter.md`、`docs/specs/ai-label/` | front-matter 字段 `ai` 更名 `ai_label`；新增 `article.ai_label.default`：为空时未标记文章不显示，非空时未标记文章按默认档渲染（helper 新增 resolveAiKey 回退逻辑）；同步迁移已标记文章字段并刷新 `updated` |
+| 2026-08-15 | `_config.yml`、`test/ai_label.test.js`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/content-overview.md`、主工程 `source/wiki/stellar/advanced-settings.md`、`front-matter.md`、`docs/specs/ai-label/` | 新增第四档 `reviewed`（AI 已审核，青色，图标复用 `shield-check-bold-duotone`） |
+| 2026-08-15 | `source/css/_components/partial/bread-nav.styl` | `.ai-label` padding 由 `0 4px` 调整为 `4px`（四周等距，改善与面包屑行元素的对齐观感） |
+| 2026-08-15 | `languages/zh-CN.yml`、`languages/en.yml`、`languages/zh-TW.yml`、`_config.yml`、`scripts/lib/ai_label.js`、`scripts/helpers/ai_label.js`、`test/ai_label.test.js`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/content-overview.md`、`docs/designs/2026-08-15-ai-label-i18n/`、主工程 `source/wiki/stellar/advanced-settings.md`、`front-matter.md`、`docs/specs/ai-label/` | AI 标签文案移入多语言系统：`languages/*.yml` 新增 `meta.ai_label.*`（zh-CN / en / zh-TW 四档）；`article.ai_label` 配置移除 `text` 字段（保留 `default` / `color` / `icon`）；helper 经 `__()` 解析文案，缺失翻译时不渲染 |

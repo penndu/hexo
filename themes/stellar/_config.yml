@@ -1,6 +1,6 @@
 ######## Stellar info ########
 stellar:
-  version: '1.39.1'
+  version: '1.40.0'
   homepage: 'https://xaoxuu.com/wiki/stellar/'
   repo: 'https://github.com/xaoxuu/hexo-theme-stellar'
   main_css: /css/main.css
@@ -197,6 +197,23 @@ article:
   # 分类颜色
   category_color:
     '探索号': '#f44336'
+  # 文章 AI 成分标签：front-matter 用 ai_label: manual / reviewed / polished / generated 标记，
+  # 未设置时取 default（为空则不显示）；文案由多语言系统提供（languages/*.yml 的 meta.ai_label.*），
+  # 此处配置各档文字颜色与可选 icon；文章页显示在顶部面包屑行最右（阅读时长右侧）
+  ai_label:
+    default:
+    manual:
+      color: '#03a9f4'
+      icon: solar:shield-user-bold-duotone
+    reviewed:
+      color: '#4caf50'
+      icon: solar:shield-check-bold-duotone
+    polished:
+      color: '#4caf50'
+      icon: solar:shield-up-bold-duotone
+    generated:
+      color: '#ff9800'
+      icon: solar:shield-warning-bold-duotone
   # 文章许可协议
   license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
   # 分享
@@ -206,6 +223,10 @@ article:
   related_posts:
     enable: false
     max_count: 5
+  # 文章页是否显示字数和预计阅读时长（#302）
+  reading_time: false
+  # 文章卡片是否显示标签（最多 5 个，#580）
+  card_tags: false
 
 search:
   service: local_search # local_search, algolia_search, todo...
@@ -676,7 +697,7 @@ style:
     image-l: 24px # 非技术类文章插图圆角
     image: 16px # 技术类文章插图圆角
     image-s: 8px # 评论区图片圆角（部分评论支持）
-  corner-shape: superellipse(1.5) # 连续曲率圆角（仅 Chromium 139+ 支持，其余浏览器自动回退普通圆角）：superellipse(1.x) 开启，round 关闭
+  corner-shape: superellipse(1.25) # 连续曲率圆角（仅 Chromium 139+ 支持，其余浏览器自动回退普通圆角）：superellipse(1.x) 开启，round 关闭
   color:
     # 主题色配置（不会根据明暗动态调整，请设置为通用的颜色）
     theme: 'hsl(192 98% 55%)' # 主题色
