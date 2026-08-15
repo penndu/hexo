@@ -120,9 +120,17 @@ graph TB
 
 ### 置顶内容轮播（pin-slider）
 
-列表页 navbar top 上方可渲染置顶内容轮播（`layout/_partial/main/pin_slider.ejs`，无需开关配置，有置顶内容即渲染，自动轮播间隔固定 5000ms）：纯原生实现（无第三方依赖），经 `utils.initPlugin` 注册并返回清理函数，支持自动播放（hover/focus/页面隐藏时暂停）、圆点点击切换、悬停显示左右翻页按钮（solar 双箭头图标 + navbar 玻璃效果容器）、触摸松手滑动与 `prefers-reduced-motion` 降级。分页圆点按钮无文本、不设 `aria-label`（避免用户内容注入 HTML 属性导致解析失败），激活态由 `aria-current` 标识。幻灯片中的标题、小字、封面 URL、wiki 标题/摘要/标签等用户内容均经 `escape_html` 转义后输出（属性与文本统一转义）。轮播进度按内容类型分组（`post`/`wiki`）缓存到 localStorage（键 `stellar.pin-slider.<group>`），内容或张数变化后自动失效。文章幻灯片为固定「标题 + 一行小字」结构：标题取 `poster.headline` > `title`，小字取 `poster.caption` > `description` > excerpt（截断 50 字）；文字区与 poster 卡片 cover-info 一致：同款渐变模糊层（同图模糊 + 底部渐变 mask）、底部渐变背景与四周间距（padding 1rem）；有封面时封面铺满整卡，无封面时为纯白卡片（文字按普通文章颜色）；轮播区宽高比与非置顶文章一致，由 `article.cover_ratio` 控制。
+列表页 navbar top 上方可渲染置顶内容轮播（`layout/_partial/main/pin_slider.ejs`，无需开关配置，有置顶内容即渲染，自动轮播间隔固定 5000ms）：纯原生实现（无第三方依赖），经 `utils.initPlugin` 注册并返回清理函数，支持自动播放（hover/focus/页面隐藏时暂停）、圆点点击切换、悬停显示左右翻页按钮（solar 双箭头图标 + navbar 玻璃效果容器）、触摸松手滑动与 `prefers-reduced-motion` 降级。分页圆点按钮无文本、不设 `aria-label`（避免用户内容注入 HTML 属性导致解析失败），激活态由 `aria-current` 标识。幻灯片中的标题、小字、封面 URL、wiki 标题/摘要/标签等用户内容均经 `escape_html` 转义后输出（属性与文本统一转义）。轮播进度按内容类型分组（`post`/`wiki`）缓存到 localStorage（键 `stellar.pin-slider.<group>`），内容或张数变化后自动失效。文章幻灯片为固定「标题 + 一行小字」结构：标题取 `poster.headline` > `title`，小字取 `poster.caption` > `description` > excerpt（截断 50 字）；文字区与 poster 卡片 cover-info 一致：同款渐变模糊层（同图模糊 + 底部渐变 mask）、底部黑色渐变蒙版（边缘不透明度约 0.5 → 垂直中线 0）与四周间距（padding 1rem）；有封面时封面铺满整卡，无封面时为纯白卡片（文字按普通文章颜色）；轮播区宽高比与非置顶文章一致，由 `article.cover_ratio` 控制。
 
 **参考源码**：[layout/_partial/main/pin_slider.ejs](../../../layout/_partial/main/pin_slider.ejs)、[source/css/_components/pin-slider.styl](../../../source/css/_components/pin-slider.styl)
+
+---
+
+### navbar top 背景条状态切换（navbar-blur）
+
+列表页 navbar top 的背景条（`.navbar-blur`）未吸顶时为卡片样式（`var(--card)` 底色 + `$boxshadow-card` 阴影，与文章卡片一致），吸顶后恢复玻璃效果（`bar-glass()` 模糊/高光）。实现为 `init.navbarPin()`：直接测量 navbar 的实际视口位置，`getBoundingClientRect().top` 不高于 sticky 顶部（`getComputedStyle(el).top`，自动兼容桌面 `var(--gap-margin)` 与移动端 `8pt`）加 2px 容差时切换 `.navbar-blur.pinned` 类——移动端浏览器顶栏伸缩会改变 `scrollY`（展开顶栏时 `scrollY` 减小），用 `scrollY` 推算吸顶状态会导致仍吸顶时玻璃误消失，因此以实际位置为准；rAF 节流监听 scroll，resize/pageshow 重算，`visualViewport` 存在时其 resize 也触发一次判定，初始化立即执行一次（兼容恢复滚动位置）；无 JS 时保持未吸顶的卡片样式。
+
+**参考源码**：[source/js/main.js](../../../source/js/main.js)、[source/css/_components/partial/navbar.styl](../../../source/css/_components/partial/navbar.styl)
 
 ---
 
@@ -142,6 +150,7 @@ flowchart TD
     initPage --> sidebarInit["init.sidebar()<br/>Configure sidebar clicks"]
     initPage --> wikiStart["init.wikiStart()<br/>Wiki cover anchor handling"]
     initPage --> leftbarScroll["init.leftbarScroll()<br/>Leftbar scroll state"]
+    initPage --> navbarPin["init.navbarPin()<br/>Navbar card/glass switch on pin"]
     initPage --> dateInit["init.relativeDate()<br/>Format relative times"]
     initPage --> tabsInit["init.registerTabsTag()<br/>Set up tab components"]
     
@@ -149,6 +158,7 @@ flowchart TD
     sidebarInit --> complete
     wikiStart --> complete
     leftbarScroll --> complete
+    navbarPin --> complete
     dateInit --> complete
     tabsInit --> complete
     
@@ -161,8 +171,9 @@ flowchart TD
 2. **侧边栏初始化**——配置 TOC 链接点击处理
 3. **Wiki 起始处理**——wiki 封面锚点滚动
 4. **左栏滚动**——左栏滚动状态恢复
-5. **相对时间格式化**——把时间戳转换为人类可读的相对时间
-6. **标签页注册**——设置标签页组件事件处理
+5. **导航栏背景条**——列表页 navbar 未吸顶卡片样式、吸顶恢复玻璃（吸顶边界切换 `.pinned`）
+6. **相对时间格式化**——把时间戳转换为人类可读的相对时间
+7. **标签页注册**——设置标签页组件事件处理
 
 **参考源码**：[source/js/main.js](../../../source/js/main.js)
 
@@ -232,6 +243,7 @@ graph LR
         sidebar["init.sidebar()"]
         wikiStart["init.wikiStart()"]
         leftbarScroll["init.leftbarScroll()"]
+        navbarPin["init.navbarPin()"]
         relativeDate["init.relativeDate(selector)"]
         registerTabs["init.registerTabsTag()"]
         canonical["init.canonicalCheck()"]
@@ -241,6 +253,7 @@ graph LR
         tocHeaders["article.md-text :header"]
         tocWidget["#data-toc"]
         sidebarLinks["#data-toc a.toc-link"]
+        navbarElements[".navbar.top .navbar-blur"]
         timeElements["#post-meta time"]
         tabElements[".tabs .nav-tabs .tab"]
         canonicalTag["link[rel=canonical]"]
@@ -250,6 +263,7 @@ graph LR
         scrollSync["Scroll synchronization"]
         activeState["Active state tracking"]
         dismiss["Sidebar dismiss on click"]
+        cardGlass["Navbar card/glass switch on pin"]
         timeFormat["Relative time display"]
         tabSwitch["Tab content switching"]
         cloneDetect["Clone site detection"]
@@ -262,6 +276,9 @@ graph LR
     
     sidebar --> sidebarLinks
     sidebar --> dismiss
+    
+    navbarPin --> navbarElements
+    navbarPin --> cardGlass
     
     relativeDate --> timeElements
     relativeDate --> timeFormat

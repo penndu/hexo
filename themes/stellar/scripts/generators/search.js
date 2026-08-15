@@ -1,8 +1,8 @@
 /**
  * https://github.com/wzpan/hexo-generator-search
  */
-const { stripHTML } = require('hexo-util')
 const { normalize_path } = require('../lib/path_utils')
+const { buildSearchIndex } = require('../lib/search_index')
 
 hexo.extend.generator.register('search_json_generator', function (locals) {
   if (this.theme.config.search.service != 'local_search') { return {} }
@@ -33,19 +33,11 @@ hexo.extend.generator.register('search_json_generator', function (locals) {
       temp_post.path = path === '/' ? '/' : path + '/'
     }
     if (cfg.content != false && post.content) {
-      var content = stripHTML(post.content.replace(/<span class="line">\d+<\/span>/g, '')).trim()
-      // 部分HTML标签
-      content = content.replace(/<iframe[\s|\S]+iframe>/g, '')
-      content = content.replace(/<hr>/g, '')
-      content = content.replace(/<br>/g, '')
-      // 去除HTML实体
-      content = content.replace(/&[^\s;]+;/g, "")
-      // 换行符换成空格
-      content = content.replace(/\\n/g, ' ')
-      content = content.replace(/\n/g, ' ')
-      // 多个连续空格换成单个空格
-      content = content.replace(/[\s]{2,}/g, ' ')
-      temp_post.content = content.trim()
+      const { content, anchors } = buildSearchIndex(post.content)
+      temp_post.content = content
+      if (anchors.length > 0) {
+        temp_post.anchors = anchors
+      }
     }
     if (post.tags && post.tags.length > 0) {
       var tags = []
@@ -64,10 +56,12 @@ hexo.extend.generator.register('search_json_generator', function (locals) {
     return temp_post
   }
 
+  // 循环外编译一次 skip_search 正则，避免每个 post/page 重复 new RegExp
+  const skipSearchPatterns = (cfg.skip_search || []).map(pattern => new RegExp('^' + pattern.replace(/\*/g, '.*') + '$'));
+
   function matchAndExit(path, patterns) {
     for (let pattern of patterns) {
-        const regexPattern = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$');
-        if (path.match(regexPattern)) {
+        if (path.match(pattern)) {
             // console.log("Matched pattern:", pattern);
             return true;
         }
@@ -79,7 +73,7 @@ hexo.extend.generator.register('search_json_generator', function (locals) {
     posts.each(function(post) {
       var layout_list = ["post"]
       if (!layout_list.includes(post.layout)) return
-      if (cfg.skip_search && matchAndExit(post.path, cfg.skip_search)) return
+      if (cfg.skip_search && matchAndExit(post.path, skipSearchPatterns)) return
       if (post.indexing == false) return
       let temp_post = generateJson(post)
       res.push(temp_post)
@@ -89,7 +83,7 @@ hexo.extend.generator.register('search_json_generator', function (locals) {
     pages.each(function(page) {
       var layout_list = ["page", "wiki"]
       if (!layout_list.includes(page.layout)) return
-      if (cfg.skip_search && matchAndExit(page.path, cfg.skip_search)) return
+      if (cfg.skip_search && matchAndExit(page.path, skipSearchPatterns)) return
       if (page.indexing == false) return
       let temp_post = generateJson(page)
       res.push(temp_post)

@@ -171,9 +171,8 @@ graph TD
     OpenArticle["<article class='md-text'>"]
     
     CoverSection["Cover Image Section"]
-    CheckCover{"obj.image or<br/>theme.article.auto_cover?"}
-    GenerateCover["Generate cover URL"]
-    RenderCover["<div class='post-cover'><img src='{url}'/></div>"]
+    CheckCover{"obj.image<br/>includes '/'?"}
+    RenderCover["<div class='post-cover'><img src='{obj.image}'/></div>"]
     
     TitleSection["Title Section"]
     RenderTitle["<h2 class='post-title'>{title or date}</h2>"]
@@ -194,9 +193,8 @@ graph TD
     Start --> OpenArticle
     OpenArticle --> CoverSection
     CoverSection --> CheckCover
-    CheckCover -->|"yes"| GenerateCover
+    CheckCover -->|"yes"| RenderCover
     CheckCover -->|"no"| TitleSection
-    GenerateCover --> RenderCover
     RenderCover --> TitleSection
     
     TitleSection --> RenderTitle
@@ -219,7 +217,7 @@ graph TD
 
 **封面图**
 
-- 仅 `obj.image` 存在或 `theme.article.auto_cover` 启用时渲染
+- 仅 `obj.image` 为完整 URL（包含 `/`）时渲染
 - 包装在 `<div class="post-cover">` 中
 
 **标题**
@@ -317,62 +315,33 @@ graph TB
 | 存在 `obj.headline` 或 `obj.caption`（无 topic） | `bottom` | 叠加文本位于图片底部 |
 | 无叠加文本 | `""`（空） | 不渲染叠加 div |
 
+### 渐变模糊层与黑色蒙版
+
+photo 布局的 `.cover` 上叠加两层效果（均在 `.cover-info` 之下）：同图模糊层（`:before`，同图 `blur(1em)` + 沿文字边缘的渐变 mask）与黑色渐变蒙版（`:after`，文字所在边缘不透明度约 0.5 → 封面垂直中线 0，`pointer-events: none`，不随 hover 缩放）。hover 时封面图与模糊层同步放大至 `scale(1.05)`（1.5s 缓动），亮度降至 75%、饱和度升至 120%（0.2s 过渡）。
+
+**参考源码**：[source/css/_components/list.styl](../../../source/css/_components/list.styl)
+
 **参考源码**：[layout/_partial/main/post_list/post_card.ejs](../../../layout/_partial/main/post_list/post_card.ejs)
 
 ---
 
-## 封面图生成策略
+## 封面图渲染策略
 
-封面图 URL 生成采用带多级兜底的水瀑策略。
+封面仅在显式指定完整 URL（`post.cover` 包含 `/`）时渲染；`source.unsplash.com` 自动封面接口已失效，不再提供关键词、标签或随机图兜底。
 
 ```mermaid
 flowchart TD
     Start["Cover URL Generation"]
-    CheckImage{"obj.image<br/>defined?"}
     CheckSlash{"obj.image<br/>includes '/'?"}
     DirectURL["Use obj.image as-is<br/>(full URL)"]
-    UnsplashTerm["Construct Unsplash URL:<br/>source.unsplash.com/1280x640/?{obj.image}"]
-    
-    CheckAuto{"theme.article<br/>.auto_cover<br/>enabled?"}
-    CheckTags{"post.tags<br/>exists?"}
-    BuildParams["Build comma-separated<br/>tag names"]
-    TagsURL["source.unsplash.com/1280x640/?{tags}"]
-    RandomURL["source.unsplash.com/random/1280x640"]
-    
-    NoCover["cover_url = undefined"]
-    RenderCover["<div class='post-cover'><img src='{cover_url}'/></div>"]
+    RenderCover["<div class='post-cover'><img src='{obj.image}'/></div>"]
     SkipCover["Skip cover rendering"]
-    
-    Start --> CheckImage
-    CheckImage -->|"yes"| CheckSlash
-    CheckImage -->|"no"| CheckAuto
-    
+
+    Start --> CheckSlash
     CheckSlash -->|"yes"| DirectURL
-    CheckSlash -->|"no"| UnsplashTerm
+    CheckSlash -->|"no"| SkipCover
     DirectURL --> RenderCover
-    UnsplashTerm --> RenderCover
-    
-    CheckAuto -->|"yes"| CheckTags
-    CheckAuto -->|"no"| NoCover
-    CheckTags -->|"yes"| BuildParams
-    CheckTags -->|"no"| RandomURL
-    BuildParams --> TagsURL
-    TagsURL --> RenderCover
-    RandomURL --> RenderCover
-    
-    NoCover --> SkipCover
 ```
-
-### Unsplash 集成细节
-
-| 场景 | Front Matter | 生成 URL |
-|------|--------------|----------|
-| **显式 URL** | `cover: https://example.com/image.jpg` | `https://example.com/image.jpg` |
-| **Unsplash 搜索词** | `cover: landscape,mountain` | `https://source.unsplash.com/1280x640/?landscape,mountain` |
-| **从标签自动生成** | `tags: [nature, photography]` | `https://source.unsplash.com/1280x640/?photography,nature` |
-| **随机图片** | 无封面、无标签 | `https://source.unsplash.com/random/1280x640` |
-
-**重要**：拼接前标签会反转，保证最后一个标签作为主要搜索词。
 
 **参考源码**：[layout/_partial/main/post_list/post_card.ejs](../../../layout/_partial/main/post_list/post_card.ejs)
 
@@ -426,6 +395,11 @@ graph LR
 
 - 置顶文章在列表页 navbar 上方的置顶轮播中展示（无需开关配置，有置顶内容即渲染，见[置顶内容轮播](../00-总览与安装配置/configuration.md#置顶内容轮播)）
 - 文章卡片不再显示置顶图标（`post.sticky` 图钉由轮播替代）
+
+**卡片标签**
+
+- 由 `article.card_tags` 配置控制（默认关闭），最多显示 5 个
+- 标签为纯文字（`cap` 小字样式，无胶囊底色），前缀为内联 `default:hashtag` 图标（`.card-tags svg`：1em、`margin-right: .25em`、`opacity: .4`），与标签页图标一致
 
 **参考源码**：[layout/_partial/main/post_list/post_card.ejs](../../../layout/_partial/main/post_list/post_card.ejs)
 
