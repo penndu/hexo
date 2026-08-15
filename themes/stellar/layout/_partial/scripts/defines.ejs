@@ -156,7 +156,10 @@
     root : `<%- config.root %>`,
     tag_plugins: {
       chat: Object.assign(<%- JSON.stringify(theme.tag_plugins.chat) %>),
-    }
+    },
+    // 图标由构建期生成的 /js/stellar-icons.js 填充（defer，早于 DOMContentLoaded 就绪）
+    icons: {},
+    services: <%- JSON.stringify(theme.data_services || {}) %>,
   };
 
   // required plugins (only load if needs)
@@ -171,11 +174,18 @@
   const def = {
     avatar: `<%- theme.default.avatar %>`,
     cover: `<%- theme.default.cover %>`,
-    loading: `<%- theme.default.loading %>`,
+    loading: `<%- theme.default.loading || (theme.icons && theme.icons['default:loading-placeholder']) %>`,
     data_cache: <%- JSON.stringify(theme.data_cache || {}) %>,
   };
   const deps = {
     marked: `<%- url_for(theme.dependencies.marked) %>`,
     lazyload: `<%- url_for(theme.dependencies.lazyload.js) %>`
   }
+
+  // 主题切换提示文案（供 /js/theme.js 使用）
+  window.__STELLAR_I18N__ = {
+    light: `<%- __('message.theme_switched.light') %>`,
+    dark: `<%- __('message.theme_switched.dark') %>`,
+    auto: `<%- __('message.theme_switched.auto') %>`,
+  };
 </script>
