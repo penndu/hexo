@@ -6,6 +6,15 @@
   background: var(--block)
   margin: 0
   height: unset
+  // Safari 26.4/26.5 合成层裁剪 bug（WebKit 312584/319993，STP 242/249 才修）：
+  // 带 filter:blur() 的合成子层（同图模糊层 :before/:after）不执行父级 overflow:hidden + border-radius 圆角裁剪；
+  // 子层自身 border-radius/overflow 无效（319993 复现注释），父层 clip-path 实测仍被绕过。
+  // 官方建议（WebKit 67950）：让圆角父层自身成为层叠上下文并强制合成，使圆角裁剪在合成层层面作用于全部子层。
+  // 对照：正常工作的 cover 卡片 .post-card 自带 z-index:0 + position:relative（层叠上下文）。
+  // clip-path 保留作为正常浏览器裁剪与额外防御；移动端圆角归零时随 `.banner.top` 一并关闭（见 tag-plugins/banner.styl）
+  isolation: isolate
+  transform: translateZ(0)
+  clip-path: 'inset(0 round %s)' % $border-card-l
 
 .article.banner
   .bg+.content
@@ -51,60 +60,27 @@
 
 
 
-// 动画配置
+// 背景图覆盖层：与文章列表封面统一（常驻同图渐变模糊层 + 黑色蒙版，hover 放大/变暗）
 .article.banner
+  cover-overlay(var(--bg-url), both, '.bg+.content')
+  .bg
+    // hover 放大用 1.5s 缓动，亮度/饱和度仍按 0.2s（与文章列表封面一致）
+    filter: brightness(var(--img-br)) saturate(var(--img-sat))
+    transition: all .2s ease-out, transform 1.5s ease-out
+    -moz-transition: all .2s ease-out, transform 1.5s ease-out
+    -webkit-transition: all .2s ease-out, transform 1.5s ease-out
+    -o-transition: all .2s ease-out, transform 1.5s ease-out
+  &:hover .bg
+    transform: scale(var(--cover-zoom))
   .bg+.content
-    --blur-bg: rgba(black, 0)
-    --blur-px: 1em
-    --blur-sat: 100%
+    // 大尺寸 banner 的模糊层高度按原观感覆盖（默认值见 cover-overlay）
     --blur-height-top: 6rem
     --blur-height-bottom: 7rem
-    --blur-opacity: 0
-    &:hover
-      --blur-bg: rgba(black, 0.1)
-      --blur-sat: 150%
-      --blur-height-top: 6rem
-      --blur-height-bottom: 7rem
-      --blur-opacity: 1
-    background: var(--blur-bg)
-    trans1 all
-    &:before,&:after
-      content: ''
-      position: absolute
-      z-index 0
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      // Chromium: corner-shape + overflow:hidden 的合成层裁剪与 backdrop-filter 不兼容，
-      // 渐变模糊改用同图模糊层（filter + mask）实现，观感与 backdrop-filter 等价
-      background-image: var(--bg-url)
-      background-size: cover
-      background-position: center
-      filter: blur(var(--blur-px)) saturate(var(--blur-sat))
-      trans1 all
-      opacity var(--blur-opacity)
-      pointer-events: none
-    &:before
-      mask: linear-gradient(black, rgba(black, 0.75) calc(var(--blur-height-top) * 0.5), transparent var(--blur-height-top))
-      -webkit-mask: linear-gradient(black, rgba(black, 0.75) calc(var(--blur-height-top) * 0.5), transparent var(--blur-height-top))
-    &:after
-      mask: linear-gradient(to top, black, rgba(black, 0.75) calc(var(--blur-height-bottom) * 0.5), transparent var(--blur-height-bottom))
-      -webkit-mask: linear-gradient(to top, black, rgba(black, 0.75) calc(var(--blur-height-bottom) * 0.5), transparent var(--blur-height-bottom))
+    &:before, &:after
+      // 模糊层自身也加 clip-path：该合成层是 Safari 跳过父级圆角裁剪的直接漏出源
+      clip-path: 'inset(0 round %s)' % $border-card-l
     .top,.bottom
-      z-index 1
-    // 黑色渐变蒙版：文字所在边缘不透明度约 0.5，垂直中线为 0；与模糊层同步随 hover 淡入
-    .banner-mask
-      position: absolute
-      inset: 0
       z-index: 1
-      pointer-events: none
-      opacity: var(--blur-opacity)
-      trans1 all
-      &.top
-        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0) 50%)
-      &.bottom
-        background-image: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.5))
   
 
 .article.banner

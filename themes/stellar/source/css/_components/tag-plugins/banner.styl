@@ -15,6 +15,7 @@
     z-index: 0
   .content 
     z-index: 1
+    position: relative
     width: 100%
     height: 100%
     display: flex
@@ -116,18 +117,14 @@
       border: 2px solid white
       margin: 0
     .bottom
-      background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.2))
       text-shadow: 0 0 1px rgba(0,0,0,0.12)
 
 .tag-plugin.banner
-  // 与文章列表 cover 一致的 hover 变量：默认亮度/饱和度
-  --img-br: 100%
-  --img-sat: 100%
+  // 与文章列表封面统一的覆盖层：常驻同图渐变模糊层 + 黑色蒙版，hover 放大/变暗
+  cover-overlay(var(--bg-url), both, '.content')
   &:hover
-    --img-br: 75%
-    --img-sat: 120%
     img.bg
-      transform: scale(1.05)
+      transform: scale(var(--cover-zoom))
   img.bg
     filter: brightness(var(--img-br)) saturate(var(--img-sat))
     // 封面放大用 1.5s 缓动，其余属性（亮度/饱和度）保持主题默认 0.2s
@@ -137,8 +134,14 @@
     -o-transition: all .2s ease-out, transform 1.5s ease-out
 
 .tag-plugin.banner .navbar a.active
-  blur-effect()
+  // 不使用 blur-effect()（backdrop-filter）：banner 是 overflow:hidden + 圆角/连续曲率的裁剪容器，
+  // backdrop-filter 在部分浏览器（Safari / 旧版 Chromium）会破坏父级圆角裁剪，
+  // hover 放大背景图时四角变直角；改用与 hover 一致的半透明白底
+  background: rgba(white, 0.25)
+  &:hover
+    background-color: var(--card)
 
 @media screen and (max-width: $device-mobile-max)
   .banner.top
     border-radius: 0
+    clip-path: none
