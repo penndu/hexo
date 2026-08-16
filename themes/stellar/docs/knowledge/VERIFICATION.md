@@ -23,6 +23,7 @@
 
 | 位置 | 问题 | 修正 |
 |------|------|------|
+| 2026-08-16 | 第三方优化器把 `<script src="/js/utils.js">` 改写为占位符 + `data-src` 且页面无 loader 时，`utils` 从未定义，页尾所有 `utils.initPlugin(...)` 插件片段与 `main.js`/`theme.js`/`services.js` 抛 `utils is not defined`，scrollreveal 兜底未注册，`.slide-up` 列表永久隐藏 | 新增 `layout/_partial/scripts/bootstrap.ejs`（`window.stellar.initPlugin` 队列 + DOMContentLoaded 补载）、`scripts.ejs` 解析期 `document.write` 同步补载看门狗、`utils.js` IIFE 防重入并暴露 `window.utils`、scrollreveal `sr-fallback` 看门狗独立于 utils；`utils.initPlugin` 调用点统一改为 `stellar.initPlugin`（见 `docs/designs/2026-08-16-utils-lazy-load-guard/`） |
 | 2026-08-16 | `docs/knowledge/知识库全量.md`（合并版） | 删除合并版：仓库无生成脚本、手工双写易漂移且 `verify.py` 跳过核查；知识库以领域页面为唯一事实源（AGENTS.md / README 引用同步清理，RAG 可直接索引领域页面） |
 | 2026-08-16 | 置顶轮播左右箭头颜色固定为主题文字色，不随当前幻灯片封面明暗变化 | `initPinSlider` 在 `goTo` 切换时按当前幻灯片封面平均色计算 contrast 颜色写入箭头 `--text-banner`（`color: var(--text-banner, var(--text))`），随自动播放/切换实时更新，主题切换时经 `refreshPinNavColor` 重算（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
 | 2026-08-16 | 封面/banner 大标题用纯黑白 contrast，与 theme 小字割裂；用户希望大标题也用主题色但接近黑白 | `adaptiveTextColor` 新增 `saturationScale`（默认 1，调小更接近黑白）；`split` 模式大字改为 `saturationScale: 0.05` 的低饱和 theme（保留一点主色倾向），小字保持完整 theme（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
@@ -117,6 +118,13 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 
 | 日期 | 位置 | 变更 |
 |------|------|------|
+| 2026-08-16 | `source/css/_components/layout.styl` | 折叠抽屉位移改为跟随自身宽度：`.l_right` 收拢 `translateX(calc(100% + var(--inset) * 2))`、`.l_left` 收拢 `translateX(calc(-100% - var(--inset) * 2))`，替换硬编码 ±320px（修复右栏加宽后收拢露边） |
+| 2026-08-16 | `source/css/_components/widgets/widgets.styl` | 右栏 `.l_right .widgets` padding 桌面端（≥`$device-laptop`）改为 `0`，≤`$device-laptop` 折叠抽屉保留 `var(--gap-base) 0`（16px 0） |
+| 2026-08-16 | `source/css/_custom.styl` / `_components/layout.styl` | 右栏单独加宽：新增 `--rightbar-width-extra`（默认 `calc(var(--gap-base) * 2)` = 32px），`.l_body .l_right` 宽度改为 `calc(var(--width-sidebar) + var(--rightbar-width-extra))`，桌面右栏 320px（内容 288px），左栏保持 288px |
+| 2026-08-16 | `source/css/_custom.styl` 及 `source/css` 全部间距引用 | 间距令牌简化为 `--gap-base`（固定 16px，组件内部 margin/padding 统一）与 `--gap-page`（16px / ≥laptop 32px，页面级留白）；删除 `--gap-margin` / `--gap-padding` / `--gap-max`；页面级规则（侧边栏 margin、内容区 padding、grid-gap、吸顶 top、高度公式、2K 居中）改用 `--gap-page`，内部引用改用 `--gap-base`；`--width-sidebar` 简化为 `calc(var(--gap-base) * 4 + var(--side-content-width))`（288px 固定） |
+| 2026-08-16 | `source/css/_components/sidebar/sidebar.styl` / `_components/layout.styl` / `_components/main.styl` / `_components/partial/navbar.styl` / `_components/widgets/toc.styl` | 侧边栏贴边时四周间距统一为 `var(--gap-margin)`（宽松档 32px / 紧凑档 16px）：`.l_left` margin 改 `var(--gap-margin)`（原上下 `gap-max` 64/32px 减半）、`.l_right` margin 改 `var(--gap-margin) 0`、`.l_main` padding-top/bottom 改 `var(--gap-margin)`、吸顶 `top`（`.l_left` / navbar / TOC）与高度公式同步改 `var(--gap-margin)`；2K 水平居中仍用 `var(--gap-max)` |
+| 2026-08-16 | `source/css/_custom.styl` / `_components/layout.styl` / `_components/sidebar/sidebar.styl` | 间距令牌响应式分档：`--gap-margin` / `--gap-padding` 基础 16px，`≥$device-laptop`（1180px）改为 32px，`--gap-max` 派生为 32/64px；`--width-sidebar` 改为 `calc(var(--gap-padding) * 2 + var(--side-content-width))`（去掉重复计入的 margin）；`.l_left` margin 改为 `var(--gap-max) var(--gap-margin)`（上下 gap-max、左右 gap-margin）；移除平板抽屉的 `--gap-margin: 16px` 覆盖与重复 grid-gap 规则 |
+| 2026-08-16 | `source/css/_components/sidebar/sidebar.styl` / `_components/layout.styl` / `_components/main.styl` / `_components/partial/navbar.styl` / `_components/widgets/toc.styl` | 桌面（PC 含平板）侧边栏与内容区间距由 `var(--gap-margin)`（16px）恢复为 `var(--gap-max)`（32px）：左栏 margin 四周、右栏 margin 上下、`.l_main` 桌面 `padding-top`、吸顶 `top`（`.l_left` / navbar / TOC 首个小部件）与高度公式同步改为 `var(--gap-max)`；左栏 `.header` 顶部 margin 改为 `var(--gap-margin)`（与左侧一致） |
 | 2026-08-12 | `docs/knowledge/02-布局系统/sidebar-system.md` | 侧边栏顶部间距由 `calc(var(--gap-margin) * 2)`（32px）减半为 `var(--gap-margin)`（16px）；`$rightbar-bottom-margin` 96px→48px；`$leftbar-bottom-margin` 保持 32px 不变；移动端浮动面板顶部改为 `8pt` |
 | 2026-08-12 | `docs/knowledge/02-布局系统/sidebar-system.md` | `$leftbar-bottom-margin` / `$rightbar-bottom-margin` 重命名为 `*-mobile` 且值统一为 64px，仅移动端媒体查询引用；PC（含平板）侧边栏底部间距统一为 `var(--gap-margin)`，上下各 16px；移动端右栏新增显式 max-height（8pt 顶 + 64px 底） |
 | 2026-08-12 | `_components/partial/navbar.styl` / `_components/widgets/toc.styl` | navbar 与 TOC（右栏首个小部件）吸顶 `top` 同步减半为 `var(--gap-margin)`，移动端 navbar 对齐 `8pt` |
@@ -216,6 +224,8 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 
 | 短 SHA | 提交标题 | 覆盖说明 |
 |--------|----------|----------|
+| `a754ba3` | fix(utils): 插件注册队列化与 utils.js 补载，防御脚本延迟加载导致页面空白 | 设计文档 `2026-08-16-utils-lazy-load-guard/`；知识库 `05-前端交互/client-side-overview.md`、`07-外部集成/plugin-system.md`；本节二登记 |
+| `3cd116a` | style(ui): 间距令牌重构与侧边栏布局调整 | 设计文档 `2026-08-16-desktop-gap-max-spacing/`、`2026-08-16-responsive-gap-tokens/`、`2026-08-16-rightbar-width/`；知识库 `01-样式系统/*`、`02-布局系统/sidebar-system.md`、`09-高级主题/custom-styling-overrides.md`；CHANGELOG「样式/升级注意」 |
 | `b1501d9` | docs: 修正 AI 规范引用漂移并新增 check-spec-refs 一致性检查 | 设计文档 `docs/designs/2026-08-16-ai-spec-refs-check/`；CHANGELOG「其他」 |
 | `6c99783` | docs(knowledge): 移除合并版知识库全量并清理引用 | 本节二登记（知识库全量移除）；CHANGELOG「其他」 |
 | `c4df2ae` | fix(corner-shape): 轮播/封面/横幅图片角落跟随连续曲率圆角配置 | 设计文档 `2026-08-16-corner-shape-image-containers/`；知识库 `01-样式系统/styling-overview.md`、`04-标签插件/link-grid-banner-tags.md`；CHANGELOG「修复」 |
