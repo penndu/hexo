@@ -353,6 +353,7 @@ notebook:
 | `indent` | Boolean | `false` | 段落首行两字缩进 |
 | `pin_style` | `carousel` / `flat` | `carousel` | 置顶文章展示样式：carousel 轮播；flat 平铺（不渲染轮播，置顶文章在首页列表靠前展示，排序规则与轮播一致） |
 | `cover_ratio` | Number | `2` | 文章卡片封面宽高比 |
+| `card_style` | `hero` / `classic` | `hero` | 文章卡片样式：hero 全图文字封面卡片（有 cover 时标题 + 单行小字，文字区固定底部）；classic 普通卡片（封面/标题/摘要/meta） |
 | `banner_ratio` | Number | `2.5` | 文章横幅宽高比 |
 | `auto_excerpt` | Number | `128` | 自动摘要提取字符数 |
 | `reading_time` | Boolean | `false` | 文章页显示字数与预计阅读时长 |
@@ -429,6 +430,8 @@ plugins:
     js: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js
     css: https://gcore.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css
     selector: .timenode p>img
+  adaptive_text:
+    enable: true
 ```
 
 每个插件配置通常包含：
@@ -436,6 +439,8 @@ plugins:
 - `enable`：布尔开关，控制是否加载
 - JavaScript / CSS 的 CDN 地址
 - 插件专属选项
+
+`adaptive_text` 为内置能力（默认 `enable: true`）：背景图/背景色上方的文字颜色随背景亮度自适应，页面存在 `[data-text-adaptive]` 元素时才懒加载 `source/js/color.js`（`window.stellar.color`）与 `source/js/plugins/adaptive-text.js`，计算并写入 `--text-banner` / `--text-banner-theme`。属性值：`theme`（默认，背景图平均色 lighten/darken）、`contrast`（黑白对比）、`split`（大字低饱和 theme（接近黑白）+ 小字完整 theme，用于封面/banner/轮播容器）；明暗判定默认阈值 0.6、彩色背景（饱和度 > 0.2）上浮至 0.65，偏向采纳浅色文字；透明背景图按实际渲染背景做 alpha 合成后再平均；低饱和彩色平均色（如大面积浅灰 + 彩色 logo）做饱和度增强，主题小字保留色相带出主色倾向。接入场景：文章 photo 封面、专栏最新文章卡片、置顶轮播（post/wiki 幻灯片）、页顶 banner、`{% banner %}` 标签。
 
 `inject` 字段允许直接注入内联脚本/样式，而无需单独创建 EJS 文件。
 

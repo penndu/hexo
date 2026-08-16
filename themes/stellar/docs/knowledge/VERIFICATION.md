@@ -1,6 +1,6 @@
 # 核查与修正记录
 
-> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.41.0，HEAD 4f71c61）核查与修正的偏差记录。
+> 记录中文知识库对照 `themes/stellar/` 源码（版本 1.41.0，HEAD b1501d9）核查与修正的偏差记录。
 > 规则：行号引用一律改为文件路径；无法在代码中找到对应实现的主张保留原文并标注「未核实」。
 
 ## 一、已移除功能（整页改写为当前实现）
@@ -23,6 +23,15 @@
 
 | 位置 | 问题 | 修正 |
 |------|------|------|
+| 2026-08-16 | `docs/knowledge/知识库全量.md`（合并版） | 删除合并版：仓库无生成脚本、手工双写易漂移且 `verify.py` 跳过核查；知识库以领域页面为唯一事实源（AGENTS.md / README 引用同步清理，RAG 可直接索引领域页面） |
+| 2026-08-16 | 置顶轮播左右箭头颜色固定为主题文字色，不随当前幻灯片封面明暗变化 | `initPinSlider` 在 `goTo` 切换时按当前幻灯片封面平均色计算 contrast 颜色写入箭头 `--text-banner`（`color: var(--text-banner, var(--text))`），随自动播放/切换实时更新，主题切换时经 `refreshPinNavColor` 重算（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | 封面/banner 大标题用纯黑白 contrast，与 theme 小字割裂；用户希望大标题也用主题色但接近黑白 | `adaptiveTextColor` 新增 `saturationScale`（默认 1，调小更接近黑白）；`split` 模式大字改为 `saturationScale: 0.05` 的低饱和 theme（保留一点主色倾向），小字保持完整 theme（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | 大面积极浅灰 + 小面积彩色 logo 的图（如 `20250706161728163.jpg-2k`，平均 rgb(238,240,242)、饱和度仅 0.133），平均色几乎无色，theme 小字带不出主色 | 新增 `stellar.color.enhanceSaturation`：低饱和（0.02 < s < 0.2）彩色平均色抬升饱和度下限至 0.3（保留色相），theme 分支取色前先增强；完全中性与已饱和颜色不变（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | 近似的浅粉色封面与 banner（亮度 0.558 / 0.603）被固定阈值 0.6 劈成白字/黑字，观感不一致 | `adaptiveTextColor` 增加 `effectiveThreshold`：彩色背景（饱和度 > 0.2）阈值上浮至 0.65、中性灰保持 0.6，浅粉 banner 改为白字、浅灰仍为深字（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | 透明背景图（如 `20250706162910734.webp-hd`，98% 像素透明）的平均色把透明像素的 RGB(0,0,0) 计入，平均色被拉成近黑，导致浅灰渲染背景上产出浅色文字 | `getAverageColor` 改为同时统计平均透明度，透明图按元素/祖先/`body` 实际背景色做 alpha 合成后再平均（`parse` 扩展支持 hsl/hsla 与 alpha）；阈值保持 0.6 不变（原始亮度 0.0115，非阈值问题）；清理该文残留 `banner_info.color` 死配置（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | `poster.color`（photo 封面卡片内联 `color`）与 `banner_info.color`（页顶 banner 内联 `--text-banner`）的显式文字颜色设置与自适应文字颜色能力重复 | 移除 `layout/_partial/main/post_list/post_card.ejs` 的 `obj.color` 与 `layout/_partial/main/navbar/article_banner.ejs` 的 `banner.color` 设置逻辑，文字颜色一律由 `data-text-adaptive` 自适应计算；插件保留「元素已有内联 `--text-banner` / `color` 时跳过」的通用防御，文档同步（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | `04-标签插件/link-grid-banner-tags.md`、`03-内容系统/post-lists-cards.md`、`content-overview.md` 描述 `{% banner %}` 与封面/页顶 banner 统一使用 `cover-overlay()` 渐变模糊层，但该标签的文字被模糊层/黑色蒙版压在下方呈半透明 | `{% banner %}` 移除渐变模糊覆盖层与 `.banner-mask` 蒙版元素，改为纯背景图 + `data-text-adaptive="split"` 自适应文字颜色（文字区 `z-index: 1` 保持在背景图之上）；hover 保留背景图放大/变暗，无模糊层（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
+| 2026-08-16 | 背景图/背景色上方的文字颜色硬编码为白色（`--text-banner: white`），亮色背景下可读性不足、明暗切换不稳定；知识库未描述自适应文字颜色能力 | 新增通用能力 `stellar.color`（`source/js/color.js`）+ DOM 插件（`source/js/plugins/adaptive-text.js`）：`[data-text-adaptive]`（`split` 用于封面/banner/轮播容器：大字 contrast、小字 theme；`theme` 默认 / `contrast` 单样式）按背景图平均色/背景色计算并写入 `--text-banner` / `--text-banner-theme`，明暗判定默认阈值 0.6 偏向浅色文字，页面存在目标元素时才懒加载；接入 photo 封面卡片、专栏最新文章卡片、置顶轮播（post/wiki 幻灯片）、页顶 banner、`{% banner %}`（banner.styl 硬编码 white 改为 `var(--text-banner)` / `var(--text-banner-theme, var(--text-banner))`，显式颜色覆盖优先）；新增 `plugins.adaptive_text.enable` 配置与 `test/color.test.js` 单测（见 `docs/designs/2026-08-16-adaptive-text-color/`） |
 | head-seo.md 描述生成 / Open Graph / JSON-LD | 文档与代码一致，但 `open_graph.enable` 时 wiki 项目 description 兜底未生效：`generate_description()` 提前返回，`og_args()` 未传描述，JSON-LD 无项目描述兜底 | 修复 `og_args()` 传入项目描述、`generate_description()` 调整优先级、`json_ld.js` 增加项目描述兜底；同步更新文档（见 `docs/designs/2026-08-14-wiki-meta-description-fallback/`） |
 | 1.1/1 Overview 等 | 版本号 1.39.0 | 统一为 1.39.1 |
 | 1.1/1 Overview 等 | 版本号 1.38.0 | 统一为 1.39.0 |
@@ -77,6 +86,9 @@
 | 2026-08-16 | `_config.yml`、`layout/_partial/cover/post_cover.ejs`（删除）、`layout/_partial/cover/index.ejs`、`layout/_partial/main/post_list/post_card.ejs`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/content-overview.md`、`post-lists-cards.md`、`知识库全量.md` | 移除已失效的 auto_banner / auto_cover（Unsplash 封面接口）：删除 `article.auto_banner` 配置与 `post_cover.ejs` 死代码；文章卡片封面仅显式 `cover` 完整 URL 时渲染；同步清理知识库中的 Unsplash 描述（见 `docs/designs/2026-08-16-remove-unsplash-auto-banner/`） |
 | 2026-08-16 | `layout/_partial/main/post_list/post_card.ejs`、`source/css/_components/list.styl`、`docs/knowledge/03-内容系统/post-lists-cards.md` | 文章卡片标签前缀由字符 `#` 改为内联 `default:hashtag` 图标（`.card-tags svg`：1em、`margin-right: .25em`、`opacity: .4`，与 `tag-chip()` 一致）；标签页/文章页/笔记页标签不受影响（见 `docs/designs/2026-08-16-card-tags-hashtag-icon/`） |
 | 2026-08-16 | `source/css/_components/sidebar/logo.styl`、`docs/knowledge/02-布局系统/sidebar-system.md`、`知识库全量.md` | 左上角「所有项目」返回胶囊 `.wiki-home` 默认背景为纯色 `var(--bg-a50)`，与目录树激活项不一致 | 默认背景改为复用 `sidebar-light()`（与 `.l_left .widget-wrapper.post-list .widget-body a.active` 一致），glass / card 风格自动跟随；hover 仅文字颜色变化（见 `docs/designs/2026-08-16-wiki-home-active-style/`） |
+| 2026-08-16 | `layout/index_topic.ejs`、`layout/_partial/main/post_list/topic_card.ejs`、`latest_post_card.ejs`、`source/css/_components/list.styl`、`partial/post-panel.styl`、`tag-plugins/friends_posts.styl`、`source/js/services/friends_and_posts.js`、`docs/knowledge/03-内容系统/post-lists-cards.md`、`04-标签插件/social-content-card-tags.md`、`知识库全量.md` | 专栏索引页复用 wiki 卡片（图标 + 标题 + 描述），知识库未描述独立布局 | 重构为平铺容器：左侧最新文章卡片（`topic.cover`，2:1 渐变模糊，整卡跳转最新文章）+ 右侧其他文章列表（排除最新、≤3 条、按时间倒序）；`.post-panel` 公共组件统一友链文章订阅与专栏右侧列表（类名 `.previews` → `.post-panel`）（见 `docs/designs/2026-08-15-topic-latest-post-card/`） |
+| 2026-08-16 | `source/css/_common/title.styl`、`_components/pages/article-story.styl`、`_components/list.styl`、`layout/_partial/main/post_list/topic_card.ejs` | 专栏容器左右分栏（非移动端等宽）与卡片内专栏名，与最终视觉不一致 | 改为上下布局：`h2.topic-title` 专栏标题（卡片外）→ 全宽最新文章卡片（仅标题 + 时间两行）→ 其他文章列表；抽取共享 mixin `story-title()` 复用 story 文章 h2 样式（story 渲染输出不变）（见 `docs/designs/2026-08-15-topic-latest-post-card/`） |
+| 2026-08-16 | `layout/_partial/main/post_list/topic_card.ejs`、`source/css/_components/list.styl`、`docs/knowledge/03-内容系统/post-lists-cards.md`、`知识库全量.md` | 专栏标题下无描述、专栏间间隔偏小 | 标题下方新增 `p.topic-desc` 专栏描述（居中次要色）；`.md-text` 上下内边距 `1.5rem` → `2.25rem`（移动端 `1.25rem` → `1.5rem`）加大专栏间隔（见 `docs/designs/2026-08-15-topic-latest-post-card/`） |
 
 ## 三、处理约定
 
@@ -191,3 +203,38 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 | 2026-08-16 | `source/css/_components/partial/article-banner.styl`、`docs/designs/2026-08-16-refactor-page-banner/` | 修复重构回归：`breadcrumb: false`（作者归档）页面移除空 `.top` 后，`.content` 的 `justify-content: space-between` 对唯一子元素失效导致 `.bottom` 被顶到横幅顶部；`.article.banner .content .bottom` 增加 `margin-top: auto`，使 `.bottom` 在有无 `.top` 时都贴底（有 `.top` 时与 space-between 结果一致，无回归） |
 | 2026-08-16 | `layout/_partial/widgets/toc.ejs`、`source/css/_components/widgets/toc.styl`、`docs/knowledge/09-高级主题/performance.md`、`04-标签插件/icon-tag.md`、`docs/designs/2026-08-16-toc-footer-icon-inline/`、主工程 `source/wiki/stellar/tag-plugins/express.md` | 修复 TOC 底部按钮（回到顶部/参与讨论）异步图标加载失败时的图标丢失与文字换行：`icon()` 调用传 `inline=true` 改回服务端内联；`.widget-footer a` 下 `svg,img` 拆分，svg 固定 16×16 且 `flex-shrink:0`，占位符未替换时也不再挤压文字（无头 Chrome 实测） |
 | 2026-08-16 | `source/css/_common/cover-overlay.styl`（新增）、`_components/list.styl`、`_components/pin-slider.styl`、`_components/partial/article-banner.styl`、`_components/tag-plugins/banner.styl`、`layout/_partial/main/pin_slider.ejs`、`scripts/tags/lib/banner.js`、`docs/knowledge/03-内容系统/post-lists-cards.md`、`content-overview.md`、`04-标签插件/link-grid-banner-tags.md`、`05-前端交互/client-side-overview.md`、`知识库全量.md`、`docs/designs/2026-08-16-unify-cover-overlay/` | 统一背景图覆盖层观感：新增通用 mixin `cover-overlay()`，文章列表 poster 封面、置顶轮播 post/wiki 幻灯片、页顶 banner、`{% banner %}` 标签共用常驻同图渐变模糊层 + 黑色渐变蒙版（边缘不透明度 0.25 → 垂直中线 0），hover 放大 `scale(1.05)` 并变暗（亮度 75%、饱和度 120%）；页顶 banner 模糊层由 hover 淡入改为常驻；banner 标签补 `--bg-url` 与蒙版元素；轮播 wiki 幻灯片由静态蒙版接入统一覆盖层（见 `docs/designs/2026-08-16-unify-cover-overlay/`） |
+| 2026-08-16 | `_config.yml`、`layout/_partial/main/post_list/post_card.ejs`、`layout/index.ejs`、`layout/_partial/main/pin_slider.ejs`、`source/css/_components/list.styl`、`docs/knowledge/00-总览与安装配置/configuration.md`、`03-内容系统/post-lists-cards.md`、`05-前端交互/client-side-overview.md`、`知识库全量.md`、`docs/designs/2026-08-16-remove-poster-card-style/`、主工程 `_config.stellar.yml`、`source/wiki/stellar/pages.md`、`front-matter.md`、`advanced-settings.md`、`notebooks.md`、`docs/specs/remove-poster-card-style/` | 移除文章 front-matter `poster`（headline/topic/caption）配置，新增 `article.card_style`（`hero` 默认 / `classic`）：hero 卡片在有 cover 时渲染「标题 + 单行小字（`subtitle` > `description`）」且文字区固定 bottom、不再有 top 布局与 topic 小字；置顶轮播同步改为 title + `subtitle` > `description` > excerpt（截断 50 字）；`list.styl` 移除 `.cover` / `.cover-info` 的 `[position=top]` 规则并给 caption 加单行省略；`.text.topic` 保留供专栏最新文章卡片使用；主仓库清理旧 poster front-matter 并同步 wiki 文档（见 `docs/designs/2026-08-16-remove-poster-card-style/`） |
+| 2026-08-16 | `scripts/lib/subtitle.js`（新增）、`scripts/helpers/subtitle.js`（新增）、`test/subtitle.test.js`（新增）、`layout/_partial/main/post_list/post_card.ejs`、`layout/_partial/main/pin_slider.ejs`、`docs/knowledge/03-内容系统/post-lists-cards.md`、`05-前端交互/client-side-overview.md`、`知识库全量.md`、主工程 `source/wiki/stellar/pages.md`、`front-matter.md`、`docs/specs/remove-poster-card-style/` | 统一小字取值逻辑：新增 `subtitle()` helper（纯函数 `scripts/lib/subtitle.js`），hero 卡片与置顶轮播共用 `subtitle > description > excerpt/content 前 50 字`（strip HTML、压缩空白、截断，省略号由 CSS 单行处理）；hero 卡片新增 excerpt 兜底；`post_card.ejs` / `pin_slider.ejs` 删除本地重复实现（见 `docs/designs/2026-08-16-remove-poster-card-style/`） |
+| 2026-08-16 | `layout/index.ejs`、`source/css/_components/list.styl`、`pin-slider.styl`、`partial/article-banner.styl`、`tag-plugins/banner.styl`、`layout/_partial/main/pin_slider.ejs`、`docs/knowledge/01-样式系统/styling-overview.md`、`04-标签插件/link-grid-banner-tags.md`、`docs/designs/2026-08-16-corner-shape-image-containers/`、主工程 `docs/specs/continuous-corner/`、`source/wiki/stellar/advanced-settings.md` | 修复轮播区/文章封面（hero）/页顶横幅/`{% banner %}` 图片角落不跟随 corner-shape：Chrome 151 实测 corner-shape 只作用于元素自身背景、不传递给子内容 overflow 裁剪，clip-path 亦强制普通圆角；图片 URL 由容器自身背景承载（`--cover-url` / `--bg-url` / `--pin-cover-url`），`.post-card` / `.article.banner` 的 clip-path 加 `@supports not (corner-shape: superellipse(1))` 守卫（Chromium 移除、Safari/Firefox 保留），轮播插件按当前 slide 同步 `--pin-cover-url` 到 `.pin-slider` 且封面 slide 背景透明（见 `docs/designs/2026-08-16-corner-shape-image-containers/`） |
+| 2026-08-16 | `0f4486d`（#688）· `source/css/_components/pages/archives.styl`、`partial/article-tags.styl` | 标签行负边距导致移动端页面横向溢出：修复 `.tag` 行负边距（仅此两文件），移动端不再横向溢出；行为回归修复，知识库无行为描述变更，仅登记（CHANGELOG 1.42.0「修复」） |
+| 2026-08-16 | `1f2f933`（#689）· `source/css/_components/tag-plugins/gallery.styl`、`source/css/_plugins/lazyload.styl` | albums/posters 在 Firefox/Safari 标题竖排与遮罩消失：修复 gallery 卡片标题竖排与遮罩丢失问题；行为回归修复，知识库无行为描述变更，仅登记（CHANGELOG 1.42.0「修复」） |
+| 2026-08-16 | `a198243` · `source/js/main.js` | Babel 转译将 `sidebar` 全局改名导致侧边栏失效：修复转译改名问题，侧边栏恢复（见 `docs/designs/2026-08-16-fix-babel-sidebar-rename/`），补登记 |
+
+## 八、提交登记（发版前核对）
+
+> 发版前核对台账：`ci/check-release-docs.js` 会校验自上一 tag 以来**涉及主题代码、配置或行为变化**的每个非合并提交（改动 `layout/`、`scripts/`、`source/`、`languages/`、`_data/`、`_config.yml`，7 位短 SHA）都出现在下表；纯文档 / CI / 工具改动无需登记。缺失时 `npm run check` 失败并列出缺失提交。登记时按实际 `git log --no-merges <tag>..HEAD` 输出为准。
+
+| 短 SHA | 提交标题 | 覆盖说明 |
+|--------|----------|----------|
+| `b1501d9` | docs: 修正 AI 规范引用漂移并新增 check-spec-refs 一致性检查 | 设计文档 `docs/designs/2026-08-16-ai-spec-refs-check/`；CHANGELOG「其他」 |
+| `6c99783` | docs(knowledge): 移除合并版知识库全量并清理引用 | 本节二登记（知识库全量移除）；CHANGELOG「其他」 |
+| `c4df2ae` | fix(corner-shape): 轮播/封面/横幅图片角落跟随连续曲率圆角配置 | 设计文档 `2026-08-16-corner-shape-image-containers/`；知识库 `01-样式系统/styling-overview.md`、`04-标签插件/link-grid-banner-tags.md`；CHANGELOG「修复」 |
+| `3c8b08a` | feat: 完善背景图文字自适应颜色（alpha 合成、彩色阈值、饱和度增强、轮播箭头） | 设计文档 `2026-08-16-adaptive-text-color/`；知识库 `00-总览与安装配置/configuration.md`；CHANGELOG「新功能」 |
+| `1f2f933` | fix(gallery): 修正 albums/posters 在 Firefox/Safari 标题竖排与遮罩消失问题 (#689) | 仅登记（本节七，本次补）；CHANGELOG「修复」 |
+| `1ec3358` | feat(article): 新增 card_style（hero/classic）并移除 poster 配置，统一小字取值 | 设计文档 `2026-08-16-remove-poster-card-style/`；知识库 configuration.md、`03-内容系统/post-lists-cards.md`、`05-前端交互/client-side-overview.md`；CHANGELOG「新功能/升级注意」 |
+| `5df71ec` | feat: 背景图文字颜色自适应（split 大字 contrast + 小字 theme） | 设计文档 `2026-08-16-adaptive-text-color/`；知识库 configuration.md；CHANGELOG「新功能」 |
+| `8653f92` | feat(topic): 重构专栏列表页为上下布局并抽取公共组件 | 设计文档 `2026-08-15-topic-latest-post-card/`；知识库 post-lists-cards.md、`04-标签插件/social-content-card-tags.md`；CHANGELOG「新功能」 |
+| `0f4486d` | fix: 标签行负边距导致移动端页面横向溢出 (#688) | 仅登记（本节七，本次补）；CHANGELOG「修复」 |
+| `26d6a85` | style(banner): 统一封面、轮播、页顶横幅与 banner 标签背景图覆盖层观感 | 设计文档 `2026-08-16-unify-cover-overlay/`；知识库 post-lists-cards.md、`03-内容系统/content-overview.md`、link-grid-banner-tags.md、client-side-overview.md；CHANGELOG「样式」 |
+| `b4da348` | fix(banner): Safari 下修复顶部横幅与列表封面方角漏出 | 设计文档 `2026-08-16-fix-article-banner-safari-corners/`、`2026-08-16-fix-cover-corner-leak/`；知识库 content-overview.md；CHANGELOG「修复」 |
+| `a231613` | fix(banner): 导航激活项改用半透明白底避免 hover 圆角丢失 | 设计文档 `2026-08-16-fix-banner-navbar-active-blur/`；CHANGELOG「修复」 |
+| `db0f82b` | fix(banner): 页面顶部横幅黑色蒙版始终显示并贴边 | 设计文档 `2026-08-16-fix-article-banner-mask/`；知识库 content-overview.md；CHANGELOG「修复」 |
+| `f2d6f95` | fix(toc): 回到顶部/参与讨论图标内联并修复占位符布局 | 设计文档 `2026-08-16-toc-footer-icon-inline/`；知识库 `09-高级主题/performance.md`、`04-标签插件/icon-tag.md`；CHANGELOG「修复」 |
+| `366f8e9` | style: 左栏返回胶囊默认背景复用目录树激活光照效果 | 设计文档 `2026-08-16-wiki-home-active-style/`；知识库 `02-布局系统/sidebar-system.md`；CHANGELOG「样式」 |
+| `4abda8f` | docs: 记录修复方案的构建与部署验证结果 | 设计文档 `2026-08-16-fix-babel-sidebar-rename/checklist.md`；纯文档提交 |
+| `a198243` | fix: 修复 Babel 转译将 sidebar 全局改名导致侧边栏失效 | 设计文档 `2026-08-16-fix-babel-sidebar-rename/`；本节七登记（本次补）；CHANGELOG「修复」 |
+| `b83ef7a` | style: banner hover 动画对齐封面，封面渐变模糊层增加黑色蒙版 | 设计文档 `2026-08-16-banner-hover-cover-mask/`；知识库 content-overview.md；CHANGELOG「样式」 |
+| `9a8380d` | fix: 修复作者归档页横幅下块贴顶问题 | 设计文档 `2026-08-16-refactor-page-banner/`；CHANGELOG「修复」 |
+| `0172f57` | refactor: 重构页面横幅上块为显式两行结构 | 设计文档 `2026-08-16-refactor-page-banner/`；知识库 content-overview.md；CHANGELOG「重构」 |
+| `3bb1a87` | style: 文章卡片标签 # 前缀替换为 hashtag 图标 | 设计文档 `2026-08-16-card-tags-hashtag-icon/`；知识库 post-lists-cards.md；CHANGELOG「样式」 |
+| `3e31c73` | refactor: 移除已失效的 auto_banner（Unsplash 自动横幅）功能 | 设计文档 `2026-08-16-remove-unsplash-auto-banner/`；知识库 configuration.md、post-lists-cards.md、content-overview.md（本次修正残留引用）；CHANGELOG「重构/升级注意」 |
