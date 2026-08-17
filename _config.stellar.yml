@@ -1,6 +1,6 @@
 ######## Stellar info ########
 stellar:
-  version: '1.41.0'
+  version: '1.42.1'
   homepage: 'https://xaoxuu.com/wiki/stellar/'
   repo: 'https://github.com/xaoxuu/hexo-theme-stellar'
   main_css: /css/main.css
@@ -189,6 +189,8 @@ article:
   indent: # true / false
   # 封面图宽高比
   cover_ratio: 2
+  # 文章卡片样式：hero = 全图文字封面卡片（有 cover 时标题 + 一行小字，文字区固定底部），classic = 普通卡片（封面/标题/摘要/meta）
+  card_style: hero
   # 文章内横幅宽高比
   banner_ratio: 2.5
   # 如果没有指定 excerpt 和 description，将自动取多长的内容作为文章摘要？
@@ -298,9 +300,9 @@ comments:
   # Waline
   # https://waline.js.org/
   waline:
-    js: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js
-    css: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css
-    meta_css: https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css
+    js: https://gcore.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline.js
+    css: https://gcore.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline.css
+    meta_css: https://gcore.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline-meta.css
     # Waline server address url, you should set this to your own link
     serverURL: https://waline.vercel.app
     # If false, comment count will only be displayed in post page, not in home page
@@ -670,6 +672,11 @@ plugins:
     default_text: 'Copy'
     success_text: 'Copied'
     toast: 复制成功
+
+  # 文字自适应颜色：背景图/背景色上方的文字随背景亮度自适应
+  # 页面存在 [data-text-adaptive] 元素时才按需加载（theme：背景图平均色 lighten/darken；contrast：黑白对比）
+  adaptive_text:
+    enable: true
   
   # 赫蹏 (Heti) - 专为中文网页内容设计的排版样式增强
   # https://github.com/sivan/heti
