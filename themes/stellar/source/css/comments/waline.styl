@@ -1,3 +1,7 @@
+@import '../_defines/const'
+@import '../_custom'
+@import '../_defines/func'
+
 .cmt-body
   .wl-panel
     margin: 0.5em 0 !important
@@ -66,3 +70,23 @@
   :root:not([data-theme]) &
     @media (prefers-color-scheme: dark)
       ondark()
+
+// override
+.md-text .cmt-body.waline
+  p
+    font-size: var(--waline-font-size)
+    line-height: 1.5
+    margin: 0
+  .wl-reply-to *
+    line-height: 1.5
+  .wl-header label, .wl-input
+    font-size: 0.875em
+  .wl-editor
+    font-size: var(--waline-font-size)
+    font-family: $ff-body
+  .wl-content
+    .wl-emoji, .vemoji
+      height: 2.5em
+    img:not(.wl-emoji):not(.vemoji)
+      margin-top: 0.5em
+      margin-bottom: 0.5em
