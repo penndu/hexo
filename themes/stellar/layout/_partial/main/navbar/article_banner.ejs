@@ -6,8 +6,8 @@ if (page.banner) {
   banner.url = page.banner
 } else if (theme.topic.tree[page.topic]?.banner != null) {
   banner.url = theme.topic.tree[page.topic]?.banner
-} else if (theme.wiki.tree[page.wiki]?.banner != null) {
-  banner.url = theme.wiki.tree[page.wiki]?.banner
+} else if (wiki_project(page.wiki, page)?.banner != null) {
+  banner.url = wiki_project(page.wiki, page)?.banner
 }
 banner = Object.assign(banner, page.banner_info)
 // 标题
@@ -33,7 +33,7 @@ function layoutTop() {
   el += `<div class="left" id="breadcrumb">`
     // 首页
     el += `<a class="cap breadcrumb" href="${pretty_url(config.root)}">${__("btn.home")}</a>`
-    if (theme.wiki.tree[page.wiki]) {
+    if (wiki_project(page.wiki, page)) {
       el += partial('breadcrumb/wiki')
     } else if (page.notebook) {
       el += partial('breadcrumb/note')

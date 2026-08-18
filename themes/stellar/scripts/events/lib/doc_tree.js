@@ -8,13 +8,20 @@
 'use strict';
 
 const { buildWikiTree } = require('../../lib/doc_tree');
+const { configuredLanguages } = require('../../lib/language_path');
 
 module.exports = ctx => {
-  const wiki = buildWikiTree({
+  const options = {
     data: ctx.locals.get('data'),
     pages: ctx.locals.get('pages'),
     shelf: ctx.locals.get('data').wiki || [],
-    siteTree: ctx.theme.config.site_tree
-  });
-  ctx.theme.config.wiki = wiki;
+    siteTree: ctx.theme.config.site_tree,
+    context: ctx
+  };
+  const locales = {};
+  for (const item of configuredLanguages(ctx)) {
+    locales[item.code] = buildWikiTree(Object.assign({}, options, { language: item.code }));
+  }
+  const defaultLanguage = configuredLanguages(ctx)[0]?.code;
+  ctx.theme.config.wiki = Object.assign({}, locales[defaultLanguage] || buildWikiTree(options), { locales });
 };

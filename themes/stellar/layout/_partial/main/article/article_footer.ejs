@@ -43,7 +43,7 @@ function layoutDiv() {
 
   var license = ''
   if (page.wiki) {
-    const proj = theme.wiki.tree[page.wiki]
+    const proj = wiki_project(page.wiki, page)
     if (page.license != null) {
       license = page.license || theme.article.license
     } else if (proj?.license != null) {
@@ -86,7 +86,7 @@ function layoutDiv() {
 
   var showSharePlugin = false
   if (page.wiki) {
-    const proj = theme.wiki.tree[page.wiki]
+    const proj = wiki_project(page.wiki, page)
     if (page.share != null) {
       showSharePlugin = page.share == true
     } else if (proj != null) {

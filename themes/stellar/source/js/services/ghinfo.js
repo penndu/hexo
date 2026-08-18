@@ -6,8 +6,10 @@
       if (api == null) {
         continue;
       }
+      const isWikiStars = el.classList.contains('wiki-stars');
+      const isWikiRelease = el.classList.contains('wiki-cover-release');
       // layout
-      utils.request(null, api, async resp => {
+      utils.request(isWikiStars ? el : null, api, async resp => {
         const data = await resp.json();
         function fill(data) {
           for (let key of Object.keys(data)) {
@@ -27,6 +29,24 @@
         } else {
           fill(data);
         }
-      });
+        if (isWikiStars && data.stargazers_count != null) {
+          el.classList.add('loaded');
+        }
+        if (isWikiRelease) {
+          const tag = el.querySelector('#latest-tag-name');
+          if (tag && tag.textContent) {
+            const value = el.querySelector('.wiki-cover-release-value');
+            value.textContent = el.dataset.projectName + ' ' + tag.textContent;
+            el.classList.remove('is-loading');
+            el.classList.add('loaded');
+          } else {
+            el.remove();
+          }
+        }
+      }, () => {
+        if (isWikiStars || isWikiRelease) {
+          el.remove();
+        }
+      }).catch(() => {});
     }
 })();
