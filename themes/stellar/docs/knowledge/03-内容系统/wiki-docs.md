@@ -202,10 +202,17 @@ tree:
 | `tree` | 数组包装为 `{ '': array }` | doc_tree.js |
 | `base_dir` | 去掉开头 `/`，补结尾 `/` | doc_tree.js |
 | `tags` | 字符串转为单元素数组 | doc_tree.js |
+| `headline` | 不转换；卡片和 Hero 标题为空时回退 `title` | wiki_card.ejs、wiki_cover.ejs |
+| `available` | 不转换；可选字符串 | wiki_card.ejs |
+| `background` | URL 作为静态 Hero 背景，并让 Hero 文字沿用封面平均色自适应；`galaxy` 为内置动态星空，并以其基准底色驱动同一自适应取色 | wiki_cover.ejs、adaptive-text.js |
+| `preview` | `terminal` 使用 `commands[].codes` 多行命令；`image` 使用 `src`/`alt` | wiki_cover.ejs |
+| `actions` | 可选自定义 Hero 按钮数组（`title`、`url`、可选 `icon`） | wiki_cover.ejs |
 | `sort` | 为 null 时默认 `0` | doc_tree.js |
 | `pin` | 仅用于置顶轮播收集（有置顶内容即渲染），不改变列表顺序；设置即置顶，按数值降序 | pin_slider.ejs |
 
 **wiki.shelf**——根文件 `_data/wiki.yml`（非子目录）定义哪些项目 ID 视为「已发布」。只有 shelf 中的项目出现在标签索引与相关项目列表中。
+
+Wiki Hero 的内置按钮、终端标签、加载提示与辅助标签均通过 `__()` 读取 `languages/`；它们随站点语言切换。`actions[].title` 是项目自定义内容，保持原值，不由主题翻译。
 
 ### 页面级 Front-Matter
 
@@ -387,12 +394,12 @@ flowchart TD
 
 ### Wiki 索引页
 
-wiki 索引页（`index_wiki` 布局）显示 `wiki.shelf` 中所有已发布项目。每个项目卡片显示：
+wiki 索引页（`index_wiki` 布局）显示 `wiki.shelf` 中所有已发布项目。仅配置 `cover` 的卡片使用全幅背景图、同图渐变模糊层与不透明度约 0.25 至 0 的黑色蒙版；未配置 `cover` 时保留纯色空背景。卡片显示：
 
-- 项目标题与描述
-- `wiki.tree[id].tags` 的标签
+- `wiki.tree[id].tags` 标签、`headline` 营销标题（为空回退 `title`）与可选 `available` 适用范围文字；“适用于”由 `meta.available` 语言键输出
+- 有 `repo` 时从 GitHub 动态加载 star 数；无仓库或加载失败时隐藏该项
+- 底栏中的 `icon`（无值回退默认项目图）、`name` 项目标题和 `subtitle()` 项目副标题
 - 指向 `wiki.tree[id].homepage.path` 的链接
-- 配置了封面图时显示项目封面
 
 索引页使用 `site_tree.index_wiki` 配置其侧边栏与导航。
 

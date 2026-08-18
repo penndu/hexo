@@ -75,3 +75,45 @@
       &:hover, &.active
         > svg
           color: var(--item-theme)
+
+  .language-switcher
+    display: block
+    padding: 0
+    overflow: visible
+    cursor: pointer
+    summary
+      list-style: none
+      box-sizing: border-box
+      min-height: 36px
+      display: flex
+      align-items: center
+      padding: 0 16px
+      cursor: pointer
+      &::-webkit-details-marker
+        display: none
+    &[open] summary
+      color: var(--text-p1)
+      sidebar-light()
+    .language-options
+      display: flex
+      flex-direction: column
+      gap: 2px
+      margin: 0 4px 4px
+      padding: 4px
+      border-radius: $border-bar
+      background: var(--bg-a50)
+    .language-option
+      min-height: 32px
+      display: flex
+      align-items: center
+      padding: 0 12px
+      border-radius: $border-bar
+      color: var(--text-p2)
+      text-decoration: none
+      &:hover, &.active
+        color: var(--text-p1)
+        background: var(--bg-a60)
+      &.unavailable
+        opacity: .72
+      .active-dot
+        margin-left: auto

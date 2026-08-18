@@ -25,5 +25,6 @@ hexo.extend.helper.register('has_remote_md', function (page) {
   if (page.content && page.content.indexOf(PLACEHOLDER_CLASS) >= 0) {
     return true;
   }
-  return isWikiReadmePage(hexo.theme.config.wiki.tree[page.wiki], page);
+  const { wikiProject } = require('../lib/wiki_locale');
+  return isWikiReadmePage(wikiProject(hexo.theme.config, page.wiki, page, hexo), page);
 });

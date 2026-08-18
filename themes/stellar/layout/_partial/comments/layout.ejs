@@ -12,7 +12,7 @@ if (cmt.service && cmt.service.length > 0) {
   }
 }
 // 合并项目评论
-const proj = theme.wiki.tree[page.wiki]
+const proj = wiki_project(page.wiki, page)
 if (loadComment && (proj != null)) {
   if (proj.comments === false) {
     loadComment = false;

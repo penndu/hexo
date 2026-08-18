@@ -1,6 +1,6 @@
 <%
 
-const wiki = theme.wiki.tree[page.wiki]
+const wiki = wiki_project(page.wiki, page)
 const topic = theme.topic.tree[page.topic]
 const notebook = theme.notebooks.tree[page.notebook]
 
@@ -121,35 +121,40 @@ function layoutSearch() {
 }
 function layoutFooterDiv() {
   const { social } = theme.footer
-  if (social == null) {
+  if (social == null && !language_switcher_enabled()) {
     return ''
   }
   var el = '<footer class="footer dis-select">';
-  el += '<div class="social-wrap">';
-  for (let id of Object.keys(social)) {
-    let item = social[id];
-    if (item.icon && (item.url || item.onclick)) {
-      el += '<a class="social"';
-      if (item.title) {
-        el += ' title="' + escape_html(item.title) + '"';
-      }
-      if (item.url) {
-        el += ' href="' + escape_html(url_for(item.url)) + '"';
-        if (item.url.includes('://')) {
-          el += ' target="_blank" rel="external nofollow noopener noreferrer"';
-        } else {
-          el += ' rel="noopener noreferrer"';
+  if (social != null) {
+    el += '<div class="social-wrap">';
+    for (let id of Object.keys(social)) {
+      let item = social[id];
+      if (item.icon && (item.url || item.onclick)) {
+        el += '<a class="social"';
+        if (item.title) {
+          el += ' title="' + escape_html(item.title) + '"';
         }
-      } else if (item.onclick) {
-        item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
-        el += ' onclick="' + item.onclick + '"';
+        if (item.url) {
+          el += ' href="' + escape_html(url_for(item.url)) + '"';
+          if (item.url.includes('://')) {
+            el += ' target="_blank" rel="external nofollow noopener noreferrer"';
+          } else {
+            el += ' rel="noopener noreferrer"';
+          }
+        } else if (item.onclick) {
+          item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
+          el += ' onclick="' + item.onclick + '"';
+        }
+        el += '>';
+        el += icon(item.icon, 'no-lazy')
+        el += '</a>';
       }
-      el += '>';
-      el += icon(item.icon, 'no-lazy')
-      el += '</a>';
     }
+    el += '</div>';
   }
-  el += '</div>';
+  if (language_switcher_enabled()) {
+    el += partial('language')
+  }
   el += '</footer>';
   return el;
 }

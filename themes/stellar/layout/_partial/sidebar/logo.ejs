@@ -2,8 +2,8 @@
 var logo = theme.logo
 if (page.logo) {
   logo = Object.assign({}, logo, page.logo)
-} else if (theme.wiki.tree[page.wiki]) {
-  const proj = theme.wiki.tree[page.wiki]
+} else if (wiki_project(page.wiki, page)) {
+  const proj = wiki_project(page.wiki, page)
   var l = proj.logo
   if (l) {
     if (l.title.includes('](') == false) {
@@ -42,14 +42,14 @@ function layoutBack() {
     return ''
   }
   // 开关：page 的 wiki_home 优先，其次 wiki 定义的 wiki_home，默认显示
-  const wiki = theme.wiki.tree[page.wiki]
+  const wiki = wiki_project(page.wiki, page)
   const enabled = page.wiki_home ?? wiki?.wiki_home ?? true
   if (enabled === false) {
     return ''
   }
   var el = ''
   el += `<div class="wiki-home-wrap">`
-  el += `<a class="wiki-home cap" href="${pretty_url(theme.site_tree.index_wiki.base_dir)}">`
+  el += `<a class="wiki-home cap" href="${pretty_url(wiki_index_url(page))}">`
   el += icon('default:goback', '', true)
   el += `<span>${__('btn.all_wiki')}</span>`
   el += `</a>`
