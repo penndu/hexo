@@ -226,7 +226,7 @@ recent_comments:
       }
 
       function getAvatarUrl(emailEncrypted) {
-        return `https://dn-qiniu-avatar.qbox.me/avatar/${emailEncrypted}?s=80&d=identicon`;
+        return `https://g.dusays.com/avatar/${emailEncrypted}?s=80&d=identicon`;
       }
 
       async function loadRecentComments() {
