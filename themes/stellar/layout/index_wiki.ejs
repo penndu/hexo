@@ -1,7 +1,7 @@
 <%
 function layout_wiki_list(partial) {
   var el = ''
-  const { shelf, tree } = wiki_data(page)
+  const { shelf, tree } = theme.wiki
   for (let pid of shelf) {
     let proj = tree[pid]
     if (proj == null) {
@@ -39,7 +39,7 @@ function layout_wiki_list(partial) {
 
 function layoutDiv() {
   var el = ''
-  el += partial('_partial/main/navbar/nav_tabs_wiki', { page: page, wiki: wiki_data(page) })
+  el += partial('_partial/main/navbar/nav_tabs_wiki')
   el += `<div class="post-list wiki">`;
   el += layout_wiki_list(function(proj) {
     return partial('_partial/main/post_list/wiki_card', {proj: proj})

@@ -11,7 +11,6 @@
 'use strict';
 
 const { normalize_path } = require('./path_utils');
-const { pageLanguage, pathLanguage, languagePath } = require('./language_path');
 
 class WikiPage {
   constructor(page) {
@@ -25,11 +24,7 @@ class WikiPage {
   }
 }
 
-function clone(value) {
-  return value == null ? value : JSON.parse(JSON.stringify(value));
-}
-
-function getWikiObject(data, language) {
+function getWikiObject(data) {
   var wiki = { tree: {} };
   var list = [];
   for (let key of Object.keys(data)) {
@@ -38,12 +33,7 @@ function getWikiObject(data, language) {
     }
     if (key.includes('wiki/') && key.length > 5) {
       let newKey = key.replace('wiki/', '');
-      let obj = clone(data[key]);
-      const locales = obj.locales || {};
-      if (language && locales[language]) {
-        obj = Object.assign({}, obj, locales[language]);
-      }
-      delete obj.locales;
+      let obj = data[key];
       if ((typeof obj.tags == 'string') && obj.tags.constructor == String) {
         obj.tags = [obj.tags];
       }
@@ -82,17 +72,11 @@ function getWikiObject(data, language) {
  * @param {Array} options.shelf 上架项目 id 列表
  * @param {Object} options.siteTree 主题配置 site_tree（取 index_wiki.base_dir）
  */
-function buildWikiTree({ data, pages, shelf, siteTree, language, context }) {
+function buildWikiTree({ data, pages, shelf, siteTree }) {
   // wiki 配置
-  var wiki = getWikiObject(data, language);
+  var wiki = getWikiObject(data);
   // wiki 所有页面
-  const wiki_pages = pages
-    .filter(p => p.wiki != null && (!language || pageLanguage(p, context) === language))
-    .map(p => {
-      const item = new WikiPage(p);
-      item.path_key = language && context ? pathLanguage(p.path, context).key : normalize_path(p.path);
-      return item;
-    });
+  const wiki_pages = pages.filter(p => (p.wiki != null)).map(p => new WikiPage(p));
 
   // 单遍分组：wiki id → WikiPage[]（保持 wiki_pages 原始顺序）
   const pagesByWiki = new Map();
@@ -110,7 +94,6 @@ function buildWikiTree({ data, pages, shelf, siteTree, language, context }) {
 
   // 按 tree 键序过滤出有页面的项目（等价于旧实现 wiki_pages.some 判定）
   const wiki_list = Object.keys(wiki.tree).filter(id => pagesByWiki.has(id));
-  wiki.shelf = wiki.shelf.filter(id => wiki_list.includes(id));
 
   // 数据整合：项目标签
   var all_tag_name = [];
@@ -250,9 +233,7 @@ function buildWikiTree({ data, pages, shelf, siteTree, language, context }) {
     }
     all_tags[tag_name] = {
       name: tag_name,
-      path: language && context
-        ? languagePath(language, (siteTree.index_wiki.base_dir) + '/tags/' + tag_name, context)
-        : (siteTree.index_wiki.base_dir) + '/tags/' + tag_name + '/index.html',
+      path: (siteTree.index_wiki.base_dir) + '/tags/' + tag_name + '/index.html',
       items: items
     };
   });

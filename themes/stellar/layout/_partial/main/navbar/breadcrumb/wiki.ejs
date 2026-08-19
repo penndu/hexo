@@ -1,10 +1,10 @@
 <%
 function layoutDiv() {
-  const wikiObject = wiki_project(page.wiki, page)
+  const wikiObject = theme.wiki.tree[page.wiki]
   var el = ''
   // 文档列表页
   el += `<span class="sep"></span>`
-  const wikiIndexPageURL = pretty_url(wiki_index_url(page))
+  const wikiIndexPageURL = pretty_url(theme.site_tree.index_wiki.base_dir)
   el += `<a class="cap breadcrumb" id="menu" href="${wikiIndexPageURL}">${__("btn.wiki")}</a>`
   if (wikiObject) {
     // 文档项目名

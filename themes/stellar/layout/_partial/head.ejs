@@ -14,7 +14,7 @@ function strip_wiki_title(title, wiki) {
 
 function generate_title() {
   if (page.wiki) {
-    const proj = wiki_project(page.wiki, page)
+    const proj = theme.wiki.tree[page.wiki]
     const wiki = proj?.name || page.wiki
     if (page.title) {
       var stripped = strip_wiki_title(page.title, wiki)
@@ -45,7 +45,7 @@ function generate_description() {
     return '<meta name="description" content="' + truncate(strip_html(page.description), {length: 150}) + '">';
   }
   if (page.wiki) {
-    const proj = wiki_project(page.wiki, page)
+    const proj = theme.wiki.tree[page.wiki]
     if (proj?.description) {
       return '<meta name="description" content="' + proj.description + '">'
     }
@@ -88,7 +88,7 @@ function og_args() {
     args.twitter_card = 'summary_large_image';
   }
   if (page.wiki && !page.description) {
-    const proj = wiki_project(page.wiki, page);
+    const proj = theme.wiki.tree[page.wiki];
     if (proj && proj.description) {
       args.description = proj.description;
     }
@@ -168,32 +168,12 @@ function generate_canonical() {
   return '';
 }
 
-function generate_language_links() {
-  if (typeof language_switcher_enabled !== 'function' || !language_switcher_enabled()) {
-    return '';
-  }
-  var allVersions = language_versions(page);
-  var versions = allVersions.filter(function(item) { return item.has_page; });
-  var el = '';
-  versions.forEach(function(item) {
-    el += `<link rel="alternate" hreflang="${escape_meta_content(item.code)}" href="${escape_meta_content(full_url_for(item.href))}">`;
-  });
-  var defaultCode = allVersions.length > 0 ? allVersions[0].code : '';
-  var defaultVersion = versions.find(function(item) { return item.code === defaultCode; }) ||
-    versions.find(function(item) { return item.current; });
-  if (defaultVersion) {
-    el += `<link rel="alternate" hreflang="x-default" href="${escape_meta_content(full_url_for(defaultVersion.href))}">`;
-  }
-  return el;
-}
-
 %>
 
 <head>
   <meta charset="utf-8">
   <meta name="hexo-theme" content="<%- stellar_info('tree') %>" theme-name="<%- stellar_info('name') %>" theme-version="<%- stellar_info('version') %>">
   <%- generate_canonical() %>
-  <%- generate_language_links() %>
   <%- generate_robots() %>
   <%- meta_generator() %>
   <meta http-equiv='x-dns-prefetch-control' content='on' />

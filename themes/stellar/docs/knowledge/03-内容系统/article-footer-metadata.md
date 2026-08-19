@@ -225,6 +225,8 @@ article:
 | `email` | 打开 `mailto:?subject=...&body=...` 链接 |
 | `link` | 调用 `util.copy("copy-link", ...)` 复制永久链接到剪贴板 |
 
+分享按钮中的图标由主题图标配置以外部 SVG `<img>` 输出；样式将图片限制为 20×20px，并设为块级元素，使其与分享栏 20px 网格列对齐。
+
 `util.toggle` 与 `util.copy` 是客户端辅助函数，见[标签页组件与工具函数](../05-前端交互/tabs-utils.md)。
 
 ### 微博分享参数
@@ -272,7 +274,7 @@ flowchart LR
 |--------|------|
 | `.article-footer` | 外层容器：`var(--block)` 背景、边框、`border-radius: $border-card-l` |
 | `.article-footer .header` | 区块标签：`font-weight: 500`、`font-size: $fsh5` |
-| `.article-footer .body` | 内容区：`--fsp: $fsp2`、隐藏的复制链接输入框 |
+| `.article-footer .body` | 内容区：`--fs-content: $fs-content-2`、隐藏的复制链接输入框 |
 | `.article-footer section+section` | 相邻区块间的顶部边框分隔 |
 | `.article-footer #contributors` | 贡献者网格布局与编辑按钮样式 |
 | `.article-footer .social-wrap` | 20px 社交图标按钮的 CSS grid |

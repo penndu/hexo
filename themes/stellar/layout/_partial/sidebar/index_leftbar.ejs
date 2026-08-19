@@ -1,6 +1,6 @@
 <%
 
-const wiki = wiki_project(page.wiki, page)
+const wiki = theme.wiki.tree[page.wiki]
 const topic = theme.topic.tree[page.topic]
 const notebook = theme.notebooks.tree[page.notebook]
 
@@ -121,40 +121,45 @@ function layoutSearch() {
 }
 function layoutFooterDiv() {
   const { social } = theme.footer
-  if (social == null && !language_switcher_enabled()) {
+  if (social == null) {
     return ''
   }
   var el = '<footer class="footer dis-select">';
-  if (social != null) {
-    el += '<div class="social-wrap">';
-    for (let id of Object.keys(social)) {
-      let item = social[id];
-      if (item.icon && (item.url || item.onclick)) {
-        el += '<a class="social"';
-        if (item.title) {
-          el += ' title="' + escape_html(item.title) + '"';
-        }
-        if (item.url) {
-          el += ' href="' + escape_html(url_for(item.url)) + '"';
-          if (item.url.includes('://')) {
-            el += ' target="_blank" rel="external nofollow noopener noreferrer"';
-          } else {
-            el += ' rel="noopener noreferrer"';
-          }
-        } else if (item.onclick) {
-          item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
-          el += ' onclick="' + item.onclick + '"';
-        }
-        el += '>';
-        el += icon(item.icon, 'no-lazy')
-        el += '</a>';
+  el += '<div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">';
+  el += partial('grad-def', {id: 'footer-social-icon-grad'})
+  for (let id of Object.keys(social)) {
+    let item = social[id];
+    if (id === 'spacer') {
+      el += '<span class="social-spacer" aria-hidden="true"></span>';
+    } else if (item?.type === 'dropdown') {
+      el += partial('../dropdown', {
+        item: item,
+        rootClass: 'social-dropdown',
+        triggerClass: 'social',
+        showTitle: false
+      })
+    } else if (item?.icon && (item.url || item.onclick)) {
+      el += '<a class="social"';
+      if (item.title) {
+        el += ' title="' + escape_html(item.title) + '"';
       }
+      if (item.url) {
+        el += ' href="' + escape_html(url_for(item.url)) + '"';
+        if (item.url.includes('://')) {
+          el += ' target="_blank" rel="external nofollow noopener noreferrer"';
+        } else {
+          el += ' rel="noopener noreferrer"';
+        }
+      } else if (item.onclick) {
+        item.onclick = item.onclick.replace(/"|\'/g, '&quot;');
+        el += ' onclick="' + item.onclick + '"';
+      }
+      el += '>';
+      el += icon(item.icon, 'no-lazy')
+      el += '</a>';
     }
-    el += '</div>';
   }
-  if (language_switcher_enabled()) {
-    el += partial('language')
-  }
+  el += '</div>';
   el += '</footer>';
   return el;
 }

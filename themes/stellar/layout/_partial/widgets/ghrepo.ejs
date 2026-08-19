@@ -5,8 +5,8 @@ function layoutDiv() {
   var branch = 'main';
   if (page.repo) {
     repo = page.repo
-  } else if (wiki_project(page.wiki, page)?.repo) {
-    const proj = wiki_project(page.wiki, page)
+  } else if (theme.wiki.tree[page.wiki]?.repo) {
+    const proj = theme.wiki.tree[page.wiki]
     repo = proj.repo
     if (proj.branch != undefined) {
       branch = proj.branch

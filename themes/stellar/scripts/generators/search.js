@@ -3,7 +3,6 @@
  */
 const { normalize_path } = require('../lib/path_utils')
 const { buildSearchIndex } = require('../lib/search_index')
-const { configuredLanguages, pageLanguage, languagePath } = require('../lib/language_path')
 
 hexo.extend.generator.register('search_json_generator', function (locals) {
   if (this.theme.config.search.service != 'local_search') { return {} }
@@ -33,7 +32,6 @@ hexo.extend.generator.register('search_json_generator', function (locals) {
       const path = normalize_path(root + post.path)
       temp_post.path = path === '/' ? '/' : path + '/'
     }
-    temp_post.lang = pageLanguage(post, hexo)
     if (cfg.content != false && post.content) {
       const { content, anchors } = buildSearchIndex(post.content)
       temp_post.content = content
@@ -91,19 +89,8 @@ hexo.extend.generator.register('search_json_generator', function (locals) {
       res.push(temp_post)
     })
   }
-  const ret = []
-  for (const language of configuredLanguages(hexo)) {
-    const languageRes = res.filter(function(item) {
-      return language.code === item.lang
-    }).map(function(item) {
-      const copy = Object.assign({}, item)
-      delete copy.lang
-      return copy
-    })
-    ret.push({
-      path: languagePath(language.code, cfg.path, hexo),
-      data: JSON.stringify(languageRes)
-    })
+  return {
+    path: cfg.path,
+    data: JSON.stringify(res)
   }
-  return ret
 })

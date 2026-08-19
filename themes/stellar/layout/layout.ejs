@@ -14,8 +14,8 @@ if (page_type == 'index') {
   article_type = page.type
 } else if (theme.topic.tree[page.topic]?.type != null) {
   article_type = theme.topic.tree[page.topic]?.type
-} else if (wiki_project(page.wiki, page)?.type != null) {
-  article_type = wiki_project(page.wiki, page)?.type
+} else if (theme.wiki.tree[page.wiki]?.type != null) {
+  article_type = theme.wiki.tree[page.wiki]?.type
 }
 // 是否缩进
 var indent = false
@@ -23,8 +23,8 @@ if (page.indent != null) {
   indent = page.indent
 } else if (theme.topic.tree[page.topic]?.indent != null) {
   indent = theme.topic.tree[page.topic]?.indent
-} else if (wiki_project(page.wiki, page)?.indent != null) {
-  indent = wiki_project(page.wiki, page)?.indent
+} else if (theme.wiki.tree[page.wiki]?.indent != null) {
+  indent = theme.wiki.tree[page.wiki]?.indent
 } else if (theme.article.indent != null) {
   indent = theme.article.indent
 } else {
