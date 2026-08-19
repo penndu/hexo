@@ -66,12 +66,6 @@ menubar:
       title: 聊天
       url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr&md=link&sbr=fa
 
-# 多语言入口。items 为空时根据站点 language 自动生成语言首页链接。
-# 内容页声明相同 translation_key 后，切换器会优先跳转到对应翻译页面。
-language_switcher:
-  enable: true
-  items: []
-
 
 ######## Main ########
 # 站点主结构树
@@ -348,8 +342,8 @@ comments:
   # Artalk
   # https://artalk.js.org/
   artalk:
-    css: https://artalk.dusays.com/dist/Artalk.css
-    js: https://artalk.dusays.com/dist/Artalk.js
+    css: https://cdn.bootcdn.net/ajax/libs/artalk/2.10.0/Artalk.min.css
+    js: https://cdn.bootcdn.net/ajax/libs/artalk/2.10.0/Artalk.min.js
     server: https://artalk.dusays.com # 后端服务地址
     site: '杜老师说' # 站点名称
     darkMode: auto # 其它模式都有问题，慎用，否则后果自负
@@ -377,6 +371,18 @@ footer:
     theme:
       icon: solar:sunny-outline
       onclick: 'switchTheme()'
+    # spacer: # 弹性占位项：将其后的 social 按钮推至右侧
+    # links:
+    #   type: dropdown
+    #   icon: default:documents
+    #   title: 更多链接
+    #   items:
+    #     - icon: default:documents
+    #       title: 文档
+    #       url: /wiki/
+    #     - icon: default:github
+    #       title: GitHub
+    #       url: https://github.com/
   sitemap:
     - title: 跳转
       items:
@@ -696,8 +702,7 @@ plugins:
 style:
   prefers_theme: auto # auto / light / dark
   font-size:
-    root: 16px # 改这个会影响全局所有文字的字号
-    body: 17px # 影响正文区域的字号，如果改成 px 则不受 root 影响
+    root: 16px # 桌面端全局字号基准；移动端自动增加 2px
     code: 85% # 相较于其所在行的文本大小，建议用百分比
     codeblock: 0.8125rem # 13px
   font-family:
