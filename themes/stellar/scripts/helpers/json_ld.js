@@ -96,8 +96,7 @@ hexo.extend.helper.register('json_ld', function(args) {
       if (page.excerpt || page.description) {
         schema.description = this.strip_html(page.description || page.excerpt);
       } else if (page.wiki) {
-        const { wikiProject } = require('../lib/wiki_locale');
-        const proj = wikiProject(this.theme, page.wiki, page, hexo);
+        const proj = this.theme.wiki.tree[page.wiki];
         if (proj && proj.description) {
           schema.description = proj.description;
         }

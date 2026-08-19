@@ -4,8 +4,8 @@ if (item.filter == null) {
   item.filter = 'auto'
 }
 if (item.placeholder == null && item.filter == 'auto') {
-  if (wiki_project(page.wiki, page)?.name) {
-    item.placeholder = __('search.search_in', wiki_project(page.wiki, page)?.name)
+  if (theme.wiki.tree[page.wiki]?.name) {
+    item.placeholder = __('search.search_in', theme.wiki.tree[page.wiki]?.name) 
   } else if (notebook) {
     item.placeholder = __('search.search_in', notebook.name || __('btn.notebook'))
     item.filter = notebook.base_dir

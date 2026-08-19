@@ -43,8 +43,7 @@ module.exports = ctx => function(args) {
   el += '</summary>'
 
   if (args.wiki) {
-    const { wikiProject } = require('../../lib/wiki_locale');
-    const proj = wikiProject(ctx.theme.config, args.wiki, ctx.page, ctx)
+    const proj = ctx.theme.config.wiki.tree[args.wiki]
     if (proj == undefined) {
       return ''
     }

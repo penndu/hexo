@@ -65,12 +65,6 @@ menubar:
     #   title: 社交
     #   url: /friends/
 
-# 多语言入口。items 为空时根据站点 language 自动生成语言首页链接。
-# 内容页使用 URL 的语言前缀自动关联翻译版本。
-language_switcher:
-  enable: true
-  items: []
-
 
 ######## Main ########
 # 站点主结构树
@@ -376,6 +370,18 @@ footer:
     # comments:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
     #   url: /about/#comments
+    # spacer: # 弹性占位项：将其后的 social 按钮推至右侧
+    # links:
+    #   type: dropdown
+    #   icon: default:documents
+    #   title: 更多链接
+    #   items:
+    #     - icon: default:documents
+    #       title: 文档
+    #       url: /wiki/
+    #     - icon: default:github
+    #       title: GitHub
+    #       url: https://github.com/
   sitemap:
     # - title: 博客
     #   items:
@@ -693,8 +699,7 @@ plugins:
 style:
   prefers_theme: auto # auto / light / dark
   font-size:
-    root: 16px # 改这个会影响全局所有文字的字号
-    body: 17px # 影响正文区域的字号，如果改成 px 则不受 root 影响
+    root: 16px # 桌面端全局字号基准；移动端自动增加 2px
     code: 85% # 相较于其所在行的文本大小，建议用百分比
     codeblock: 0.8125rem # 13px
   font-family:

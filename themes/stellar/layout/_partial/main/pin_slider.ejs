@@ -25,10 +25,9 @@ function pinWeight(item) {
 }
 
 if (pinType == 'wiki') {
-  var wiki = wiki_data(page)
-  var shelf = wiki.shelf || []
+  var shelf = theme.wiki?.shelf || []
   for (var wi = 0; wi < shelf.length; wi++) {
-    var wproj = wiki.tree[shelf[wi]]
+    var wproj = theme.wiki.tree[shelf[wi]]
     if (wproj != null && isPinned(wproj)) {
       pinItems.push(wproj)
     }
