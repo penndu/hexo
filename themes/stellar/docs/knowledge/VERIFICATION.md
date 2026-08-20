@@ -21,6 +21,30 @@
 
 ## 二、版本与事实修正
 
+| 2026-08-20 | 1.43.0 发版只更新 `_config.yml` 与 `package.json`，安装知识库仍引用 1.42.1，导致发版提交的知识库 CI 失败 | 安装知识库 6 处版本引用同步为 1.43.0；发版脚本以后自动同步三个版本文件，并在最终待提交状态执行质量检查 | `release.js`、`docs/knowledge/00-总览与安装配置/installation.md`、`docs/guides/release-process.md`、`docs/designs/2026-08-20-release-version-sync/` |
+
+| 2026-08-20 | Wiki Galaxy 的默认辉光偏强，鼠标仅带动整体视差，局部星点缺少轻量交互反馈 | `glowIntensity` 由 `0.5` 降为 `0.2`；启用鼠标排斥并将 `repulsionStrength` 设为 `0.1`，保留鼠标平滑与离开 Hero 后的交互强度淡出；其它星场、生命周期与降级参数不变 | `source/js/plugins/galaxy.js`、`docs/knowledge/03-内容系统/wiki-docs.md`、`docs/designs/2026-08-20-galaxy-interaction-tuning/` |
+
+| 2026-08-20 | glass collection 在深色模式下的 hover/active 基底偏亮，menubar 又单独将 `auto` 集合间距压缩为 2px，与通用 collection 几何不一致 | 深色 glass 交互基底由 `var(--bg-a50)` 改为 `var(--bg-a20)`，保留顶部光照与高光边；移除 menubar 的 2px 间距覆盖，与其它 `auto` collection 共用默认 4px 间距 | `source/css/_components/collection.styl`、`source/css/_components/sidebar/nav-area.styl`、`docs/designs/2026-08-20-collection-dark-highlight-menu-spacing/` |
+
+| 2026-08-20 | Widget Header 的 cap action hover 直接调用 `sidebar-light()`，未与 collection 的 surface 交互保持同步 | cap action hover 改为消费 `--ui-item-bg-hover` 与 `--ui-item-shadow-hover`；glass 左栏复用 collection 的半透明顶部光照与高光边，按钮几何、透明度和 accent 图标反馈不变 | `source/css/_components/widgets/widgets.styl`、`docs/knowledge/02-布局系统/sidebar-system.md`、`docs/designs/2026-08-20-widget-cap-action-surface-interaction/` |
+
+| 2026-08-20 | markdown widget 内嵌 collection 与普通 widget 一样默认透明，说明文字与链接条目缺少组合层次 | markdown widget 通过现有 `--ui-item-bg` 为内嵌 collection 提供默认背景：glass surface 使用 `var(--bg-a10)`，其它 surface 使用 `var(--block)`；普通 collection 与所有交互状态保持不变 | `source/css/_components/widgets/widgets.styl`、`docs/knowledge/06-数据服务与组件/widget-architecture.md`、`docs/designs/2026-08-20-markdown-widget-collection-background/` |
+
+| 2026-08-20 | 左栏 Footer Social 的 hover/open 背景固定使用 `var(--bg-a20)`，未复用 collection surface，无法随 glass/card 区分顶部光照、高光边与纯色反馈 | 普通 hover 消费 `--ui-item-bg-hover` / `--ui-item-shadow-hover`，dropdown 打开态消费 active 令牌；glass 与 collection 使用相同半透明高光，card 使用 `var(--block)` 且无阴影，同时移除背景与阴影过渡并保留原有按钮几何和图标反馈 | `source/css/_components/sidebar/footer.styl`、`docs/knowledge/02-布局系统/sidebar-system.md`、`docs/designs/2026-08-20-footer-social-surface-interactions/` |
+
+| 2026-08-20 | Footer dropdown 主按钮的图片尺寸和打开态与普通 social 按钮不一致，未激活主图标也缺少层级弱化；菜单项重复维护列表样式且强制要求图标；正文标签箭头位于标题左侧；混合图标菜单的条目高度不一致；菜单文字的多重明暗阴影会形成自带背景色的错觉 | Footer trigger 完全复用 `.social` 尺寸与 hover/open 高亮，主图标默认透明度 `0.5`、激活恢复 `1`；菜单声明 glass surface 并组合通用 collection list 的 compact 密度，最小宽度固定为 150px；Footer 配置与标签子项图标改为可选；正文箭头移至标题右侧；dropdown 局部最小行高统一为 leading 高度加纵向 padding，无图标项不保留占位；移除菜单文字阴影并保留玻璃表面与条目交互背景 | `layout/_partial/dropdown.ejs`、`scripts/tags/lib/dropdown.js`、`source/css/_common/dropdown.styl`、`source/css/_components/sidebar/footer.styl`、`docs/designs/2026-08-20-dropdown-style-alignment/` |
+
+| 2026-08-20 | PJAX 移除后的普通整页导航会销毁并重建完整文档，即使左栏内容相同也会出现可感知闪烁 | 默认启用原生同源跨文档 View Transition，左栏作为独立命名区域以 `0.2s ease-out` 平滑衔接；减少动态效果、配置关闭或浏览器不支持时回退普通整页导航，不恢复 PJAX 或脚本重入 | `_config.yml`、`source/css/_components/page-transition.styl`、`docs/knowledge/07-外部集成/pjax-navigation.md`、`docs/designs/2026-08-20-cross-document-page-transition/` |
+
+| 2026-08-20 | collection 的 grid/summary 静态背景会覆盖通用 hover/active，背景与图标 transition 在 glass 渐变切换时可出现闪烁；未激活图标的灰阶/亮度/透明度滤镜还会与 SVG 自身分层透明度叠加，造成深浅不一 | 移除布局/变体静态填充、collection 交互过渡和 leading 图标灰阶滤镜；条目默认透明，glass 的 hover/active 与 menubar 玻璃高亮一致，非 glass 统一为 `var(--block)`；未激活 SVG 使用 `var(--text-p2)`，外部图片保留原色，图标透明度统一为 `0.5`，hover/active 恢复为 `1` | `source/css/_components/collection.styl`、`docs/designs/2026-08-20-collection-surface-interactions/` |
+
+| 2026-08-20 | collection 同时维护 auto/compact/regular 三档 density，regular 单独把集合间距放大到 8px；用户 linklist 也被固定为 compact，无法使用默认几何 | 删除 regular 接口与样式，非 compact 值统一回退 auto；recent、topic/wiki related、文档树和标签树使用 compact，menubar、用户 linklist 与普通集合使用 auto；menubar 专属 2px 间距覆盖保留 | `layout/_partial/components/collection.ejs`、`layout/_partial/widgets/`、`layout/_partial/sidebar/menu.ejs`、`source/css/_components/collection.styl`、`docs/designs/2026-08-20-collection-density-simplification/` |
+
+| 2026-08-20 | collection 的 list/grid 激活态共用右侧圆点，网格卡片在已有背景高亮之外重复显示圆点 | `data-layout="grid"` 下隐藏 `.ui-collection__indicator`，保留 indicator DOM、`.is-active`、`aria-current` 及背景/文字/图标激活反馈；list 布局圆点不变 | `source/css/_components/collection.styl`、`layout/collection-preview.ejs`、`docs/knowledge/06-数据服务与组件/widget-architecture.md`、`docs/designs/2026-08-20-grid-active-without-indicator/` |
+
+| 2026-08-19 | 侧栏 menu、recent、related、tree、tagtree、linklist 各自维护宽泛 DOM 与位置耦合样式，迁移到右栏或正文时无法稳定复用 | 新增 widget frame 与 namespaced collection 原语，以 `data-ui-surface` 和 `--ui-item-*` 令牌隔离表面差异；TOC/搜索保留结构并使用 adapter，tagtree/滚动恢复同步新状态选择器；linklist 改为显式 view/show_title 契约；menubar 在公共结构上独立使用 `$fs-15` 标题与 `2px` 条目间距；普通间距收敛到 `2 / 4 / 8 / 12 / 16 / 24 / 32px` 并优先复用语义令牌；TOC 静止激活项不显示背景与阴影，悬停时仍显示普通 hover 效果，左侧指示条为 `4px` 宽且上下 inset 均为 `4px` | `layout/_partial/components/`、`layout/_partial/sidebar/menu.ejs`、`source/css/_components/sidebar/nav-area.styl`、`layout/_partial/widgets/`、`source/css/_components/collection.styl`、`source/js/main.js`、`source/js/tagtree.js`、`docs/designs/2026-08-19-sidebar-collections/` |
+
 | 2026-08-19 | `layout/_partial/widgets/components/link.ejs`、`source/css/_components/widgets/components.styl` | linklist 标题增加 `.link-title` 角色类，通用文字样式不再匹配 `.active-dot`，避免标题 padding 与省略规则拉扁激活圆点；圆点结构与 8×8px 样式保持不变 |
 
 | 2026-08-19 | Wiki Hero 最新版本标签位于站点导航内，与项目信息层级分离 | 将 `wiki-cover-release ds-ghinfo` 移入项目介绍区，位于 `cover-title` 上方；既有数据请求、加载隐藏、淡入和外链行为不变 | `layout/_partial/cover/wiki_cover.ejs`、`source/css/_components/partial/cover.styl`、`docs/knowledge/03-内容系统/wiki-docs.md`、`docs/designs/2026-08-19-wiki-release-above-title/` |
@@ -154,6 +178,7 @@
 | 2026-08-16 | `source/css/_common/title.styl`、`_components/pages/article-story.styl`、`_components/list.styl`、`layout/_partial/main/post_list/topic_card.ejs` | 专栏容器左右分栏（非移动端等宽）与卡片内专栏名，与最终视觉不一致 | 改为上下布局：`h2.topic-title` 专栏标题（卡片外）→ 全宽最新文章卡片（仅标题 + 时间两行）→ 其他文章列表；抽取共享 mixin `story-title()` 复用 story 文章 h2 样式（story 渲染输出不变）（见 `docs/designs/2026-08-15-topic-latest-post-card/`） |
 | 2026-08-16 | `layout/_partial/main/post_list/topic_card.ejs`、`source/css/_components/list.styl`、`docs/knowledge/03-内容系统/post-lists-cards.md`、`知识库全量.md` | 专栏标题下无描述、专栏间间隔偏小 | 标题下方新增 `p.topic-desc` 专栏描述（居中次要色）；`.md-text` 上下内边距 `1.5rem` → `2.25rem`（移动端 `1.25rem` → `1.5rem`）加大专栏间隔（见 `docs/designs/2026-08-15-topic-latest-post-card/`） |
 | 2026-08-18 | `source/css/_custom.styl`、`source/css/_common/html.styl`、`source/css/_components/pages/article-story.styl`、`source/css/_components/tag-plugins/{mdrender,poetry}.styl`、字号知识库 | 移动端正文偏小，旧字号配置和局部变量命名不统一 | 统一使用 `--fs-root`、`--fs-content-base`、`--fs-content`：桌面端 root 取 `style.font-size.root`，移动端增加 2px，story 在页面基准上再增加 2px；移除旧正文配置字段和兼容别名（见 `docs/designs/2026-08-18-mobile-font-size/`） |
+| 2026-08-20 | `layout/{archive,index_topic}.ejs`、`layout/_partial/main/post_list/{archive_item,topic_card}.ejs`、`source/css/_components/{list,pages/archives}.styl`、`languages/*.yml`、`docs/knowledge/03-内容系统/post-lists-cards.md` | 专栏其他文章复用友链订阅 `.post-panel` 且最多只渲染 3 篇，无法访问列表中的更早文章；专栏模块顺序受 `publish_list` 配置顺序影响 | 抽取归档文章行供归档页与专栏复用；专栏默认显示最新封面之外的 3 篇文章，剩余文章通过原生 `<details>` 展开全部并可收起；专栏模块按各自最新文章发布时间倒序排列（见 `docs/designs/2026-08-20-topic-archive-more-list/`） |
 
 ## 三、处理约定
 
@@ -288,6 +313,24 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 
 | 短 SHA | 提交标题 | 覆盖说明 |
 |--------|----------|----------|
+| `e0b6dc3` | feat(topic): 增加归档式可折叠文章列表 | 设计文档 `2026-08-20-topic-archive-more-list/`；知识库 `03-内容系统/post-lists-cards.md`；专栏排序、归档列表折叠交互与三语文案 |
+| `aa0eb19` | style(galaxy): 调整辉光与鼠标排斥 | 设计文档 `2026-08-20-galaxy-interaction-tuning/`；知识库 `03-内容系统/wiki-docs.md`；Wiki Hero 星河交互参数 |
+| `f8558d4` | style(collection): 收敛暗色高亮与菜单间距 | 设计文档 `2026-08-20-collection-dark-highlight-menu-spacing/`；知识库 `06-数据服务与组件/widget-architecture.md`；集合组件暗色状态与侧栏菜单间距 |
+| `9218a7b` | style(widgets): 统一集合背景与标题操作反馈 | 设计文档 `2026-08-20-markdown-widget-collection-background/`、`2026-08-20-widget-cap-action-surface-interaction/`；知识库 sidebar-system.md、widget-architecture.md；Widget 背景与标题操作态 |
+| `154aa55` | style(sidebar): 统一 Footer 与 collection 交互样式 | 设计文档 `2026-08-20-footer-social-surface-interactions/`；知识库 `02-布局系统/sidebar-system.md`；Footer social 与 collection 交互表面 |
+| `d9b723d` | refactor(dropdown): 统一菜单与集合组件样式 | 设计文档 `2026-08-20-dropdown-style-alignment/`；知识库 configuration.md、sidebar-system.md、tag-plugins-overview.md、widget-architecture.md；dropdown 模板、标签、样式与单测 |
+| `7776c1c` | refactor(collection): 简化密度与交互状态 | 设计文档 `2026-08-20-collection-density-simplification/`、`2026-08-20-collection-surface-interactions/`、`2026-08-20-grid-active-without-indicator/`；集合组件结构、密度与交互状态 |
+| `c1c67c8` | refactor(sidebar): 统一集合组件结构与样式 | 设计文档 `2026-08-19-sidebar-collections/`；知识库 design-tokens.md、sidebar-system.md、toc-system.md、widget-architecture.md；侧栏菜单、目录树、相关内容与搜索统一复用集合组件 |
+| `967992c` | fix(linklist): 修复激活圆点样式被标题规则影响 | `layout/_partial/widgets/components/link.ejs` 与 widgets 组件样式；修复 linklist 激活指示 |
+| `47e98fc` | fix(css): 统一文章分享图标尺寸 | 设计文档 `2026-08-19-article-share-icon-size/`；知识库 `03-内容系统/article-footer-metadata.md`；文章页与侧栏分享图标尺寸 |
+| `c078d5d` | feat(wiki): 升级 Hero 星河背景与版本标签布局 | 设计文档 `2026-08-19-wiki-galaxy-webgl/`、`2026-08-19-wiki-release-above-title/`；知识库 `03-内容系统/wiki-docs.md`；WebGL 星河、版本标签与第三方声明 |
+| `2ea608b` | feat(wiki): 优化 Hero 交互与导航 | 设计文档 `2026-08-18-wiki-hero-cover/`、`2026-08-18-wiki-links-without-start-anchor/`、`2026-08-19-wiki-hero-release-loading/`、`2026-08-19-wiki-hero-remove-divider/`；Wiki Hero 安装命令、链接、版本加载与导航交互 |
+| `feb23bd` | style(typography): 优化移动端基础字号 | 设计文档 `2026-08-18-mobile-font-size/`；知识库 configuration.md、design-tokens.md、responsive-design.md、typography.md；移动端根字号与正文排版 |
+| `16ea402` | feat(footer): 新增通用下拉菜单与社交布局优化 | 设计文档 `2026-08-18-footer-social-*`、`2026-08-18-unify-back-arrow-icon/`；知识库 configuration.md、sidebar-system.md、icon-tag.md、tag-plugins-overview.md；通用 dropdown、Footer spacer/social 与图标行为 |
+| `fad4b7e` | fix(sites): 复用 siteinfo 补充网站卡片图标 (#387) | 设计文档 `2026-08-18-sites-siteinfo-icon/`；知识库 social-content-card-tags.md、data-service-apis.md；sites 卡片缺图标时复用 siteinfo 服务并保留失败回退 |
+| `e68d304` | fix(mermaid): 修复样式配置失效与文字不可见 (#693) | 设计文档 `2026-08-18-mermaid-style-config/`；知识库 integrations-overview.md、plugin-system.md；Mermaid 官方主题与 Stellar 样式开关 |
+| `7ff4ada` | feat(wiki): 完善项目首页 Hero | 设计文档 `2026-08-18-wiki-hero-cover/`、`2026-08-18-wiki-hero-i18n/`；知识库 installation.md、wiki-docs.md、localization.md；Wiki Hero 模板、样式、交互与三语文案 |
+| `9618899` | feat(navigation): 增加原生跨文档页面过渡 | 设计文档 `2026-08-20-cross-document-page-transition/`；知识库 `07-外部集成/pjax-navigation.md`；默认配置与 `page-transition.styl` |
 | `b2c0a3e` | feat(wiki): 改造封面卡片布局 | 设计文档 `2026-08-17-wiki-cover-cards/`；知识库 `03-内容系统/post-lists-cards.md`、`wiki-docs.md`；三语 `meta.available`；Wiki 卡片模板、样式与 GitHub 数据服务 |
 | `3274cc1` | fix: navbar 无轮播区页面默认卡片样式，滚动 2px 后恢复玻璃 | 设计文档 `2026-08-17-navbar-pin-scroll-threshold/`；知识库 `05-前端交互/client-side-overview.md`；`source/js/main.js` |
 | `2a8f5d2` | refactor(loading): 统一 loading 动画并自包含化 | 设计文档 `2026-08-17-unify-loading-animation/`、`2026-08-17-inline-loading-svg/`；知识库 configuration.md、icon-tag.md；内联 loading SVG 与各占位消费方 |
