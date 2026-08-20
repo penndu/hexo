@@ -21,6 +21,7 @@ tags:
 - [_data/widgets.yml](../../../_data/widgets.yml)
 - [source/css/_components/sidebar/sidebar.styl](../../../source/css/_components/sidebar/sidebar.styl)
 - [source/css/_components/sidebar/search.styl](../../../source/css/_components/sidebar/search.styl)
+- [source/js/search/shortcut.js](../../../source/js/search/shortcut.js)
 - [scripts/events/lib/doc_tree.js](../../../scripts/events/lib/doc_tree.js)
 
 </details>
@@ -254,12 +255,16 @@ graph TB
 | CSS 类 | 角色 |
 |--------|------|
 | `.search-wrapper` | 外层包装，`padding-bottom: 32px` |
-| `.search-form` | `position: sticky; top: 0`——滚动结果时保持可见 |
-| `.search-input` | 全宽文本输入框，使用 `$ff-body` 字体 |
-| `.search-button` | 图标按钮；SVG `path[p-id="1562"]` 在命中（`$c-green`）或无结果（`$c-red`）时变色 |
+| `.search-form` | 带 `role="search"` 的非提交容器；`position: sticky; top: 0`，滚动结果时保持可见 |
+| `.search-input` | `type="search"` 的全宽输入框，使用本地化 placeholder 作为无障碍名称 |
+| `.search-button` | 关联输入框的图标 `<label>`，点击时原生聚焦；SVG `path[p-id="1562"]` 在命中（`$c-green`）或无结果（`$c-red`）时变色 |
 | `#search-result` | 可滚动结果列表，`max-height: 60vh`，隐藏滚动条 |
 | `.search-result-list` | 结果 `<li>` 列表 |
 | `.search-keyword` | 匹配词以 `$c-red` 高亮并带虚线下划线 |
+
+搜索组件采用输入即检索，不执行表单提交：搜索图标只负责聚焦输入框，按 Enter 不会刷新或跳转页面。本地搜索与 Algolia 继续通过 `#search-input` 监听输入，并共用相同的过滤和结果状态接口。
+
+桌面布局支持 `Command+K` / `Ctrl+K` 快速聚焦搜索框。快捷键由搜索服务公共入口加载的 `source/js/search/shortcut.js` 统一处理；搜索框已有内容、选区和结果均保持不变。移动端左栏按钮可见时不响应；焦点位于其它输入框、文本域、下拉框或可编辑区域时也不接管浏览器快捷键。
 
 状态通过 `.search-wrapper` 上的 `searching` 与 `noresult` 属性管理：
 
@@ -268,7 +273,7 @@ graph TB
 
 客户端搜索逻辑见[搜索功能](../07-外部集成/search.md)。
 
-**参考源码**：[source/css/_components/sidebar/search.styl](../../../source/css/_components/sidebar/search.styl)
+**参考源码**：[source/css/_components/sidebar/search.styl](../../../source/css/_components/sidebar/search.styl)、[source/js/search/shortcut.js](../../../source/js/search/shortcut.js)
 
 ---
 
@@ -398,7 +403,7 @@ graph BT
 
 紧凑列表、摘要条目和链接网格不再通过 `.l_left` / `.l_right` 高特异性选择器适配。`layout.ejs` 为左栏声明 `data-ui-surface="glass|card"`，为右栏声明 `sidebar`，为主内容声明 `content`；`.ui-collection` 只消费 `--ui-item-*` 等 surface 语义变量。list/grid/summary 的条目默认背景均透明，hover/active 时 glass 使用与 menubar 一致的半透明顶部高光，card/sidebar/content 使用 `var(--block)`，且背景、文字和 leading 图标不做过渡动画。markdown widget 内嵌 collection 的默认背景是上述透明规则的组件级例外，具体契约见[通用集合组件](../06-数据服务与组件/widget-architecture.md#通用集合组件)。Widget Header 的 cap action hover 与 Footer Social 均复用 collection surface 的背景与阴影令牌；glass 左栏因此共享相同的顶部光照和高光边，两类按钮仍保留自身几何。surface 不改变条目尺寸和网格几何。
 
-搜索结果与 TOC 保留原有生成结构和交互，通过 `.ui-collection-adapter` 读取相同的 hover/active 令牌。`sidebar-light()` 仍服务于未迁移的专用侧栏元素，例如 wiki 内容页左上角「所有项目」返回胶囊；搜索条底部条继续读取 `--leftbar-search-line`。
+搜索结果与 TOC 保留原有生成结构和交互，通过 `.ui-collection-adapter` 读取相同的 hover/active 令牌。搜索结果的页面标题位于链接外；链接静止时直接显示原 hover surface 的背景与阴影，启用 Card Hover 后 hover 仅动态叠加 Spotlight，不启用 Tilt，替换结果前按容器卸载旧实例。`sidebar-light()` 仍服务于未迁移的专用侧栏元素，例如 wiki 内容页左上角「所有项目」返回胶囊；搜索条底部条继续读取 `--leftbar-search-line`。
 
 左栏 `card` 对 `--bg-a*` 的历史重映射仍用于 markdown、标签云、时间线等专用展示组件。普通 collection 不依赖这组全局变量；markdown widget 仅通过 `--ui-item-bg` 定制内嵌 collection 的默认背景。linklist 改为显式 `view: list | grid`；`columns` 仅在 grid 下表示最大列数，窄容器自动降列，`show_title` 独立控制标题且默认为 `true`。
 
