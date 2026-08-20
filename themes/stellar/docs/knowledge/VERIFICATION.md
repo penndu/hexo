@@ -21,7 +21,17 @@
 
 ## 二、版本与事实修正
 
+| 2026-08-21 | 搜索结果链接仍引用已移除的 `--ui-summary-item-bg`，导致静止态背景失效；本地搜索与 Algolia 的标题点击范围不一致，动态结果也没有 Card Hover 的按容器清理入口 | 两种搜索统一为链接外页面标题与链接内章节/摘要；链接静止时直接显示原 hover surface 的玻璃背景与阴影，hover 只组合 Spotlight、不启用 Tilt；新增 `stellar.cardHover.unmountAll(root)`，结果替换前卸载旧链接、插入后挂载新链接，插件不可用时保留静态搜索行为 | `source/css/_components/sidebar/search.styl`、`source/js/search/local-search.js`、`source/js/search/algolia-search.js`、`source/js/plugins/card-hover.js`、`test/search_result_hover.test.js`、`test/card_hover_client.test.js`、`docs/designs/2026-08-21-search-result-card-hover/` |
+
+| 2026-08-21 | 搜索图标使用无 `href` 的 `<a>` 与内联 `onclick` 聚焦输入框，外层无目标 `<form>` 还可能在搜索脚本初始化前因 Enter 触发页面刷新 | 搜索区域改为 `role="search"` 的非提交容器，图标改用关联 `#search-input` 的原生 `<label>`，输入框使用 `type="search"` 与本地化 `aria-label`；保留实时搜索、过滤、状态着色及本地搜索/Algolia 接口，并新增模板结构回归测试 | `layout/_partial/sidebar/search.ejs`、`source/css/_components/sidebar/search.styl`、`test/search_markup.test.js`、`docs/knowledge/02-布局系统/sidebar-system.md`、`docs/designs/2026-08-21-search-widget-semantics/` |
+
+| 2026-08-20 | 笔记页标签行（`note_tags`）仍使用早期的 `.md-text .tag-list` 方形标签样式，与文章末尾标签行的 `tag-chip()` 胶囊样式不一致 | `note_tags` 改用 `article-tags` 容器（含 scroll-reveal、hashtag 图标与转义标签名），与文章标签行共用同一套胶囊样式；移除 `notebook.styl` 中仅服务该旧样式的 `.md-text .tag-list` 规则 | `layout/_partial/main/notebook/note_tags.ejs`、`source/css/_components/pages/notebook.styl`、`docs/knowledge/03-内容系统/article-footer-metadata.md`、`docs/knowledge/03-内容系统/notebook-system.md` |
+
+| 2026-08-20 | Wiki Hero 的源码、文档与自定义 action 按钮未接入 Card Hover，源码按钮的宽泛 `span` 反色规则还会影响运行时注入的 Spotlight 层 | 三类按钮统一输出 `.card-hover.card-hover--spotlight`，只启用鼠标跟随光斑而不启用 Tilt；源码按钮反色规则收窄到直接子级图标与非 Spotlight 标题，保留原有布局、配色、链接及环境降级行为 | `layout/_partial/cover/wiki_cover.ejs`、`source/css/_components/partial/cover.styl`、`test/card_hover_markup.test.js`、`docs/designs/2026-08-20-wiki-cover-action-spotlight/` |
+
 | 2026-08-20 | Footer Social 的内联 SVG 固定为 24×24px，图片图标却使用自动宽高，URL 图标会按固有尺寸撑宽按钮或被裁切 | 将 `.social img` 固定为 24×24px 并使用 `object-fit: contain` 等比容纳，与 SVG 共用图标尺寸；按钮几何、灰阶、高亮、dropdown 与 surface 行为不变 | `source/css/_components/sidebar/footer.styl`、`docs/knowledge/02-布局系统/sidebar-system.md`、`docs/designs/2026-08-20-footer-social-img-size/` |
+
+| 2026-08-20 | 有背景卡片的鼠标跟随光效与倾斜若按业务选择器硬编码，难以扩展且易覆盖 ScrollReveal/link/grid/轮播轨道的既有 transform；Spotlight 离开时若立即重置坐标，会在淡出期间出现回中闪动 | 新增默认关闭的 `plugins.card_hover` 与 `.card-hover` + spotlight/tilt 组合类契约，默认使用半透明白色光斑；文章、笔记、笔记本、Wiki、置顶轮播外层、专栏最新文章、link、`grid bg:card` 和标准 UI Collection 按约定接入，其中 Collection 仅启用 Spotlight；轮播内部轨道与专栏标题/归档条目保持独立；公开 `stellar.cardHover.mountAll(root)` / `destroy()`，支持动态 Markdown、键盘中心光斑及触屏/减少动态效果降级；离开时 Tilt 立即回正，Spotlight 在最后位置淡出后才回中，快速重入不会被旧过渡覆盖；不引入 React 或第三方依赖 | `_config.yml`、`layout/_plugins/card_hover.ejs`、`source/js/plugins/card-hover.js`、`source/css/_plugins/card-hover.styl`、`layout/index.ejs`、`layout/index_wiki.ejs`、`layout/notes.ejs`、`layout/notebooks.ejs`、`layout/_partial/main/pin_slider.ejs`、`layout/_partial/main/post_list/latest_post_card.ejs`、`layout/_partial/components/collection-item.ejs`、`layout/_partial/dropdown.ejs`、`scripts/tags/lib/link.js`、`scripts/tags/lib/grid.js`、`scripts/tags/lib/dropdown.js`、`test/card_hover_client.test.js`、`test/card_hover_markup.test.js`、`test/dropdown.test.js`、`docs/designs/2026-08-20-card-hover-effects/` |
 
 | 2026-08-20 | 1.43.0 发版只更新 `_config.yml` 与 `package.json`，安装知识库仍引用 1.42.1，导致发版提交的知识库 CI 失败 | 安装知识库 6 处版本引用同步为 1.43.0；发版脚本以后自动同步三个版本文件，并在最终待提交状态执行质量检查 | `release.js`、`docs/knowledge/00-总览与安装配置/installation.md`、`docs/guides/release-process.md`、`docs/designs/2026-08-20-release-version-sync/` |
 
@@ -315,6 +325,12 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 
 | 短 SHA | 提交标题 | 覆盖说明 |
 |--------|----------|----------|
+| `e64da8f` | feat(search): 支持快捷键聚焦搜索框 | 设计文档 `2026-08-21-search-focus-shortcut/`；知识库 `02-布局系统/sidebar-system.md`、`07-外部集成/search.md`；桌面 `Command/Ctrl+K` 聚焦、窄屏与编辑区域降级、公共加载入口及客户端测试 |
+| `83b8dfc` | refactor(search): 优化搜索控件语义 | 设计文档 `2026-08-21-search-widget-semantics/`；知识库 `02-布局系统/sidebar-system.md`；搜索地标、原生标签聚焦、无障碍名称、非提交行为与模板结构测试 |
+| `44526a0` | style(notebook): 笔记标签行对齐文章标签胶囊样式 (#694) | 设计文档 `2026-08-20-note-tags-align-article-tags/`；知识库 `03-内容系统/article-footer-metadata.md`、`notebook-system.md`；笔记标签行复用文章标签容器、hashtag 图标与 `tag-chip()` 胶囊样式 |
+| `5e2751b` | feat(wiki): 增加 Hero 按钮 Spotlight | 设计文档 `2026-08-20-wiki-cover-action-spotlight/`；知识库 `03-内容系统/wiki-docs.md`、`05-前端交互/client-side-overview.md`、`07-外部集成/plugin-system.md`；Wiki Hero 三类操作按钮接入 Spotlight-only 生命周期 |
+| `00c3e3c` | feat(card-hover): 增加卡片光效与倾斜 | 设计文档 `2026-08-20-card-hover-effects/`；知识库 configuration.md、post-lists-cards.md、link-grid-banner-tags.md、client-side-overview.md、widget-architecture.md、plugin-system.md；跨卡片 Spotlight/Tilt 生命周期、组合类接入、降级与测试 |
+| `c8c6874` | release: 1.43.1 | 版本号、CHANGELOG 与安装知识库同步至 1.43.1 |
 | `976e1a7` | fix(sidebar): 修复 Footer 图片图标尺寸 | 设计文档 `2026-08-20-footer-social-img-size/`；知识库 `02-布局系统/sidebar-system.md`；Footer Social 图片图标与 SVG 统一为 24×24px |
 | `e0b6dc3` | feat(topic): 增加归档式可折叠文章列表 | 设计文档 `2026-08-20-topic-archive-more-list/`；知识库 `03-内容系统/post-lists-cards.md`；专栏排序、归档列表折叠交互与三语文案 |
 | `aa0eb19` | style(galaxy): 调整辉光与鼠标排斥 | 设计文档 `2026-08-20-galaxy-interaction-tuning/`；知识库 `03-内容系统/wiki-docs.md`；Wiki Hero 星河交互参数 |
