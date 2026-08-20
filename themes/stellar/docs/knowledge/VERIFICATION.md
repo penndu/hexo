@@ -21,6 +21,8 @@
 
 ## 二、版本与事实修正
 
+| 2026-08-20 | Footer Social 的内联 SVG 固定为 24×24px，图片图标却使用自动宽高，URL 图标会按固有尺寸撑宽按钮或被裁切 | 将 `.social img` 固定为 24×24px 并使用 `object-fit: contain` 等比容纳，与 SVG 共用图标尺寸；按钮几何、灰阶、高亮、dropdown 与 surface 行为不变 | `source/css/_components/sidebar/footer.styl`、`docs/knowledge/02-布局系统/sidebar-system.md`、`docs/designs/2026-08-20-footer-social-img-size/` |
+
 | 2026-08-20 | 1.43.0 发版只更新 `_config.yml` 与 `package.json`，安装知识库仍引用 1.42.1，导致发版提交的知识库 CI 失败 | 安装知识库 6 处版本引用同步为 1.43.0；发版脚本以后自动同步三个版本文件，并在最终待提交状态执行质量检查 | `release.js`、`docs/knowledge/00-总览与安装配置/installation.md`、`docs/guides/release-process.md`、`docs/designs/2026-08-20-release-version-sync/` |
 
 | 2026-08-20 | Wiki Galaxy 的默认辉光偏强，鼠标仅带动整体视差，局部星点缺少轻量交互反馈 | `glowIntensity` 由 `0.5` 降为 `0.2`；启用鼠标排斥并将 `repulsionStrength` 设为 `0.1`，保留鼠标平滑与离开 Hero 后的交互强度淡出；其它星场、生命周期与降级参数不变 | `source/js/plugins/galaxy.js`、`docs/knowledge/03-内容系统/wiki-docs.md`、`docs/designs/2026-08-20-galaxy-interaction-tuning/` |
@@ -313,6 +315,7 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 
 | 短 SHA | 提交标题 | 覆盖说明 |
 |--------|----------|----------|
+| `976e1a7` | fix(sidebar): 修复 Footer 图片图标尺寸 | 设计文档 `2026-08-20-footer-social-img-size/`；知识库 `02-布局系统/sidebar-system.md`；Footer Social 图片图标与 SVG 统一为 24×24px |
 | `e0b6dc3` | feat(topic): 增加归档式可折叠文章列表 | 设计文档 `2026-08-20-topic-archive-more-list/`；知识库 `03-内容系统/post-lists-cards.md`；专栏排序、归档列表折叠交互与三语文案 |
 | `aa0eb19` | style(galaxy): 调整辉光与鼠标排斥 | 设计文档 `2026-08-20-galaxy-interaction-tuning/`；知识库 `03-内容系统/wiki-docs.md`；Wiki Hero 星河交互参数 |
 | `f8558d4` | style(collection): 收敛暗色高亮与菜单间距 | 设计文档 `2026-08-20-collection-dark-highlight-menu-spacing/`；知识库 `06-数据服务与组件/widget-architecture.md`；集合组件暗色状态与侧栏菜单间距 |
