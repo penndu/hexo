@@ -21,6 +21,8 @@
 
 ## 二、版本与事实修正
 
+| 2026-08-21 | Wiki Hero 以 `background: galaxy` 同时选择动态效果和静态底色，无法与图片背景叠加，Galaxy 参数也全部硬编码 | `background` 收敛为静态图片；新增 `animation.type: galaxy` 与 `animation.params`，按 Canvas 独立校验并应用全部现有参数；图片与透明 Galaxy 可叠加且文字按图片取色，仅 Galaxy 时保留黑底降级；移除旧 `background: galaxy` 写法 | `layout/_partial/cover/wiki_cover.ejs`、`source/css/_components/partial/cover.styl`、`source/js/plugins/galaxy.js`、`test/galaxy_client.test.js`、`test/wiki_cover_animation_markup.test.js`、`docs/knowledge/03-内容系统/wiki-docs.md`、`docs/designs/2026-08-21-wiki-hero-animation-config/` |
+
 | 2026-08-21 | 搜索结果链接仍引用已移除的 `--ui-summary-item-bg`，导致静止态背景失效；本地搜索与 Algolia 的标题点击范围不一致，动态结果也没有 Card Hover 的按容器清理入口 | 两种搜索统一为链接外页面标题与链接内章节/摘要；链接静止时直接显示原 hover surface 的玻璃背景与阴影，hover 只组合 Spotlight、不启用 Tilt；新增 `stellar.cardHover.unmountAll(root)`，结果替换前卸载旧链接、插入后挂载新链接，插件不可用时保留静态搜索行为 | `source/css/_components/sidebar/search.styl`、`source/js/search/local-search.js`、`source/js/search/algolia-search.js`、`source/js/plugins/card-hover.js`、`test/search_result_hover.test.js`、`test/card_hover_client.test.js`、`docs/designs/2026-08-21-search-result-card-hover/` |
 
 | 2026-08-21 | 搜索图标使用无 `href` 的 `<a>` 与内联 `onclick` 聚焦输入框，外层无目标 `<form>` 还可能在搜索脚本初始化前因 Enter 触发页面刷新 | 搜索区域改为 `role="search"` 的非提交容器，图标改用关联 `#search-input` 的原生 `<label>`，输入框使用 `type="search"` 与本地化 `aria-label`；保留实时搜索、过滤、状态着色及本地搜索/Algolia 接口，并新增模板结构回归测试 | `layout/_partial/sidebar/search.ejs`、`source/css/_components/sidebar/search.styl`、`test/search_markup.test.js`、`docs/knowledge/02-布局系统/sidebar-system.md`、`docs/designs/2026-08-21-search-widget-semantics/` |
@@ -325,6 +327,8 @@ python3 tools/verify.py        # 复查中文版硬事实（配置键/文件路�
 
 | 短 SHA | 提交标题 | 覆盖说明 |
 |--------|----------|----------|
+| `2415fdc` | feat(wiki): 支持 Hero 动画独立配置 | 设计文档 `2026-08-21-wiki-hero-animation-config/`；知识库 `03-内容系统/wiki-docs.md`；独立 `animation.type/params` 配置、图片叠加、逐 Canvas 参数校验、WebGL 降级与客户端测试 |
+| `08a61a4` | feat(search): 优化搜索结果光效 | 设计文档 `2026-08-21-search-result-card-hover/`；知识库 `02-布局系统/sidebar-system.md`、`05-前端交互/client-side-overview.md`、`06-数据服务与组件/widget-architecture.md`、`07-外部集成/plugin-system.md`、`search.md`；搜索结果 surface、Spotlight 生命周期及客户端测试 |
 | `e64da8f` | feat(search): 支持快捷键聚焦搜索框 | 设计文档 `2026-08-21-search-focus-shortcut/`；知识库 `02-布局系统/sidebar-system.md`、`07-外部集成/search.md`；桌面 `Command/Ctrl+K` 聚焦、窄屏与编辑区域降级、公共加载入口及客户端测试 |
 | `83b8dfc` | refactor(search): 优化搜索控件语义 | 设计文档 `2026-08-21-search-widget-semantics/`；知识库 `02-布局系统/sidebar-system.md`；搜索地标、原生标签聚焦、无障碍名称、非提交行为与模板结构测试 |
 | `44526a0` | style(notebook): 笔记标签行对齐文章标签胶囊样式 (#694) | 设计文档 `2026-08-20-note-tags-align-article-tags/`；知识库 `03-内容系统/article-footer-metadata.md`、`notebook-system.md`；笔记标签行复用文章标签容器、hashtag 图标与 `tag-chip()` 胶囊样式 |
