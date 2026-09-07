@@ -1,8 +1,19 @@
 ---
 title: 说说广场
-comments: false
-leftbar: wezh, welcome, recent
-rightbar: sffw, qbtc, ltgc, mmtg, sjtp
+comments:
+  enabled: false
+leftbar:
+  widgets:
+    - wezh
+    - welcome
+    - recent
+rightbar:
+  widgets:
+    - sffw
+    - qbtc
+    - ltgc
+    - mmtg
+    - sjtp
 ---
 
 <link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/style.css" rel="stylesheet" type="text/css">
