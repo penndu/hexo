@@ -146,8 +146,9 @@ site_tree:
   error_page:
     menu_id: post
     '404': '/404.html'
-    leftbar: recent, timeline
-    rightbar: timeline
+    leftbar: wezh, welcome, recent
+    rightbar: qbtc, ltgc, mmtg
+    comments: false
   # 其它自定义页面配置 layout: page
   page:
     leftbar: recent
@@ -751,7 +752,7 @@ style:
     blur-px: 100px
     blur-bg: var(--bg-a60)
     background-opacity: 0.8
-  error_page: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg
+  error_page: https://jsd.dusays.com/npm/dusays/404.svg
   site: # 使用 background-image 后，blur 设置才有效
     # background-image: url(https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.14/image/site-bg1@small.webp)
     blur-px: 100px
