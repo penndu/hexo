@@ -19,7 +19,7 @@ topbar:
 
 leftbar:
   brand:
-    style: regular
+    style: compact # compact | regular
     image:
       src: https://cdn.dusays.com/favicon.ico
       variant: avatar
@@ -62,10 +62,24 @@ leftbar:
         icon: https://jsd.admincdn.com/npm/dusays@5.0.0/033-spotify.svg
         title: 站点地图
         url: https://dusays.com/baidusitemap.xml
-      - type: button
-        icon: solar:sunny-outline
-        title: 切换配色模式
-        onclick: "setColorScheme(document.documentElement.dataset.theme === 'light' ? 'dark' : document.documentElement.dataset.theme === 'dark' ? 'auto' : 'light')"
+      - type: spacer
+      - type: dropdown
+        icon: solar:sun-2-line-duotone
+        title: 配色
+        items:
+          - type: button
+            icon: solar:sun-2-line-duotone
+            title: 浅色
+            onclick: "setColorScheme('light')"
+          - type: button
+            icon: solar:moon-sleep-line-duotone
+            title: 深色
+            onclick: "setColorScheme('dark')"
+          - type: button
+            icon: solar:laptop-minimalistic-line-duotone
+            title: 跟随系统
+            onclick: "setColorScheme('auto')"
+            # onclick: "setColorScheme(document.documentElement.dataset.theme === 'light' ? 'dark' : document.documentElement.dataset.theme === 'dark' ? 'auto' : 'light')"
 
 profiles:
   home:
@@ -264,19 +278,6 @@ appearance:
       image_large: 24px
       image: 16px
       image_small: 8px
-  # backgrounds:
-    # leftbar:
-    #   type: image
-      # image: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg
-      # opacity: 0.8
-      # backdrop:
-      #   radius: 100px
-    page:
-      image: null
-      backdrop:
-        radius: 100px
-        overlay: var(--bg-a75)
-        saturation: 300%
   code_block:
     scrollbar_width: 4px
     highlight_stylesheet: https://jsd.dusays.com/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
@@ -330,6 +331,8 @@ comments:
     pageview: false
   artalk:
     server: https://artalk.dusays.com
+    css: https://jsd.dusays.com/npm/artalk@2.10.0/dist/Artalk.min.css
+    js: https://jsd.dusays.com/npm/artalk@2.10.0/dist/Artalk.min.js
     site: 杜老师说
     darkMode: auto
     imageUploader:
@@ -374,6 +377,8 @@ tags:
     aspect_ratio: square
 
 features:
+  image_optimization:
+    enabled: false
   color_scheme_switch:
     enabled: true
   lazy_loading:
@@ -387,7 +392,10 @@ features:
   reveal:
     enabled: true
   card_hover:
-    enabled: false
+    # 控制是否启用鼠标跟随光照。
+    spotlight: false
+    # 控制是否启用 3D 倾斜。
+    tilt: false
   heti:
     enabled: false
   math:
@@ -444,37 +452,33 @@ structured_data:
   same_as: []
 
 footer:
-  sections:
+  sitemap:
     - title: 跳转
       items:
-        - title: 十年虫洞
-          url: https://www.foreverblog.cn/go.html
-        - title: 异次元之旅
-          url: https://travel.moe/go.html?travel=on
+        - '[十年虫洞](https://www.foreverblog.cn/go.html)'
+        - ''
+        - ''
+        - '[异次元之旅](https://travel.moe/go.html?travel=on)'
+        - ''
+        - ''
+        - '[本站总访客数 <span id="busuanzi_site_uv"></span> 人](https://bsz.dusays.com/)'
+        - ''
+        - ''
+        - '[本站总访问量 <span id="busuanzi_site_pv"></span> 次](https://bsz.dusays.com/)'
     - title: 声明
       items:
-        - title: 七步天图床
-          url: https://dusays.com/7bu/
-        - title: 隐私政策
-          url: https://dusays.com/yinsi/
-        - title: 免责声明
-          url: https://dusays.com/mianze/
-        - title: 杜老师说
-          url: https://dusays.com/says/
+        - '<a href="https://dusays.com/7bu/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/7bu.svg" width="110" height="20"/></a>'
+        - '<a href="https://dusays.com/yinsi/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/yinsi.svg" width="110" height="20"/></a>'
+        - '<a href="https://dusays.com/mianze/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/mianze.svg" width="110" height="20"/></a>'
+        - '<a href="https://dusays.com/says/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/says.svg" width="110" height="20"/></a>'
     - title: 备案
       items:
-        - title: 萌ICP备20229624号
-          url: https://icp.gov.moe/?keyword=20229624
-        - title: 工业和信息化部备案查询
-          url: https://beian.miit.gov.cn/
-        - title: 辽公网安备21080402111261号
-          url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21080402111261
-        - title: Copyright 杜老师说
-          url: https://dusays.com/
-  content: |
+        - '<a href="https://icp.gov.moe/?keyword=20229624" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.3/meng.svg" width="135" height="20"/></a>'
+        - '<a href="https://beian.miit.gov.cn/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/icp.svg" width="138" height="20"/></a>'
+        - '<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21080402111261" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/liao.svg" width="174" height="20"/></a>'
+        - '<a href="https://dusays.com/" target="_blank"><img src="https://jsd.admincdn.com/npm/dusays@5.0.0/copyright.svg" width="198" height="20"/></a>'
+  content: | # 支持 Markdown 格式
     本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。<script async src="https://jsd.dusays.com/npm/penndu@16.0.0/bsz.js"></script>
     本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议，转载请注明出处。
-    </br>
-    本站总访客数 <span id="busuanzi_site_uv"></span> 人，本站总访问量 <span id="busuanzi_site_pv"></span> 次。
     </br>
     [辛未羊的网络日志](https://panqiincs.me/) | [obaby@mars](https://zhongxiaojie.com/) | [codeqihan的博客](https://www.codeqihan.com/) | [乙未博客](https://yvii.cn/) | [晓雨杂记](https://lihaoyu.cn/) | [龙鲲博客](https://lklog.cn/) | [joojenZhou个人网站](https://joojen.com/) | [雾非雾](https://www.941741.xyz/) | [xaoxuu](https://xaoxuu.com/) | [晚夜的个人博客](https://www.iczrx.cn/)
