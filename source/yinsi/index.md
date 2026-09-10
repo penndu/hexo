@@ -1,8 +1,18 @@
 ---
 layout: page
 title: 杜老师说隐私声明
-leftbar: wezh, welcome, recent
-rightbar: sffw, qbtc, ltgc, mmtg, sjtp
+leftbar:
+  widgets:
+    - wezh
+    - welcome
+    - recent
+rightbar:
+  widgets:
+    - sffw
+    - qbtc
+    - ltgc
+    - mmtg
+    - sjtp
 ---
 
 信息收集：
