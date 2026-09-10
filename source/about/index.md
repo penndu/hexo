@@ -1,8 +1,19 @@
 ---
 layout: page
 title: 访客留言
-leftbar: wezh, welcome, recent
-rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
+leftbar:
+  widgets:
+    - wezh
+    - welcome
+    - recent
+rightbar:
+  widgets:
+    - recent_comments
+    - sffw
+    - qbtc
+    - ltgc
+    - mmtg
+    - sjtp
 ---
 
 关于博主：
