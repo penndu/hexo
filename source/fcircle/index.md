@@ -1,8 +1,20 @@
 ---
 title: 友链文章
-comments: false
-leftbar: wezh, welcome, recent
-rightbar: recent_comments, sffw, qbtc, ltgc, mmtg, sjtp
+comments:
+  enabled: false
+leftbar:
+  widgets:
+    - wezh
+    - welcome
+    - recent
+rightbar:
+  widgets:
+    - recent_comments
+    - sffw
+    - qbtc
+    - ltgc
+    - mmtg
+    - sjtp
 ---
 
 <div id="friend-circle-container">与主机通讯中……</div>
