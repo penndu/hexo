@@ -28,7 +28,8 @@
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-safego": "^2.4.0",
     "hexo-server": "^3.0.0",
-    "hexo-theme-stellar": "^2.0.0-rc.3",
+    "hexo-theme-stellar": "github:xaoxuu/hexo-theme-stellar#main",
+    "minimatch": "^3.1.5",
     "probe-image-size": "^7.4.0"
   }
 }
