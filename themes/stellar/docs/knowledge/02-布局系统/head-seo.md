@@ -1,0 +1,551 @@
+---
+title: HTML Head 与 SEO 元数据
+domain: 布局系统
+tags:
+  - SEO
+  - head
+  - canonical
+---
+
+# HTML Head 与 SEO 元数据
+
+> [!IMPORTANT]
+> v2 的页面归属和卡片/Banner 字段已重构；本页涉及内容字段时，以[内容配置 Schema v2](../03-内容系统/content-schema-v2.md)为准。
+
+<details>
+<summary>相关源码文件</summary>
+
+生成此页面时参考的主题源码文件：
+
+- [layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+- [layout/_partial/scripts/defines.ejs](../../../layout/_partial/scripts/defines.ejs)
+- [layout/layout.ejs](../../../layout/layout.ejs)
+- [scripts/helpers/json_ld.js](../../../scripts/helpers/json_ld.js)
+- [source/js/main.js](../../../source/js/main.js)
+
+</details>
+
+本文介绍 Stellar 的 HTML `<head>` 生成与 SEO 元数据系统：meta 标签、Open Graph 协议、JSON-LD 结构化数据、规范链接（canonical URL）处理与克隆站检测。整体页面布局结构见[页面模板与路由](page-templates-routing.md)。
+
+## v2 内容 SEO 投影
+
+普通 Post 与 Topic 在 Markdown 渲染完成后的构建阶段生成 `PageViewModel.render.seo`，Wiki 与 Notebook 分别在各自数据树完成后的两阶段模型构建中生成相同出口。`head.ejs` 与 `json_ld()` 对这四类页面只消费投影中的最终 title、description、keywords、robots、canonical、Open Graph 参数和 JSON-LD 对象。Post 与 Topic 的结构化数据类型为 `BlogPosting`，Wiki 与 Notebook 为 `WebPage`；四者都在模型边界完成页面、Collection/Profile 与站点配置级联。
+
+页面级空字符串或空数组仍按既有规则进入下一层回退；`open_graph` 参数中的显式空值作为最终覆盖保留。备用构建投影 `noindex, nofollow`，canonical 与 404 排除规则在模型层完成。普通 Page 继续使用本页后续章节描述的 legacy head 分支。
+
+## 系统概览
+
+HTML head 生成系统实现在 [layout/_partial/head.ejs](../../../layout/_partial/head.ejs)，为搜索引擎、社交平台与浏览器生成全部元数据：
+
+- 带上下文感知的动态页面标题
+- 来自页面内容或 wiki 项目元数据的 meta 描述
+- 来自标签或 front-matter 的关键词
+- 控制收录的 robots 指令
+- 社交分享的 Open Graph 标签
+- 带克隆站检测的规范链接
+- 富搜索结果用的 JSON-LD 结构化数据
+- 性能优化提示（preconnect、DNS 预取）
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)、[layout/layout.ejs](../../../layout/layout.ejs)
+
+## Head 生成架构
+
+```mermaid
+graph TB
+    subgraph "Configuration Sources"
+        CONFIG["_config.yml<br/>Global config"]
+        THEMECONFIG["frozen config<br/>seo, resources, inject"]
+        FRONTMATTER["page object<br/>Front-matter variables"]
+    end
+    
+    subgraph "Head Template Functions"
+        GENTITLE["generate_title()"]
+        GENDESC["generate_description()"]
+        GENKW["generate_keywords()"]
+        GENROBOTS["generate_robots()"]
+        OGARGS["og_args() / render_open_graph()"]
+        GENCANON["generate_canonical()"]
+    end
+    
+    subgraph "Helper Functions"
+        JSONLD["json_ld()<br/>scripts/helpers/json_ld.js"]
+        PRECONNECT["preconnect()"]
+        CUSTOMINJECT["custom_inject()"]
+    end
+    
+    subgraph "Generated Output"
+        TITLE["<title> tag"]
+        METAMETA["meta description/keywords/robots"]
+        OGTAGS["Open Graph tags"]
+        CANONICAL["canonical <link>"]
+        STRUCTDATA["JSON-LD <script>"]
+        PERFHINTS["preconnect/dns-prefetch"]
+    end
+    
+    CONFIG --> GENTITLE
+    CONFIG --> GENDESC
+    CONFIG --> GENKW
+    THEMECONFIG --> OGARGS
+    THEMECONFIG --> GENCANON
+    FRONTMATTER --> GENTITLE
+    FRONTMATTER --> GENDESC
+    FRONTMATTER --> GENKW
+    FRONTMATTER --> GENROBOTS
+    
+    GENTITLE --> TITLE
+    GENDESC --> METAMETA
+    GENKW --> METAMETA
+    GENROBOTS --> METAMETA
+    OGARGS --> OGTAGS
+    GENCANON --> CANONICAL
+    JSONLD --> STRUCTDATA
+    PRECONNECT --> PERFHINTS
+    CUSTOMINJECT --> PERFHINTS
+```
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 标题生成系统
+
+`generate_title()` 按页面类型生成层级化标题：
+
+| 页面类型 | 标题格式 | 示例 |
+|----------|----------|------|
+| 有标题的 wiki 页面 | `{wiki} : {title} - {site}` | `Stellar : Configuration - My Site` |
+| wiki 首页 | `{wiki} - {site}` | `Stellar - My Site` |
+| 标准页面 | `{title} - {site}` | `About - My Site` |
+| 分类归档 | `Category : {category} - {site}` | `Category : Tech - My Site` |
+| 标签归档 | `Tag : {tag} - {site}` | `Tag : Hexo - My Site` |
+| 首页（第 1 页） | `{site}` | `My Site` |
+| 首页分页（第 2 页起） | `{site} - Page {n}` | `My Site - Page 2` |
+
+Post、Topic、Wiki 与 Notebook 新链直接返回 `render.seo.title`。Wiki 与 Notebook 标题在模型层从 collection identity 与 item title 组合，不由 EJS 查询原始数据树。下述通用页面、分类、标签和分页格式仍由 legacy `generate_title()` 分支生成。
+
+wiki 标题去重规则：当 `page.title` 与 wiki 项目名相同，或以 `：`/`:`/` - ` 为前缀重复 wiki 名时，只保留一次（如 `GHAPI JSON Generator：GHAPI JSON Generator` 会归一为 `GHAPI JSON Generator`）；wiki 名中的空格/连字符按同义处理（`cloud shell` 可匹配 `cloud-shell`）。
+
+**实现流程：**
+
+```mermaid
+flowchart TD
+    START["generate_title() invoked"] --> HASMODEL{"Post / Topic / Wiki / Notebook render.seo?"}
+    HASMODEL -->|Yes| MODELTITLE["Return render.seo.title"]
+    HASMODEL -->|No| PAGECHECK{"page.title exists?"}
+    PAGECHECK -->|Yes| PAGETITLE["Return title + - + site"]
+    PAGECHECK -->|No| CATCHECK{"page.category exists?"}
+    CATCHECK -->|Yes| CATTITLE["Return Category: + category + - + site"]
+    CATCHECK -->|No| TAGCHECK{"page.tag exists?"}
+    TAGCHECK -->|Yes| TAGTITLE["Return Tag: + tag + - + site"]
+    TAGCHECK -->|No| PAGECHECK2{"is_home() && current > 1?"}
+    PAGECHECK2 -->|Yes| PAGETITLE2["Return site + Page + n"]
+    PAGECHECK2 -->|No| DEFAULTTITLE["Return config.title"]
+    
+    MODELTITLE --> END
+    PAGETITLE --> END
+    PAGETITLE2 --> END
+    CATTITLE --> END
+    TAGTITLE --> END
+    DEFAULTTITLE --> END
+```
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## Meta 描述与关键词
+
+### 描述生成
+
+Post、Topic、Wiki 与 Notebook 直接读取 `render.seo.description`；Open Graph 启用时由 `render.seo.openGraph.args` 输出同一模型已解析的说明。普通索引与独立页面由 `generate_description()` 按以下优先级级联：
+
+1. **Open Graph 启用时跳过**：`stellar_config('openGraph').enabled` 为 true 时返回空（由 OG 标签处理描述）
+2. **页面级描述**：`page.description`（截断至 150 字符）
+3. **页面摘要**：`page.excerpt`、截断的 `page.content`（150 字符）
+4. **兜底**：`config.description`
+
+内容经 `strip_html()` 与 `truncate()` 处理，去除 HTML 标签并限制长度。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+> 说明：站点启用 Open Graph（`open_graph.enabled: true`，默认配置）时，Post/Topic/Wiki/Notebook 的 `<meta name="description">` 与 `og:description` 均来自 `render.seo.openGraph.args.description`；其它页面由 `og_args()` 传入 Hexo 内置 `open_graph()` helper。Front Matter 由声明式 Schema 投影为 `pageConfig.seo.openGraph`。
+
+### 关键词生成
+
+`generate_keywords()` 从多个来源聚合关键词：
+
+```mermaid
+graph LR
+    START["generate_keywords()"] --> CHECK1{"page.keywords?"}
+    CHECK1 -->|Yes| KW1["Use page.keywords"]
+    CHECK1 -->|No| CHECK2{"page.tags?"}
+    CHECK2 -->|Yes| KW2["Extract tag names:<br/>page.tags.map(tag => tag.name).join(',')"]
+    CHECK2 -->|No| CHECK3{"config.keywords?"}
+    CHECK3 -->|Yes| KW3["Use config.keywords"]
+    CHECK3 -->|No| EMPTY["Return empty string"]
+    
+    KW1 --> OUTPUT["<meta name='keywords'>"]
+    KW2 --> OUTPUT
+    KW3 --> OUTPUT
+```
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## Robots Meta 标签
+
+`generate_robots()` 控制搜索引擎收录行为：
+
+| 条件 | Robots 指令 | 用途 |
+|------|-------------|------|
+| `IS_BACKUP=true` 环境变量 | `noindex, nofollow` | 防止备用站被收录 |
+| 首页（`is_home()`） | 无 | 允许收录 |
+| 定义了 `page.robots` | 自定义值 | 页面级控制 |
+
+与规范链接系统配合，避免备份/镜像站的重复内容惩罚。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## Open Graph 协议集成
+
+`og_args()` 准备 Hexo 内置 `open_graph()` 辅助函数的参数：
+
+```javascript
+{
+  twitter_id: stellar_config('openGraph').twitterId,
+  twitter_card: 'summary_large_image',  // 仅 post 且有 cover 时
+  image: pageConfig.cover || pageConfig.banner?.image || first_content_image(page.content) || config.avatar || (config.email ? gravatar(config.email) : null),
+  ...pageConfig.seo?.openGraph  // Front Matter open_graph 覆盖
+}
+```
+
+`stellar_config('openGraph').enabled` 为 true 时生成 OG 标签，并对 `og:title`、`og:site_name`、`twitter:title` 做主题定制替换（经 `generate_og_title()` / `generate_og_site_name()` 转义处理）。`og:site_name` 始终输出站点名 `config.title`，`og:image` 按 封面 → 横幅 → 正文首图 → 头像 回退。
+
+Post/Topic/Wiki/Notebook 的 `og_args()` 直接复制 `render.seo.openGraph.args`；Collection description、页面 description 与 Front Matter `open_graph` 的优先级已在模型层完成。普通索引与独立页面在 helper 调用前从 `pageConfig` 组装参数。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 规范链接（Canonical URL）系统
+
+### 服务端生成
+
+`generate_canonical()` 生成规范链接标签：
+
+```mermaid
+flowchart TD
+    START["generate_canonical()"] --> CHECK{"stellar_config('canonical').host<br/>configured?"}
+    CHECK -->|No| EMPTY["Return empty string"]
+    CHECK -->|Yes| GETPATH["path = pretty_url(page.path)"]
+    GETPATH --> IS404{"path starts with /404?"}
+    IS404 -->|Yes| EMPTY
+    IS404 -->|No| CLEANHTML["Remove .html suffix if present"]
+    CLEANHTML --> CANON["<link rel='canonical'<br/>href='https://{host}{path}'>"]
+    CANON --> OUTPUT["Output to <head>"]
+    EMPTY --> OUTPUT
+```
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+### 客户端校验与克隆站检测
+
+`window.canonical` 在 [layout/_partial/scripts/defines.ejs](../../../layout/_partial/scripts/defines.ejs) 中构建：`encoded` 是 `host` 的 base64 编码，`param` 含 `permalink` 与 `checklink`；`checklink` 来自主题内部服务资源表的 video 模块路径。
+
+`init.canonicalCheck()`（[source/js/main.js](../../../source/js/main.js)）实现克隆检测：
+
+```mermaid
+graph TB
+    subgraph "Canonical Check Process"
+        START["canonicalCheck() invoked"] --> HASCANON{"canonical.host<br/>configured?"}
+        HASCANON -->|No| EXIT["Return"]
+        HASCANON -->|Yes| GETHOST["currentHost = location.hostname"]
+        GETHOST --> LOCALHOST{"currentHost == localhost?"}
+        LOCALHOST -->|Yes| EXIT
+        LOCALHOST -->|No| ENCODE["encodedCurrentHost = btoa(currentHost)"]
+        ENCODE --> VALIDATE{"encodedCurrentHost ==<br/>canonical.encoded?"}
+        
+        VALIDATE -->|Yes| HASTAG{"<link rel=canonical> exists?"}
+        VALIDATE -->|No| CHECKOFFICIAL{"currentHost in<br/>canonical.allowedHosts?"}
+        
+        HASTAG -->|No| CHECKOFFICIAL
+        HASTAG -->|Yes| VALIDCANON["Validate canonical host encoding"]
+        
+        CHECKOFFICIAL -->|Yes| OFFICIAL["showTip(isOfficial=true)<br/>Display backup site notice"]
+        CHECKOFFICIAL -->|No| CLONE["showTip(isOfficial=false)<br/>Display clone warning"]
+        
+        OFFICIAL --> INJECT["Inject robots noindex meta"]
+        CLONE --> INJECT
+        
+        VALIDCANON --> BOTHVALID{"Both hosts valid?"}
+        BOTHVALID -->|Yes| EXIT
+        BOTHVALID -->|No| RECHECK["Check if official backup"]
+    end
+```
+
+校验用 base64 编码的主机名比较防止篡改：`btoa(hostname)` 与预配置的 `canonical.encoded` 比对。克隆站显示警告并注入 `noindex` meta；备用站显示官方提示。
+
+**参考源码**：[source/js/main.js](../../../source/js/main.js)、[layout/_partial/scripts/defines.ejs](../../../layout/_partial/scripts/defines.ejs)
+
+### 克隆检测配置
+
+`_config.yml` 中的 `canonical` 小节：
+
+```yaml
+canonical:
+  host: example.com
+  allowed_hosts:
+    - backup.example.com
+```
+
+**参考源码**：[_config.yml](../../../_config.yml)
+
+## JSON-LD 结构化数据
+
+`json_ld()` 辅助函数（[scripts/helpers/json_ld.js](../../../scripts/helpers/json_ld.js)）按页面类型生成 Schema.org 结构化数据。
+
+### BlogPosting Schema（文章）
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "author": { "@type": "Person", "name": "..." },
+  "dateCreated": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-02T00:00:00Z",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "description": "...",
+  "headline": "...",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "..." },
+  "publisher": { "@type": "Organization", "logo": {...} },
+  "keywords": "tag1, tag2, tag3",
+  "thumbnailUrl": "...",
+  "image": ["cover.jpg", "photo1.jpg"]
+}
+```
+
+**条件**：`this.is_post()` 为 true
+
+**图片来源优先级**：封面（cover）→ 横幅（banner）→ 相册（photos）→ 正文首图（`data-src`/`src`）→ 默认封面（`hexo.stellar.config.fallbacks.cover`）
+
+**描述来源**：摘要（`page.excerpt`）优先，缺失时回退正文前 200 字符（去除 HTML）。
+
+**参考源码**：[scripts/helpers/json_ld.js](../../../scripts/helpers/json_ld.js)
+
+### Website Schema（页面与首页）
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Website",
+  "@id": "https://example.com/",
+  "author": { "@type": "Person", "name": "..." },
+  "name": "Site Title",
+  "description": "Site description",
+  "url": "https://example.com/",
+  "keywords": "..."
+}
+```
+
+**条件**：`page.layout == 'page'` 或 `this.is_home()`
+
+**描述优先级**：legacy Page 使用 page.description → page.excerpt → 截断内容（200 字符）；Wiki 与 Notebook 的 WebPage JSON-LD 直接使用 `render.seo.description`。
+
+**参考源码**：[scripts/helpers/json_ld.js](../../../scripts/helpers/json_ld.js)
+
+### 作者与发布者对象
+
+两种 schema 都包含来自站点配置的作者与发布者信息：
+
+```mermaid
+graph LR
+    CONFIG["config.author<br/>config.email<br/>config.avatar"] --> AUTHOR["author object<br/>@type: Person"]
+    CONFIG --> PUBLISHER["publisher object<br/>@type: Organization"]
+    
+    STRUCTDATA["stellar_config('structuredData').sameAs"] --> AUTHOR
+    
+    AUTHOR --> SCHEMA["JSON-LD schema"]
+    PUBLISHER --> SCHEMA
+    
+    PUBLISHER --> LOGO["logo.@type: ImageObject"]
+```
+
+**参考源码**：[scripts/helpers/json_ld.js](../../../scripts/helpers/json_ld.js)
+
+## 性能优化提示
+
+### Preconnect 链接
+
+`preconnect()` 为频繁访问的外部来源生成 `<link rel="preconnect">`：
+
+```html
+<link rel="preconnect" href="https://cdn.example.com" crossorigin>
+```
+
+**配置**：`preconnect` 数组；站点数组完整替换 Schema 默认列表，trim、去空与稳定去重在构建期完成。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+### DNS 预取控制
+
+head 模板包含 DNS 预取控制：
+
+```html
+<meta http-equiv='x-dns-prefetch-control' content='on' />
+```
+
+与 preconnect 配合优化资源加载性能。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 自定义注入系统
+
+`stellar_inject()` 为四个文档位置分别组合两个可信注入来源：
+
+```mermaid
+graph TD
+    START["stellar_inject(kind)"] --> SITEINJECT["frozen site inject[kind] string"]
+    SITEINJECT --> PAGEINJECT["current page inject[kind]"]
+    PAGEINJECT --> CONCAT["site text + one inserted newline + page text"]
+    CONCAT --> OUTPUT["Output raw HTML at the selected document position"]
+```
+
+| YAML 字段 | 内部键 | 输出位置 |
+| --- | --- | --- |
+| `inject.head_begin` | `headBegin` | `<head>` 后、主题 meta 前 |
+| `inject.head_end` | `headEnd` | `</head>` 前 |
+| `inject.body_begin` | `bodyBegin` | `<body>` 后、页面外壳前 |
+| `inject.body_end` | `bodyEnd` | `</body>` 前 |
+
+**合并顺序：**
+
+1. 站点主题覆盖中对应位置的多行字符串
+2. 页面 Front Matter 中对应位置的多行字符串
+
+不读取 Hexo `_config.yml.inject`。两段原文均不解析、不格式化；仅在两段都非空时插入一个换行。四个位置都按相同规则处理，内部使用 camelCase 键。
+
+无需修改主题模板即可注入自定义 meta、分析脚本或 CSS。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 浏览器兼容 Meta 标签
+
+| Meta 标签 | 用途 |
+|-----------|------|
+| `<meta charset="utf-8">` | 字符编码声明 |
+| `<meta name="renderer" content="webkit">` | 双核浏览器强制 WebKit 渲染 |
+| `<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">` | 强制最新 IE 渲染引擎 |
+| `<meta name="HandheldFriendly" content="True">` | 旧设备的移动友好信号 |
+| `<meta name="mobile-web-app-capable" content="yes">` | PWA 能力指示 |
+| `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">` | 响应式视口配置 |
+
+**主题颜色 meta：**
+
+```html
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+<meta name="theme-color" content="#f9fafb">
+```
+
+定义深浅模式的浏览器 UI 颜色。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 页面导航与元数据
+
+主题默认对同集合且外壳兼容的页面执行局部导航，其余情况整页跳转；页面级初始化与 Extension 随正文替换重新挂载，文档级能力保留。详见[页面导航](../07-外部集成/pjax-navigation.md)。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## Head 模板执行流程
+
+```mermaid
+sequenceDiagram
+    participant Hexo as "Hexo Build"
+    participant Layout as "layout.ejs"
+    participant Head as "head.ejs"
+    participant Helpers as "Helper Functions"
+    
+    Hexo->>Layout: Render page
+    Layout->>Head: partial('_partial/head')
+    
+    Head->>Head: generate_title()
+    Head->>Head: generate_description()
+    Head->>Head: generate_keywords()
+    Head->>Head: generate_robots()
+    Head->>Head: generate_canonical()
+    
+    Head->>Helpers: open_graph(og_args())
+    Helpers-->>Head: OG tags HTML
+    
+    Head->>Helpers: json_ld()
+    Helpers-->>Head: JSON-LD script
+    
+    Head->>Head: preconnect()
+    Head->>Head: custom_inject()
+    
+    Head->>Head: favicon_tag() / feed_tag()
+    
+    Head-->>Layout: Complete <head> HTML
+    Layout-->>Hexo: Complete page HTML
+```
+
+**参考源码**：[layout/layout.ejs](../../../layout/layout.ejs)、[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 配置参考
+
+### 主题默认配置（_config.yml）
+
+```yaml
+canonical:
+  host: example.com
+  allowed_hosts:
+    - backup.example.com
+open_graph:
+  enabled: true
+  twitter_id: username
+structured_data:
+  same_as:
+    - https://github.com/username
+
+preconnect:
+  - https://cdn.jsdelivr.net
+  - https://fonts.googleapis.com
+
+```
+
+### 站点主题覆盖（_config.stellar.yml）
+
+`inject` 只允许出现在站点主题覆盖与页面 Front Matter：
+
+```yaml
+inject:
+  head_begin: ''
+  head_end: |
+    <meta name="custom" content="value">
+  body_begin: ''
+  body_end: ''
+```
+
+### 页面 Front-Matter
+
+```yaml
+---
+title: "Page Title"
+description: "Custom description for this page"
+keywords: "keyword1, keyword2, keyword3"
+robots: "noindex, nofollow"  # 自定义 robots 指令
+open_graph:
+  type: article
+  image: /image.jpg
+inject:
+  head_end: '<link rel="alternate" href="/page.xml" type="application/rss+xml">'
+  body_end: '<script>console.log("trusted page code")</script>'
+---
+```
+
+四个字段都必须是字符串，不接受数组。内容作为可信 HTML 原样输出，只应配置维护者完全信任的内容。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
+## 环境变量
+
+| 变量 | 效果 | 用法 |
+|------|------|------|
+| `IS_BACKUP=true` | 添加 `noindex, nofollow` robots meta | 备用站部署时防止重复收录 |
+
+构建时设置：`IS_BACKUP=true hexo generate`
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)

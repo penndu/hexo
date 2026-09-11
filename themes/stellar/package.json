@@ -1,0 +1,65 @@
+{
+  "name": "hexo-theme-stellar",
+  "version": "2.0.0-rc.4",
+  "description": "An all-in-one Hexo theme for blogs, project documentation, knowledge bases, series, and notebooks.",
+  "main": "package.json",
+  "scripts": {
+    "lint": "eslint .",
+    "test:unit": "node ci/check-require-decls.js && npm run reuse:check && node --test && node ci/check-agent-docs.js",
+    "test": "npm run test:unit && npm run contributions:check",
+    "reuse:check": "node ci/check-reuse-contracts.js",
+    "contributions:check": "node ci/check-contributions.js",
+    "knowledge:check": "node ci/check-knowledge.js",
+    "integration:check": "node ci/check-package-integration.js",
+    "acceptance:prepare": "node ci/check-package-integration.js --prepare",
+    "performance:check": "node ci/check-performance.js",
+    "check": "npm run lint && npm test",
+    "release:check": "npm run check && npm run integration:check && npm run performance:check && npm run knowledge:check",
+    "release": "node release.js",
+    "release:dry": "node release.js --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xaoxuu/hexo-theme-stellar.git"
+  },
+  "keywords": [
+    "hexo",
+    "hexo-theme",
+    "theme",
+    "stellar",
+    "blog",
+    "wiki",
+    "documentation",
+    "knowledge-base",
+    "notebook"
+  ],
+  "author": {
+    "name": "xaoxuu",
+    "url": "https://github.com/xaoxuu/"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "bugs": {
+    "url": "https://github.com/xaoxuu/hexo-theme-stellar/issues/"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.0",
+    "hexo-front-matter": "^4.2.1",
+    "hexo-pagination": "^3.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "js-yaml": "^4.1.0",
+    "probe-image-size": "^7.2.3",
+    "sharp": "^0.34.5"
+  },
+  "homepage": "https://xaoxuu.com/wiki/stellar/",
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "glob": "^10.4.0",
+    "globals": "^14.0.0",
+    "hexo-util": "^4.0.0"
+  }
+}

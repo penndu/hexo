@@ -1,0 +1,29 @@
+<%
+function layout_topic_list(partial) {
+  var el = ''
+  if (!Array.isArray(page.topicIndex?.items)) {
+    throw new Error('Stellar v2: Topic 索引缺少显式 listing 投影')
+  }
+  var topics = page.topicIndex.items
+  for (var topic of topics) {
+    el += `<div class="post-card-wrap${scrollreveal(' ')}">`
+    el += `<div class="post-card topic">`
+    el += partial(topic)
+    el += `</div>`
+    el += `</div>`
+  }
+  return el
+}
+function layoutDiv() {
+  var el = ''
+  el += partial('_partial/main/listing_nav/blog')
+  el += `<div class="post-list topic">`;
+  el += layout_topic_list(function(topic) {
+    return partial('_partial/main/post_list/topic_card', {viewModel: {render: {listing: topic}}})
+  })
+    el += `</div>`
+  return el
+}
+%>
+
+<%- layoutDiv() %>

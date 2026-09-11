@@ -1,0 +1,377 @@
+
+.search-wrapper
+  padding-bottom: 32px
+  width: 100%
+  border-radius: $border-card-s
+  >.search-form
+    position: sticky
+    top: 0
+    height: 40px
+    display: flex
+    flex-direction: row
+    align-items: center
+    padding: 0 16px
+    gap: 16px
+    transition: 0.38s ease-out
+    z-index: 1
+    border-radius: $border-card-s
+    color: var(--text)
+    >*
+      z-index: 1
+    &:before
+      position: absolute
+      content: ''
+      height: 1px
+      bottom: 0
+      left: 1rem
+      right: 1rem
+      border-radius: $border-bar
+      z-index 0
+      trans1 all
+    &:after
+      position: absolute
+      content: ''
+      height: 2px
+      bottom: 0
+      left: 1rem
+      right: 1rem
+      border-radius: $border-bar
+      background: convert(hexo-config('appearance.gradients.search_bar'))
+      background-size: 200%
+      animation: search-glow 20s linear infinite
+      opacity: 0
+      pointer-events: none
+      z-index 1
+      trans1 opacity, 0.3s
+    &:hover,&:has(input:focus),&:has(input:not(:placeholder-shown))
+      &:after
+        opacity: 1
+  .search-input
+    -webkit-appearance: none
+    appearance: none
+    width: 100%
+    box-sizing: border-box
+    font-family: $ff-body
+    font-size: $fs-14
+    padding: 12px 0
+    color: var(--text)
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration
+      -webkit-appearance: none
+    &::placeholder
+      color: var(--text-p3)
+      :root[data-theme="dark"] &
+        color: var(--text-p2)
+      :root:not([data-theme]) &
+        @media screen and (prefers-color-scheme: dark)
+          color: var(--text-p2)
+  .search-button 
+    border-radius: $border-bar
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    width: 1.5rem
+    height: 1.5rem
+    cursor: pointer
+    svg
+      max-height: 1.5rem
+      color: var(--text-p2)
+      fill: currentColor
+
+  .search-no-result
+    display: none
+    color: var(--text-p1)
+    text-align: center
+    font-size: $fs-14
+    height: 100%
+    align-items: center
+    justify-content: center
+
+
+  .search-result
+    max-height: 60vh
+    overflow: auto
+    scrollbar-width: none
+    scrollbar(0, 0)
+    border-radius: $border-bar
+    mask: linear-gradient(white, 90%, transparent)
+    -webkit-mask: linear-gradient(white, 90%, transparent)
+    &:empty
+      display: none
+    .search-result-list
+      padding: 0
+      margin: 8px 0
+      list-style-type: none
+    .search-result-footer
+      margin: 1rem 0 3rem
+      text-align: center
+      font-size: $fs-14
+    .search-result-end
+      margin: 0
+      padding: .5rem 1rem
+      color: var(--text-p3)
+    .search-result-more
+      display: block
+      box-sizing: border-box
+      width: 100%
+      text-align: center
+      margin: 0
+      padding: .75rem 1rem
+      border-radius: $border-bar
+      font-family: $ff-body
+      font-size: $fs-14
+      color: var(--text-p1)
+      &:before
+        content: '> '
+      &:after
+        content: ' <'
+      &:focus-visible
+        outline: 2px solid var(--theme)
+        outline-offset: 2px
+    li a
+      display: block
+      line-height: 1.2
+      padding: 0.75rem 1rem
+      border-radius: $border-card-s
+      background: var(--block)
+      box-shadow: none
+      &:focus-visible
+        outline: 2px solid var(--theme)
+        outline-offset: 2px
+    li+li
+      margin-top: 8px
+    .search-result-title
+      display: block
+      overflow: hidden
+      color: var(--text-p1)
+      font-weight: $fw-700
+      font-size: $fsh5
+      text-overflow: ellipsis
+      white-space: nowrap
+      border-bottom: 1px solid var(--block-border)
+      padding-bottom: .5rem
+      margin-bottom: .5rem
+
+    .search-result-section
+      display: block
+      color: var(--text-p1)
+      font-size: $fs-15
+      font-weight: $fw-500
+      margin: 0.5rem 0
+      white-space: nowrap
+      text-overflow: ellipsis
+      &:before
+        content: '#'
+        margin-right: .5em
+        color: var(--theme)
+
+    .search-result-content
+      overflow: hidden
+      color: var(--text-p3)
+      margin: 0
+      max-height: 13em
+      text-align: justify
+      font-size: $fs-13
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      overflow: hidden
+      -webkit-line-clamp: 2
+
+    .search-keyword
+      color: var(--theme)
+      border-bottom: 1px dashed var(--theme)
+      font-weight: $fw-700
+      filter grayscale(25%)
+
+
+.search-wrapper.noresult[searching='true']
+  .search-no-result
+    display: flex
+
+.site-region__viewport > .search-wrapper
+  width: auto
+  margin: 1.5rem var(--gap-base) 0
+  padding-bottom: 0
+
+.site-region__viewport > .search-wrapper[searching='true']
+  flex-grow: 1
+  min-height: 0
+  display: flex
+  flex-direction: column
+  .search-result
+    flex-grow: 1
+    max-height: none
+
+@keyframes search-glow
+  from
+    background-position: 0%
+  to
+    background-position: 1000%
+
+.search-trigger
+  appearance: none
+  width: 100%
+  border: 0
+  text-align: start
+  cursor: pointer
+
+.search-shortcut
+  display: none
+  flex-shrink: 0
+  min-width: 0
+  border-radius: 4px
+  color: var(--text-p3)
+  opacity: 0.5
+  font-family: $ff-body
+  font-size: $fs-12
+  font-weight: $fw-600
+  line-height: 1
+
+@media screen and (min-width: ($device-tablet + 1px))
+  .search-shortcut:not(:empty)
+    display: inline-flex
+
+html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .site-region--leftbar .search-shortcut
+  display: none
+
+.search-dialog
+  box-sizing: border-box
+  width: unquote('min(600px, calc(100dvw - 64px))')
+  height: unquote('min(80dvh, 720px)')
+  max-width: none
+  max-height: unquote('min(80dvh, 720px)')
+  margin: auto
+  padding: 0
+  border: 1px solid var(--block-border)
+  border-radius: $border-card-l
+  color: var(--text)
+  background: var(--card)
+  box-shadow: $boxshadow-card-float
+  overflow: hidden
+  &::backdrop
+    background: rgba(black, .38)
+    backdrop-filter: blur(8px)
+    -webkit-backdrop-filter: blur(8px)
+
+.search-dialog__panel
+  box-sizing: border-box
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  padding: 12px
+
+.search-dialog__header
+  display: flex
+  flex-wrap: nowrap
+  align-items: center
+  gap: 8px
+  .search-form
+    flex: 1 1 auto
+    box-sizing: border-box
+    min-width: 0
+    height: 40px
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    gap: 8px
+    padding: 0 16px
+    position: static
+    border-radius: $border-card-s
+    color: var(--text)
+    background: var(--block)
+    &:hover
+      background: var(--block-border)
+    .search-input
+      flex: 1 1 auto
+      min-width: 0
+      width: auto
+      height: 100%
+      padding: 0
+    &:before
+      display: none
+
+.search-dialog__scope
+  display: flex
+  flex: 0 0 auto
+  align-items: center
+  gap: .5rem
+  padding: .5rem 0
+  overflow: hidden
+  color: var(--text-p2)
+  font-size: $fs-13
+  &[hidden]
+    display: none
+
+.search-dialog__scope-option
+  display: flex
+  flex: 0 0 auto
+  align-items: center
+  min-width: 0
+  gap: 5px
+  cursor: pointer
+  background: var(--block)
+  padding: .5rem 1rem
+  border-radius: $border-button
+  &:hover
+    background: var(--block-border)
+  &[hidden]
+    display: none
+  &[data-search-scope-option='current']
+    flex: 0 1 auto
+    overflow: hidden
+    > span:last-child
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+.search-dialog__close
+  flex: 0 0 40px
+  width: 40px
+  height: 40px
+  border: 0
+  border-radius: $border-bar
+  color: var(--text-p2)
+  background: var(--block)
+  &:hover
+    background: var(--block-border)
+  font-size: 24px
+  cursor: pointer
+
+.search-dialog__title
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  white-space: nowrap
+  border: 0
+
+.search-dialog .search-result
+  flex: 1 1 auto
+  min-height: 0
+  max-height: none
+
+html[data-search-open]
+  overflow: hidden
+
+@media screen and (max-width: $device-tablet)
+  .search-dialog
+    width: 100dvw
+    height: 100dvh
+    max-height: none
+    border: 0
+    border-radius: 0
+  .search-dialog__panel
+    height: 100%
+    padding: unquote('max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left))')
+  .search-dialog .search-result
+    max-height: none
+
+@media (prefers-reduced-motion: reduce)
+  .search-dialog,
+  .search-dialog::backdrop
+    animation: none
+    transition: none

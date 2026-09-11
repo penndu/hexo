@@ -1,0 +1,67 @@
+<%
+function relatedPostsInTopic() {
+  var topicViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'topic'
+    ? viewModel
+    : null
+  if (!topicViewModel) return ''
+  var entries = topicViewModel.collection.navigation.series.map(function(post) {
+    return {
+      href: pretty_url(post.path),
+      title: post.title,
+      active: post.id === topicViewModel.item.id
+    }
+  })
+  var body = partial('_partial/components/collection', {options: {
+    layout: 'list',
+    variant: 'nav',
+    density: 'compact',
+    items: entries
+  }})
+  return partial('_partial/components/widget-frame', {
+    className: 'related-widget',
+    title: __('btn.topic') + __('symbol.colon') + (topicViewModel.collection.identity.headline || topicViewModel.collection.identity.name),
+    body: body,
+    reveal: false
+  })
+}
+
+function relatedWiki() {
+  var wikiViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'wiki'
+    ? viewModel
+    : null
+  if (!wikiViewModel) return ''
+  var el = ''
+  for (var relatedItem of wikiViewModel.render.article.related) {
+    var entries = relatedItem.items.map(function(project) {
+      return {
+        href: pretty_url(project.href),
+        title: project.title,
+        description: project.description,
+        indicator: false
+      }
+    })
+    var body = partial('_partial/components/collection', {options: {
+      layout: 'list',
+      variant: 'summary',
+      density: 'compact',
+      items: entries
+    }})
+    el += partial('_partial/components/widget-frame', {
+      className: 'related-summary-widget',
+      title: __('meta.more') + __('symbol.colon') + relatedItem.name,
+      body: body
+    })
+  }
+  return el
+}
+
+function layoutDiv() {
+  if (typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'topic') {
+    return relatedPostsInTopic()
+  } else if (typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'wiki') {
+    return relatedWiki()
+  }
+  return ''
+}
+%>
+<%- layoutDiv() %>

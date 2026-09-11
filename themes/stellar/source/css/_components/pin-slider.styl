@@ -1,0 +1,237 @@
+// 置顶内容轮播（Listing Nav 上方通用置顶位）
+.pin-slider
+  position: relative
+  margin: 0 1rem var(--gap-base)
+  border-radius: $border-card-l
+  overflow: hidden
+  box-shadow: $boxshadow-card
+  // 背景图由 .pin-slider 自身背景承载（跟随 corner-shape），由插件按当前 slide 同步 --pin-cover-url；
+  // 子图保留用于滑动动画与 hover 滤镜，角落楔形区由容器背景（同图）无缝补位
+  background-image: var(--pin-cover-url)
+  background-size: cover
+  background-position: center
+  // 无脚本时显示基础内容；Runtime 挂载时恢复缓存位置。
+  visibility: visible
+
+.pin-slider-track
+  display: flex
+  transition: transform .45s ease-out
+  will-change: transform
+
+.pin-slide
+  position: relative
+  flex: 0 0 100%
+  height: 15rem
+  overflow: hidden
+  background: var(--card)
+  // 带封面幻灯片背景改透明，让 .pin-slider 自身背景（corner-shape 圆角）透出；
+  // 无封面幻灯片保持白卡
+  &:not(.no-cover)
+    background: transparent
+  @media screen and (max-width: $device-mobile-max)
+    height: 11rem
+  // 带封面幻灯片（post 封面幻灯片 + wiki/项目幻灯片）接入通用底部覆盖层：
+  // 同图渐变模糊层 + 黑色渐变蒙版，hover 放大/变暗参数与文章列表封面统一
+  &.post-slide:not(.no-cover), &:not(.post-slide)
+    cover-overlay(var(--pin-cover-url), bottom)
+  &:hover
+    .pin-slide-bg
+      transform: scale(var(--cover-zoom))
+
+// 文章幻灯片：固定「标题 + 一行小字」结构，宽高比与非置顶文章一致；
+// 文字区与 hero 卡片 cover-info 一致（同款渐变模糊层 + 四周间距）；无封面时为纯白卡片
+.pin-slide.post-slide
+  display: block
+  height: auto
+  aspect-ratio: hexo-config('article.listing.cover_ratio')
+  .pin-slide-bg
+    z-index: 0
+  .pin-slide-text
+    position: absolute
+    bottom: 0
+    z-index: 2
+    padding: 1rem
+    line-height: 1.2
+    width: 100%
+    box-sizing: border-box
+    text-align: left
+    // 大字 contrast（--text-banner）、小字 theme（--text-banner-theme），由自适应插件写入
+    --text-banner: white
+    color: var(--text-banner)
+    .pin-slide-headline
+      font-weight: $fw-500
+      font-size: $fsh3
+      color: var(--text-banner)
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      trans1 color
+      @media screen and (max-width: $device-mobile)
+        font-size: $fsh4
+    .pin-slide-caption
+      margin-top: 4px
+      font-size: $fs-14
+      color: var(--text-banner-theme, inherit)
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      @media screen and (max-width: $device-mobile)
+        font-size: $fs-13
+  // 无封面卡片：纯白底 + 普通文章文字颜色
+  &.no-cover
+    background: var(--card)
+    .pin-slide-headline
+      color: var(--text)
+      text-shadow: none
+    .pin-slide-caption
+      color: var(--text-p2)
+      text-shadow: none
+
+// wiki / 专栏项目幻灯片背景
+.pin-slide-bg
+  position: absolute
+  inset: 0
+  width: 100%
+  height: 100%
+  object-fit: cover
+  // hover 放大用 1.5s 缓动，亮度/饱和度仍按 0.2s（与文章列表封面一致）
+  filter: brightness(var(--img-br)) saturate(var(--img-sat))
+  transition: all .2s ease-out, transform 1.5s ease-out
+  -moz-transition: all .2s ease-out, transform 1.5s ease-out
+  -webkit-transition: all .2s ease-out, transform 1.5s ease-out
+  -o-transition: all .2s ease-out, transform 1.5s ease-out
+
+.pin-slide-info
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 2
+  padding: 1.5rem 6rem 1.75rem 2rem
+  text-align: left
+  // 大字 contrast（--text-banner）、小字 theme（--text-banner-theme），由自适应插件写入
+  --text-banner: white
+  color: var(--text-banner)
+  @media screen and (max-width: $device-mobile-max)
+    padding: 1rem 3.5rem 1.25rem 1.25rem
+
+.pin-slide-caps
+  display: flex
+  flex-wrap: wrap
+  gap: .375rem
+  margin-bottom: .5rem
+
+.pin-slide-chip
+  padding: .125rem .5rem
+  border-radius: 999px
+  background: rgba(white, 0.22)
+  backdrop-filter: blur(4px)
+  -webkit-backdrop-filter: blur(4px)
+  font-size: $fs-13
+  color: var(--text-banner-theme, white)
+
+.pin-slide-title
+  font-size: $fsh3
+  font-weight: $fw-600
+  line-height: 1.3
+  color: var(--text-banner)
+  trans1 color
+  @media screen and (max-width: $device-mobile-max)
+    font-size: $fsh5
+
+.pin-slide-excerpt
+  color: var(--text-banner-theme, var(--text-banner))
+
+.pin-slider-dots
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 2
+  display: flex
+  align-items: center
+  gap: 4px
+  padding: 4px
+  border-radius: 4px
+  justify-content: center
+
+.pin-slider-dot
+  position: relative
+  overflow: hidden
+  width: 16px
+  height: 2px
+  padding: 0
+  background-color: rgba(white, 0.25)
+  border-radius: 4px
+  border-shape: round
+  cursor: pointer
+  trans1 all
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2)
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background: var(--theme)
+    transform: scaleX(0)
+    transform-origin: left
+  &:hover
+    background-color: white
+  &.active
+    background-color: white
+    &::before
+      transform: scaleX(1)
+      animation: pin-slider-progress var(--pin-duration, 4s) linear forwards
+
+@keyframes pin-slider-progress
+  from
+    transform: scaleX(0)
+  to
+    transform: scaleX(1)
+
+.pin-slider.paused .pin-slider-dot.active::before
+  animation-play-state: paused
+
+.pin-slider.reduced .pin-slider-dot.active::before
+  animation: none
+
+// 翻页按钮：容器复用 navbar 的玻璃效果（bar-glass），图标为 solar 双箭头 SVG（无文字），
+// 鼠标悬停 / 键盘聚焦到轮播区时显示，左右两侧垂直居中
+.pin-slider-nav
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  z-index: 3
+  // 箭头颜色随当前幻灯片封面自适应（插件写入 --text-banner；未计算时回退主题文字色）
+  color: var(--text-banner, var(--text))
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 27px
+  height: 44px
+  padding: 1rem .25rem
+  border: none
+  bar-glass(40px)
+  cursor: pointer
+  opacity: 0
+  &.prev
+    left: 10px
+  &.next
+    right: 10px
+  svg
+    display: block
+    width: 1.25rem
+    height: 1.25rem
+  &:hover
+    color: var(--theme)
+  &:focus
+    outline: none
+    opacity: 1
+
+.pin-slider:hover .pin-slider-nav,
+.pin-slider:focus-within .pin-slider-nav
+  opacity: 1

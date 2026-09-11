@@ -1,0 +1,21 @@
+<%
+function layoutDiv() {
+  var postViewModel = typeof viewModel !== 'undefined' && ['post', 'topic'].includes(viewModel?.collection?.profile)
+    ? viewModel
+    : null
+  if (!postViewModel) {
+    throw new Error('Stellar v2: Blog 面包屑必须接收 Post/Topic ViewModel')
+  }
+  var postHtml = ''
+  postHtml += `<span class="sep"></span>`
+  var isTopic = postViewModel.collection.profile === 'topic'
+  postHtml += `<a class="cap breadcrumb"${isTopic ? ' id="menu"' : ''} href="${pretty_url(postViewModel.render.layout.blogPath)}">${__(isTopic ? "btn.topic" : "btn.blog")}</a>`
+  for (var breadcrumb of postViewModel.render.layout.breadcrumbs) {
+    if (isTopic && pretty_url(breadcrumb.path) == pretty_url(postViewModel.render.layout.blogPath)) continue
+    postHtml += `<span class="sep"></span>`
+    postHtml += `<a class="cap ${isTopic ? 'breadcrumb' : 'breadcrumb-link'}"${isTopic ? ' id="proj"' : ''} href="${pretty_url(breadcrumb.path)}">${escape_html(breadcrumb.name)}</a>`
+  }
+  return postHtml
+}
+%>
+<%- layoutDiv() %>

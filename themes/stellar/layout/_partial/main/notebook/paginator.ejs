@@ -1,0 +1,10 @@
+<% if ((page.total || 0) > 1) { %>
+  <div class="paginator-wrap dis-select<%= scrollreveal(' ') %>">
+    <%- paginator({
+      prev_text: icon('default:arrow-left'),
+      next_text: icon('default:arrow-right'),
+      force_prev_next: true,
+      escape: false,
+    }) %>
+  </div>
+<% } %>

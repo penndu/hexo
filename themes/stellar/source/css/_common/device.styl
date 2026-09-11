@@ -1,0 +1,62 @@
+.mobile-only
+  display: none
+  @media screen and (max-width: $device-mobile-max)
+    display: block !important
+
+.mobile-hidden
+  @media screen and (max-width: $device-mobile-max)
+    display: none !important
+
+.site-dock
+  position: fixed
+  inset-inline-end: 2rem
+  bottom: 2rem
+  z-index: 20
+  display: none
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  gap: $bar-item-gap
+  padding: $bar-item-gap
+  overflow: hidden
+  trans1: all
+  bar-glass()
+
+.site-dock__button
+  bar-item()
+  cursor: pointer
+  color: var(--text)
+  background: none
+  box-sizing: border-box
+  flex: 0 0 auto
+  margin: 0 auto
+  width: 40px
+  height: 40px
+  padding: 4px
+  line-height: 0
+  font-size: 28px
+  display: none
+  justify-content: center
+  align-items: center
+  > *
+    width: auto
+    height: 28px
+    path#sep
+      trans1 transform
+
+.site-shell[data-drawer='leftbar'] .site-dock__button--leftbar,
+.site-shell[data-drawer='rightbar'] .site-dock__button--rightbar
+  bar-item-active()
+  color: var(--theme)
+
+@media screen and (max-width: $device-laptop)
+  .site-shell[data-regions~='rightbar'] .site-dock
+    display: flex
+  .site-shell[data-regions~='rightbar'] .site-dock__button--rightbar
+    display: flex
+
+@media screen and (max-width: $device-tablet)
+  .site-shell[data-regions~='leftbar'] .site-dock
+    display: flex
+  .site-shell[data-regions~='leftbar'] .site-dock__button--leftbar
+    display: flex

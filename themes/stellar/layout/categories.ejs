@@ -1,0 +1,34 @@
+<%
+page.robots = 'noindex,follow';
+page.navigation ||= {}
+if (page.navigation.menu == undefined) {
+  page.navigation.menu = stellar_config('profiles.blogIndex.activeMenu');
+}
+%>
+<% if (site.categories.length) { %>
+  <% page.title = __('btn.categories'); %>
+  <% page.layout = 'categories'; %>
+  <%- partial('_partial/main/listing_nav/blog') %>
+  <div class='post-list'>
+    <article class='<%- scrollreveal("") %>' id='cats'>
+      <%
+      function renderCategoryTree(nodes) {
+        var el = ''
+        nodes.forEach(function(node) {
+          el += `<div class="cat-item">`
+          el += `<a class="cat${node.parentId ? ' child' : ''}" href="${pretty_url(node.path)}">`
+          el += `<span class="name">${icon(node.children && node.children.length > 0 ? 'default:category-open' : 'default:category')}${escape_html(node.name)}</span>`
+          el += `<span class="badge">(${node.count})</span>`
+          el += `</a>`
+          if (node.children && node.children.length > 0) {
+            el += `<div class="cat-children">${renderCategoryTree(node.children)}</div>`
+          }
+          el += `</div>`
+        })
+        return el
+      }
+      %>
+      <%- renderCategoryTree(category_tree(site.categories)) %>
+    </article>
+  </div>
+<% } %>

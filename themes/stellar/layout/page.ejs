@@ -1,0 +1,120 @@
+<%
+var pageConfig = content_config(page)
+var registeredProfile = pageConfig.collection?.profile
+var postViewModel = page.layout === 'post' && (registeredProfile == null || registeredProfile === 'topic')
+  ? (page.viewModel || post_view_model(page))
+  : null
+var wikiViewModel = page.viewModel?.collection?.profile === 'wiki' ? page.viewModel : null
+var notebookViewModel = page.viewModel?.collection?.profile === 'notebook' ? page.viewModel : null
+var requiredProfile = page.layout === 'post' ? (registeredProfile === 'topic' ? 'topic' : 'post') : registeredProfile
+var activeViewModel = postViewModel || wikiViewModel || notebookViewModel
+if (['post', 'wiki', 'topic', 'notebook'].includes(requiredProfile) && activeViewModel?.collection?.profile !== requiredProfile) {
+  throw new Error(`Stellar v2: ${requiredProfile} 页面 ${page.source || page.path || '<unknown>'} 缺少 PageViewModel`)
+}
+// 是否使用 Heti 布局插件
+const isUsingHeti = stellar_config('features.heti.enabled')
+
+// 默认主导航菜单
+if (!postViewModel && !wikiViewModel && !notebookViewModel) page.navigation = {
+  menu: pageConfig.activeMenu,
+  breadcrumb: pageConfig.breadcrumb
+}
+if (!postViewModel && !wikiViewModel && !notebookViewModel && page.navigation.menu == null) {
+  var profiles = stellar_config('profiles')
+  page.navigation.menu = profiles.page.activeMenu
+}
+
+function articleClass() {
+  var str = `md-text content${scrollreveal(' ')}`
+  if (isUsingHeti) {
+    str += ' heti'
+  }
+  return str
+}
+
+function postArticleClass(article) {
+  var str = `md-text content${scrollreveal(' ')}`
+  if (article.heti) str += ' heti'
+  return str
+}
+
+function postLayoutDiv() {
+  var item = postViewModel.item
+  var article = postViewModel.render.article
+  var el = ''
+  if (item.presentation.banner?.headline || item.title || item.content.length > 0) {
+    el += partial('_partial/main/navbar/article_banner', {viewModel: postViewModel})
+  }
+  el += `<article class="${postArticleClass(article)}">`
+  el += item.content
+  el += '</article>'
+  el += partial('_partial/main/article/post_tags', {tags: article.tags})
+  el += partial('_partial/main/article/share', {share: article.footer.share})
+  el += partial('_partial/main/article/post_footer', {footer: article.footer})
+  el += partial('_partial/main/article/post_read_next', {
+    previous: article.previous,
+    next: article.next
+  })
+  el += partial('_partial/main/article/post_related', {related: article.related})
+  el += partial('_partial/comments/layout', {comments: article.comments})
+  return el
+}
+
+function wikiLayoutDiv() {
+  var item = wikiViewModel.item
+  var article = wikiViewModel.render.article
+  var el = ''
+  if (article.banner?.headline || item.title || item.content.length > 0 || article.readmeHtml.length > 0) {
+    el += partial('_partial/main/navbar/article_banner', {viewModel: wikiViewModel})
+  }
+  var cls = `md-text content${scrollreveal(' ')}`
+  if (article.heti) cls += ' heti'
+  el += `<article class="${cls}">`
+  el += item.content.trim().length > 0 ? item.content : article.readmeHtml
+  el += '</article>'
+  el += partial('_partial/main/article/share', {share: article.footer.share})
+  el += partial('_partial/main/article/post_footer', {footer: article.footer})
+  el += partial('_partial/main/article/post_read_next', {
+    previous: article.previous,
+    next: article.next,
+    previousLabel: __('meta.prev'),
+    nextLabel: __('meta.next')
+  })
+  el += partial('_partial/comments/layout', {comments: article.comments})
+  return el
+}
+
+function notebookLayoutDiv() {
+  var item = notebookViewModel.item
+  var article = notebookViewModel.render.article
+  var el = ''
+  if (article.banner?.headline || item.title || item.content.length > 0) {
+    el += partial('_partial/main/navbar/article_banner', {viewModel: notebookViewModel})
+  }
+  el += `<article class="${postArticleClass(article)}">`
+  el += item.content
+  el += partial('_partial/main/notebook/note_tags', {tags: article.tags})
+  el += '</article>'
+  el += partial('_partial/main/article/share', {share: article.footer.share})
+  el += partial('_partial/main/article/post_footer', {footer: article.footer})
+  el += partial('_partial/comments/layout', {comments: article.comments})
+  return el
+}
+
+function layoutDiv() {
+  if (postViewModel) return postLayoutDiv()
+  if (wikiViewModel) return wikiLayoutDiv()
+  if (notebookViewModel) return notebookLayoutDiv()
+  var el = ''
+  if (pageConfig.banner?.headline || page.title || (page.content && page.content.length > 0)) {
+    el += partial('_partial/main/navbar/article_banner')
+  }
+  el += `<article class="${articleClass()}">`
+  if (page.content && String(page.content).trim().length > 0) el += page.content
+  el += `</article>`
+  el += partial('_partial/comments/layout', {comments: comments_model(page)})
+  return el
+}
+%>
+
+<%- layoutDiv() %>

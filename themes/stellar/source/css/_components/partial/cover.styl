@@ -1,0 +1,349 @@
+.cover-content
+  height: 100vh
+  text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: relative
+  &.post
+    height: inherit
+
+
+.cover-content .cover-wrap
+  margin-bottom: 0
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  font-size: var(--fs-content)
+  .cover-title
+    font-weight: $fw-700
+    font-size: 1.5rem
+    margin: 1rem 0
+    line-height: 1.2
+    color: var(--text)
+  .description
+    margin: 1rem 0
+  .start-wrap
+    margin: 2rem 0
+    flex-shrink: 0
+    a.start
+      display: inline-block
+
+.cover-content.post
+  .cover
+    z-index: -1
+    width: 100%
+    height: 30vh
+    max-width: $device-2k
+    min-height: 150px
+    max-height: 400px
+    @media screen and (max-width: $device-tablet)
+      height: 25vh
+    @media screen and (max-width: $device-mobile)
+      height: 20vh
+    @media screen and (min-width: $device-2k)
+      margin-top: 4rem
+      .img
+        border-radius: 2rem
+
+
+.cover-content.wiki .cover-wrap
+  max-width: $device-mobile
+  .preview
+    margin-bottom: 2rem
+    img
+      object-fit: contain
+      min-width: 96px
+      min-height: 96px
+      max-height: 35vh
+      max-width: 100%
+      @media screen and (max-width: $device-mobile)
+        max-width: 60%
+  .cover-title
+    &:first-child
+      font-size: 3rem
+
+
+.cover-content.wiki-hero
+  min-height: 640px
+  overflow: hidden
+  isolation: isolate
+  color: var(--text)
+  text-align: left
+  .wiki-cover-background
+    position: absolute
+    z-index: -1
+    inset: 0
+    overflow: hidden
+    background: var(--background)
+    &.image
+      .wiki-cover-background-image,
+      .wiki-cover-background-blur
+        position: absolute
+        inset: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+      .wiki-cover-background-image
+        z-index: 0
+      .wiki-cover-background-blur
+        z-index: 1
+        filter: blur(18px)
+        // 以透明度遮罩渐入模糊层；clip-path 会在 80% 处硬切，丢失过渡。
+        mask: linear-gradient(to top, black 0%, rgba(black, .75) 10%, transparent 20%)
+        -webkit-mask: linear-gradient(to top, black 0%, rgba(black, .75) 10%, transparent 20%)
+        transform: scale(1.03)
+      .wiki-cover-background-overlay
+        position: absolute
+        z-index: 3
+        inset: 0
+        pointer-events: none
+        background: linear-gradient(to bottom, transparent 0%, transparent 80%, var(--background) 100%)
+    &.has-effect
+      &:not(.image)
+        background: var(--hero-effect-background, #000000)
+      canvas
+        display: block
+        position: absolute
+        z-index: 2
+        inset: 0
+        width: 100%
+        height: 100%
+        pointer-events: none
+  .wiki-navbar
+    position: absolute
+    top: 2rem
+    left: 0
+    right: 0
+  .wiki-cover-layout
+    width: calc(100% - 4rem)
+    max-width: 1120px
+    height: 100%
+    margin: 0 auto
+    position: relative
+    color: var(--text-banner, var(--text))
+  // 未配置背景时没有 data-text-adaptive，不会运行自适应取色。
+  .wiki-cover-layout:not([data-text-adaptive])
+    --text-banner-theme: var(--text-p2)
+    .wiki-cover-release,
+    .wiki-cover-actions a.button
+      border-color: var(--block-border)
+  .wiki-navbar-home
+    display: inline-flex
+    align-items: center
+    min-height: 1.5rem
+    padding: 0
+    border: 0
+    color: var(--text-banner, var(--text))
+    font-size: 1rem
+    font-weight: $fw-700
+    line-height: 1.5rem
+    text-decoration: none
+    background: transparent
+    box-shadow: none
+    &:hover
+      color: var(--text-banner, var(--text))
+      background: transparent
+      opacity: .8
+  .wiki-cover-content
+    width: 100%
+    max-width: none
+    height: 100%
+    margin: 0
+    display: grid
+    grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr)
+    gap: clamp(3rem, 8vw, 8rem)
+    align-items: center
+  .wiki-cover-intro
+    max-width: 560px
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    gap: 2rem
+  .wiki-cover-release
+    display: inline-flex
+    align-items: center
+    min-height: 1.75rem
+    align-self: flex-start
+    box-sizing: border-box
+    padding: .25rem .75rem
+    margin: 0
+    border: 1px solid unquote('color-mix(in srgb, var(--text-banner-theme, white) 50%, transparent)')
+    border-radius: 100px
+    color: inherit
+    font-size: $fs-12
+    font-weight: $fw-700
+    line-height: 1.2
+    text-decoration: none
+    transition: opacity .25s ease
+    .wiki-cover-release-value
+      display: none
+    &.is-loading
+      // 请求期间仅保留标签高度，避免标题在数据返回时跳动。
+      opacity: 0
+      pointer-events: none
+    &.loaded
+      opacity: 1
+      .wiki-cover-release-value
+        display: inline
+      &:hover
+        color: inherit
+        background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent)')
+  .cover-title
+    margin: 0
+    // 标题自身以 contrast 模式计算，始终在黑白之间切换，不继承容器主题色。
+    color: var(--text-banner, var(--text))
+    // 主题色仅作为外发光轮廓，保留黑白标题的对比度。
+    text-shadow: 0 0 16px unquote('color-mix(in srgb, var(--text-banner-theme, currentColor) 30%, transparent)'), 0 0 32px unquote('color-mix(in srgb, var(--text-banner-theme, currentColor) 20%, transparent)'), 0 0 64px unquote('color-mix(in srgb, var(--text-banner-theme, currentColor) 10%, transparent)')
+    font-size: clamp(2.5rem, 3vw, 4rem)
+  .description
+    margin: 0
+    color: var(--text-banner-theme, var(--text-p2))
+    line-height: 1.75
+    text-shadow: 0 0 8px unquote('color-mix(in srgb, var(--text-banner-theme, currentColor) 50%, transparent)'), 0 0 16px unquote('color-mix(in srgb, var(--text-banner-theme, currentColor) 10%, transparent)')
+  .wiki-cover-actions
+    display: flex
+    flex-wrap: wrap
+    gap: 1rem
+    a.button
+      display: inline-flex
+      align-items: center
+      gap: .5rem
+      padding: .5rem 1.25rem .5rem 1rem
+      border-radius: 100px
+      border: 1px solid unquote('color-mix(in srgb, var(--text-banner-theme, white) 50%, transparent)')
+      color: inherit
+      background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent)')
+      backdrop-filter: blur(12px)
+      trans1 background
+      svg
+        width: 1.5rem
+        height: 1.5rem
+      &:hover
+        color: inherit
+        background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 50%, transparent)')
+      &.wiki-cover-source
+        border-color: var(--text-banner, var(--text))
+        color: var(--text-banner, var(--text))
+        background: var(--text-banner, var(--text))
+        > svg, > span:not(.card-hover__spotlight)
+          filter: invert(1)
+        &:hover
+          color: var(--text-banner, var(--text))
+          background: var(--text-banner, var(--text))
+  .wiki-cover-preview
+    width: 100%
+    border-radius: 1.25rem
+    overflow: hidden
+    box-shadow: 0 24px 60px rgba(0,0,0,.18)
+    > img
+      display: block
+      width: 100%
+      max-height: 62vh
+      object-fit: contain
+      background: var(--card)
+  .wiki-cover-terminal
+    position: relative
+    min-height: 150px
+    padding: 1rem
+    color: var(--text-banner-theme)
+    background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent)')
+    backdrop-filter: blur(12px) brightness(0.8)
+    font-family: $ff-code
+    .wiki-cover-terminal-toolbar
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 1.4rem
+    .wiki-cover-terminal-tabs
+      display: flex
+      gap: .5rem
+      button
+        padding: .5rem .75rem
+        border-radius: $border-button
+        color: inherit
+        opacity 0.5
+        font-family: inherit
+        font-size: $fs-13
+        line-height: 1
+        font-weight: $fw-500
+        &.active
+          opacity 1
+          background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent)')
+    pre
+      margin: 0
+      padding: 0
+      overflow-x: auto
+      color: inherit
+      background: transparent
+      font: 1rem
+      line-height: 1.8
+      code span
+        display: block
+      code span:before
+        content: '$ '
+        color: #8ca5ff
+    .wiki-cover-copy
+      display: inline-flex
+      align-items: center
+      gap: .5rem
+      padding: .5rem .75rem .5rem .5rem
+      border-radius: $border-button
+      color: var(--text-banner, var(--text))
+      font-family: inherit
+      font-size: $fs-13
+      line-height: 1
+      background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent)')
+      trans1 background
+      &:hover
+        background: unquote('color-mix(in srgb, var(--text-banner-theme, var(--background)) 50%, transparent)')
+  &.without-preview .wiki-cover-content
+    grid-template-columns: minmax(0, 560px)
+    justify-content: center
+
+@media screen and (max-width: $device-tablet)
+  .cover-content.wiki-hero
+    height: auto
+    min-height: 100vh
+    padding: 7rem 0 4rem
+    .wiki-cover-layout
+      width: calc(100% - 3rem)
+      max-width: 620px
+      height: auto
+      display: grid
+      grid-template-rows: auto 1fr
+      position: static
+    .wiki-navbar
+      position: absolute
+      top: 1.5rem
+      left: 1.5rem
+      right: 1.5rem
+      padding-top: 0
+    .wiki-cover-content
+      height: auto
+      margin-bottom: 5rem
+      grid-template-columns: 1fr
+      gap: 5rem
+    .wiki-cover-intro
+      max-width: none
+    .wiki-cover-preview
+      max-width: 620px
+
+@media screen and (max-width: $device-mobile)
+  .cover-content.wiki-hero
+    .wiki-cover-layout
+      width: calc(100% - 2rem)
+    .wiki-navbar
+      left: 1rem
+      right: 1rem
+    .cover-title
+      font-size: 2rem
+    .wiki-cover-actions
+      a.button
+        padding: .25rem .75rem .25rem .5rem
+
+@media (prefers-reduced-motion: reduce)
+  .cover-content.wiki-hero .wiki-cover-background.has-effect.respect-reduced-motion canvas
+    display: none

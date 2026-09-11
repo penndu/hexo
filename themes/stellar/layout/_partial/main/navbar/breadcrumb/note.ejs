@@ -1,0 +1,15 @@
+<%# 笔记页面的面包屑 %>
+<%
+var notebookViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'notebook'
+  ? viewModel
+  : null
+var render = notebookViewModel.render.layout
+%>
+<% if (render.notebookIndexPath) { %>
+  <span class="sep"></span>
+  <a class="cap breadcrumb" href="<%= pretty_url(render.notebookIndexPath) %>"><%= __('btn.notebook') %></a>
+<% } %>
+<% for (var breadcrumb of render.breadcrumbs) { %>
+<span class="sep"></span>
+<a class="cap breadcrumb" href="<%= pretty_url(breadcrumb.path) %>"><%= escape_html(breadcrumb.name) %></a>
+<% } %>

@@ -1,0 +1,184 @@
+btn:
+  home: Home
+  blog: Blog
+  wiki: Wiki
+  topic: Topic
+  notebook: Notebook
+  recent_publish: Recent
+  all_wiki: All Products
+  all_topic: All Topics
+  all_notebook: All Notebooks
+  category: Category
+  categories: Categories
+  tag: Tag
+  tags: Tags
+  archives: Archives
+  all_posts: All Posts
+  getting_started: Getting Started
+  docs: Documentation
+  source: Source
+  copy: Copy
+  edit: Edit This Page
+  top: Scroll to Top
+  comments: Join Discussion
+  expand_posts: Show %s more posts
+  collapse_posts: Collapse
+  search: Search
+
+menu:
+  blog: Blog
+  categories: Categories
+  tags: Tags
+  topic: Topic
+  archives: Archives
+  friends: Friends
+  about: About
+
+meta:
+  recent_update: Recent Update
+  tag_tree: Tags
+  all_notes: All Notes
+  toc: On This Page
+  read_next: READ NEXT
+  prev: Prev
+  next: Next
+  older: Older
+  newer: Newer
+  references: References
+  related_posts: Related Posts
+  back_to_top: Back to top
+  more: More
+  created_author: '%s posted on'
+  created: 'Posted on'
+  updated: 'Updated on'
+  license: License
+  share: Share
+  contributors: Page Contributors
+  available: Available for
+  wiki_project: Wiki project
+  project_preview: Project preview
+  install_method: Installation method
+  command: Command %s
+  word_count: '%s words'
+  reading_time: '%s min read'
+  ai_label:
+    manual: Written entirely by a human
+    reviewed: AI-reviewed
+    polished: AI-polished
+    generated: AI-generated
+  date_suffix:
+    just: Just
+    min: minutes ago
+    hour: hours ago
+    day: days ago
+    month: months ago
+
+page:
+  error:
+    what: Page Not Found
+    why: The address may be entered incorrectly or the address has been deleted.
+    action: Back to Home
+
+search:
+  search: Search
+  scope_all: All
+  scope_blog: Blog
+  no_results: No Results!
+  no_more: No more results
+  close: Close search
+
+settings:
+  label: Settings
+  title: Settings
+  profile:
+    title: Profile
+    avatar: Avatar
+    nickname: Nickname
+    email: Email
+    url: URL
+    save: Save
+    logout: Log out
+    provider_managed: '%s manages comment identity outside the theme. Profile editing and logout are unavailable here.'
+    provider_unknown: The current comment provider
+  cache:
+    title: Cache
+    search: Search cache
+    dynamic: Data cache
+    all: All caches
+    clear: 'Clear %s'
+  about:
+    title: About
+    empty: No information configured.
+    open_link: 'Open link for %s'
+  result:
+    success: Done.
+    partial: Partially completed. Some browser storage could not be changed.
+    failure: Failed. Browser storage is unavailable.
+  validation:
+    name: Enter a nickname of up to 80 characters.
+    email: Enter a valid email address or leave it blank.
+    url: Enter an HTTP(S) URL or leave it blank.
+
+message:
+  copied: Copied!
+  copy_denied: Clipboard permission was denied
+  copy_unsupported: Clipboard requires a supported browser and HTTPS
+  fetching_latest_release: '%s is fetching the latest release…'
+  loading: Loading
+  loading_failed: Failed to load. Please try again later.
+  color_scheme_switched:
+    light: Switched to Light Mode
+    dark: Switched to Dark Mode
+    auto: Switched to Auto Mode
+
+symbol:
+  comma: ", "
+  period: ". "
+  colon: ": "
+  brackets_l: "("
+  brackets_r: ")"
+  page: "Page %s"
+
+tag_plugins:
+  okr:
+    status:
+      in_track: On Track
+      at_risk: At Risk
+      off_track: Delayed
+      finished: Completed
+      unfinished: Incomplete
+  mbti:
+    title: 'My MBTI Type: %s (%s)'
+    types:
+      INTJ: Architect
+      INTP: Logician
+      ENTJ: Commander
+      ENTP: Debater
+      INFJ: Advocate
+      INFP: Mediator
+      ENFJ: Protagonist
+      ENFP: Campaigner
+      ISTJ: Logistician
+      ISFJ: Defender
+      ESTJ: Executive
+      ESFJ: Consul
+      ISTP: Virtuoso
+      ISFP: Adventurer
+      ESTP: Entrepreneur
+      ESFP: Entertainer
+    traits:
+      energy:
+        left: Extraverted
+        right: Introverted
+      mind:
+        left: Intuitive
+        right: Observant
+      nature:
+        left: Thinking
+        right: Feeling
+      tactics:
+        left: Judging
+        right: Prospecting
+      identity:
+        left: Assertive
+        right: Turbulent

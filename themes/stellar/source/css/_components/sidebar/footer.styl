@@ -1,0 +1,60 @@
+.site-region--leftbar footer.footer
+  margin: 0.5rem var(--gap-base) 1rem
+
+.social-wrap
+  display: flex
+  flex-wrap: wrap
+  gap: 0.5rem
+  align-items: center
+  text-align: center
+  .social
+    line-height: 0
+    display: inline-flex
+    align-items: center
+    box-sizing: border-box
+    flex: 0 0 auto
+    width: 32px
+    height: 32px
+    padding: 4px
+    border-radius: $border-button
+    filter: grayscale(100%)
+    overflow: hidden
+    .ui-icon
+      --ui-icon-size: 24px
+  button.social
+    border: 0
+    color: inherit
+    font: inherit
+    cursor: pointer
+    appearance: none
+
+  .social-spacer
+    flex: 1 1 0
+    min-width: 0
+    height: 32px
+    pointer-events: none
+
+  .social-dropdown
+    position: relative
+    box-sizing: border-box
+    flex: 0 0 auto
+    height: 32px
+    line-height: 0
+    // JS 未加载时保留向上展开的原生 details 兜底；正常情况下菜单会移入全局浮层。
+    >.dropdown-menu
+      top: auto
+      bottom: calc(100% + 0.5rem)
+    &:first-child:not(:last-child) >.dropdown-menu, &:only-child >.dropdown-menu
+      left: 0
+      transform: none
+    &:last-child:not(:first-child) >.dropdown-menu
+      right: 0
+      left: auto
+      transform: none
+
+  .social:hover,
+  .social:active,
+  .social:focus-visible,
+  .social-dropdown[open] > .dropdown-trigger.social
+    z-index: 1
+    filter: unset

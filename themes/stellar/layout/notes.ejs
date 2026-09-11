@@ -1,0 +1,14 @@
+<%# 笔记列表页主体部分 %>
+<div class="post-list post">
+  <% page.notebookIndex.items.forEach(post => { %>
+    <div class="post-card-wrap<%= scrollreveal(' ') %>">
+    <a
+      class="<%- ui_classes('post-card post', 'hoverCard') %>"
+      href="<%= pretty_url(post.href) %><%= page.notebookIndex.activeTag ? `?tag=${page.notebookIndex.activeTag}` : '' %>"
+    >
+      <%- include('_partial/main/notebook/note_card', { render: {listing: post} }) %>
+    </a>
+    </div>
+  <% }) %>
+</div>
+<%- include('_partial/main/notebook/paginator') %>

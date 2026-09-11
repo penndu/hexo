@@ -1,0 +1,61 @@
+<%
+var entry = item || {}
+var entryTitle = entry.title == null ? '' : String(entry.title)
+var entryPrefix = entry.prefix == null ? '' : String(entry.prefix)
+var entryDescription = entry.description == null ? '' : String(entry.description)
+var entryMeta = entry.meta == null ? '' : String(entry.meta)
+var entryType = entry.type === 'button' ? 'button' : 'link'
+var entryIconOnly = entry.iconOnly === true
+var entryClassName = typeof entry.className === 'string' ? entry.className.trim() : ''
+var entryModifiers = []
+if (entryIconOnly) {
+  entryModifiers.push('is-icon-only')
+}
+if (entry.active) {
+  entryModifiers.push('is-active')
+}
+if (entryClassName.length > 0) {
+  entryModifiers.push(entryClassName)
+}
+var entryClasses = ui_classes('', 'collectionItem', entryModifiers.join(' '))
+var entryStyle = ''
+if (entry.theme) {
+  entryStyle += '--item-theme:' + String(entry.theme) + ';'
+}
+if (entry.depth > 0) {
+  entryStyle += '--ui-item-depth:' + parseInt(entry.depth, 10) + ';'
+}
+var showTitle = entry.showTitle !== false && !entryIconOnly
+var hasContent = !entryIconOnly && (showTitle || entryPrefix.length > 0 || entryDescription.length > 0 || entryMeta.length > 0)
+var safeAttrs = ''
+var attrs = entry.attrs && typeof entry.attrs === 'object' && !Array.isArray(entry.attrs) ? entry.attrs : {}
+Object.keys(attrs).forEach(function(name) {
+  if (!/^(?:aria|data)-[a-z0-9_-]+$/i.test(name) && name !== 'title') return
+  var value = attrs[name]
+  if (value == null || value === false) return
+  safeAttrs += ` ${name}="${escape_html(value === true ? name : String(value))}"`
+})
+var tagName = entryType === 'button' ? 'button' : 'a'
+var primaryAttrs = entryType === 'button'
+  ? ' type="button"'
+  : ` href="${escape_html(entry.href)}"`
+if (!Object.prototype.hasOwnProperty.call(attrs, 'title')) {
+  primaryAttrs += ` title="${escape_html(entryTitle)}"`
+}
+if (entry.active) primaryAttrs += ' aria-current="page"'
+if (entryStyle.length > 0) primaryAttrs += ` style="${escape_html(entryStyle)}"`
+%>
+<%- `<${tagName} class="${escape_html(entryClasses)}"${primaryAttrs}${safeAttrs}>` %>
+  <%- typeof entry.before === 'string' ? entry.before : '' %>
+  <% if (entry.icon) { %><span class="ui-icon"><%- icon(entry.icon, 'no-lazy', true) %></span><% } %>
+  <% if (hasContent) { %>
+    <span class="ui-collection__content">
+      <% if (entryPrefix.length > 0) { %><span class="ui-collection__prefix"><%= entryPrefix %></span><% } %>
+      <% if (showTitle) { %><span class="ui-collection__title"><%= entryTitle %></span><% } %>
+      <% if (entryDescription.length > 0) { %><span class="ui-collection__description"><%= entryDescription %></span><% } %>
+      <% if (entryMeta.length > 0) { %><span class="ui-collection__meta"><%= entryMeta %></span><% } %>
+    </span>
+  <% } %>
+  <%- typeof entry.after === 'string' ? entry.after : '' %>
+  <% if (entry.active && entry.indicator !== false) { %><span class="ui-collection__indicator"></span><% } %>
+<%- `</${tagName}>` %>

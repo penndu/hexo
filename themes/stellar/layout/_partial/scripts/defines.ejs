@@ -1,0 +1,17 @@
+<%
+var canonical = stellar_config('canonical')
+var permalink = page.permalink || canonical.host
+%>
+<script data-stellar-script="defines">
+  window.canonical = window.stellarClientData.canonical;
+  const ctx = window.stellarClientData.ctx;
+  window.canonical.param = {permalink: <%- script_json(permalink) %>, checklink: ctx.services.video.js};
+  ctx.date_suffix = <%- script_json({
+    just: __('meta.date_suffix.just'), min: __('meta.date_suffix.min'),
+    hour: __('meta.date_suffix.hour'), day: __('meta.date_suffix.day')
+  }) %>;
+  if (ctx.search) Object.assign(ctx.search, <%- script_json({more: __('meta.more'), no_more: __('search.no_more')}) %>);
+  const def = window.stellarClientData.def;
+  window.ctx = ctx;
+  window.def = def;
+</script>

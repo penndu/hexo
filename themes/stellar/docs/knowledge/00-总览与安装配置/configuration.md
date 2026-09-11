@@ -1,0 +1,219 @@
+---
+title: 配置系统
+domain: 总览与安装配置
+tags:
+  - 配置
+  - YAML
+  - layout profiles
+---
+
+# 配置系统
+
+Stellar v2 的公开主题配置只有一棵字段树。主题仓库的手写 [`_config.yml`](../../../_config.yml) 是字段、默认值、排列顺序、注释和示例的唯一来源；站点 `_config.stellar.yml` 使用完全相同的层级，只写需要覆盖的部分。
+
+Collection YAML 与页面 Front Matter 是独立的内容配置边界，见[内容配置 Schema v2](../03-内容系统/content-schema-v2.md)。它们不会扩展主题配置的顶层字段。
+
+## 单源配置
+
+`_config.yml` 的主干按注释标题分区并直接使用顶层字段。低频且不参与内容级覆盖的 Appearance 与 Inject 保留各自命名空间，例如：
+
+```yaml
+leftbar:
+  brand:
+    name: Stellar
+
+profiles:
+  post:
+    active_menu: post
+    leftbar:
+      widgets: [related, recent]
+    rightbar:
+      widgets: [ghrepo, toc]
+
+appearance:
+  color_scheme: auto
+
+search:
+  provider: local
+
+inject:
+  head_begin: ''
+  head_end: ''
+  body_begin: ''
+  body_end: ''
+```
+
+配置加载器先读取主题 `_config.yml`，再应用站点覆盖。对象按字段合并，数组整体替换，因此 `rightbar.widgets: []`、`topbar.widgets: []` 和 `leftbar.widgets: []` 都能显式关闭默认项。解析结果会深度冻结到 `hexo.stellar.config`。
+
+YAML 使用 `snake_case`，运行时只进行 `snake_case` → `camelCase` 转换：
+
+| YAML | JavaScript |
+| --- | --- |
+| `appearance.color_scheme` | `appearance.colorScheme` |
+| `profiles.blog_index.active_menu` | `profiles.blogIndex.activeMenu` |
+| `appearance.typography.font_size.root` | `appearance.typography.fontSize.root` |
+| `services.site_info.site_info_api.endpoint` | `services.siteInfo.site_info_api.endpoint` |
+
+Provider ID 属于业务值，不会被改写，例如 `provider: site_info_api` 仍是字符串 `site_info_api`。
+
+## 字段与规则
+
+普通字段树、默认值和基础类型直接从 `_config.yml` 推导。[`config-rules.js`](../../../scripts/schema/config-rules.js) 只补充 YAML 本身无法表达的约束：
+
+- `null` 与联合类型；
+- 枚举、数值范围和数组元素；
+- 动态记录；
+- 第三方参数袋；
+- 特殊 validator 与少量运行时键名。
+
+顶层和普通对象保持封闭，未知字段会在构建早期报告结构化错误。第三方参数袋按规则开放并原样保留参数。Appearance 与 Inject 只接受当前子字段。
+
+从 1.44.0 升级到 v2 时，`logo/menubar/site_tree/notebook` 分别指向 `leftbar.brand/leftbar.menu/profiles/profiles.notebook`，`tag_plugins/data_services/plugins/style` 分别指向 `tags/services/features/appearance`，`dependencies/default/api_host` 分别指向 `features.lazy_loading`、`fallbacks/profiles.error.image`、`services.github/services.github_card`。`stellar/data_cache/system` 三个内部策略根直接删除。这些字段仍会被拒绝，诊断只提供人工迁移目标，不别名、双读或自动改写。
+
+`2.0.0-rc.2` 相对公开候选 `2.0.0-rc.1` 进一步收敛 Profile：顶层 `notebook` 移到 `profiles.notebook`，`settings.about` 移到 `profiles.settings.about`，`error_page.image` 移到 `profiles.error.image`；`profiles.notebook_index` 更名为 `profiles.notebooks`，`profiles.note_index` 更名为 `profiles.notebook`，`profiles.note` 仍表示 Note 内容页。这些 RC1 字段不会被别名、双读或自动转换。未公开候选中出现过的其它中间字段统一按未知字段处理，不保留专用墓碑。
+
+`null` 只有在规则明确允许时才保留业务语义，例如 `search.provider: null` 表示关闭搜索。其它空键视为没有覆盖，继续使用默认值。
+
+完整公开字段、默认值与注释以 `_config.yml` 为准；运行时路径、推导类型和例外约束由 `config-schema.js` 与 `config-rules.js` 共同定义。修改 YAML 或规则时，运行对应的配置解析、Schema 正反例与消费测试。
+
+## 顶层结构
+
+| 注释分组 | 顶层键 |
+| --- | --- |
+| Site | `footer` |
+| Layout | `topbar/leftbar/rightbar/profiles` |
+| Content | `article` |
+| Appearance | `appearance` |
+| SEO | `canonical/open_graph/structured_data` |
+| Resources | `preconnect/fallbacks` |
+| Extensions | `search/comments/tags/features/services` |
+| Trusted injection | `inject` |
+
+主题名称、版本、仓库地址、核心资源、缓存和固定交互策略属于内部实现，不进入公开 YAML。模板通过 `stellar_info()` 读取主题元数据，通过 `stellar_data()` 读取构建派生数据。
+
+## Layout 与 Region
+
+`topbar`、`leftbar`、`rightbar` 直接定义站点级 Region；`profiles` 只写页面类型相对全局的差异。三个 Region 都有 `enabled` 与 `widgets`，Topbar / Leftbar 各自拥有独立 Brand 和 Menu，Leftbar 还拥有固定 Footer Actions：
+
+```yaml
+topbar:
+  enabled: false
+  brand:
+    name: Stellar
+  menu: []
+  widgets: [spacer, menu, settings]
+leftbar:
+  default_state: expanded
+  enabled: true
+  brand:
+    name: Stellar
+  menu: []
+  footer:
+    actions: []
+  widgets: []
+rightbar:
+  enabled: true
+  widgets: []
+
+profiles:
+  wiki:
+    active_menu: wiki
+    topbar:
+      enabled: true
+    leftbar:
+      brand:
+        name: Wiki
+      menu: []
+      widgets: [tree]
+    rightbar:
+      widgets: [ghrepo, toc]
+```
+
+Profile 省略某个 Region 或 `widgets` 时继承上层值；显式 `widgets: []` 表示清空。Collection 与 Front Matter 的 Region 覆盖由内容解析器继续处理，最终统一进入冻结 PageViewModel。
+
+## Provider 配置
+
+Search、Comments、Feature 与 Service 不再使用 `providers` 中间层。选中的参数袋与 `provider` 同级：
+
+```yaml
+comments:
+  provider: giscus
+  giscus:
+    data-repo: owner/repo
+    data-mapping: pathname
+
+services:
+  site_info:
+    provider: site_info_api
+    site_info_api:
+      endpoint: https://api.example.com/site_info?url={href}
+```
+
+参数袋由对应上游或适配器解释；切换 provider 不改变服务根结构。`provider: null` 仅在该能力允许关闭时有效。
+
+## Appearance
+
+公开 Appearance 默认值都写在 `_config.yml` 的 `appearance` 对象中。`appearance.preset` 只选择 `source/css/_appearances/` 下对应的 CSS 实现，不再触发 JavaScript 默认覆盖。Preset 专属、无需用户调整的视觉常量由各自 Stylus 文件拥有。
+
+Stylus 使用扁平路径读取公开值：
+
+```stylus
+$root-font-size = hexo-config('appearance.typography.font_size.root')
+$theme-color = hexo-config('appearance.colors.primary')
+```
+
+## 置顶内容轮播
+
+置顶文章的展示方式由 `article.listing.pinned_layout` 选择 `carousel` 或 `flat`；封面比例由 `article.listing.cover_ratio` 控制。文章仍通过 Front Matter 的 `pin` 标记置顶。
+
+## 页脚配置
+
+`leftbar.footer.actions` 控制 Leftbar 操作；根级 `footer.sitemap` 与 `footer.content` 控制主内容页脚分栏和 Markdown 文本。显式空数组或空字符串可以关闭对应区域。
+
+## 消费边界
+
+EJS 与 Node.js 只读取冻结的 camelCase 配置：
+
+```ejs
+<% var menuId = stellar_config(`profiles.${profile}.activeMenu`) %>
+```
+
+```js
+const wikiPath = hexo.stellar.config.profiles.wikiIndex.path;
+const service = hexo.stellar.config.services.siteInfo;
+```
+
+不要从 `theme.config` 读取旧路径，也不要在消费者中再次做字段兼容、默认值补齐或 provider 归一化。热重载解析失败时继续使用上一次有效配置，并报告本次错误。
+
+## 相关实现
+
+- [`scripts/schema/config-schema.js`](../../../scripts/schema/config-schema.js)：从 YAML 与轻量规则构建运行时 Schema
+- [`scripts/schema/config-rules.js`](../../../scripts/schema/config-rules.js)：例外约束
+- [`scripts/lib/config-schema.js`](../../../scripts/lib/config-schema.js)：加载、合并、验证、投影与冻结
+- [`scripts/schema/schema-utils.js`](../../../scripts/schema/schema-utils.js)：Schema 共享的深度冻结与字段路径投影
+- [`scripts/schema/content-config-rules.js`](../../../scripts/schema/content-config-rules.js)：Collection / Front Matter 独立规则
+
+## RC3 页脚配置
+
+主内容页脚使用 `footer.sitemap`，每组包含 `title` 和 Markdown 字符串数组 `items`；默认空数组不显示分栏。RC2 的 sections 分栏须改名为 sitemap，并将每个 title/url 对象转换为 Markdown 链接字符串。默认页脚正文增加 CC BY-NC-SA 4.0 说明，可通过 `footer.content` 覆盖。
+
+```yaml
+footer:
+  sitemap:
+    - title: 博客
+      items:
+        - '[近期发布](/)'
+```
+
+## 站点 Brand GitHub 数据
+
+`leftbar.brand.ghuser` 显式指定站点 Brand 数据区的 GitHub 用户名，默认 `null`；空值不显示统计，不从 ghuser Widget 的 username 推断。例如：
+
+```yaml
+leftbar:
+  brand:
+    style: regular
+    ghuser: xaoxuu
+```
+
+仅左栏 regular 样式显示数据区；站点来源显示 followers、following、repos，Collection 来源仍使用集合仓库统计。配置经 Schema 与页面模型传递至 `layout/_partial/sidebar/brand.ejs`。

@@ -1,0 +1,22 @@
+<%
+page.robots = 'noindex,follow';
+page.navigation ||= {}
+if (page.navigation.menu == undefined) {
+  page.navigation.menu = stellar_config('profiles.blogIndex.activeMenu');
+}
+%>
+<% if (site.tags.length) { %>
+  <% page.title = __('btn.tags'); %>
+  <% page.layout = 'tags'; %>
+  <%- partial('_partial/main/listing_nav/blog') %>
+  <div class='post-list'>
+    <article class='<%- scrollreveal("") %>' id='tags'>
+      <% site.tags.sort('length', -1).each(function(tag){ %>
+        <a class='tag' href="<%= pretty_url(tag.path) %>">
+          <%- icon('default:hashtag') %>
+          <span class='name'><%= tag.name %></span>
+        </a>
+      <% }) %>
+    </article>
+  </div>
+<% } %>

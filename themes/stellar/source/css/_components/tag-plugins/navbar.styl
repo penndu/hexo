@@ -1,0 +1,27 @@
+.tag-plugin.navbar
+  display: inline-flex
+  flex-wrap: wrap
+  gap: .5rem
+  max-width: 100%
+  margin-top: .5rem
+  a
+    display: inline-flex
+    align-items: center
+    box-sizing: border-box
+    padding: .5rem 1.25rem
+    border: 1px solid var(--block-border)
+    border-radius: 100px
+    color: var(--text-p2)
+    background: var(--block)
+    font-weight: $fw-500
+    line-height: 1
+    text-decoration: none
+    trans2 background border-color
+    &:hover
+      border-color: var(--text-p4)
+      color: var(--text-p1)
+      background: var(--block-border)
+    &.active
+      border-color: var(--theme)
+      color: var(--theme)
+      background: var(--theme-block)

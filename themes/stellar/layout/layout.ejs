@@ -1,0 +1,206 @@
+<%
+var pageConfig = content_config(page)
+var isOrdinaryPost = page.layout === 'post' && pageConfig.collection?.profile !== 'topic'
+var activeViewModel = (isOrdinaryPost || pageConfig.collection?.profile === 'topic')
+  ? (page.viewModel || post_view_model(page))
+  : page.viewModel
+var activeProfile = activeViewModel?.collection?.profile
+if (isOrdinaryPost && (activeProfile !== 'post' || activeViewModel?.render == null)) {
+  throw new Error(`Stellar v2: 普通 Post ${page.source || page.path || '<unknown>'} 缺少合法 PageViewModel.render`)
+}
+var isWikiPage = pageConfig.collection?.profile === 'wiki'
+if (isWikiPage && (activeProfile !== 'wiki' || activeViewModel?.render == null)) {
+  throw new Error(`Stellar v2: Wiki 页面 ${page.source || page.path || '<unknown>'} 缺少合法 PageViewModel.render`)
+}
+var isTopicPage = pageConfig.collection?.profile === 'topic'
+if (isTopicPage && (activeProfile !== 'topic' || activeViewModel?.render == null)) {
+  throw new Error(`Stellar v2: Topic 页面 ${page.source || page.path || '<unknown>'} 缺少合法 PageViewModel.render`)
+}
+var isNotebookPage = pageConfig.collection?.profile === 'notebook'
+if (isNotebookPage && (activeProfile !== 'notebook' || activeViewModel?.render == null)) {
+  throw new Error(`Stellar v2: Notebook 页面 ${page.source || page.path || '<unknown>'} 缺少合法 PageViewModel.render`)
+}
+var renderViewModel = ['post', 'wiki', 'topic', 'notebook'].includes(activeProfile) ? activeViewModel : null
+var appearance = stellar_config('appearance')
+var html = ''
+
+function siteBackground(enabled) {
+  return enabled ? '<div class="site-background"><div class="site-background__blur"></div></div>' : ''
+}
+
+function coverSlot(viewModel) {
+  var coverBody = viewModel ? partial('_partial/cover/index', {viewModel: viewModel}).trim() : ''
+  return `<div data-stellar-runtime-region id="site-cover" class="site-cover">${coverBody}</div>`
+}
+
+function regionSlot(slot, state, viewModel) {
+  if (!state || state.enabled === false) return ''
+  var widgetBody = partial('_partial/regions/widgets', {
+    region: slot,
+    state: state,
+    widgets: state.widgets,
+    viewModel: viewModel || null
+  }).trim()
+  if (!widgetBody) return ''
+  return partial('_partial/primitives/region', {
+    slot: slot,
+    body: widgetBody
+  })
+}
+
+function shellDocument(options) {
+  return partial('_partial/primitives/shell', {
+    documentModel: options.documentModel,
+    pageModel: options.pageModel,
+    head: options.head,
+    bodyBegin: options.bodyBegin,
+    siteBackground: options.siteBackground,
+    cover: options.cover,
+    regions: options.regions,
+    main: options.main,
+    controls: partial('_partial/menubtn'),
+    overlays: options.searchEnabled ? partial('_partial/search/dialog') : '',
+    scripts: options.scripts
+  })
+}
+
+function regionsContainSearch(regions) {
+  if (!stellar_config('search.provider')) return false
+  function menuHasSearch(menu) {
+    return Array.isArray(menu) && menu.some(function(item) {
+      return item?.type === 'search'
+    })
+  }
+  function brandHasContent(brand) {
+    return brand && brand !== false && (brand.name || brand.image?.src)
+  }
+  var collectionProfile = renderViewModel?.collection?.profile
+    || (page.notebookIndex?.mode === 'notes' ? 'notebook' : null)
+  return Object.entries(regions || {}).some(function(entry) {
+    var slot = entry[0]
+    var region = entry[1]
+    if (region?.enabled === false) return false
+    if (slot === 'leftbar' && ['wiki', 'notebook', 'topic'].includes(collectionProfile) && brandHasContent(region.brand)) return true
+    if (slot === 'leftbar') return menuHasSearch(region?.menu)
+    if (slot !== 'topbar' || !menuHasSearch(region?.menu)) return false
+    return Array.isArray(region?.widgets) && region.widgets.some(function(widget) {
+      return widget?.id === 'menu' || widget?.layout === 'menu'
+    })
+  })
+}
+
+if (renderViewModel) {
+  var render = renderViewModel.render
+  report_region_warnings(render.layout.regionWarnings)
+  var regionState = {
+    topbar: render.layout.topbar,
+    leftbar: render.layout.leftbar,
+    rightbar: render.layout.rightbar
+  }
+  var topbarRegion = regionSlot('topbar', regionState.topbar, renderViewModel)
+  var mainBody = ''
+  if (showMobileBrand(page, {profileKey: activeProfile}) && !topbarRegion) {
+    mainBody += partial('_partial/sidebar/brand', {
+      placement: 'main',
+      brandModel: regionState.topbar?.brand,
+      viewModel: renderViewModel
+    })
+  }
+  mainBody += body + partial('_partial/main/footer')
+  html = shellDocument({
+    documentModel: {
+      language: render.document.language,
+      preferredTheme: render.document.preferredTheme
+    },
+    pageModel: {
+      pageType: render.layout.pageType,
+      layout: renderViewModel.item.layout,
+      articleStyle: render.layout.articleStyle,
+      indent: render.layout.indent
+    },
+    head: partial('_partial/head', {viewModel: renderViewModel}),
+    bodyBegin: stellar_inject('bodyBegin', render.document.bodyBeginInject),
+    siteBackground: siteBackground(render.layout.siteBackground),
+    cover: coverSlot(renderViewModel),
+    regions: {
+      topbar: topbarRegion,
+      leftbar: regionSlot('leftbar', regionState.leftbar, renderViewModel),
+      rightbar: regionSlot('rightbar', regionState.rightbar, renderViewModel)
+    },
+    searchEnabled: regionsContainSearch(regionState),
+    main: mainBody,
+    scripts: partial('_partial/scripts', {viewModel: renderViewModel})
+  })
+} else {
+  var notebookIndex = page.notebookIndex?.mode === 'notes' ? page.notebookIndex.collection : null
+  var pageType = ['post', 'page', 'wiki', 'settings', null].includes(page.layout) ? 'content' : 'index'
+  var articleDefaults = stellar_config('article')
+  var articleStyle = articleDefaults.style
+  if (pageType === 'index') {
+    articleStyle = undefined
+  } else if (pageConfig.article?.style?.length > 0) {
+    articleStyle = pageConfig.article.style
+  }
+  var paragraphIndent = pageConfig.article?.paragraphIndent
+    || articleDefaults.paragraphIndent
+    || 'auto'
+  var indent = paragraphIndent === 'always' || (paragraphIndent === 'auto' && articleStyle === 'story')
+  var profileKey = 'page'
+  var collectionRegions = null
+  if (is_home()) {
+    profileKey = 'home'
+  } else if (page.layout === 'notebooks') {
+    profileKey = 'notebooks'
+  } else if (page.layout === 'notes') {
+    profileKey = 'notebook'
+    collectionRegions = notebookIndex?.layout
+  } else if (is_category() || is_tag() || is_archive() || ['categories', 'tags', 'archives'].includes(page.layout)) {
+    profileKey = 'blogIndex'
+  } else if (page.layout === 'index_topic') {
+    profileKey = 'blogIndex'
+  } else if (page.layout === 'index_wiki') {
+    profileKey = 'wikiIndex'
+  } else if (page.layout === '404') {
+    profileKey = 'error'
+  } else if (page.layout === 'settings') {
+    profileKey = 'settings'
+  }
+  var mobileBrandVisible = showMobileBrand(page, {profileKey: profileKey})
+  var pageRegions = region_layout(profileKey, collectionRegions, pageConfig)
+  var topbarRegion = regionSlot('topbar', pageRegions.topbar)
+  var mainBody = ''
+  if (mobileBrandVisible && !topbarRegion) {
+    mainBody += partial('_partial/sidebar/brand', {
+      placement: 'main',
+      brandModel: pageRegions.topbar?.brand
+    })
+  }
+  mainBody += body
+  mainBody += partial('_partial/main/footer')
+  html = shellDocument({
+    documentModel: {
+      language: page.lang,
+      preferredTheme: appearance.colorScheme
+    },
+    pageModel: {
+      pageType: pageType,
+      layout: page.layout,
+      articleStyle: articleStyle,
+      indent: indent
+    },
+    head: partial('_partial/head'),
+    bodyBegin: stellar_inject('bodyBegin', pageConfig.inject?.bodyBegin),
+    siteBackground: siteBackground(appearance.backgrounds.page.image),
+    cover: coverSlot(),
+    regions: {
+      topbar: topbarRegion,
+      leftbar: regionSlot('leftbar', pageRegions.leftbar),
+      rightbar: regionSlot('rightbar', pageRegions.rightbar)
+    },
+    searchEnabled: regionsContainSearch(pageRegions),
+    main: mainBody,
+    scripts: partial('_partial/scripts')
+  })
+}
+%>
+<%- html %>

@@ -1,0 +1,19 @@
+<%
+if (typeof comments === 'undefined') {
+  throw new Error('Stellar v2: comments/layout 必须接收显式 comments 模型')
+}
+var commentModel = comments
+%>
+<% if (commentModel.enabled) { %>
+  <div class="related-wrap md-text<%- scrollreveal(' ') %>" id="comments">
+    <% var resolvedCommentTitle = commentModel.title == null ? __('btn.comments') : commentModel.title %>
+    <% if (resolvedCommentTitle !== '') { %>
+    <section class="header cmt-title cap theme">
+      <%- markdown(resolvedCommentTitle) %>
+    </section>
+    <% } %>
+    <section class="body cmt-body <%- commentModel.service %>">
+      <%- partial(commentModel.service + '/layout', {comments: commentModel}) %>
+    </section>
+  </div>
+<% } %>
