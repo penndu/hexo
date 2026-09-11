@@ -1,0 +1,20 @@
+<%
+function layoutDiv() {
+  var el = '';
+  el += `<div class="artalk with-fancybox" id="artalk_container"`;
+  let cfg = {};
+  const commentId = comments.id
+  if (commentId) {
+    cfg['comment_id'] = commentId;
+  }
+  for (let key of Object.keys(cfg)) {
+    if (cfg[key]) {
+      el += ' ' + key + '="' + cfg[key] + '"';
+    }
+  }
+  el += '><div class="lazy-icon"></div></div>'
+  return el;
+}
+%>
+
+<%- layoutDiv() %>

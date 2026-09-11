@@ -1,0 +1,41 @@
+<%
+
+var author = null
+var activeViewModel = typeof viewModel !== 'undefined' ? viewModel : null
+var authorId = ['post', 'topic'].includes(activeViewModel?.collection?.profile)
+  ? activeViewModel.render.listing.authorId
+  : content_config(page).article?.author
+if (stellar_data('authors')) {
+  if (authorId?.length > 0 && stellar_data('authors')[authorId] != null) {
+    author = stellar_data('authors')[authorId]
+  } else {
+    author = stellar_data('defaultAuthor')
+  }
+}
+
+function layoutDiv() {
+  if (author == null) {
+    return ''
+  }
+  var el = ''
+  el += `<widget class="widget-wrapper${scrollreveal(' ')} user-card author">`
+  // body
+  el += `<div class="widget-body">`
+    if (item.avatar) {
+      el += `<div class="avatar"><img type="img" id="avatar_url" src="${author.avatar}"></div>`
+    }
+    // username
+    el += `<p class="username" type="text" id="name">${author.name}</p>`
+    el += `<p class="bio" type="text" id="bio">${author.desc || author.description}</p>`
+
+    // homepage
+    el += `<a class="follow" href="${url_for(author.path)}">`
+    el += '<span class="ui-icon">' + icon('default:documents') + '</span>'
+    el += __('btn.all_posts')
+    el += `</a>`
+  el += `</div>`
+  el += `</widget>`
+  return el
+}
+%>
+<%- layoutDiv() %>

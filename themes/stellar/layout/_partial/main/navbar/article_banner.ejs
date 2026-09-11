@@ -1,0 +1,159 @@
+<%
+
+var renderViewModel = typeof viewModel !== 'undefined' && ['post', 'wiki', 'topic', 'notebook'].includes(viewModel?.collection?.profile)
+  ? viewModel
+  : null
+var postViewModel = ['post', 'topic'].includes(renderViewModel?.collection?.profile) ? renderViewModel : null
+var wikiViewModel = renderViewModel?.collection?.profile === 'wiki' ? renderViewModel : null
+var notebookViewModel = renderViewModel?.collection?.profile === 'notebook' ? renderViewModel : null
+var pageConfig = content_config(page)
+var banner = Object.assign({}, page.author
+  ? { image: page.author.banner, avatar: page.author.avatar, tagline: page.author.description }
+  : wikiViewModel
+  ? wikiViewModel.render.article.banner
+  : notebookViewModel
+    ? notebookViewModel.render.article.banner
+  : postViewModel?.collection?.profile === 'topic'
+    ? postViewModel.render.article.banner
+    : postViewModel ? postViewModel.item.presentation.banner : pageConfig.banner || {})
+
+// 标题
+if (banner.headline == null) {
+  banner.headline = renderViewModel ? renderViewModel.item.title : page.title
+}
+
+// 上块：第一行（左侧面包屑 + 右侧阅读时长 / AI 标签）+ 第二行（日期信息，靠左）
+function layoutTop() {
+  if ((renderViewModel ? renderViewModel.item.navigation.breadcrumb : pageConfig.breadcrumb) === false) {
+    return ''
+  }
+  var el = ''
+  // 1.上块容器
+  el += `<div class="top bread-nav footnote">`
+  // 2.第一行
+  el += `<div class="top-row">`
+  // 2.1 左：面包屑导航
+  el += `<div class="left" id="breadcrumb">`
+    // 首页
+    el += `<a class="cap breadcrumb" href="${pretty_url(config.root)}">${__("btn.home")}</a>`
+    if (wikiViewModel) {
+      el += partial('breadcrumb/wiki', {viewModel: wikiViewModel})
+    } else if (notebookViewModel) {
+      el += partial('breadcrumb/note', {viewModel: notebookViewModel})
+    } else if (page.layout == 'post') {
+      el += partial('breadcrumb/blog', {viewModel: postViewModel})
+    } else {
+      el += partial('breadcrumb/page')
+    }
+  el += `</div>`
+  // 2.2 右：字数和预计阅读时长 + AI 成分标签（仅在有内容时渲染）
+  var rightHtml = ''
+  // 字数和预计阅读时长，置于第一行右侧（#302）
+  if ((renderViewModel ? renderViewModel.item.layout : page.layout) == 'post' && stellar_config('article.showReadingTime')) {
+    var _wc = word_count(page)
+    if (_wc > 0) {
+      rightHtml += `<span class="cap reading">${__("meta.word_count", _wc)} · ${__("meta.reading_time", reading_time(page))}</span>`
+    }
+  }
+  // AI 成分标签：置于第一行最右（阅读时长右侧）；
+  // banner 含图片时不用配置色，继承默认文字色（--text-banner）
+  const bannerHasImage = banner.image && banner.image.length > 0
+  rightHtml += ai_label(renderViewModel ? renderViewModel.item.presentation.article?.aiLabel : pageConfig.article?.aiLabel, 'cap', bannerHasImage)
+  if (rightHtml.length > 0) {
+    el += `<div class="right">${rightHtml}</div>`
+  }
+  // end 2.第一行
+  el += `</div>`
+  // 3.第二行：日期信息，靠左
+  el += `<div class="meta-row">`
+  el += partial('dateinfo', {viewModel: renderViewModel})
+  el += `</div>`
+  // end 1.上块
+  el += `</div>`
+  return el
+}
+
+function layoutTitle() {
+  if (banner.headline?.length > 0) {
+    return `<h1 class="text title"><span>${banner.headline}</span></h1>`
+  } else {
+    return ''
+  }
+}
+
+function layoutSubtitle() {
+  if (banner.tagline?.length > 0) {
+    return `<div class="text subtitle">${banner.tagline}</div>`
+  } else {
+    return ''
+  }
+}
+
+function layoutIcon() {
+  if (banner.avatar?.length > 0) {
+    return `<img class="lazy avatar" data-src="${banner.avatar}">`
+  } else {
+    return ''
+  }
+}
+
+function layoutBottom() {
+  const el_icon = layoutIcon()
+  const el_title = layoutTitle()
+  const el_subtitle = layoutSubtitle()
+  var cls = ''
+  if (el_title.length > 0 && el_subtitle.length == 0) {
+    cls += ' only-title'
+  }
+  if (el_title.length > 0) {
+    return `
+    <div class="bottom${cls}">
+      ${el_icon}
+      <div class="text-area">
+        ${el_title}
+        ${el_subtitle}
+      </div>
+    </div>
+    `
+  } else {
+    return ``
+  }
+}
+
+function layoutDiv() {
+  if (banner.enabled === false) {
+    return ``
+  }
+  const bottom = layoutBottom()
+  const top = layoutTop()
+  if (top.length == 0 && bottom.length == 0) {
+    return ``
+  }
+  var bannerStyle = ``
+  var adaptiveAttr = ``
+  var maskHtml = ``
+  var el = ``
+  if (banner.image?.length > 0) {
+    bannerStyle += ` style="--bg-url:url('${banner.image.replace(/'/g, '%27')}')"`
+    // 背景图上方文字颜色自适应
+    adaptiveAttr = ` data-text-adaptive="split"`
+  }
+  el += `<div class="article-banner-wrap${scrollreveal(' ')}">`
+  el += `<div class="article banner top"${bannerStyle}>`
+  if (banner.image?.length > 0) {
+    el += `<img class="lazy bg" data-src="${banner.image}">`
+    maskHtml = `<div class="banner-mask banner-mask-top" aria-hidden="true"></div><div class="banner-mask banner-mask-bottom" aria-hidden="true"></div>`
+  }
+  el += `
+  <div class="content"${adaptiveAttr}>
+    ${maskHtml}
+    ${top}
+    ${bottom}
+  </div>
+  `
+  el += `</div>`
+  el += `</div>`
+  return el
+}
+%>
+<%- layoutDiv() %>

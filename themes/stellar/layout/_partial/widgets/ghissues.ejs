@@ -1,0 +1,45 @@
+<%
+function layoutDiv() {
+  var el = '';
+  var repo;
+  var pageConfig = content_config(page);
+  var wikiViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'wiki' ? viewModel : null
+  if (wikiViewModel?.render?.listing?.repository) {
+    repo = wikiViewModel.render.listing.repository
+  } else if (pageConfig.source?.repository) {
+    repo = pageConfig.source.repository
+  }
+  if (repo == undefined) {
+    return el;
+  }
+  item.api = `${stellar_config('services.github.apiUrl')}/repos/${repo}/issues?per_page=${item.limit}`;
+  if (item.labels) {
+    item.api += '&labels=' + item.labels;
+  }
+  el += `<widget class="widget-wrapper${scrollreveal(' ')} timeline">`
+    if (item.title) {
+      el += '<div class="widget-header dis-select">';
+      el += '<span class="name">' + item.title + '</span>';
+      el += '</div>';
+    }
+    el += '<div class="widget-body fs14">';
+      el += '<div class="tag-plugin timeline data-service ds-timeline"';
+      // dataset
+      ['api'].forEach(key => {
+        if (item[key]) {
+          el += ' data-' + key + '="' + item[key] + '"';
+        }
+      });
+      ['user'].forEach(key => {
+        if (item[key]) {
+          el += ' ' + key + '="' + item[key] + '"';
+        }
+      });
+      el += '>';
+      el += '</div>';
+    el += '</div>';
+  el += '</widget>';
+  return el;
+}
+%>
+<%- layoutDiv() %>

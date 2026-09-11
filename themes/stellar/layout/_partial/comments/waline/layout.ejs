@@ -1,0 +1,20 @@
+<%
+function layoutDiv() {
+  var el = '';
+  el += '<div id="waline_container" class="waline_thread with-fancybox"';
+  let cfg = {};
+  const commentId = comments.id
+  if (commentId) {
+    cfg['comment_id'] = commentId;
+  }
+  for (let key of Object.keys(cfg)) {
+    if (cfg[key]) {
+      el += ' ' + key + '="' + cfg[key] + '"';
+    }
+  }
+  el += '><div class="lazy-icon"></div></div>'
+  return el;
+}
+%>
+
+<%- layoutDiv() %>

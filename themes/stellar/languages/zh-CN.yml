@@ -1,0 +1,184 @@
+btn:
+  home: 主页
+  blog: 文章
+  wiki: 文档
+  topic: 专栏
+  notebook: 笔记本
+  recent_publish: 近期发布
+  all_wiki: 所有项目
+  all_topic: 所有专栏
+  all_notebook: 所有笔记本
+  category: 分类
+  categories: 分类
+  tag: 标签
+  tags: 标签
+  archives: 归档
+  all_posts: 所有文章
+  getting_started: 开始使用
+  docs: 文档
+  source: 源码
+  copy: 复制
+  edit: 编辑本文
+  top: 回到顶部
+  comments: 参与讨论
+  expand_posts: 展开其余 %s 篇
+  collapse_posts: 收起
+  search: 搜索
+
+menu:
+  blog: 博客
+  categories: 分类
+  tags: 标签
+  topic: 专栏
+  archives: 归档
+  friends: 友链
+  about: 关于
+
+meta:
+  recent_update: 最近更新
+  tag_tree: 标签
+  all_notes: 所有笔记
+  toc: 本文目录
+  read_next: 接下来阅读
+  prev: 回顾上一篇
+  next: 接下来阅读
+  older: 较早文章
+  newer: 较新文章
+  references: 参考资料
+  related_posts: 您可能感兴趣的文章
+  back_to_top: 回到顶部
+  more: 更多
+  created_author: 本文由 %s 发布于
+  created: 发布于
+  updated: 更新于
+  license: 许可协议
+  share: 分享文章
+  contributors: 本文贡献者
+  available: 适用于
+  wiki_project: Wiki 项目
+  project_preview: 项目预览
+  install_method: 安装方式
+  command: 命令 %s
+  word_count: '%s 字'
+  reading_time: '预计阅读 %s 分钟'
+  ai_label:
+    manual: 本文完全由人类完成
+    reviewed: 已 AI 审核
+    polished: 已 AI 润色
+    generated: 由 AI 生成
+  date_suffix:
+    just: 刚刚
+    min: 分钟前
+    hour: 小时前
+    day: 天前
+    month: 个月前
+
+page:
+  error:
+    what: 很抱歉，您访问的页面不存在
+    why: 可能是输入地址有误或该地址已被删除
+    action: 返回主页
+
+search:
+  search: 站内搜索
+  scope_all: 全站
+  scope_blog: 博客
+  no_results: 没有找到内容！
+  no_more: 没有更多了
+  close: 关闭搜索
+
+settings:
+  label: 设置
+  title: 设置
+  profile:
+    title: 个人资料
+    avatar: 头像
+    nickname: 昵称
+    email: Email
+    url: URL
+    save: 保存
+    logout: 退出登录
+    provider_managed: '%s 的评论身份不由主题管理，无法在此编辑或退出。'
+    provider_unknown: 当前评论服务
+  cache:
+    title: 缓存
+    search: 搜索缓存
+    dynamic: 数据缓存
+    all: 全部缓存
+    clear: '清除「%s」'
+  about:
+    title: 关于
+    empty: 暂未配置相关信息。
+    open_link: '打开「%s」链接'
+  result:
+    success: 操作成功。
+    partial: 操作部分完成，部分浏览器存储无法修改。
+    failure: 操作失败，浏览器存储不可用。
+  validation:
+    name: 请输入不超过 80 个字符的昵称。
+    email: 请输入有效的 Email，或留空。
+    url: 请输入 HTTP(S) URL，或留空。
+
+message:
+  copied: 复制成功
+  copy_denied: 未获得剪贴板权限
+  copy_unsupported: 当前浏览器不支持剪贴板或页面不是 HTTPS
+  fetching_latest_release: '%s 正在获取最新版本…'
+  loading: 正在加载
+  loading_failed: 加载失败，请稍后重试。
+  color_scheme_switched:
+    light: 切换到浅色模式
+    dark: 切换到深色模式
+    auto: 切换到跟随系统配色
+
+symbol:
+  comma: "，"
+  period: "。"
+  colon: "："
+  brackets_l: "（"
+  brackets_r: "）"
+  page: "第 %s 页"
+
+tag_plugins:
+  okr:
+    status:
+      in_track: 正常
+      at_risk: 风险
+      off_track: 延期
+      finished: 已完成
+      unfinished: 未完成
+  mbti:
+    title: 我的 MBTI 人格：%s（%s）
+    types:
+      INTJ: 架构师
+      INTP: 逻辑学家
+      ENTJ: 指挥官
+      ENTP: 辩论家
+      INFJ: 提倡者
+      INFP: 调停者
+      ENFJ: 主人公
+      ENFP: 活动家
+      ISTJ: 物流师
+      ISFJ: 守卫者
+      ESTJ: 管理者
+      ESFJ: 执政官
+      ISTP: 鉴赏家
+      ISFP: 冒险家
+      ESTP: 企业家
+      ESFP: 表演者
+    traits:
+      energy:
+        left: 外向
+        right: 内向
+      mind:
+        left: 天马行空
+        right: 求真务实
+      nature:
+        left: 理性思考
+        right: 情感细腻
+      tactics:
+        left: 运筹帷幄
+        right: 随机应变
+      identity:
+        left: 自信果断
+        right: 情绪易波动

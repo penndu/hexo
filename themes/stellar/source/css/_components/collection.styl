@@ -1,0 +1,153 @@
+// 可移植的紧凑列表/网格只负责布局和状态；视觉反馈由当前 Appearance 实现。
+.ui-collection
+  --ui-item-title: var(--text-p1)
+  --ui-item-muted: var(--text-p3)
+  --ui-item-padding-x: var(--gap-base)
+  --ui-item-padding-y: 8px
+  --ui-item-min-height: 32px
+  --ui-collection-gap: 4px
+  --ui-columns: 1
+  --ui-grid-min: 7rem
+  --ui-item-depth: 0
+  display: grid
+  gap: var(--ui-collection-gap)
+  min-width: 0
+
+.ui-collection[data-layout='list']
+  grid-template-columns: minmax(0, 1fr)
+
+.ui-collection[data-layout='grid']
+  grid-template-columns: unquote('repeat(auto-fit, minmax(min(100%, max(var(--ui-grid-min), calc((100% - (var(--ui-columns) - 1) * var(--ui-collection-gap)) / var(--ui-columns)))), 1fr))')
+
+.ui-collection[data-layout='inline']
+  display: flex
+
+.ui-collection[data-density='compact']
+  --ui-item-padding-y: 4px
+  --ui-item-min-height: 30px
+  --ui-collection-gap: 2px
+
+.ui-collection__item
+  box-sizing: border-box
+  min-width: 0
+  min-height: var(--ui-item-min-height)
+  padding: var(--ui-item-padding-y) var(--ui-item-padding-x)
+  padding-left: calc(var(--ui-item-padding-x) + var(--ui-item-depth) * var(--gap-base))
+  border-radius: $border-bar
+  color: var(--text-p2)
+  display: flex
+  align-items: center
+  gap: 12px
+  font-family: inherit
+  font-size: $fs-14
+  font-weight: inherit
+  line-height: 1.2
+  position: relative
+  &:hover
+    color: var(--ui-item-title)
+  &:focus-visible
+    outline: 2px solid var(--theme)
+    outline-offset: 2px
+
+.ui-collection__item:active,
+.ui-collection__item.is-active,
+details[open] > .ui-collection__item
+  color: var(--ui-item-title)
+
+button.ui-collection__item
+  border: 0
+  appearance: none
+  text-align: start
+  cursor: pointer
+
+button.ui-collection__item:not(.is-icon-only)
+  width: 100%
+
+.ui-collection__item.is-icon-only
+  justify-content: center
+
+.ui-collection__content
+  min-width: 0
+  flex: 1
+  display: flex
+  flex-direction: column
+  gap: 4px
+
+.ui-collection[data-variant='nav'] .ui-collection__content
+  flex-direction: row
+  align-items: center
+  gap: 0
+  .ui-collection__prefix
+    display: inline-flex
+    align-items: center
+    flex-shrink: 0
+    &:after
+      flex-shrink: 0
+      margin: 0 4px
+  .ui-collection__title
+    min-width: 0
+
+.ui-collection__prefix
+  color: var(--text-p2)
+  font-size: $fs-12
+  font-weight: $fw-700
+  txt-ellipsis()
+  &:after
+    content: ''
+    display: inline-block
+    width: 4px
+    height: 4px
+    margin: 0 4px 2px
+    border-radius: 50%
+    background: currentColor
+    opacity: .35
+
+.ui-collection__title
+  color: inherit
+  font-weight: $fw-500
+  txt-ellipsis()
+
+.ui-collection__description
+  color: var(--ui-item-muted)
+  font-size: $fs-12
+  line-height: 1.4
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: 2
+  overflow: hidden
+
+.ui-collection__meta
+  color: var(--ui-item-muted)
+  font-size: $fs-12
+  txt-ellipsis()
+
+.ui-collection__indicator
+  flex-shrink: 0
+  width: 8px
+  height: 8px
+  border-radius: 50%
+  corner-shape: round
+  background: x-theme-gradient()
+
+.ui-collection[data-layout='grid']
+  .ui-collection__indicator
+    display: none
+
+.ui-collection[data-variant='icon']
+  --ui-grid-min: 3rem
+  .ui-collection__item
+    justify-content: center
+    text-align: center
+    padding-left: var(--ui-item-padding-x)
+  .ui-collection__content
+    flex: initial
+
+.ui-collection[data-variant='summary'] .ui-collection__item
+  align-items: flex-start
+  border-radius: $border-card-s
+  padding-top: 8px
+  padding-bottom: 8px
+  .ui-collection__title
+    font-weight: $fw-700
+  .ui-collection__content
+    display: flex

@@ -1,0 +1,22 @@
+<%
+function layoutDiv() {
+  var el = '';
+  const cmt = comments;
+  if (cmt && cmt.service && (cmt.service.length > 0)) {
+    const name = cmt.service;
+    var body = cmt.options;
+    el += '<div id="' + name + '"';
+    for (let key of Object.keys(body)) {
+      if (body[key] !== null) {
+        el += ' ' + key + '="' + body[key] + '"';
+      }
+    }
+    el += '></div>';
+  }
+  return el;
+}
+%>
+
+<div class="lazy-icon"></div>
+
+<%- layoutDiv() %>

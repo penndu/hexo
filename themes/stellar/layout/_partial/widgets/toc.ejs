@@ -1,0 +1,62 @@
+<%
+function layoutTocBody() {
+  var activeViewModel = typeof viewModel !== 'undefined' ? viewModel : null
+  var content = activeViewModel ? activeViewModel.item.content : page.content
+  var tocBody = toc(content, {
+    list_number: item.list_number,
+    min_depth: item.min_depth,
+    max_depth: item.max_depth
+  })
+  if (tocBody.length === 0) {
+    return ''
+  }
+  return tocBody
+    .replace('class="toc"', 'class="toc ui-collection-adapter"')
+    .replace(/class="toc-link/g, 'class="' + ui_classes('toc-link', 'interactive'))
+}
+
+function layoutTocAction() {
+  return '<button type="button" class="' + ui_classes('cap-action') + '" data-shell-action="toggle-toc" aria-label="Toggle table of contents" aria-pressed="false"><span class="ui-icon">' + icon('default:rightbar', '', true) + '</span></button>'
+}
+
+function layoutFooter(hasComments) {
+  var footer = '<div class="widget-footer">'
+  footer += '<a class="' + ui_classes('top', 'interactive') + '" onclick="util.scrollTop()">'
+  footer += '<span class="ui-icon">' + icon('default:to-top', '', true) + '</span>'
+  footer += '<span>' + __('btn.top') + '</span></a>'
+  if (hasComments) {
+    footer += '<a class="' + ui_classes('buttom', 'interactive') + '" onclick="util.scrollComment()">'
+    footer += '<span class="ui-icon">' + icon('default:to-comment', '', true) + '</span>'
+    footer += '<span>' + __('btn.comments') + '</span></a>'
+  }
+  footer += '</div>'
+  return footer
+}
+
+function layoutDiv() {
+  var activeViewModel = typeof viewModel !== 'undefined' ? viewModel : null
+  var wikiViewModel = activeViewModel?.collection?.profile === 'wiki' ? activeViewModel : null
+  var tocBody = layoutTocBody()
+  var hasToc = tocBody.trim().length > 0
+  var hasRemoteMd = wikiViewModel ? wikiViewModel.render.article.readmeHtml.length > 0 : has_remote_md(page)
+  var hasComments = activeViewModel
+    ? activeViewModel.render.article.comments.enabled
+    : comments_model(page).enabled
+  if (!hasToc && !hasRemoteMd && !hasComments) {
+    return ''
+  }
+  return partial('_partial/components/widget-frame', {
+    className: 'toc',
+    title: hasToc || hasRemoteMd ? __('meta.toc') : '',
+    action: hasToc || hasRemoteMd ? layoutTocAction() : '',
+    body: hasToc ? tocBody : (hasRemoteMd ? '<nav class="toc ui-collection-adapter"></nav>' : ''),
+    footer: layoutFooter(hasComments),
+    attrs: {
+      id: 'data-toc',
+      collapse: item.collapse === 'auto' ? 'auto' : String(item.collapse === true)
+    }
+  })
+}
+%>
+
+<%- layoutDiv() %>

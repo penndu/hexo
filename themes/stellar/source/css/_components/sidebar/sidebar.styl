@@ -1,0 +1,93 @@
+.site-region--leftbar .site-region__surface
+  overflow: visible
+
+.site-region--leftbar
+  .site-region__viewport
+    height: 100%
+    max-height: inherit
+    display: flex
+    flex-direction: column
+    word-break: break-all
+    text-align: justify
+    border-radius: inherit
+    background: transparent
+    overflow: hidden
+    // 搜索条激活（有输入内容）时隐藏导航区与组件区，给搜索结果腾出空间
+    > .search-wrapper[searching='true']
+      & ~ .widgets
+        display: none
+    >.widgets
+      border-radius: $border-bar
+      mask: linear-gradient(white, 90%, transparent)
+      -webkit-mask: linear-gradient(white, 90%, transparent)
+    >*
+      z-index 1
+
+// Leftbar 的公开 widgets 数组在内部投影为固定顶部、滚动主体与统一 Footer。
+.site-region--leftbar
+  .site-region__viewport
+    padding: var(--gap-base)
+    gap: var(--gap-base)
+  .site-region__zone
+    position: relative
+    z-index: 1
+    min-width: 0
+  .site-region__zone--top
+    flex: 0 0 auto
+  .site-region__project-toolbar
+    min-height: 40px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 8px
+    .site-region__project-home,
+    .site-region__project-search
+      min-width: 0
+      display: flex
+      align-items: center
+    .site-region__project-search
+      margin-inline-start: auto
+      .ui-collection__item
+        width: 32px
+        min-width: 32px
+        height: 32px
+        min-height: 32px
+        padding: 4px
+        justify-content: center
+  .site-region__zone--body
+    flex: 1 1 auto
+    min-height: 0
+    overflow-x: hidden
+    overflow-y: auto
+    overscroll-behavior: contain
+    scrollbar(0, 0)
+    mask: linear-gradient(white, 90%, transparent)
+    -webkit-mask: linear-gradient(white, 90%, transparent)
+    > .widgets
+      padding-bottom: 64px
+  .site-region__footer
+    position: relative
+    z-index: 2
+    flex: 0 0 auto
+    display: flex
+    flex-direction: column
+    gap: 8px
+    min-width: 0
+  .site-region__footer-actions
+    flex: 0 0 auto
+    min-width: 0
+    .widget-stack
+      padding: 0
+  .site-region__system
+    flex: 0 0 auto
+    min-height: 32px
+    display: flex
+    align-items: center
+    gap: 8px
+  .site-region__settings
+    flex: 1 1 auto
+    min-width: 0
+    .widget-instance--settings
+      width: 100%
+  .widget-stack
+    margin: 0

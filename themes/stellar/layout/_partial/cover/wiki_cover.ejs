@@ -1,0 +1,116 @@
+<%
+function layoutWikiCover() {
+  var el = '';
+  var wikiViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'wiki'
+    ? viewModel
+    : null
+  if (!wikiViewModel?.render?.cover) {
+    throw new Error('Stellar v2: Wiki Hero 缺少显式 render.cover')
+  }
+  var cover = wikiViewModel.render.cover
+  if (!cover.enabled) {
+    return el;
+  }
+  var backgroundConfig = cover.background || {};
+  var background = typeof backgroundConfig.image === 'string' && backgroundConfig.image.length > 0 ? backgroundConfig.image : '';
+  var effect = backgroundConfig.effect || {};
+  var preview = cover.preview || {};
+  var commands = Array.isArray(preview.commands) ? preview.commands.filter(function (item) {
+    return item && item.codes;
+  }) : [];
+  var hasPreview = (preview.type === 'image' && preview.src) || commands.length > 0;
+  var title = cover.title;
+  var desc = cover.description;
+  var repo = cover.repository;
+  var actions = Array.isArray(cover.actions) ? cover.actions.filter(function (item) {
+    return item && item.title && item.url;
+  }) : [];
+  var hasEffect = typeof effect.type === 'string' && effect.type.length > 0;
+  var isImageBackground = background.length > 0;
+  var effectOptions = effect.options && typeof effect.options === 'object' && !Array.isArray(effect.options) ? effect.options : {};
+  var effectRuntime = effect.runtime && typeof effect.runtime === 'object' && !Array.isArray(effect.runtime) ? effect.runtime : {};
+  var effectPresentation = effect.presentation && typeof effect.presentation === 'object' && !Array.isArray(effect.presentation) ? effect.presentation : {};
+  var effectBackground = typeof effectPresentation.background === 'string' ? effectPresentation.background : '#000000';
+  var respectsReducedMotion = effectRuntime.respectReducedMotion !== false;
+  var effectResourceJson = escape_html(JSON.stringify(hero_effect_resource(effect.type)));
+  var effectOptionsJson = escape_html(JSON.stringify(effectOptions));
+  var effectRuntimeJson = escape_html(JSON.stringify(effectRuntime));
+  var projectName = cover.projectName;
+  var adaptiveTextAttr = '';
+  if (isImageBackground) {
+    adaptiveTextAttr = ' data-text-adaptive="split" style="--cover-url:url(\'' + escape_html(background.replace(/'/g, '%27')) + '\')"';
+  } else if (hasEffect) {
+    adaptiveTextAttr = ' data-text-adaptive="split" style="--adaptive-background:' + escape_html(effectBackground) + '"';
+  }
+
+  el += '<div class="cover-content wiki wiki-hero' + (hasPreview ? '' : ' without-preview') + '">';
+  el += '<div class="wiki-cover-background' + (hasEffect ? ' has-effect' : '') + (respectsReducedMotion ? ' respect-reduced-motion' : '') + (isImageBackground ? ' image' : '') + '"' + (hasEffect ? ' style="--hero-effect-background:' + escape_html(effectBackground) + '"' : '') + ' aria-hidden="true">';
+  if (isImageBackground) {
+    el += '<img class="wiki-cover-background-image" src="' + escape_html(background) + '" alt="" />';
+    el += '<img class="wiki-cover-background-blur" src="' + escape_html(background) + '" alt="" />';
+  }
+  if (hasEffect) {
+    el += '<canvas data-hero-effect="' + escape_html(effect.type) + '" data-effect-resource="' + effectResourceJson + '" data-effect-options="' + effectOptionsJson + '" data-effect-runtime="' + effectRuntimeJson + '"></canvas>';
+  }
+  el += '<div class="wiki-cover-background-overlay"></div></div>';
+  el += '<div class="wiki-cover-layout"' + adaptiveTextAttr + '>';
+  el += '<nav class="wiki-navbar" aria-label="' + escape_html(cover.siteName) + '">';
+  el += '<a class="wiki-navbar-home" href="' + escape_html(pretty_url('/')) + '">' + escape_html(cover.siteName) + '</a>';
+  el += '</nav>';
+  el += '<article class="cover-wrap wiki-cover-content">';
+  el += '<section class="wiki-cover-intro">';
+  if (repo) {
+    el += '<a class="wiki-cover-release ds-ghinfo is-loading" data-project-name="' + escape_html(projectName) + '" data-repo="' + escape_html(repo) + '" data-api="' + escape_html(cover.releaseApi) + '" index="0" target="_blank" rel="external nofollow noopener noreferrer">';
+    el += '<span class="wiki-cover-release-value"><span type="text" id="latest-tag-name"></span></span></a>';
+  }
+  if (title) {
+    el += '<h1 class="cover-title" data-text-adaptive="contrast">' + escape_html(title) + '</h1>';
+  }
+  if (desc) {
+    el += '<div class="description">' + desc + '</div>';
+  }
+  el += '<div class="wiki-cover-actions">';
+  if (repo) {
+    el += '<a class="' + ui_classes('button wiki-cover-source', 'spotlight') + '" href="' + escape_html(cover.sourceUrl) + '" target="_blank" rel="external nofollow noopener noreferrer">' + icon('default:github') + '<span>' + escape_html(__('btn.source')) + '</span></a>';
+  }
+  el += '<a class="' + ui_classes('button', 'spotlight') + '" href="#start">' + icon('default:documents') + '<span>' + escape_html(__('btn.docs')) + '</span></a>';
+  actions.forEach(function (item) {
+    var linkAttrs = item.url.includes('://')
+      ? ' target="_blank" rel="external nofollow noopener noreferrer"'
+      : ' rel="noopener noreferrer"';
+    el += '<a class="' + ui_classes('button', 'spotlight') + '" href="' + escape_html(item.url) + '"' + linkAttrs + '>';
+    if (item.icon) {
+      el += icon(item.icon);
+    }
+    el += '<span>' + escape_html(item.title) + '</span></a>';
+  });
+  el += '</div></section>';
+  if (hasPreview) {
+    el += '<section class="wiki-cover-preview" aria-label="' + escape_html(__('meta.project_preview')) + '">';
+    if (preview.type === 'image' && preview.src) {
+      el += '<img src="' + escape_html(preview.src) + '" alt="' + escape_html(preview.alt || '') + '" />';
+    } else if (commands.length > 0) {
+      el += '<div class="wiki-cover-terminal">';
+      el += '<div class="wiki-cover-terminal-toolbar"><div class="wiki-cover-terminal-tabs" role="tablist" aria-label="' + escape_html(__('meta.install_method')) + '">';
+      commands.forEach(function (item, index) {
+        el += '<button type="button" role="tab" aria-selected="' + (index === 0 ? 'true' : 'false') + '" class="' + (index === 0 ? 'active' : '') + '" data-codes="' + escape_html(item.codes) + '">' + escape_html(item.label || __('meta.command', index + 1)) + '</button>';
+      });
+      el += '</div><button type="button" class="wiki-cover-copy" data-copy-message="' + escape_html(__('message.copied')) + '" aria-label="' + escape_html(__('btn.copy')) + '">' + icon('copy:copy') + '<span>' + escape_html(__('btn.copy')) + '</span></button></div>';
+      el += '<pre><code>' + terminalCodes(commands[0].codes) + '</code></pre>';
+      el += '</div>';
+    }
+    el += '</section>';
+  }
+  el += '</article></div></div>';
+  return el;
+}
+
+function terminalCodes(codes) {
+  return String(codes || '').split(/\r?\n/).filter(function (line) {
+    return line.trim().length > 0;
+  }).map(function (line) {
+    return '<span>' + escape_html(line) + '</span>';
+  }).join('');
+}
+%>
+<%- layoutWikiCover() %>

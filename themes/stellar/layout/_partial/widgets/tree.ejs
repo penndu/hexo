@@ -1,0 +1,57 @@
+<%
+var wikiViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'wiki'
+  ? viewModel
+  : null
+
+function layoutSectionHeader(title) {
+  if (!title || title.length === 0) {
+    return ''
+  }
+  return '<div class="widget-header dis-select"><span class="name">' + escape_html(title) + '</span></div>'
+}
+
+function layoutDocTree(pages) {
+  var entries = []
+  var totalPages = wikiViewModel.collection.navigation.tree.reduce(function(sum, section) { return sum + (section.items || []).length }, 0)
+  for (var docPage of pages) {
+    if (docPage.title == null || docPage.title.length === 0 || totalPages <= 1) {
+      continue
+    }
+    entries.push({
+      href: pretty_url(docPage.path),
+      title: docPage.title,
+      active: docPage.path === wikiViewModel.item.route.path
+    })
+  }
+  return partial('_partial/components/collection', {options: {
+    layout: 'list',
+    variant: 'nav',
+    density: 'compact',
+    items: entries
+  }})
+}
+
+function layoutDiv() {
+  if (!wikiViewModel) return ''
+  var sections = wikiViewModel.collection.navigation.tree
+  if (!Array.isArray(sections) || sections.length === 0) return ''
+  var body = ''
+  for (var section of sections) {
+    var collection = (layoutDocTree(section.items || []) || '').trim()
+    if (collection.length > 0) {
+      body += '<section class="widget-section">'
+      body += layoutSectionHeader(section.title)
+      body += collection
+      body += '</section>'
+    }
+  }
+  return partial('_partial/components/widget-frame', {
+    className: 'doc-tree-widget',
+    body: body,
+    attrs: {'data-wiki': wikiViewModel.collection.id},
+    reveal: false
+  })
+}
+%>
+
+<%- layoutDiv() %>

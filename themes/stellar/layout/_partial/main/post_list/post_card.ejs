@@ -1,0 +1,52 @@
+<%
+if (!viewModel || !['post', 'topic'].includes(viewModel.collection?.profile) || !viewModel.render?.listing) {
+  throw new Error('Stellar v2: Post 卡片缺少合法 PageViewModel.render.listing')
+}
+var listing = viewModel.render.listing
+
+function divDefault() {
+  var el = '<article class="md-text">'
+  if (listing.cover && listing.cover.includes('/')) {
+    el += `<div class="post-cover"><img src="${escape_html(listing.cover)}"/></div>`
+  }
+  var title = listing.title || (listing.date ? date(listing.date, config.date_format) : '')
+  el += `<h2 class="post-title">${escape_html(title)}</h2>`
+  if (listing.excerpt) el += `<div class="excerpt${viewModel.render.article.heti ? ' heti' : ''}"><p>${escape_html(listing.excerpt)}</p></div>`
+  el += '<div class="meta cap"><span class="cap" id="post-meta">'
+  el += icon('default:calendar')
+  if (listing.date) {
+    el += `<time datetime="${date_xml(listing.date)}">${date(listing.date, config.date_format)}</time>`
+  }
+  el += '</span>'
+  if (listing.categories.length > 0) {
+    var categoryStyle = listing.categoryStyle ? ` style="${escape_html(listing.categoryStyle)}"` : ''
+    el += `<span class="cap breadcrumb"${categoryStyle}>${icon('default:category')}<span>${escape_html(listing.categories.join(' / '))}</span></span>`
+  }
+  if (listing.tags.length > 0) {
+    el += '<span class="card-tags">'
+    listing.tags.forEach(function(tag) {
+      el += `<span class="cap tag-chip">${icon('default:hashtag')}${escape_html(tag)}</span>`
+    })
+    el += '</span>'
+  }
+  if (listing.priority > 0) {
+    el += `<span class="pin">${icon('default:pin')}</span>`
+  }
+  return el + '</div></article>'
+}
+
+function divPhoto() {
+  var title = listing.title || (listing.date ? date(listing.date, config.date_format) : '')
+  var el = `<div class="cover" position="bottom" style="--cover-url:url('${escape_html(listing.cover.replace(/'/g, '%27'))}')">`
+  el += `<img src="${escape_html(listing.cover)}"/>`
+  el += '<div class="cover-info" position="bottom" data-text-adaptive="split">'
+  el += `<div class="text headline">${escape_html(title)}</div>`
+  if (listing.caption) el += `<div class="text caption">${escape_html(listing.caption)}</div>`
+  return el + '</div></div>'
+}
+
+function div() {
+  return listing.cardStyle === 'hero' && listing.cover ? divPhoto() : divDefault()
+}
+%>
+<%- div() %>

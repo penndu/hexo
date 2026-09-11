@@ -1,0 +1,57 @@
+<%
+page.robots = 'noindex,follow';
+page.navigation ||= {}
+if (page.navigation.menu == undefined) {
+  page.navigation.menu = stellar_config('profiles.blogIndex.activeMenu');
+}
+function layoutArchiveList() {
+  var el = ''
+  var cls = ''
+  if (page.author) {
+    page.title = page.author.name
+    el += partial('_partial/main/navbar/article_banner')
+    cls += ' author'
+  } else {
+    page.title = __('btn.archives')
+    el += partial('_partial/main/listing_nav/blog')
+  }
+  el += `<div class="post-list${cls} archives">`
+  var groups = new Map()
+  function requirePostViewModel(post) {
+    var viewModel = post_view_model(post)
+    if (!['post', 'topic'].includes(viewModel?.collection?.profile) || !viewModel.render?.listing) {
+      throw new Error(`Stellar v2: Post ${post?.source || post?.path || '<unknown>'} 缺少归档列表 ViewModel`)
+    }
+    return viewModel
+  }
+  site.posts.sort('date', -1).each(function(post) {
+    var viewModel = requirePostViewModel(post)
+    var listing = viewModel.render.listing
+    if (!listing.listed) return
+    if (page.author != null && listing.authorId != page.author.id) return
+    var year = date(post.date, 'YYYY')
+    if (!year || !(post.title || post.date)) return
+    if (!groups.has(year)) groups.set(year, [])
+    groups.get(year).push({viewModel: viewModel})
+  })
+  for (var [year, records] of groups) {
+    el += `<article class="${scrollreveal('')}" id="archive">`
+    el += `<div class='archive-header h4'>${year}</div>`
+    for (var record of records) {
+      el += partial('_partial/main/post_list/archive_item', record)
+    }
+    el += `</article>`
+  }
+  el += `</div>`
+  return el
+}
+function layoutDiv() {
+  if (page.posts && (is_category() || is_tag())) {
+    return partial('index')
+  } else {
+    return layoutArchiveList()
+  }
+}
+%>
+ 
+<%- layoutDiv() %>

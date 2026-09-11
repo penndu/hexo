@@ -1,0 +1,174 @@
+"use strict";
+
+const {
+  ContentConfigError,
+  parseCollectionConfig,
+  parsePageConfig,
+  validateCollectionProfileConfig,
+  validatePageProfileConfig,
+  validateThemeConfig
+} = require("../../lib/content-config");
+const { formatConfigWarnings } = require("../../lib/config-schema");
+const { pageViewModelsFor } = require("../page-view-model-registry");
+const { ensureRuntimeData } = require("../runtime-data");
+const { readFrontMatter, pruneSourceCache, sourcePathForData, sourcePathForPage } = require("../source-config");
+const {
+  createCollectionRegistry,
+  resolveContentMembership
+} = require("../content-membership");
+const { discoverContent, memberKey, collectionItems } = require("./shared");
+const { getProfileAdapter, profileAdapters } = require("./registry");
+
+function prepareCollectionPipeline(ctx) {
+  pageViewModelsFor(ctx).resetPageViewModelRegistry();
+  const issues = [];
+  const configWarnings = [];
+  const data = ctx.locals.get("data") || {};
+  const collectionConfigs = new Map();
+  const pageConfigs = new Map();
+  ctx.stellar ||= {};
+  const themeConfig = ctx.config.theme_config ?? ctx.theme.config;
+  const themeSource = ctx.config.theme_config !== undefined
+    ? "_config.stellar.yml"
+    : "themes/stellar/_config.yml";
+  const runtimeData = ensureRuntimeData(ctx);
+
+  const capture = operation => {
+    try {
+      return operation();
+    } catch (error) {
+      if (!(error instanceof ContentConfigError)) throw error;
+      issues.push(...error.issues);
+      return null;
+    }
+  };
+
+  capture(() => validateThemeConfig(themeConfig, themeSource));
+  for (const [key, value] of Object.entries(data)) {
+    if (!key.startsWith("wiki/") && !key.startsWith("topic/") && !key.startsWith("notebooks/")) continue;
+    // Hexo also loads macOS directory metadata into its data registry.
+    if (key.endsWith("/.DS_Store")) continue;
+    capture(() => {
+      const profile = key.startsWith("notebooks/") ? "notebook" : key.split("/", 1)[0];
+      const source = sourcePathForData(key);
+      let parsed = parseCollectionConfig(value, source, {
+        mode: "recover",
+        collectionId: key.slice(key.indexOf("/") + 1),
+        onIssues: current => configWarnings.push(...current)
+      });
+      parsed = validateCollectionProfileConfig(parsed, source, profile, getProfileAdapter(profile).config, { onIssues: current => configWarnings.push(...current) });
+      collectionConfigs.set(key, parsed);
+    });
+  }
+  const membershipRegistry = createCollectionRegistry(collectionConfigs);
+
+  pruneSourceCache(ctx, [...collectionItems(ctx.locals.get("posts")), ...collectionItems(ctx.locals.get("pages"))]);
+  const configForPage = (page, kind) => {
+    if (pageConfigs.has(page)) return pageConfigs.get(page);
+    const raw = readFrontMatter(ctx, page);
+    if (raw == null) {
+      pageConfigs.set(page, null);
+      return null;
+    }
+    let parsed = capture(() => parsePageConfig(raw, sourcePathForPage(page), {
+      mode: "recover",
+      onIssues: current => configWarnings.push(...current)
+    }));
+    if (parsed != null) {
+      const resolved = resolveContentMembership({
+        kind,
+        source: sourcePathForPage(page),
+        pagePath: page.path,
+        config: parsed,
+        registry: membershipRegistry
+      });
+      if (resolved.issues.length > 0) {
+        issues.push(...resolved.issues);
+        parsed = null;
+      } else {
+        parsed = resolved.config;
+        const profile = parsed.collection?.profile || (kind === "posts" ? "post" : "page");
+        const adapter = profile === "page" ? null : getProfileAdapter(profile);
+        parsed = validatePageProfileConfig(parsed, sourcePathForPage(page), profile, adapter?.config, { onIssues: current => configWarnings.push(...current) });
+      }
+    }
+    pageConfigs.set(page, parsed);
+    if (parsed != null) {
+      pageViewModelsFor(ctx).setPageConfig(page, parsed);
+    }
+    return parsed;
+  };
+
+  const discovery = discoverContent({
+    posts: ctx.locals.get("posts"),
+    pages: ctx.locals.get("pages"),
+    configForPage
+  });
+  const collectionMap = new Map();
+  pageViewModelsFor(ctx).setNavigationMembers(discovery.records);
+  for (const [key, config] of collectionConfigs) {
+    const matched = key.match(/^(wiki|topic|notebooks)\/(.+)$/);
+    if (!matched) continue;
+    const profile = matched[1] === "notebooks" ? "notebook" : matched[1];
+    collectionMap.set(memberKey(profile, matched[2]), config);
+  }
+
+  const pipeline = {
+    ctx,
+    data,
+    runtimeData,
+    themeSource,
+    discovery,
+    capture,
+    sourceForPage: sourcePathForPage,
+    members(profile, collectionId) {
+      return collectionId == null
+        ? discovery.byProfile.get(profile) || Object.freeze([])
+        : discovery.byCollection.get(memberKey(profile, collectionId)) || Object.freeze([]);
+    },
+    collection(profile, id) {
+      return collectionMap.get(memberKey(profile, id));
+    },
+    collections(profile) {
+      const result = [];
+      for (const [key, value] of collectionMap) {
+        if (key.startsWith(`${profile}:`)) result.push([key.slice(profile.length + 1), value]);
+      }
+      return result;
+    },
+    modelInput(record, extra = {}) {
+      return Object.freeze({
+        source: sourcePathForPage(record.page),
+        themeSource,
+        siteConfig: ctx.config,
+        runtimeData,
+        stellarConfig: ctx.stellar?.config,
+        frontMatter: record.config,
+        page: record.snapshot,
+        ...extra
+      });
+    }
+  };
+
+  const adapters = profileAdapters();
+  for (const adapter of adapters) adapter.prepare?.(pipeline);
+
+  const warning = formatConfigWarnings(configWarnings);
+  if (warning) ctx.log.warn(warning);
+  if (issues.length > 0) throw new ContentConfigError(issues);
+  pipeline.summary = Object.freeze({
+    profiles: Object.freeze(adapters.map(adapter => adapter.id)),
+    contentVisits: discovery.visits,
+    members: discovery.records.length
+  });
+  return pipeline;
+}
+
+function runCollectionPipeline(ctx) {
+  const pipeline = prepareCollectionPipeline(ctx);
+  for (const adapter of profileAdapters()) adapter.build?.(pipeline);
+  pipeline.runtimeData.collectionPipeline = pipeline.summary;
+  return pipeline;
+}
+
+module.exports = { prepareCollectionPipeline, runCollectionPipeline };

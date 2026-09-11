@@ -1,0 +1,12 @@
+<%
+function layoutDiv() {
+  var body = partial('components/linklist', {item: item})
+  return partial('_partial/components/widget-frame', {
+    className: 'link-list-widget',
+    title: item.title,
+    body: body,
+    reveal: false
+  })
+}
+%>
+<%- layoutDiv() %>

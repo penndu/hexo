@@ -1,0 +1,58 @@
+pre
+  font-family: $ff-codeblock
+  font-size: $fs-codeblock
+  tab-size: 4
+  -moz-tab-size: 4
+  -o-tab-size: 4
+  -webkit-tab-size: 4
+
+a
+  text-decoration: none
+  color: var(--link)
+
+.md-text p:not([class]) 
+  text-align: convert(hexo-config('appearance.typography.content_align'))
+
+hr
+  color: var(--text-meta)
+  opacity: .1
+
+
+img
+  max-width: 100%
+
+li
+  font-size: 'calc(%s - 1px)' % var(--fs-content)
+
+
+ul,ol
+  padding-left: var(--fs-content)
+
+
+// table
+table:not([class])
+  border-collapse: collapse
+  display: block
+  overflow-x: auto
+  -webkit-overflow-scrolling: touch
+  margin: 1rem 0
+  max-width: 100%
+  vertical-align: text-top
+  --fs-content: $fs-content-2
+  font-size: var(--fs-content)
+  scrollbar(0,0)
+  th
+    border-style: solid
+    border-width: 1px 0
+  td,th
+    padding: 4px 1em
+    line-height: 1.5
+  tr
+    word-break: keep-all
+    white-space: nowrap
+    border-bottom-style: dashed
+    border-bottom-width: 1px
+    trans()
+
+  @media screen and (min-width: $device-mobile-max)
+    width 100%

@@ -1,0 +1,111 @@
+/**
+ * doc_tree.js v2 | https://github.com/xaoxuu/hexo-theme-stellar/
+ *
+ * Wiki 文档树构建入口：委托 scripts/lib/doc_tree.js 的纯函数，
+ * 将 Wiki 运行时树写入 ctx.stellar.data.wiki。
+ */
+
+"use strict";
+
+const { getCollectionId } = require("../../lib/content-config");
+const { buildWikiTree } = require("../../lib/doc_tree");
+const { requireLayoutProfiles } = require("../../lib/layout-config");
+const {
+  buildWikiCollectionModel,
+  buildWikiListingRender,
+  buildWikiPageViewModelBase,
+  buildWikiRelated,
+  completeWikiPageViewModel
+} = require("../../lib/models");
+const { ensureRuntimeData } = require("../../lib/runtime-data");
+const { pageViewModelsFor } = require("../../lib/page-view-model-registry");
+const { sourcePathForData } = require("../../lib/source-config");
+
+function cloneConfig(value) {
+  return value == null ? value : structuredClone(value);
+}
+
+module.exports = (ctx, pipeline) => {
+  if (!pipeline) throw new TypeError("Stellar v2: Wiki 构建必须由 Collection Pipeline 驱动");
+  const data = ctx.locals.get("data");
+  const records = pipeline.members("wiki");
+  const pages = records.map(record => record.page);
+  const parsedPages = new Map(records.map(record => [record.page, record.config]));
+  const collectionConfigs = new Map(pipeline.collections("wiki").map(([id, config]) => [id, cloneConfig(config)]));
+  const normalizedData = { ...data };
+  for (const [id, value] of collectionConfigs) {
+    normalizedData[`wiki/${id}`] = cloneConfig(value);
+  }
+
+  const wiki = buildWikiTree({
+    data: normalizedData,
+    pages,
+    pageConfigs: parsedPages,
+    shelf: data.wiki || [],
+    wikiIndexPath: requireLayoutProfiles(ctx.stellar?.config).wikiIndex.path
+  });
+  const runtimeData = ensureRuntimeData(ctx);
+  runtimeData.wiki = wiki;
+
+  const collectionModels = new Map();
+  const entries = [];
+  const homepageEntries = new Map();
+  for (const record of records) {
+    const page = record.page;
+    const config = record.config;
+    if (config == null) continue;
+    const collectionId = getCollectionId(config, "wiki");
+    if (collectionId == null) continue;
+    const input = {
+      ...pipeline.modelInput(record),
+      collectionSource: sourcePathForData(`wiki/${collectionId}`),
+      collectionId,
+      collectionConfig: collectionConfigs.get(collectionId),
+      collectionState: wiki.tree[collectionId],
+      collectionListed: wiki.shelf.includes(collectionId),
+      isBackup: process.env.IS_BACKUP === "true"
+    };
+    if (!collectionModels.has(collectionId)) collectionModels.set(collectionId, buildWikiCollectionModel(input, collectionId));
+    input.collectionModel = collectionModels.get(collectionId);
+    const base = buildWikiPageViewModelBase(input);
+    const entry = { page, collectionId, input, base };
+    entries.push(entry);
+    if (!homepageEntries.has(collectionId) || base.item.route.path === base.collection.route.homepage) {
+      homepageEntries.set(collectionId, entry);
+    }
+  }
+
+  const listings = new Map();
+  for (const [collectionId, entry] of homepageEntries) {
+    listings.set(collectionId, buildWikiListingRender(entry.input, entry.base.collection));
+  }
+
+  for (const entry of entries) {
+    const relatedCollections = (wiki.tree[entry.collectionId]?.relatedItems || []).map(group => ({
+      name: group.name,
+      items: (group.items || [])
+        .map(id => homepageEntries.get(id)?.base.collection)
+        .filter(Boolean)
+    }));
+    const related = buildWikiRelated({ relatedCollections });
+    const completeInput = Object.freeze({
+      ...entry.input,
+      related,
+      listing: listings.get(entry.collectionId)
+    });
+    pageViewModelsFor(ctx).setPageViewModel(entry.page, completeWikiPageViewModel(completeInput, entry.base));
+    pageViewModelsFor(ctx).setProfileViewModelInput("wiki", entry.page, completeInput);
+    pageViewModelsFor(ctx).setProfileViewModelBase("wiki", entry.page, entry.base);
+  }
+
+  wiki.index = {
+    items: wiki.shelf
+      .map(id => listings.get(id))
+      .filter(item => item?.listed === true),
+    tags: Object.values(wiki.all_tags || {}).map(tag => ({
+      name: String(tag.name || ""),
+      path: String(tag.path || ""),
+      itemIds: Array.isArray(tag.items) ? tag.items.slice() : []
+    }))
+  };
+};

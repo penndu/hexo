@@ -1,0 +1,31 @@
+<%# 笔记卡片 %>
+<% var listing = render.listing %>
+<article class="md-text">
+  <% if (listing.cover) { %>
+    <div class="post-cover">
+      <img src="<%= listing.cover %>" alt="cover" />
+    </div>
+  <% } %>
+  <h2 class="post-title"><%= listing.title %></h2>
+  <div class="excerpt<% if (stellar_config('features.heti.enabled')) { %> heti<% } %>">
+    <p>
+      <%= listing.excerpt %>
+    </p>
+  </div>
+  <div class="meta cap">
+    <span class="cap" id="post-meta">
+      <%- icon('default:calendar') %>
+      <time datetime="<%= date_xml(listing.updated || listing.date) %>"><%= date(listing.updated || listing.date, config.date_format) %></time>
+    </span>
+    <% if (listing.tags) { %>
+      <% listing.tags.forEach((tag, i) => { %>
+        <span class="cap breadcrumb" %>>
+          <span class="tag"><%= tag %></span>
+        </span>
+      <% }) %>
+    <% } %>
+    <% if (listing.priority > 0) { %>
+      <span class="pin"><%- icon('default:pin') %></span>
+    <% } %>
+  </div>
+</article>

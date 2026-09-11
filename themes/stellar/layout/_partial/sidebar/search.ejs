@@ -1,0 +1,71 @@
+<%
+var wikiViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'wiki'
+  ? viewModel
+  : null
+var notebookViewModel = typeof viewModel !== 'undefined' && viewModel?.collection?.profile === 'notebook'
+  ? viewModel
+  : null
+var notebookIndex = page.notebookIndex?.mode === 'notes' ? page.notebookIndex.collection : null
+item = item && typeof item === 'object' ? Object.assign({}, item) : {}
+if (item.algoliaFilterPath == null) {
+  item.algoliaFilterPath = 'auto'
+}
+function layoutDiv() {
+  if (typeof disabled !== 'undefined' && disabled === true) {
+    return ''
+  }
+  var rawInstanceId = typeof instanceId === 'string' && instanceId.length > 0 ? instanceId : 'default'
+  var algoliaFilterPath = ''
+  if (item.algoliaFilterPath == 'auto') {
+    if (wikiViewModel) {
+      algoliaFilterPath = wikiViewModel.render.layout.algoliaFilterPath
+    } else if (notebookViewModel) {
+      algoliaFilterPath = notebookViewModel.render.layout.algoliaFilterPath
+    } else if (notebookIndex) {
+      algoliaFilterPath = notebookIndex.layout.algoliaFilterPath
+    }
+  } else {
+    if (item.algoliaFilterPath?.length > 0) {
+      algoliaFilterPath = item.algoliaFilterPath
+    }
+  }
+  if (algoliaFilterPath.length > 0 && !algoliaFilterPath.startsWith('/')) {
+    algoliaFilterPath = '/' + algoliaFilterPath
+  }
+  var searchTitle = __('btn.search')
+  var searchScope = search_scope(page, typeof viewModel !== 'undefined' ? viewModel : null)
+  var searchPresentation = typeof presentation === 'string' ? presentation : 'leftbar'
+  var iconOnly = searchPresentation === 'topbar' || searchPresentation === 'wiki-toolbar'
+  var searchClassName = typeof hoverSurface !== 'undefined' && hoverSurface === true
+    ? 'search-trigger has-hover-surface'
+    : 'search-trigger'
+  var searchAttrs = {
+    title: searchTitle,
+    'aria-label': searchTitle,
+    'data-shell-action': 'open-search',
+    'data-search-instance': rawInstanceId
+  }
+  if (stellar_config('search.provider') === 'algolia' && algoliaFilterPath.length > 0) {
+    searchAttrs['data-algolia-filter-path'] = algoliaFilterPath
+  }
+  if (searchScope) {
+    searchAttrs['data-search-domain'] = searchScope.current
+    searchAttrs['data-search-domain-label'] = searchScope.currentLabel
+    searchAttrs['data-search-domain-blog'] = searchScope.hasBlog ? 'true' : 'false'
+  }
+  return partial('_partial/components/collection', {options: {
+    layout: 'list',
+    variant: 'nav',
+    items: [{
+      type: 'button',
+      title: searchTitle,
+      icon: 'default:search',
+      iconOnly: iconOnly,
+      className: searchClassName,
+      after: iconOnly ? '' : partial('_partial/search/shortcut'),
+      attrs: searchAttrs
+    }]
+  }})
+}
+%>
+<%- layoutDiv() %>

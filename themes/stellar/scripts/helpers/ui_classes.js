@@ -1,0 +1,8 @@
+/* global hexo */
+"use strict";
+
+const { composeUiClasses } = require("../lib/ui-capabilities");
+
+hexo.extend.helper.register("ui_classes", function(baseClass, capability, modifiers) {
+  return composeUiClasses(baseClass, capability, modifiers);
+});
