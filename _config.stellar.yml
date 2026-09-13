@@ -432,7 +432,7 @@ services:
   github_card:
     provider: github_readme_stats
     github_readme_stats:
-      endpoint: https://github-readme-stats.vercel.app
+      endpoint: https://github-stats-extended.dusays.com
   github:
     api_url: https://api.github.com
     raw_url: https://raw.githubusercontent.com
