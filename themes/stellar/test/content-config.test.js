@@ -207,21 +207,18 @@ test("Front Matter parser preserves Hexo fields and normalizes Stellar fields", 
   assert.equal(Object.isFrozen(parsed), true);
 });
 
-test("Content override navigation is flat and Collection banner cascades through the public schema", () => {
+test("Content override navigation is flat across collection and page scopes", () => {
   const collection = parseCollectionConfig({
     name: "Docs",
     active_menu: "wiki",
-    breadcrumb: false,
-    banner: { image: "/collection.webp", headline: "Collection" }
+    breadcrumb: false
   }, "collection.yml");
   const page = parsePageConfig({
     active_menu: "post",
-    breadcrumb: true,
-    banner: { headline: "Page" }
+    breadcrumb: true
   }, "page.md");
   assert.equal(collection.activeMenu, "wiki");
   assert.equal(collection.breadcrumb, false);
-  assert.equal(collection.banner.image, "/collection.webp");
   assert.equal(page.activeMenu, "post");
   assert.equal(page.breadcrumb, true);
 });
@@ -312,7 +309,7 @@ test("Content Region schemas enforce fixed field value boundaries", () => {
   ]) {
     assert.throws(() => parseCollectionConfig(config, "collection.yml"), pattern);
   }
-  for (const field of ["source", "back_button", "search"]) {
+  for (const field of ["source", "back_button"]) {
     assert.throws(
       () => parsePageConfig({ leftbar: { brand: { [field]: field === "source" ? "site" : true } } }, "page.md"),
       new RegExp(`leftbar\\.brand\\.${field}`)

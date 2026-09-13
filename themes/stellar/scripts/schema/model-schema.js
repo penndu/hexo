@@ -89,6 +89,7 @@ function brandSchema(factory, options = {}) {
   const { field, object } = factory;
   const properties = {
     ...(options.leftbar ? {
+      ghrepo: field(["string", "null"], { default: literal(null), example: "xaoxuu/hexo-theme-stellar" }),
       ghuser: field(["string", "null"], { default: literal(null), example: "xaoxuu" }),
       source: field("string", { default: computed("由 Site 或 Collection Brand 来源解析"), example: "site" }),
       style: field("string", { default: literal("regular"), example: "regular" }),
@@ -231,11 +232,10 @@ function bannerSchema(factory) {
   const { field, object } = factory;
   return object({
     enabled: field("boolean", { example: true }),
-    image: field("string", { example: "/banner.webp" }),
     avatar: field("string", { example: "/avatar.webp" }),
     headline: field("string", { example: "开始使用 Stellar" }),
     tagline: field("string", { example: "十分钟搭好站点" })
-  }, { example: { enabled: true, image: "/banner.webp" } });
+  }, { example: { enabled: true } });
 }
 
 function heroSchema(factory, options = {}) {
@@ -484,7 +484,6 @@ function collectionSchema(profile) {
     listing: object(listingProperties, { default: inherited("profile.listing", "collection.listing"), example: {}, required: true }),
     presentation: presentationSchema(factory, {
       includeHero: profile === "wiki",
-      includeBanner: true,
       cascadeFactory,
       heroConsumers: profile === "wiki" ? wikiHeroConsumers : undefined
     }),
@@ -596,10 +595,10 @@ function pageViewModelSchema(profile) {
     }, { example: { title: "Related Post", path: "/blog/related/", excerpt: "Related excerpt" } });
     const share = field(["object", "null"], {
       default: computed("由最终 footer.share 与文章分享数据生成；禁用时为 null"),
-      example: { services: ["link"], permalink: "https://example.com/blog/hello/", title: "Hello - Stellar" },
+      example: { services: ["qrcode"], permalink: "https://example.com/blog/hello/", title: "Hello - Stellar" },
       required: true,
       properties: {
-        services: array(stringItem, { default: literal([]), example: ["wechat", "link"], required: true }),
+        services: array(stringItem, { default: literal([]), example: ["qrcode", "email"], required: true }),
         permalink: field("string", { default: inherited("item.route.permalink"), example: "https://example.com/blog/hello/", required: true }),
         title: field("string", { default: computed("由文章标题与站点标题组合"), example: "Hello - Stellar", required: true }),
         image: field("string", { default: inherited("item.cover"), example: "/cover.webp", required: true }),
@@ -714,10 +713,10 @@ function pageViewModelSchema(profile) {
     });
     const share = field(["object", "null"], {
       default: computed("由最终 footer.share 生成；禁用时为 null"),
-      example: { services: ["link"], permalink: "https://example.com/wiki/stellar/", title: "Stellar - Example" },
+      example: { services: ["qrcode"], permalink: "https://example.com/wiki/stellar/", title: "Stellar - Example" },
       required: true,
       properties: {
-        services: array(stringItem, { default: literal([]), example: ["wechat", "link"], required: true }),
+        services: array(stringItem, { default: literal([]), example: ["qrcode", "email"], required: true }),
         permalink: field("string", { default: inherited("item.route.permalink"), example: "https://example.com/wiki/stellar/", required: true }),
         title: field("string", { default: computed("由页面标题与站点标题组合"), example: "Stellar - Example", required: true }),
         image: field("string", { default: inherited("item.cover"), example: "/cover.webp", required: true }),

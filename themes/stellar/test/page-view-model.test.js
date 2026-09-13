@@ -378,8 +378,10 @@ test("Collection Brand source, style, back button, and search resolve independen
     leftbar: { brand: { source: "site", style: "regular" } }
   }, siteInput.collectionSource);
   assert.deepEqual(buildWikiPageViewModel(siteInput).render.layout.leftbar.brand, {
+    ghrepo: null,
     ghuser: null,
     source: "site",
+    search: true,
     style: "regular",
     image: { src: "/site.webp", variant: "avatar" },
     name: "Site",
@@ -420,12 +422,11 @@ test("Collection Brand source, style, back button, and search resolve independen
   }, invalid.collectionSource);
   assert.throws(() => buildTopicPageViewModel(invalid), error => {
     assert.match(error.message, /leftbar\.brand\.back_button 仅支持 source: collection/);
-    assert.match(error.message, /leftbar\.brand\.search 仅支持 source: collection/);
     return true;
   });
 });
 
-test("Region Brand and Banner preserve profile, collection, and page override precedence", () => {
+test("Region Brand preserves profile, collection, and page override precedence", () => {
   const input = wikiInput();
   input.stellarConfig = parseStellarConfig({
     themeConfig: {
@@ -437,21 +438,15 @@ test("Region Brand and Banner preserve profile, collection, and page override pr
     name: "Docs",
     icon: "/docs.svg",
     route: { path: "/wiki/docs/" },
-    banner: { image: "/collection.webp", headline: "Collection" },
     leftbar: { brand: false, widgets: ["tree"] }
   }, input.collectionSource);
   input.frontMatter = parsePageConfig({
     collection: { profile: "wiki", id: "docs" },
-    banner: { headline: "Page" },
     leftbar: { brand: { name: "Page" }, widgets: [] }
   }, input.source);
   const viewModel = buildWikiPageViewModel(input);
   assert.deepEqual(viewModel.render.layout.leftbar.brand, { name: "Page" });
   assert.deepEqual(viewModel.render.layout.leftbar.widgets, []);
-  assert.deepEqual(viewModel.item.presentation.banner, {
-    image: "/collection.webp",
-    headline: "Page"
-  });
 });
 
 test("Wiki pages share the prepared Collection and navigation while retaining distinct page projections", () => {

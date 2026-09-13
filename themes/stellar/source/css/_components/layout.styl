@@ -280,7 +280,7 @@ html[data-leftbar-state='collapsed'] .site-shell[data-regions~='leftbar']
 
 leftbar-rail()
   width: var(--leftbar-rail-width)
-  .menu .ui-collection__item,
+  .widget-instance[data-leftbar-rail] .ui-collection > .ui-collection__item,
   .search-trigger,
   .brand-navigation__back,
   .region-actions .social,
@@ -312,6 +312,8 @@ leftbar-rail()
     .brand-navigation
       display: none
       margin: 0 0 4px
+    .brand-navigation-rail
+      display: block
     .brand-navigation__back
       width: 40px
       height: 40px
@@ -332,6 +334,7 @@ leftbar-rail()
       padding: 8px
       justify-content: center
     .brand-wrap
+      padding-top: 0
       justify-content: center
     .brand-image
       width: 40px
@@ -339,18 +342,31 @@ leftbar-rail()
       margin: 0
     .brand-stats
       display: none
-  .widget-instance--menu
-    .menu .ui-collection
+  .widget-instance[data-leftbar-rail]
+    .widget-header
+      display: none
+    .ui-collection
       display: block
-    .menu .ui-collection__item
+    .ui-collection > .ui-collection__item
+      align-items: center
       width: 40px
       min-width: 40px
       height: 40px
       min-height: 40px
       margin: 4px auto
       padding: 8px
+      &:has(> .ui-collection__initial)
+        &:hover,
+        &:active,
+        &.active,
+        &.is-active
+          > .ui-collection__initial
+            color: var(--item-theme, var(--theme))
     .ui-collection__content, .ui-collection__indicator
       display: none
+    .ui-collection__initial
+      display: block
+      font-weight: $fw-600
   .widget-instance--search
     .search-trigger
       width: 40px
@@ -370,7 +386,6 @@ leftbar-rail()
     flex-direction: column
     align-items: center
     gap: 4px
-    padding: 4px 0 8px
   .site-region__settings
     flex: 0 0 32px
     width: 32px
@@ -390,6 +405,42 @@ leftbar-rail()
 
 html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .site-region--leftbar
   leftbar-rail()
+
+// 保留桌面网格占位，仅收窄右栏本身；悬停或键盘访问时恢复完整布局。
+@media screen and (min-width: $device-laptop + 1px)
+  html[data-leftbar-state='collapsed'] .site-shell[data-regions~='leftbar'][data-regions~='rightbar'] .site-region--rightbar:not(:hover):not(:focus-within)
+    width: var(--leftbar-rail-width)
+    .site-region__surface
+      position: sticky
+      top: var(--rightbar-sticky-offset)
+      flex: none
+      height: var(--rightbar-panel-height)
+      max-height: var(--rightbar-panel-height)
+      justify-content: center
+    .site-region__viewport,
+    .widget-stack--rightbar
+      min-height: 0
+      height: 100%
+      max-height: 100%
+    .site-region__viewport
+      flex: 0 1 auto
+      max-height: 80vh
+    .widgets
+      display: flex
+      flex-direction: column
+      justify-content: center
+      flex: 1
+      min-height: 0
+      margin: 0
+      overflow: hidden
+    .widget-instance
+      display: none
+    .widget-instance--toc:has(.toc-link)
+      display: block
+      position: static
+      min-height: 0
+      max-height: 100%
+      flex-shrink: 1
 
 @media screen and (max-width: $device-laptop)
   .site-workspace
@@ -491,6 +542,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
     width: 100%
     max-width: none
     margin-inline: 0
+    padding-top: 0 !important
   .site-region--leftbar
     position: fixed
     transform: translateX(calc(-100% - 16px))

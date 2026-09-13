@@ -88,7 +88,7 @@ function assertCollectionBrandConfig(config, defaultSource, source) {
   if (!isPlainObject(brand)) return;
   const resolvedSource = brand.source || defaultSource;
   if (resolvedSource === "collection") return;
-  const unsupported = ["backButton", "search"].filter(key => brand[key] != null);
+  const unsupported = ["backButton"].filter(key => brand[key] != null);
   if (unsupported.length === 0) return;
   throw new ContentConfigError(unsupported.map(key => (
     `${source}: leftbar.brand.${key === "backButton" ? "back_button" : key} 仅支持 source: collection`
@@ -398,7 +398,6 @@ function buildPostRenderModel(input, collection, item) {
     ? explicitKeywords
     : item.tags.length > 0 ? item.tags.slice() : siteKeywords;
   const cardCover = item.cover || "";
-  const bannerImage = item.presentation.banner?.image || "";
   const defaultOgImage = siteConfig.avatar || (siteConfig.email ? gravatar(siteConfig.email) : "");
   const openGraphConfig = seoConfig.openGraph;
   let openGraph = null;
@@ -417,7 +416,7 @@ function buildPostRenderModel(input, collection, item) {
     };
     if (openGraphConfig.twitterId) args.twitter_id = openGraphConfig.twitterId;
     if (cardCover) args.twitter_card = "summary_large_image";
-    args.image = cardCover || bannerImage || firstContentImage(item.content) || defaultOgImage || null;
+    args.image = cardCover || firstContentImage(item.content) || defaultOgImage || null;
     Object.assign(args, cloneValue(pageOpenGraph));
     openGraph = {
       args,
@@ -445,7 +444,6 @@ function buildPostRenderModel(input, collection, item) {
   }
   const images = postImages({
     cardCover,
-    bannerImage,
     photos: Array.isArray(frontMatter.photos) ? frontMatter.photos : [],
     content: item.content,
     defaultCover: fallbacks.cover
@@ -544,10 +542,7 @@ function buildContentItemModel(page, frontMatter, collection, source, options = 
       priority: frontMatter.listing?.priority ?? 0
     },
     presentation: {
-      banner: mergeConfig(
-        collection.presentation.banner,
-        pick(frontMatter.banner, CONTENT_MODEL_FIELDS.banner)
-      ),
+      banner: pick(frontMatter.banner, CONTENT_MODEL_FIELDS.banner),
       ...cascadeRegions([collection.presentation, pageRegions]),
       article: mergeConfig(collection.presentation.article, pageArticle),
       footer: mergeConfig(collection.presentation.footer, pageFooter),
