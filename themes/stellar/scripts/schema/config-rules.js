@@ -15,7 +15,7 @@ const menuItem = item("object", {
   normalizer: "menu_item",
   sealed: true,
   properties: {
-    type: item("string", { defaultValue: "link", values: ["link", "search"] }),
+    type: item("string", { defaultValue: "link", values: ["link"] }),
     id: item(["string", "null"], { defaultValue: null, validator: "nullable_kebab_id" }),
     title: item(["string", "null"], { defaultValue: null }),
     icon: item(["string", "null"], { defaultValue: null, validator: "nullable_non_empty_string" }),
@@ -126,6 +126,8 @@ const brandProperties = {
   href: item(["string", "null"], { defaultValue: "/", validator: "nullable_safe_navigation_url" })
 };
 const leftbarBrandProperties = {
+  search: item("boolean", { defaultValue: true }),
+  ghrepo: item(["string", "null"], { defaultValue: null }),
   ghuser: item(["string", "null"], { defaultValue: null }),
   style: item("string", { defaultValue: "regular", values: ["regular", "compact"] }),
   ...brandProperties
@@ -180,13 +182,16 @@ const CONFIG_RULES = Object.freeze([
   ["profiles.*.comments.provider", { type: ["string", "null"], values: [null, "beaudar", "utterances", "giscus", "twikoo", "waline", "artalk"] }],
   ["profiles.*.comments.options", parameterBag],
 
+  ["features.reveal.duration", { minimum: 0 }],
+  ["features.reveal.interval", { minimum: 0 }],
+  ["features.reveal.blur", { minimum: 0 }],
+
   ["article.style", { values: ["tech", "story"] }],
   ["article.paragraph_indent", { values: ["auto", "always", "never"] }],
   ["article.listing.pinned_layout", { values: ["carousel", "flat"] }],
   ["article.listing.card_layout", { values: ["hero", "classic"] }],
   ["article.listing.cover_ratio", { exclusiveMinimum: 0 }],
   ["article.listing.excerpt_length", { minimum: 0, validator: "non_negative_integer" }],
-  ["article.banner.ratio", { exclusiveMinimum: 0 }],
   ["article.category_colors", stringRecord("css_color")],
   ["article.footer.license", { type: ["boolean", "string"], validator: "license_value" }],
   ["article.footer.share", { items: item("string", { defaultValue: "", values: SHARE_SERVICE_IDS }), normalizer: "trimmed_string_list" }],

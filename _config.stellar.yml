@@ -19,7 +19,9 @@ topbar:
 
 leftbar:
   brand:
+    search: true
     style: compact # compact | regular
+    ghrepo: null
     image:
       src: https://cdn.dusays.com/favicon.ico
       variant: avatar
@@ -235,13 +237,17 @@ article:
     show_tags: false
   category_colors:
     探索号: '#f44336'
-  banner:
-    ratio: 2.5
   show_reading_time: false
   related_posts_limit: 0
   footer:
     license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议，转载请注明出处。</br><iframe src="https://cdn.dusays.com/drinks/" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe>'
-    share: []
+    share:
+      - qrcode
+      - weibo
+      - x
+      - telegram
+      - whatsapp
+      - email
     show_tags: true
 
 appearance:
@@ -263,11 +269,6 @@ appearance:
       inline_code: 85%
       code_block: 0.8125rem
     content_align: left
-    heading_prefixes:
-      h2: '#'
-      h3: '='
-      h4: '|'
-      h5: ':'
   shape:
     corner: superellipse(1.25)
     radius:
@@ -369,7 +370,7 @@ tags:
   button:
     default_color: theme
   mark:
-    default_color: yellow
+    default_color: theme
   hashtag:
     default_color: null
   gallery:
@@ -391,6 +392,10 @@ features:
     enabled: true
   reveal:
     enabled: true
+    duration: 800
+    interval: 200
+    distance: 8
+    blur: 4
   card_hover:
     # 控制是否启用鼠标跟随光照。
     spotlight: false

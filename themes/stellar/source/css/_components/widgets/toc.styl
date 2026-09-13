@@ -2,7 +2,7 @@
   z-index 3
   .widget-body
     position relative
-    &:before
+    .toc:before
       content: ''
       position absolute
       top: 8px
@@ -26,10 +26,26 @@
 // 目录基本样式
 .widget-wrapper.toc .toc
   --fs-content: $fs-content-2
+  min-width: 0
   padding: 0
   margin: 0
   position relative
   list-style: none
+  &:after
+    content: ''
+    position: absolute
+    pointer-events: none
+    top: 4px
+    left: 0
+    width: 4px
+    height: calc(var(--toc-active-height, 8px) - 8px)
+    border-radius: 4px
+    background: var(--theme)
+    opacity: var(--toc-active-opacity, 0)
+    transform: translateY(var(--toc-active-y, 0px))
+    transition: transform 0.2s ease, height 0.2s ease
+    @media (prefers-reduced-motion: reduce)
+      transition: none
   li
     margin: 0
     list-style: none
@@ -39,21 +55,17 @@
     padding: 4px var(--padding)
     margin: 0 var(--padding)
     color: var(--ui-item-muted)
+    opacity: 0.5
     display: block
     position relative
     border-radius: $border-bar
     trans1 all
-    &.active:before
-      content: ''
-      position absolute
-      top: 4px
-      bottom: 4px
-      left: -8px
-      width: 4px
-      background: var(--theme)
-      border-radius: 4px
     &:hover
       color: var(--ui-item-title)
+      opacity: 1
+    .toc-text
+      display: block
+      txt-ellipsis()
     
 // 桌面 Rightbar 的吸顶由 widget-instance 承载，目录正文独立滚动。
 :is([data-region='leftbar'], [data-region='rightbar']) .widgets .widget-wrapper.toc
@@ -71,7 +83,7 @@
 // 各级缩进样式
 .widget-wrapper.toc .toc
   .toc-item
-    font-weight: $fw-500
+    font-weight: $fw-600
     --fs-content: $fs-content-1
   .toc-item .toc-item
     font-weight: $fw-400
@@ -79,21 +91,20 @@
   ol
     padding-left: 0
   .toc-child .toc-link
-    padding-left: calc(var(--gap-base) * 1)
+    padding-left: calc(var(--padding) + var(--gap-base) * 1)
   .toc-child .toc-child .toc-link
-    padding-left: calc(var(--gap-base) * 2)
+    padding-left: calc(var(--padding) + var(--gap-base) * 2)
   .toc-child .toc-child .toc-child .toc-link
-    padding-left: calc(var(--gap-base) * 3)
+    padding-left: calc(var(--padding) + var(--gap-base) * 3)
   .toc-child .toc-child .toc-child .toc-child .toc-link
-    padding-left: calc(var(--gap-base) * 4)
+    padding-left: calc(var(--padding) + var(--gap-base) * 4)
   .toc-child .toc-child .toc-child .toc-child .toc-child .toc-link
-    padding-left: calc(var(--gap-base) * 5)
+    padding-left: calc(var(--padding) + var(--gap-base) * 5)
 
 // 高亮样式
 .widget-wrapper.toc .toc a.toc-link.active
   color: var(--text)
-  &:before,&:after
-    content: ''
+  opacity: 1
 
 // 始终折叠
 .widget-wrapper.toc[collapse='true']
@@ -155,6 +166,64 @@
     &.collapse .widget-body
       max-height: 0
 
+// 联动折叠时，同一份目录链接呈现为居中的横线列表。
+@media screen and (min-width: $device-laptop + 1px)
+  html[data-leftbar-state='collapsed'] .site-shell[data-regions~='leftbar'][data-regions~='rightbar'] .site-region--rightbar:not(:hover):not(:focus-within) .widgets .widget-wrapper.toc
+    margin: 0
+    padding: 0
+    max-height: unquote('min(80vh, var(--rightbar-panel-height))')
+    background: transparent
+    .widget-header,
+    .widget-footer,
+    .toc:before
+      display: none
+    .widget-body
+      display: block
+      max-height: unquote('min(80vh, var(--rightbar-panel-height))')
+      overflow-x: hidden
+      overflow-y: auto
+    .toc
+      width: 32px
+      margin: 0 auto
+      padding: 0
+    .toc:after
+      top: 6px
+      width: 32px
+      height: 4px
+      border-radius: 999px
+    .toc ol
+      display: block
+      padding: 0
+    .toc a.toc-link
+      box-sizing: border-box
+      display: block
+      width: 32px
+      height: 16px
+      margin: 0
+      padding: 0
+      font-size: 0
+      line-height: 0
+      color: transparent
+      background: transparent
+      border: 0
+      box-shadow: none
+      transition: none
+      > span
+        opacity: 0
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 7px
+        bottom: auto
+        width: 24px
+        height: 2px
+        border-radius: 999px
+        background: var(--text-p2)
+        opacity: 0.2
+        transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, background-color 0.2s ease, opacity 0.2s ease
+      &:after
+        display: none
 // 操作按钮（回到顶部 / 参与讨论）
 .widget-wrapper.toc .widget-footer:before
   content: ''

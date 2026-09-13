@@ -38,9 +38,13 @@ leftbar:
   default_state: expanded
   # 配置 Leftbar 固定 Brand 内容。
   brand:
+    # 控制 Brand 区域的搜索按钮；需要配置 search.provider。
+    search: true
     # 设置 Leftbar Brand 的视觉样式；可选值为 regular 或 compact。
     style: regular
-    # 设置站点 Brand 数据区的 GitHub 用户名；留空不显示。
+    # 设置 Brand 数据区的 GitHub 仓库（owner/repo）；留空不显示仓库统计。
+    ghrepo: null
+    # 设置 Brand 数据区的 GitHub 用户名；未设置 ghrepo 时使用，留空不显示。
     ghuser: null
     # 配置品牌图片。
     image:
@@ -112,8 +116,6 @@ leftbar:
       icon: default:profile
       # 设置菜单链接。
       url: /about/
-    # 声明默认的搜索入口。
-    - type: search
   # 设置 Leftbar 内容 Widget；空数组表示清空内容区。
   widgets: []
   # 配置 Leftbar 固定底部区域。
@@ -472,10 +474,6 @@ article:
   category_colors:
     # 设置“探索号”分类的颜色。
     探索号: '#f44336'
-  # 配置文章页横幅。
-  banner:
-    # 设置文章页横幅宽高比，数值必须大于 0。
-    ratio: 2.5
   # 控制是否显示预计阅读时间。
   show_reading_time: false
   # 设置相关文章最大数量，0 表示不显示相关文章。
@@ -485,16 +483,14 @@ article:
     # 设置文章许可协议；false 表示不显示许可信息。
     license: 本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
     # 设置文章分享服务；普通博客与 Topic 专栏博客默认全部启用，Wiki 与 Notebook 默认关闭，可通过 footer.share 显式开启。
-    # 支持 wechat、weibo、x、telegram、whatsapp、email、link、system；空数组表示不显示分享入口。
+    # 支持 qrcode、weibo、x、telegram、whatsapp、email；空数组表示不显示分享入口。
     share:
-      - wechat
+      - qrcode
       - weibo
       - x
       - telegram
       - whatsapp
       - email
-      - link
-      - system
     # 控制文章页页脚是否显示标签。
     show_tags: true
 
@@ -557,16 +553,6 @@ appearance:
       code_block: 0.8125rem
     # 设置正文对齐方式；可选值为 left、center、right 或 justify。
     content_align: left
-    # 配置各级标题的前缀字符。
-    heading_prefixes:
-      # 设置二级标题前缀。
-      h2: '#'
-      # 设置三级标题前缀。
-      h3: '='
-      # 设置四级标题前缀。
-      h4: '|'
-      # 设置五级标题前缀。
-      h5: ':'
 
   # 配置组件形状。
   shape:
@@ -832,7 +818,7 @@ tags:
   # 配置 mark 标签插件。
   mark:
     # 设置 mark 默认颜色。
-    default_color: yellow
+    default_color: theme
   # 配置 hashtag 标签插件。
   hashtag:
     # 设置 hashtag 默认颜色；null 表示使用主题默认色。
@@ -891,6 +877,14 @@ features:
   reveal:
     # 控制是否启用滚动揭示动画。
     enabled: true
+    # 动画持续时间，单位毫秒，须大于或等于 0。
+    duration: 800
+    # 连续进入视口的元素依次开始播放的间隔，单位毫秒，须大于或等于 0；0 同时播放。
+    interval: 200
+    # 垂直移动距离，单位像素；正数从下方进入，负数从上方进入，0 仅淡入。
+    distance: 8
+    # 初始模糊半径，单位像素，须大于或等于 0；0 关闭模糊，较大值会增加渲染开销。
+    blur: 4
   # 配置卡片悬停效果。
   card_hover:
     # 控制是否启用鼠标跟随光照。
