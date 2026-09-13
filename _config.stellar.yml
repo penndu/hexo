@@ -49,7 +49,6 @@ leftbar:
       icon: example:chat
       title: 聊天
       url: https://chat.dusays.com/signup_user_complete/?id=pmsp46j6ji8xdpket1pohptpnr&md=link&sbr=fa
-    - type: search
   footer:
     actions:
       - type: link
