@@ -9,12 +9,12 @@ leftbar:
     - recent
 rightbar:
   widgets:
+    - sjtp
     - recent_comments
     - sffw
     - qbtc
     - ltgc
     - mmtg
-    - sjtp
 ---
 
 <link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/style.css" rel="stylesheet" type="text/css">
