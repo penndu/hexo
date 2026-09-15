@@ -9,12 +9,12 @@ leftbar:
     - recent
 rightbar:
   widgets:
+    - sjtp
     - recent_comments
     - sffw
     - qbtc
     - ltgc
     - mmtg
-    - sjtp
 ---
 
 <div id="friend-circle-container">与主机通讯中……</div>
