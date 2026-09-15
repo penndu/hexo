@@ -8,6 +8,7 @@ leftbar:
     - recent
 rightbar:
   widgets:
+    - recent_comments
     - sffw
     - qbtc
     - ltgc
