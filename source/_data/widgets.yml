@@ -60,6 +60,7 @@ mmtg:
 
 wezh:
   layout: linklist
+  view: grid
   columns: 2
   items:
     - icon: solar:checklist-minimalistic-outline
