@@ -206,6 +206,7 @@ function regionConfigSchemas(factory) {
       schema.type = ["object", "boolean", "null"];
       return schema;
     })(),
+    menuColumns: field("number", { example: 1 }),
     menu: array(menuItem, { example: [] }),
     footer: object({
       actions: array(actionItem, { example: [] })
@@ -253,6 +254,8 @@ function heroSchema(factory, options = {}) {
     enabled: field("boolean", { example: true }),
     background: object({
       image: field("string", { example: "/hero.webp", consumers: options.pathConsumers }),
+      video: field("string", { example: "/hero.mp4", consumers: options.pathConsumers }),
+      parallax: field("number", { example: 0.2 }),
       effect: object({
         type: field("string", { example: "galaxy" }),
         options: field("object", {

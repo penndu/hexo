@@ -28,6 +28,8 @@ leftbar:
     name: 杜老师说
     tagline: dusays.com
     href: /
+  # 设置 Leftbar 菜单列数（1–5）；1–2 列显示图标与标题，3–5 列仅显示居中的图标。
+  menu_columns: 2
   menu:
     - id: post
       accent: '#1BCDFC'
@@ -412,6 +414,10 @@ features:
       theme: neutral
 
 services:
+  # 配置访客身份头像使用的 Gravatar 服务（侧边栏与设置页共享）。
+  gravatar:
+    # 设置兼容 SHA-256 的头像镜像地址，包含 /avatar/ 路径；末尾斜杠可省略。
+    base_url: https://g.dusays.com/avatar/
   site_info:
     provider: null
   rating:

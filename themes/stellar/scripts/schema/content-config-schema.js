@@ -166,6 +166,7 @@ function targetNode(target) {
     ...(target.boundary === "sealed" ? { sealed: true } : {}),
     ...(target.values ? { values: clone(target.values) } : {}),
     ...(target.minimum !== undefined ? { minimum: target.minimum } : {}),
+    ...(target.maximum !== undefined ? { maximum: target.maximum } : {}),
     ...(target.exclusiveMinimum !== undefined ? { exclusiveMinimum: target.exclusiveMinimum } : {})
   };
 }
@@ -271,6 +272,7 @@ function decorateSharedSchemas(schema) {
     schema.properties[region].properties.brand.properties.href.validator = "nullable_safe_navigation_url";
     schema.properties[region].properties.menu.validator = "menu_items";
   }
+  schema.properties.leftbar.properties.menu_columns.validator = "nullable_non_negative_integer";
   schema.properties.leftbar.properties.footer.properties.actions.validator = "footer_actions";
 
   const effect = schema.properties.hero?.properties.background?.properties.effect;
