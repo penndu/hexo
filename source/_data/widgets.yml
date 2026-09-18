@@ -165,7 +165,10 @@ recent_comments:
         font-weight: 600;
         color: var(--text-p1);
         white-space: nowrap;
-        flex-shrink: 0;
+        flex-shrink: 1;
+        max-width: 8em;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .comment-time {
@@ -174,6 +177,9 @@ recent_comments:
         white-space: nowrap;
         flex-shrink: 0;
         margin-left: 12px;
+        max-width: 6em;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .comment-content {
@@ -269,6 +275,13 @@ recent_comments:
               const pageLink = `${c.page_url}#atk-comment-${c.id}`;
               const contentPreview = c.content.replace(/<[^>]+>/g, '').slice(0, 60);
 
+              // 昵称转义 + 长度截断，避免超长昵称撑爆卡片或被注入 HTML
+              const rawNick = (c.nick || '匿名').replace(/[<>&"']/g, ch => ({
+                '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&#39;'
+              }[ch]));
+              const nickDisplay = rawNick.length > 12 ? rawNick.slice(0, 12) + '…' : rawNick;
+              const nickTitle = rawNick;
+
               return `
                 <div class="comment-card" onclick="window.open('${pageLink}', '_blank')">
                   <div class="comment-avatar">
@@ -276,7 +289,7 @@ recent_comments:
                   </div>
                   <div class="comment-body">
                     <div class="comment-header">
-                      <span class="comment-nick">${c.nick || '匿名'}</span>
+                      <span class="comment-nick" title="${nickTitle}">${nickDisplay}</span>
                       <span class="comment-time" title="${c.date}">${timeText}</span>
                     </div>
                     <div class="comment-content">
