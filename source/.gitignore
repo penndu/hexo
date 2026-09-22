@@ -1,0 +1,11 @@
+.workbuddy/
+
+# Hexo
+node_modules/
+public/
+.deploy/
+db.json
+
+# macOS
+.DS_Store
+*.swp
