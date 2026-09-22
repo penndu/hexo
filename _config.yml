@@ -16,7 +16,7 @@ avatar: https://cdn.dusays.com/avatar.png
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://dusays.com
-permalink: /archives/:title/
+permalink: /posts/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
@@ -126,7 +126,7 @@ hexo_safego:
     apply_containers:           # 应用的容器选择器
       - 'article.content'
     apply_pages:                # 应用的页面路径
-      - "/archives/"
+      - "/posts/"
       - "/devices/"
     exclude_pages:              # 排除的页面路径
 
