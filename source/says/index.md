@@ -29,7 +29,7 @@ rightbar:
 1. 直接前往 [平台页面](https://s.dusays.com/) 注册账号即可；
 2. 平台地址为 `https://s.dusays.com`；
 3. 平台底层采用 2H4G 服务器保障稳定运行；数据每周本地备份一次，每月异地备份一次，确保数据安全；
-4. 如需搭建个人展示页面，可参考《[使用 Memos 搭建时光机教程](https://dusays.com/archives/561/)》一文。
+4. 如需搭建个人展示页面，可参考《[使用 Memos 搭建时光机教程](https://dusays.com/posts/561/)》一文。
 
 ## 保留权益
 
