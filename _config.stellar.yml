@@ -333,8 +333,8 @@ comments:
     pageview: false
   artalk:
     server: https://artalk.dusays.com
-    css: https://jsd.dusays.com/npm/artalk@2.10.0/dist/Artalk.min.css
-    js: https://jsd.dusays.com/npm/artalk@2.10.0/dist/Artalk.min.js
+    css: https://artalk.dusays.com/dist/Artalk.css
+    js: https://artalk.dusays.com/dist/Artalk.js
     site: 杜老师说
     darkMode: auto
     imageUploader:
