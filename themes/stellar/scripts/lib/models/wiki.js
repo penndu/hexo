@@ -206,7 +206,7 @@ function buildWikiRenderModel(input, collection, item) {
       robots: input.isBackup === true
         ? "noindex, nofollow"
         : typeof frontMatter.robots === "string" && frontMatter.robots.length > 0 ? frontMatter.robots : null,
-      canonical: canonicalUrl(seoConfig.canonical.host, item.route.path),
+      canonical: canonicalUrl(seoConfig.canonical.host, item.route.path, siteConfig.root),
       openGraph,
       jsonLd: {
         "@context": "https://schema.org",
@@ -286,7 +286,11 @@ function buildWikiCollectionModel(input, collectionId) {
   const content = requireContentConfig(input.stellarConfig, input.themeSource);
   const collectionRoute = isPlainObject(collectionConfig.route) ? collectionConfig.route : {};
   const collectionListing = isPlainObject(collectionConfig.listing) ? collectionConfig.listing : {};
-  const baseDir = collectionRoute.path || `${profilePath(indexWiki.path) || "wiki"}/${collectionId}`;
+  // route.path 显式配置为站点根（"/"）时归一化结果为空字符串，此时基址就是站点根，
+  // 不能回退到默认的 wiki/<id>。
+  const baseDir = collectionRoute.path == null
+    ? `${profilePath(indexWiki.path) || "wiki"}/${collectionId}`
+    : collectionRoute.path;
   const identity = normalizeCollectionIdentity(collectionConfig);
 
   const profileNavigation = toRenderNavigation(wikiProfile);

@@ -179,7 +179,10 @@ function normalizeTerms(value) {
 }
 
 function normalizeCollectionPath(value) {
-  return normalizePath(value).replace(/^\/+/, "");
+  const normalized = normalizePath(value).replace(/^\/+/, "");
+  // 站点根目录的 index 页：关闭 trailing_index 后 Hexo 给出 "index/"，归一化结果是 "index"。
+  // 该页本身就是站点根，空路径才是它的对外地址，否则 canonical 会指向不存在的 .../index/。
+  return normalized === "index" ? "" : normalized;
 }
 
 function normalizeStringList(value) {
@@ -365,11 +368,17 @@ function absoluteSiteAsset(value, siteUrl) {
   return `${root}/${value.replace(/^\/+/, "")}`;
 }
 
-function canonicalUrl(host, path) {
+function canonicalUrl(host, path, root) {
   if (typeof host !== "string" || host.length === 0) return null;
   const normalizedPath = normalizeCollectionPath(path);
   if (normalizedPath === "404" || normalizedPath.startsWith("404/")) return null;
-  return `https://${host}/${normalizedPath}${normalizedPath ? "/" : ""}`;
+  // 站点挂在子路径下时 canonical 必须带上 root 前缀，否则会指向父站上不存在的地址。
+  const prefix = typeof root === "string" ? root.replace(/^\/+|\/+$/g, "") : "";
+  if (normalizedPath.length === 0) {
+    return prefix.length > 0 ? `https://${host}/${prefix}/` : `https://${host}/`;
+  }
+  const segments = prefix.length > 0 ? `${prefix}/${normalizedPath}` : normalizedPath;
+  return `https://${host}/${segments}/`;
 }
 
 function buildPostRenderModel(input, collection, item) {
@@ -493,7 +502,7 @@ function buildPostRenderModel(input, collection, item) {
       robots: input.isBackup === true
         ? "noindex, nofollow"
         : typeof frontMatter.robots === "string" && frontMatter.robots.length > 0 ? frontMatter.robots : null,
-      canonical: canonicalUrl(canonicalConfig.host, item.route.path),
+      canonical: canonicalUrl(canonicalConfig.host, item.route.path, siteConfig.root),
       openGraph,
       jsonLd
     },

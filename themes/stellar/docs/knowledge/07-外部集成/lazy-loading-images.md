@@ -24,7 +24,7 @@ features:
 
 ## 持久元数据
 
-结果存放在站点 `source/_data/caches/images_metadata.json`，按实际生成 HTML 中的图片 URL 收集，覆盖 Markdown、标签与数据驱动封面。本地图片读取 Hexo 资源路由，远程图片限时下载；尺寸与 HSLA 平均色增量保存，完整条目跳过，失败记录延迟重试。预处理失败记录 warning，不阻止正常构建。
+结果存放在站点 `source/_data/caches/images_metadata.json`，只收集会被主题消费的实际生成图片 URL：正文（Markdown、标签与数据驱动内容）供尺寸补全，文章横幅、文章封面与页面封面、以及列表封面卡片与置顶轮播供文字自适应平均色。页面框架（分享二维码、评论、侧边栏、页脚等）的图片不进入元数据，因此不触发下载或写入。本地图片读取 Hexo 资源路由，远程图片限时下载；尺寸与 HSLA 平均色增量保存，完整条目跳过，失败记录延迟重试。预处理失败记录 warning，不阻止正常构建。
 
 元数据文件采用锁与原子写入，并从 Hexo 数据扫描及文件监听排除，避免写入引发重复构建。颜色计算使用 Sharp，尺寸也可由 probe-image-size 提取；不支持的格式保留可用结果。浏览器优先使用生成时注入的颜色信息，动态图片由共享图片颜色运行时处理。
 
@@ -42,6 +42,8 @@ hexo stellar images --refresh https://example.com/image.png
 独立的 `lazy-loading.js` Extension 在加载 vanilla-lazyload 前设置全局选项并监听初始化事件。脚本已缓存时可显式创建实例。动态 `.lazy` 节点由 MutationObserver 注册，数据服务可通过 `wrapLazyloadImages()` 包装普通图片。卸载时断开 observer、移除事件并销毁实例。
 
 成功或失败后移除加载指示；错误占位处理保留懒加载时序，避免图片尚未真正加载就提前替换。图片标签、画廊、轮播和媒体卡片保持原始比例。
+
+正文图片统一 `max-width: 100%` 与 `height: auto`：只声明宽度时按原图比例约束高度，显式设置宽高时不按字面值拉伸，尺寸补全写入的 `width/height` 仍优先。
 
 相关源码：[元数据处理](../../../scripts/lib/image-metadata.js)、[命令](../../../scripts/commands/stellar.js)、[懒加载](../../../source/js/runtime/extensions/lazy-loading.js)、[图片颜色](../../../source/js/runtime/image-color.js)、[错误图片](../../../scripts/filters/lib/img_onerror.js)。
 
