@@ -230,6 +230,11 @@ profiles:
 article:
   style: tech
   paragraph_indent: auto
+  # 配置文章页顶部横幅。
+  banner:
+    # 控制文章页横幅是否使用页面 cover 作为背景图；false 表示只显示纯色横幅。
+    # 可在文章 Front Matter 用 banner.background 覆盖此默认值。
+    background: true
   listing:
     pinned_layout: flat
     card_layout: hero
