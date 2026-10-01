@@ -14,6 +14,7 @@ rightbar:
     - ltgc
     - mmtg
     - sjtp
+cover: https://cdn.dusays.com/7bu-0.jpg
 ---
 
 关于图床：
