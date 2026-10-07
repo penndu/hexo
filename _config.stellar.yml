@@ -64,7 +64,7 @@ leftbar:
       - type: link
         icon: https://jsd.admincdn.com/npm/dusays@5.0.0/033-spotify.svg
         title: 站点地图
-        url: https://dusays.com/baidusitemap.xml
+        url: https://dusays.com/sitemap.xml
       - type: spacer
       - type: dropdown
         icon: solar:sun-2-line-duotone
