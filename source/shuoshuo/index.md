@@ -15,7 +15,7 @@ rightbar:
     - qbtc
     - ltgc
     - mmtg
-cover: https://cdn.dusays.com/shuoshuo-0.jpg
+cover: https://cdn.dusays.com/shuoshuo-0.webp
 ---
 
 <link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/style.css" rel="stylesheet" type="text/css">
