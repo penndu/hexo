@@ -14,7 +14,7 @@ rightbar:
     - ltgc
     - mmtg
     - sjtp
-cover: https://cdn.dusays.com/about-0.jpg
+cover: https://cdn.dusays.com/about-0.webp
 ---
 
 关于博主：

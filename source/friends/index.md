@@ -14,7 +14,7 @@ rightbar:
     - ltgc
     - mmtg
     - sjtp
-cover: https://cdn.dusays.com/friends-0.jpg
+cover: https://cdn.dusays.com/friends-0.webp
 ---
 
 ## 申请须知

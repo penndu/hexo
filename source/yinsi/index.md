@@ -14,7 +14,7 @@ rightbar:
     - ltgc
     - mmtg
     - sjtp
-cover: https://cdn.dusays.com/yinsi-0.jpg
+cover: https://cdn.dusays.com/yinsi-0.webp
 ---
 
 > 最后更新：2026-09-18

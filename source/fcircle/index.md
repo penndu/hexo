@@ -15,7 +15,7 @@ rightbar:
     - qbtc
     - ltgc
     - mmtg
-cover: https://cdn.dusays.com/fcircle-0.jpg
+cover: https://cdn.dusays.com/fcircle-0.webp
 ---
 
 <div id="friend-circle-container">与主机通讯中……</div>

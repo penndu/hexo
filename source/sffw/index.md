@@ -14,7 +14,7 @@ rightbar:
     - ltgc
     - mmtg
     - sjtp
-cover: https://cdn.dusays.com/sffw-0.jpg
+cover: https://cdn.dusays.com/sffw-0.webp
 ---
 
 ## 背景介绍
