@@ -21,6 +21,11 @@ function commentPath(element) {
   return element.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
 }
 
+function resolveField(response, path) {
+  if (!path) return response;
+  return String(path).split('.').reduce((acc, key) => (acc == null ? acc : acc[key]), response);
+}
+
 function uploadImage(options, tokenHeader, tokenValue, fieldName, responseField) {
   if (!options?.api) return null;
   return file => {
@@ -30,7 +35,7 @@ function uploadImage(options, tokenHeader, tokenValue, fieldName, responseField)
     body.append(fieldName || 'file', file);
     return fetch(options.api, { method: 'POST', body, headers })
       .then(response => response.json())
-      .then(response => response[responseField]);
+      .then(response => resolveField(response, responseField));
   };
 }
 
