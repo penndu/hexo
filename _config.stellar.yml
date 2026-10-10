@@ -11,7 +11,7 @@ topbar:
   enabled: false
   brand:
     image:
-      src: https://cdn.dusays.com/favicon.ico
+      src: https://bu.dusays.com/2026/10/10/6ac9f94769e71.ico
       variant: avatar
     name: 杜老师说
     tagline: dusays.com
@@ -23,7 +23,7 @@ leftbar:
     style: compact # compact | regular
     ghrepo: null
     image:
-      src: https://cdn.dusays.com/favicon.ico
+      src: https://bu.dusays.com/2026/10/10/6ac9f94769e71.ico
       variant: avatar
     name: 杜老师说
     tagline: dusays.com
