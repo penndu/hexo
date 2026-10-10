@@ -30,7 +30,7 @@ cover: https://cdn.dusays.com/friends-0.webp
 交换前，请先做好本站的链接：
 
 > **名称**：杜老师说  
-> **站标**：https://cdn.dusays.com/favicon.ico  
+> **站标**：https://bu.dusays.com/2026/10/10/6ac9f94769e71.ico
 > **网址**：https://dusays.com  
 > **订阅**：https://dusays.com/atom.xml
 
