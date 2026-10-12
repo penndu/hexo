@@ -100,10 +100,10 @@ body.dark-theme {
 }
 .total {
     text-align: center;
-    border: 1px solid var(--color-border-default, #d0d7de);
+    border: 1px solid var(--text-a20);
     border-radius: 10px;
     padding: 14px 16px;
-    background: var(--color-block, #f6f8fa);
+    background: var(--card);
     margin: 1.25rem 0;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -300,9 +300,9 @@ body.dark-theme {
     color: var(--color-tag-hover);
 }
 .load-btn {
-    color: var(--color-meta, rgba(0, 0, 0, 0.8));
-    background-color: var(--color-block, #f6f8fa);
-    border: 1px solid var(--color-border-default, #d0d7de);
+    color: var(--text-p2);
+    background-color: var(--card);
+    border: 1px solid var(--text-a20);
     border-radius: 8px;
     padding: 10px;
     margin-left: auto;
@@ -312,8 +312,8 @@ body.dark-theme {
     transition: background-color 0.2s, border-color 0.2s;
 }
 .load-btn:hover {
-    background-color: var(--color-site-bg, #eaeef2);
-    border-color: var(--color-tag, #2563eb);
+    background-color: var(--block);
+    border-color: var(--theme);
 }
 .post-preview {
     max-width: 780px;
