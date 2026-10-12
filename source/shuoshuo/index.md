@@ -18,7 +18,7 @@ rightbar:
 cover: https://cdn.dusays.com/shuoshuo-0.webp
 ---
 
-<link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/style.css" rel="stylesheet" type="text/css">
+<link href="/shuoshuo/memos-style.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/APlayer.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/highlight.github.min.css" rel="stylesheet" type="text/css">
 <link href="https://jsd.dusays.com/npm/penndu@20.1.0/memos/css/custom.css" rel="stylesheet" type="text/css">
