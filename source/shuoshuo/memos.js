@@ -14,18 +14,6 @@
  * 注意：实例必须为「公开访问」模式，匿名才能读取。
  * ============================================================ */
 
-var memo = {
-    host: 'https://s.dusays.com/',     // Memos 网址，末尾带 /
-    limit: '1',                        // 每页条数，默认 10
-    creatorId: 'penn',                 // Memos 用户名（v0.31 起 creator 资源名用用户名）
-    domId: '#memos',
-    username: 'penn',                  // 前端显示的 ID
-    name: 'Teacher Du',                // 前端显示的全名
-    language: 'zh-CN',
-    total: true,                       // 是否显示总条数
-    doubanAPI: ''                      // 豆瓣 API，不填则只显示 URL
-};
-
 var limit = parseInt(memo.limit, 10);
 if (isNaN(limit) || limit < 1) { limit = 10; }
 var base = memo.host.replace(/\/+$/, '');
