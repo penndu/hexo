@@ -99,14 +99,25 @@ body.dark-theme {
     cursor: pointer;
 }
 .total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     text-align: center;
-    border: 1px solid var(--text-a20);
-    border-radius: 10px;
-    padding: 14px 16px;
-    background: var(--card);
+    border: 1px solid var(--theme-a20);
+    border-radius: 12px;
+    padding: 14px 18px;
+    background: var(--theme-a10);
     margin: 1.25rem 0;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    color: var(--text-p2);
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+.total #total {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--theme);
 }
 .memos {
     min-height: 300px;
@@ -300,20 +311,25 @@ body.dark-theme {
     color: var(--color-tag-hover);
 }
 .load-btn {
-    color: var(--text-p2);
-    background-color: var(--card);
-    border: 1px solid var(--text-a20);
-    border-radius: 8px;
-    padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    display: block;
+    color: var(--theme);
+    background-color: var(--theme-a10);
+    border: 1px solid var(--theme-a20);
+    border-radius: 999px;
+    padding: 11px 28px;
+    margin: 1.5rem auto 0;
+    width: auto;
+    min-width: 180px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
 .load-btn:hover {
-    background-color: var(--block);
+    color: #fff;
+    background-color: var(--theme);
     border-color: var(--theme);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--theme-a30);
 }
 .post-preview {
     max-width: 780px;
