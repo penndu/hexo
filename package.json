@@ -30,8 +30,5 @@
     "hexo-theme-stellar": "github:xaoxuu/hexo-theme-stellar#main",
     "minimatch": "^3.1.5",
     "probe-image-size": "^7.4.0"
-  },
-  "overrides": {
-    "js-yaml": "^5.5.0"
   }
 }
