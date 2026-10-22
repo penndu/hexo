@@ -505,3 +505,4 @@ footer:
 # Artalk 评论链接安全跳转
 inject:
   body_end: '<script src="/js/artalk-safego.js?v=1"></script>'
+  head_end: '<link rel="stylesheet" href="/css/custom.css">'
