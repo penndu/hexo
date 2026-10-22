@@ -286,7 +286,7 @@ appearance:
       image: 16px
       image_small: 8px
   code_block:
-    scrollbar_width: 4px
+    scrollbar_width: 14px
     highlight_stylesheet: https://jsd.dusays.com/gh/highlightjs/cdn-release@11.9/build/styles/atom-one-dark.min.css
 
 search:
