@@ -76,6 +76,12 @@ cover: https://cdn.dusays.com/7bu-0.webp
 
 修复图床付费系统前台反射型 XSS：查卡输入框与扫码支付页标题统一做 HTML/JSON 转义，阻断借恶意链接盗取后台的链路；
 
+{% endtimeline %}
+
+{% folding 点击查看更多内容 %}
+
+{% timeline %}
+
 <!-- node 2026 年 09 月 18 日 -->
 
 完成图床付费系统前台查卡/下单/轮询接口的 SQL 注入修复，全面改用 mysqli 预处理参数化，并关闭可被伪造的 X-Forwarded-For 客户端 IP 信任；
@@ -83,12 +89,6 @@ cover: https://cdn.dusays.com/7bu-0.webp
 <!-- node 2026 年 09 月 16 日 -->
 
 移除图床付费系统（pay.dusay.cn）安装目录及 install.sql，避免表结构与默认口令经公网泄露；
-
-{% endtimeline %}
-
-{% folding 点击查看更多内容 %}
-
-{% timeline %}
 
 <!-- node 2026 年 08 月 30 日 -->
 
