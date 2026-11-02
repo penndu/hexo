@@ -1,3 +1,5 @@
 User-agent: *
+Allow: /
+Disallow: /search.json
+
 Sitemap: https://dusays.com/sitemap.xml
-Sitemap: https://dusays.com/baidusitemap.xml
