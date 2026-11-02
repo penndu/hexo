@@ -459,6 +459,7 @@ fallbacks:
   cover: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
 
 canonical:
+  host: null
   # 主域名。设为非 null 后，全站（首页/文章/归档/分类/标签/about/friends）
   # 自动输出 <link rel="canonical">，消除 www/无尾斜杠/archives 旧路径等
   # 重复 URL 对权重信号的分散。
@@ -478,6 +479,14 @@ structured_data:
     - https://github.com/penndu
     - https://gitea.dusays.com/penn
     - https://chat.dusays.com
+
+# 配置移动端视口行为。
+viewport:
+  # 设置 viewport 基础参数；留空表示不输出 viewport meta。
+  content: width=device-width, initial-scale=1
+  # 控制是否附加 maximum-scale=1 与 user-scalable=no。
+  # 禁用缩放会违反 WCAG 2.1 SC 1.4.4（Resize Text），默认不再附加。
+  lock_zoom: false
 
 footer:
   sitemap:
