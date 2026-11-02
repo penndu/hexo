@@ -37,8 +37,10 @@ module.exports = ctx => function(args) {
     let a = '<a data-fancybox'
     let img = ''
     img += `<img class="lazy" src="${loadingImg}" data-src="${src}"`
+    // 未提供 alt 时输出空 alt，标记为装饰性图片；省略 alt 属性会让
+    // 辅助技术退化为朗读图片 URL，且不满足 WCAG 1.1.1。
+    img += ` alt="${safeAlt}"`
     if (safeAlt) {
-      img += ` alt="${safeAlt}"`
       a += ` data-caption="${safeAlt}"`
     }
     if (fancybox && !fancyboxHref) {

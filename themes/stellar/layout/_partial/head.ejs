@@ -7,7 +7,8 @@ var pageConfig = content_config(page)
 var stellarSeo = {
   canonical: stellar_config('canonical'),
   openGraph: stellar_config('openGraph'),
-  structuredData: stellar_config('structuredData')
+  structuredData: stellar_config('structuredData'),
+  viewport: stellar_config('viewport')
 }
 var stellarResources = {
   preconnect: stellar_config('preconnect'),
@@ -185,6 +186,18 @@ function generate_canonical() {
   return '';
 }
 
+function generate_viewport() {
+  var viewport = stellarSeo.viewport || {};
+  var content = typeof viewport.content === 'string' ? viewport.content.trim() : '';
+  if (!content) {
+    return '';
+  }
+  if (viewport.lock_zoom && !/maximum-scale/i.test(content) && !/user-scalable/i.test(content)) {
+    content += ', maximum-scale=1, user-scalable=no';
+  }
+  return `<meta name="viewport" content="${escape_meta_content(content)}">`;
+}
+
 %>
 
 <head>
@@ -201,7 +214,7 @@ function generate_canonical() {
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%- page_meta(generate_viewport()) %>
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
   <title data-stellar-page-meta><%- generate_title() %></title>
