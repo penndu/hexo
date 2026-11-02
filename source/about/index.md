@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 访客留言
+description: 杜老师说博主介绍与联系方式：云计算运维讲师杜老师的从业经历、技术方向、课程开发与运维实践，以及合作与咨询方式。
 leftbar:
   widgets:
     - wezh

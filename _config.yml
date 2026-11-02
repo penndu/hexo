@@ -82,7 +82,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -150,3 +150,10 @@ hexo_safego:
 
 sitemap:
   path: sitemap.xml
+  # 标签页多为「一标签一文」的薄页（本站 197 个标签页里绝大多数只有 1 篇），
+  # 收录进 sitemap 会稀释抓取预算，且本身不提供独立内容价值。
+  # 标签页仍对外可访问，只是不再主动提交给搜索引擎。
+  tags: false
+  # 分类页同理：主题层已将归档/分类/标签三页标记为 noindex,follow，
+  # 即不希望被收录，收进 sitemap 与该设定自相矛盾。
+  categories: false

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 友情链接
+description: 杜老师说博客的友情链接页，收录运维、数据库、国产化系统与技术写作领域的中文独立博客。
 leftbar:
   widgets:
     - wezh
