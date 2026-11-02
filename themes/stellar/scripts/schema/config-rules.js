@@ -232,6 +232,8 @@ const CONFIG_RULES = Object.freeze([
   ["canonical.allowed_hosts", { items: item("string", { defaultValue: "" }), normalizer: "host_list" }],
   ["open_graph.twitter_id", { type: ["string", "null"] }],
   ["structured_data.same_as", { items: item("string", { defaultValue: "" }), normalizer: "trimmed_string_list" }],
+  ["viewport.content", { type: ["string", "null"], normalizer: "nullable_trimmed_string" }],
+  ["viewport.lock_zoom", { type: ["boolean"] }],
   ["preconnect", { items: item("string", { defaultValue: "" }), normalizer: "origin_list" }],
   ["fallbacks.*", { validator: "resource" }],
 
