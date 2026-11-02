@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 友情链接
+description: 杜老师说博客的友情链接页，收录运维、数据库、国产化系统与技术写作领域的中文独立博客。
 leftbar:
   widgets:
     - wezh
@@ -29,9 +30,9 @@ cover: https://cdn.dusays.com/friends-0.webp
 
 交换前，请先做好本站的链接：
 
-> **名称**：杜老师说  
+> **名称**：杜老师说
 > **站标**：https://bu.dusays.com/2026/10/10/6ac9f94769e71.ico
-> **网址**：https://dusays.com  
+> **网址**：https://dusays.com
 > **订阅**：https://dusays.com/atom.xml
 
 ## 维护规则
