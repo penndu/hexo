@@ -6,3 +6,6 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+# 本地临时文件
+*.bak
+.workbuddy/
