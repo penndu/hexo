@@ -293,6 +293,22 @@ canonical:
 
 **参考源码**：[_config.yml](../../../_config.yml)
 
+### 移动端视口
+
+`generate_viewport()` 按 `viewport` 小节输出 `<meta name="viewport">`：
+
+```yaml
+viewport:
+  content: width=device-width, initial-scale=1
+  lock_zoom: false
+```
+
+`content` 为空字符串时不输出 viewport meta；`lock_zoom` 为真时追加
+`maximum-scale=1, user-scalable=no`。默认不锁定缩放，因为禁止用户缩放不满足
+WCAG 2.1 SC 1.4.4（Resize Text）。
+
+**参考源码**：[layout/_partial/head.ejs](../../../layout/_partial/head.ejs)
+
 ## JSON-LD 结构化数据
 
 `json_ld()` 辅助函数（[scripts/helpers/json_ld.js](../../../scripts/helpers/json_ld.js)）按页面类型生成 Schema.org 结构化数据。
@@ -499,6 +515,10 @@ open_graph:
 structured_data:
   same_as:
     - https://github.com/username
+
+viewport:
+  content: width=device-width, initial-scale=1
+  lock_zoom: false
 
 preconnect:
   - https://cdn.jsdelivr.net
