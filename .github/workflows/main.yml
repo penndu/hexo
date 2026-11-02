@@ -21,6 +21,8 @@ jobs:
       run: |
         npm i -g hexo-cli
         npm i
+    - name: Validate YAML
+      run: node .github/scripts/check-yaml.mjs
     - name: hexo
       run: |
         hexo g --slient

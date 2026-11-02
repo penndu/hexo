@@ -459,7 +459,6 @@ fallbacks:
   cover: https://jsd.dusays.com/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg
 
 canonical:
-  host: null
   # 主域名。设为非 null 后，全站（首页/文章/归档/分类/标签/about/friends）
   # 自动输出 <link rel="canonical">，消除 www/无尾斜杠/archives 旧路径等
   # 重复 URL 对权重信号的分散。
