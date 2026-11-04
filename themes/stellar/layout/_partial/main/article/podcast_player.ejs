@@ -16,6 +16,24 @@ function podcastSeek(timeStr) {
   for (var i = 0; i < parts.length; i++) sec = sec * 60 + (parseInt(parts[i], 10) || 0)
   return sec
 }
+function podcastDateText(v) {
+  if (!v) return ''
+  if (typeof v === 'string') {
+    // YAML 日期可能被 Hexo 序列化成 ISO 字符串，先按字面量截取 YYYY-MM-DD
+    var m = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(v)
+    if (m) return m[1] + '-' + (m[2].length < 2 ? '0' + m[2] : m[2]) + '-' + (m[3].length < 2 ? '0' + m[3] : m[3])
+    var parsed = new Date(v)
+    if (isNaN(parsed.getTime())) return v
+    v = parsed
+  }
+  if (v instanceof Date) {
+    // YAML 会把 2026-11-04 解析成 UTC 零点，用 UTC 取值避免时区偏移串日
+    var mm = v.getUTCMonth() + 1
+    var dd = v.getUTCDate()
+    return v.getUTCFullYear() + '-' + (mm < 10 ? '0' + mm : '' + mm) + '-' + (dd < 10 ? '0' + dd : '' + dd)
+  }
+  return String(v)
+}
 var p = (typeof podcast === 'object' && podcast) ? podcast : {}
 var audio = (typeof p.audio === 'string' && p.audio) ? p.audio : ''
 var hasAudio = audio.length > 0
@@ -43,7 +61,7 @@ var showNotes = chapters.length > 0
         <% if (host) { %><span class="podcast-sub-item"><i>主持</i> <%= host %></span><% } %>
         <% guests.forEach(function(g){ %><span class="podcast-sub-item"><i>嘉宾</i> <%= g %></span><% }) %>
         <% if (duration) { %><span class="podcast-sub-item"><i>时长</i> <%= duration %></span><% } %>
-        <% if (p.date) { %><span class="podcast-sub-item"><i>发布</i> <%= p.date %></span><% } %>
+        <% if (p.date) { %><span class="podcast-sub-item"><i>发布</i> <%= podcastDateText(p.date) %></span><% } %>
       </div>
     </div>
     <% if (showNotes) { %><button type="button" class="podcast-chapters-toggle" data-open>章节</button><% } %>

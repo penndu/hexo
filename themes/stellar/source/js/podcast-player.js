@@ -24,6 +24,8 @@
     var speedBtns = player.querySelectorAll('.podcast-speed button');
     var notes = player.querySelectorAll('.podcast-note');
     var dots = player.querySelectorAll('.podcast-chapter-dot');
+    var toggleBtn = player.querySelector('.podcast-chapters-toggle');
+    var notesBox = player.querySelector('.podcast-notes');
 
     var total = parseFloat(player.getAttribute('data-duration')) || 0;
     var chapters = [];
@@ -117,6 +119,16 @@
         speedBtns.forEach(function (x) { x.classList.toggle('on', x === b); });
       });
     });
+
+    // 「章节」按钮：收起 / 展开 Show Notes
+    if (toggleBtn && notesBox) {
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      toggleBtn.addEventListener('click', function () {
+        var collapsed = notesBox.classList.toggle('collapsed');
+        toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+        toggleBtn.textContent = collapsed ? '展开章节' : '收起章节';
+      });
+    }
 
     render();
   }
