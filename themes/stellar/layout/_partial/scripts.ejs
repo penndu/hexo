@@ -23,3 +23,7 @@ function custom_inject() {
 <%- custom_inject() %>
 
 <script data-stellar-script="core" defer src="<%- url_for('/js/navigation-init.js') %>?v=<%- stellar_info('version') %>"></script>
+
+<% if (page.podcast && page.podcast.enabled) { %>
+<script data-stellar-script="podcast" defer src="<%- url_for('/js/podcast-player.js') %>?v=<%- stellar_info('version') %>"></script>
+<% } %>

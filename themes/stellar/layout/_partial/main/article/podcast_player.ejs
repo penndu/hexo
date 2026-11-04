@@ -1,0 +1,90 @@
+<%
+// ============================================================
+// Stellar 播客文章播放器（版本4·章节时间戳）
+// 由文章 front-matter 的 podcast 字段驱动，page.ejs 按需引入。
+// 数据结构见主题 _config.yml 注释或 README。
+// ============================================================
+function podcastFmt(sec) {
+  sec = Math.max(0, Math.round(Number(sec) || 0))
+  var m = Math.floor(sec / 60)
+  var s = sec % 60
+  return (m < 10 ? '0' + m : '' + m) + ':' + (s < 10 ? '0' + s : '' + s)
+}
+function podcastSeek(timeStr) {
+  var parts = String(timeStr || '0').split(':')
+  var sec = 0
+  for (var i = 0; i < parts.length; i++) sec = sec * 60 + (parseInt(parts[i], 10) || 0)
+  return sec
+}
+var p = (typeof podcast === 'object' && podcast) ? podcast : {}
+var audio = (typeof p.audio === 'string' && p.audio) ? p.audio : ''
+var hasAudio = audio.length > 0
+var totalSec = p.duration ? Number(p.duration) : 0
+var duration = totalSec > 0 ? podcastFmt(totalSec) : ''
+var title = (typeof p.title === 'string' && p.title) ? p.title : (page.title || '')
+var host = (typeof p.host === 'string') ? p.host : ''
+var guests = Array.isArray(p.guests) ? p.guests : []
+var chapters = Array.isArray(p.chapters) ? p.chapters : []
+var pct = function(seek) { return totalSec > 0 ? Math.min(100, Math.max(0, seek / totalSec * 100)) : 0 }
+var showNotes = chapters.length > 0
+%>
+<div class="podcast-player<%- hasAudio ? '' : ' no-audio' %>" data-duration="<%- totalSec || '' %>">
+  <div class="podcast-head">
+    <div class="podcast-cover">
+      <% if (typeof p.cover === 'string' && p.cover) { %>
+        <img class="podcast-cover-img" src="<%= p.cover %>" alt="<%= title %>" loading="lazy">
+      <% } else { %>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93V21H9v2h6v-2h-2v-2.07A8 8 0 0 0 20 11h-2z"/></svg>
+      <% } %>
+    </div>
+    <div class="podcast-meta">
+      <div class="podcast-title"><%= title %></div>
+      <div class="podcast-sub">
+        <% if (host) { %><span class="podcast-sub-item"><i>主持</i> <%= host %></span><% } %>
+        <% guests.forEach(function(g){ %><span class="podcast-sub-item"><i>嘉宾</i> <%= g %></span><% }) %>
+        <% if (duration) { %><span class="podcast-sub-item"><i>时长</i> <%= duration %></span><% } %>
+        <% if (p.date) { %><span class="podcast-sub-item"><i>发布</i> <%= p.date %></span><% } %>
+      </div>
+    </div>
+    <% if (showNotes) { %><button type="button" class="podcast-chapters-toggle" data-open>章节</button><% } %>
+  </div>
+
+  <div class="podcast-playrow">
+    <button type="button" class="podcast-btn podcast-play" aria-label="播放">
+      <svg class="podcast-ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="podcast-ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <div class="podcast-track">
+      <div class="podcast-progress">
+        <div class="podcast-fill"></div>
+        <div class="podcast-knob"></div>
+        <% chapters.forEach(function(c){ var s = podcastSeek(c.time); if (totalSec > 0) { %>
+          <span class="podcast-chapter-dot" style="left:<%= pct(s) %>%" data-seek="<%= s %>" title="<%= c.time %> <%- typeof c.title === 'string' ? c.title : '' %>"></span>
+        <% } }) %>
+      </div>
+      <div class="podcast-times"><span class="podcast-now">00:00</span><span class="podcast-total"><%= duration %></span></div>
+    </div>
+    <div class="podcast-speed">
+      <button type="button" data-rate="1" class="on">1×</button>
+      <button type="button" data-rate="1.25">1.25×</button>
+      <button type="button" data-rate="1.5">1.5×</button>
+      <button type="button" data-rate="2">2×</button>
+    </div>
+    <% if (hasAudio) { %><audio class="podcast-audio" src="<%= audio %>" preload="metadata"></audio><% } %>
+  </div>
+
+  <% if (showNotes) { %>
+  <div class="podcast-notes">
+    <div class="podcast-notes-title">章节速览（点击可跳转播放）</div>
+    <div class="podcast-notes-list">
+      <% chapters.forEach(function(c, i){ var s = podcastSeek(c.time) %>
+        <div class="podcast-note<%- i === 0 ? ' active' : '' %>" data-seek="<%= s %>">
+          <button type="button" class="podcast-note-play" aria-label="播放此章节"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="podcast-note-time"><%= c.time %></span>
+          <span class="podcast-note-title"><%= c.title %></span>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  <% } %>
+</div>

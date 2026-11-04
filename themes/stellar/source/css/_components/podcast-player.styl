@@ -1,0 +1,257 @@
+// ============================================================
+// 播客播放器（版本4 · 章节时间戳）
+// 使用主题 CSS 变量，自动适配明暗模式与主题色。
+// 由 podcast_player.ejs 渲染，podcast-player.js 驱动交互。
+// ============================================================
+.podcast-player
+  margin-bottom: 26px
+  background: var(--card)
+  border: 1px solid var(--theme-border, #e7ebee)
+  border-radius: 16px
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06), 0 6px 18px -6px rgba(0, 0, 0, .08)
+  overflow: hidden
+
+  .podcast-head
+    display: flex
+    align-items: center
+    gap: 14px
+    padding: 16px 18px
+    border-bottom: 1px dashed var(--theme-border, #e7ebee)
+
+  .podcast-cover
+    width: 60px
+    height: 60px
+    border-radius: 12px
+    background: var(--theme)
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #fff
+    overflow: hidden
+    svg
+      width: 26px
+      height: 26px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  .podcast-meta
+    flex: 1
+    min-width: 0
+
+  .podcast-title
+    font-weight: 600
+    font-size: 15px
+    line-height: 1.4
+    color: var(--text)
+
+  .podcast-sub
+    display: flex
+    flex-wrap: wrap
+    gap: 4px 14px
+    margin-top: 5px
+    font-size: 12.5px
+    color: var(--text-p3)
+    .podcast-sub-item
+      i
+        font-style: normal
+        color: var(--text-meta)
+
+  .podcast-chapters-toggle
+    flex-shrink: 0
+    border: 1px solid var(--theme-border, #e7ebee)
+    background: var(--theme-a10)
+    color: var(--theme)
+    border-radius: 20px
+    padding: 4px 13px
+    font-size: 12.5px
+    cursor: pointer
+    &:hover
+      background: var(--theme-a20)
+
+  .podcast-playrow
+    display: flex
+    align-items: center
+    gap: 14px
+    padding: 16px 18px
+
+  .podcast-btn
+    width: 46px
+    height: 46px
+    border: none
+    border-radius: 50%
+    background: var(--theme)
+    color: var(--card)
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    flex-shrink: 0
+    box-shadow: 0 6px 14px -4px var(--theme-a30)
+    svg
+      width: 19px
+      height: 19px
+  .podcast-ico-pause
+    display: none
+  &.playing .podcast-ico-play
+    display: none
+  &.playing .podcast-ico-pause
+    display: block
+
+  .podcast-track
+    flex: 1
+    min-width: 0
+
+  .podcast-progress
+    position: relative
+    height: 18px
+    cursor: pointer
+    &::before
+      content: ""
+      position: absolute
+      left: 0
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+      height: 6px
+      border-radius: 20px
+      background: var(--bg-a20)
+
+  .podcast-fill
+    position: absolute
+    left: 0
+    top: 50%
+    transform: translateY(-50%)
+    height: 6px
+    border-radius: 20px
+    background: var(--theme)
+    width: 0%
+
+  .podcast-knob
+    position: absolute
+    top: 50%
+    left: 0%
+    width: 14px
+    height: 14px
+    border-radius: 50%
+    background: var(--card)
+    border: 2px solid var(--theme)
+    transform: translate(-50%, -50%)
+    box-shadow: 0 1px 4px var(--theme-a20)
+
+  .podcast-chapter-dot
+    position: absolute
+    top: 50%
+    transform: translate(-50%, -50%)
+    width: 11px
+    height: 11px
+    border-radius: 50%
+    background: var(--card)
+    border: 2px solid var(--theme)
+    z-index: 2
+    cursor: pointer
+    &:hover
+      background: var(--theme)
+
+  .podcast-times
+    display: flex
+    justify-content: space-between
+    font-size: 12px
+    color: var(--text-p3)
+    margin-top: 2px
+    font-family: var(--ff-code, Menlo, monospace)
+  .podcast-now
+    color: var(--theme)
+
+  .podcast-speed
+    display: flex
+    gap: 4px
+    flex-shrink: 0
+    button
+      border: 1px solid var(--theme-border, #e7ebee)
+      background: transparent
+      color: var(--text-p2)
+      border-radius: 6px
+      padding: 2px 8px
+      font-size: 11.5px
+      cursor: pointer
+      &.on
+        background: var(--theme)
+        color: var(--card)
+        border-color: var(--theme)
+
+  .podcast-audio
+    display: none
+
+  .podcast-notes
+    border-top: 1px solid var(--theme-border, #e7ebee)
+    padding: 4px 18px 14px
+
+  .podcast-notes-title
+    font-size: 13px
+    font-weight: 600
+    color: var(--text-p2)
+    padding: 10px 0 4px
+
+  .podcast-notes-list
+    display: flex
+    flex-direction: column
+
+  .podcast-note
+    display: flex
+    align-items: center
+    gap: 10px
+    padding: 8px 8px
+    border-radius: 8px
+    cursor: pointer
+    &:hover
+      background: var(--theme-a10)
+    &.active
+      background: var(--theme-a10)
+      .podcast-note-title
+        color: var(--theme)
+        font-weight: 600
+
+  .podcast-note-play
+    width: 28px
+    height: 28px
+    border-radius: 50%
+    border: 1px solid var(--theme)
+    background: transparent
+    color: var(--theme)
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    flex-shrink: 0
+    svg
+      width: 12px
+      height: 12px
+    &:hover
+      background: var(--theme)
+      color: var(--card)
+
+  .podcast-note-time
+    font-family: var(--ff-code, Menlo, monospace)
+    font-size: 12.5px
+    color: var(--theme)
+    font-weight: 600
+    flex-shrink: 0
+
+  .podcast-note-title
+    font-size: 14px
+    color: var(--text)
+
+@media screen and (max-width: $device-mobile-max)
+  .podcast-player
+    .podcast-head
+      padding: 14px
+    .podcast-playrow
+      padding: 14px
+      gap: 10px
+    .podcast-speed
+      flex-direction: column
+      button
+        padding: 1px 7px
