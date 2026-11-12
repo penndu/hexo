@@ -246,10 +246,12 @@ cover: https://cdn.dusays.com/fcircle-0.webp
 }
 
 /* 主题的 .md-text > div { margin: var(--gap-p) 0 } 会给本页所有直接子 div
-   加 20px 外边距。这里只清掉 .fc-root 自身的那份，
-   子容器（统计卡 / 列表头 / 列表 / 翻页）保留各自的间距设置。 */
+   加 20px 外边距。.fc-root 自身的这份保留并加大——它正是封面图与
+   统计卡之间的留白，清零会让两者贴在一起。
+   子容器（统计卡 / 列表头 / 列表 / 翻页）各自控制自己的间距。 */
 .md-text .fc-root {
-  margin: 0;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
 }
 
 /* ---- 统计卡：固定四列均分，右侧不留白 ---- */
