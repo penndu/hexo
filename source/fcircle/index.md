@@ -31,16 +31,28 @@ cover: https://cdn.dusays.com/fcircle-0.webp
   // API Key 在 ducircle 后台「设置 → API Key」生成，只读、只对应自己的数据
   var API_KEY = 'fc_1527b9bdbbb59e45625bd47e46cb230d';
   var API_BASE = 'https://ducircle.dusays.com';
+  // 每页展示 8 篇
   var PAGE_SIZE = 8;
+  // 每次向服务端多取一些，过滤掉没评分的之后仍能凑满 PAGE_SIZE 条。
+  // 服务端没有「只看有评分」的筛选参数，只能前端过滤，
+  // 所以请求量要比展示量宽裕，避免出现不足 8 条的空页。
+  var FETCH_SIZE = 16;
   // ----------------
 
   var box = document.getElementById('friend-circle');
   if (!box) return;
 
-  var loaded = 0;
+  // cursor：服务端已消费到的位置（条数偏移）
+  var cursor = 0;
+  // shown：已经展示给用户的条数
+  var shown = 0;
   var total = 0;
   var busy = false;
   var rule = 'created';
+  // 已经翻到服务端尽头，没有更多可取的了
+  var exhausted = false;
+  // 富余的「有评分」条目缓存，下一次翻页优先取用，避免重复请求或漏文章
+  var pending = [];
 
   // 文章流、友链列表、统计概览三个接口并发取，统计卡和友链网格先亮起来
   var statsBox = document.createElement('div');
@@ -176,42 +188,62 @@ cover: https://cdn.dusays.com/fcircle-0.webp
     if (busy) return;
     busy = true;
     if (reset) {
-      loaded = 0;
+      cursor = 0;
+      shown = 0;
+      exhausted = false;
+      pending = [];
       listBox.innerHTML = '<div class="fc-state">正在加载文章……</div>';
       moreBox.innerHTML = '';
     } else {
       moreBox.innerHTML = '<button class="fc-more" disabled>加载中……</button>';
     }
+
+    // 本次要展示的条数：首页取满 PAGE_SIZE，翻页时补足到 PAGE_SIZE 的整数倍
+    var quota = reset ? PAGE_SIZE : PAGE_SIZE - (shown % PAGE_SIZE);
+
+    // 缓存里还有富余条目的话，先用缓存补齐，不必再请求
+    var picked = pending.splice(0, quota);
+    if (picked.length >= quota) {
+      appendItems(picked, reset);
+      shown += picked.length;
+      renderMore();
+      busy = false;
+      return;
+    }
+
     request('/v1/all', {
-      start: loaded,
-      end: loaded + PAGE_SIZE - 1,
+      start: cursor,
+      end: cursor + FETCH_SIZE - 1,
       rule: rule
     }).then(function (data) {
       total = data.total;
-      if (!data.data.length) {
-        if (reset) renderEmpty();
+      var batch = data.data || [];
+      // 服务端已到底：没有更多可取的数据了
+      if (batch.length < FETCH_SIZE) exhausted = true;
+      cursor += batch.length;
+
+      // 只保留有评分的文章
+      var scored = batch.filter(function (p) {
+        return p.score !== null && p.score !== undefined;
+      });
+      // 本次要展示的条数；已有内容时只补足剩余名额
+      var need = quota - picked.length;
+      picked = picked.concat(scored.slice(0, need));
+      // 没用完的富余条目存起来，下次翻页优先用，避免重复请求与遗漏
+      pending = scored.slice(need);
+
+      if (picked.length) {
+        appendItems(picked, reset);
+        shown += picked.length;
+      }
+
+      if (!listBox.querySelector('.fc-list')) {
+        renderEmpty();
         moreBox.innerHTML = '';
         return;
       }
-      var html = data.data.map(renderItem).join('');
-      if (reset) {
-        listBox.innerHTML = '<div class="fc-list">' + html + '</div>';
-      } else {
-        var list = listBox.querySelector('.fc-list');
-        if (list) {
-          list.insertAdjacentHTML('beforeend', html);
-        } else {
-          listBox.innerHTML = '<div class="fc-list">' + html + '</div>';
-        }
-      }
-      loaded += data.data.length;
-      var remain = total - loaded;
-      if (remain > 0) {
-        moreBox.innerHTML = '<button class="fc-more">加载更多（还有 ' + remain + ' 篇）</button>';
-        moreBox.querySelector('.fc-more').addEventListener('click', function () { load(false); });
-      } else {
-        moreBox.innerHTML = '<div class="fc-end">—— 已看完全部 ' + total + ' 篇 ——</div>';
-      }
+
+      renderMore();
     }).catch(function (err) {
       listBox.innerHTML = '<div class="fc-state fc-error">' + esc(err.message) + '</div>';
       moreBox.innerHTML = '';
@@ -219,6 +251,31 @@ cover: https://cdn.dusays.com/fcircle-0.webp
     }).then(function () {
       busy = false;
     });
+  }
+
+  // 把一批文章追加到列表
+  function appendItems(items, reset) {
+    var html = items.map(renderItem).join('');
+    var list = listBox.querySelector('.fc-list');
+    if (reset) {
+      listBox.innerHTML = '<div class="fc-list">' + html + '</div>';
+    } else if (list) {
+      list.insertAdjacentHTML('beforeend', html);
+    } else {
+      listBox.innerHTML = '<div class="fc-list">' + html + '</div>';
+    }
+  }
+
+  // 渲染「加载更多」按钮
+  function renderMore() {
+    // 服务端没到底就还能继续取
+    if (!exhausted) {
+      var remain = Math.max(0, total - cursor);
+      moreBox.innerHTML = '<button class="fc-more">加载更多（还有 ' + remain + ' 篇）</button>';
+      moreBox.querySelector('.fc-more').addEventListener('click', function () { load(false); });
+    } else {
+      moreBox.innerHTML = '<div class="fc-end">—— 已看完全部有评分的文章 ——</div>';
+    }
   }
 
   // 统计卡
