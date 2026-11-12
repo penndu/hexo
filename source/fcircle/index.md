@@ -245,7 +245,10 @@ cover: https://cdn.dusays.com/fcircle-0.webp
   --fc-summary-lh: 1.65;
 }
 
-.md-text .fc-root > div {
+/* 主题的 .md-text > div { margin: var(--gap-p) 0 } 会给本页所有直接子 div
+   加 20px 外边距。这里只清掉 .fc-root 自身的那份，
+   子容器（统计卡 / 列表头 / 列表 / 翻页）保留各自的间距设置。 */
+.md-text .fc-root {
   margin: 0;
 }
 
@@ -254,7 +257,7 @@ cover: https://cdn.dusays.com/fcircle-0.webp
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .md-text .fc-stat {
@@ -294,8 +297,8 @@ cover: https://cdn.dusays.com/fcircle-0.webp
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.7rem;
   border-bottom: 1px solid var(--block-border);
 }
 
@@ -474,8 +477,10 @@ cover: https://cdn.dusays.com/fcircle-0.webp
   color: var(--text-p2);
 }
 
+/* 列表与「加载更多」之间的间隔刻意留大，
+   让翻页按钮和上方内容明确分成两块，避免视觉上黏在一起 */
 .md-text .fc-more-wrap {
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 .md-text .fc-more {
@@ -492,13 +497,13 @@ cover: https://cdn.dusays.com/fcircle-0.webp
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
-.fc-more:hover:not(:disabled) {
+.md-text .fc-more:hover:not(:disabled) {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--theme-a10);
 }
 
-.fc-more:disabled {
+.md-text .fc-more:disabled {
   opacity: 0.6;
   cursor: default;
 }
