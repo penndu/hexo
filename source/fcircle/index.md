@@ -29,7 +29,7 @@ cover: https://cdn.dusays.com/fcircle-0.webp
 
   // ---- 改这里 ----
   // API Key 在 ducircle 后台「设置 → API Key」生成，只读、只对应自己的数据
-  var API_KEY = 'fc_1527b9bdbbb59e45625bd47e46cb230d';
+  var API_KEY = 'fc_dae34bbf226a822f8f4818e4807d2671';
   var API_BASE = 'https://ducircle.dusays.com';
   // 每页展示 8 篇
   var PAGE_SIZE = 8;
