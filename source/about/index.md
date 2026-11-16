@@ -78,6 +78,12 @@ cover: https://cdn.dusays.com/about-0.webp
 
 图床服务出现突发异常故障，已完成修复并发布公告致歉；
 
+{% endtimeline %}
+
+{% folding 点击查看更多内容 %}
+
+{% timeline %}
+
 <!-- node 2025 年 02 月 18 日 -->
 
 Opengist 开源代码片段分享工具服务正式关闭，已发布公告说明；
@@ -89,12 +95,6 @@ Opengist 开源代码片段分享工具服务正式关闭，已发布公告说�
 <!-- node 2024 年 11 月 02 日 -->
 
 杜老师说添加模式切换动画，切换暗黑模式时会有动态效果；
-
-{% endtimeline %}
-
-{% folding 点击查看更多内容 %}
-
-{% timeline %}
 
 <!-- node 2024 年 05 月 09 日 -->
 
